@@ -292,6 +292,17 @@
     .table-wrap thead th{font-size:.72rem;padding:.6rem .5rem;}
     .table-wrap tbody td{font-size:.78rem;padding:.6rem .5rem;}
 
+    /* worst/normal/best mini forecast tables: the 400px grid track forces the whole
+       section wider than the phone viewport, clipping the last column (worse in EN,
+       where labels like "Cumulative Net P&L (RM)" run longer than the Chinese) */
+    .mini-table-grid{grid-template-columns:1fr !important;}
+    .mini-table-head{font-size:.86rem;}
+    .mini-table-head .sub{font-size:.68rem;}
+    .mini-table thead th{font-size:.66rem;padding:.45rem .4rem;white-space:normal;}
+    .mini-table thead th:first-child{white-space:normal;}
+    .mini-table tbody td{font-size:.72rem;padding:.42rem .4rem;}
+    .mini-table tbody td:first-child{white-space:normal;font-size:.7rem;}
+
     /* two-column condition/priority layout: stack on narrow screens */
     .conditions-grid{grid-template-columns:1fr !important;}
 
