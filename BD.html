@@ -1,0 +1,777 @@
+<title>全家私房钱 2.0 变现健检</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#141D33;
+    --navy:#1F3864;
+    --navy-soft:#24345C;
+    --navy-line:#33456F;
+    --copper:#C0862B;
+    --copper-light:#E7C179;
+    --cream:#F6F1E3;
+    --card-light:#FFFFFF;
+    --card-light-line:#E5DFCC;
+    --card-neutral:#EEF1F6;
+    --ink:#1C2233;
+    --ink-soft:#54607A;
+    --muted-dark:#9AA6C4;
+    --muted-dark-2:#7C88AA;
+    --red:#B3503F;
+    --green:#3F8F63;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--navy-deep);
+    color:var(--ink);
+    font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Noto Serif SC','Songti SC',serif;
+    margin:0;
+    text-wrap:balance;
+  }
+  p{margin:0;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+  .band{
+    padding:4.5rem 1.5rem;
+  }
+  .band.dark{background:var(--navy-deep);color:#fff;}
+  .band.light{background:var(--cream);color:var(--ink);}
+  .band-inner{
+    max-width:1080px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .band.dark .eyebrow{color:var(--copper-light);}
+  .band.light .eyebrow{color:var(--copper);}
+
+  .heading{
+    font-weight:900;
+    font-size:clamp(1.5rem,3.4vw,2.35rem);
+    line-height:1.28;
+  }
+  .band.dark .heading{color:#fff;}
+  .band.light .heading{color:var(--navy-deep);}
+
+  .subhead{
+    font-size:1.02rem;
+    line-height:1.75;
+    max-width:66ch;
+  }
+  .band.dark .subhead{color:var(--muted-dark);}
+  .band.light .subhead{color:var(--ink-soft);}
+  .subhead b{color:inherit;font-weight:800;}
+  .band.light .subhead b{color:var(--navy-deep);}
+  .band.dark .subhead b{color:#fff;}
+
+  .header-block{display:flex;flex-direction:column;gap:.7rem;}
+
+  /* stat chips */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;}
+  .stat-chip{
+    border-radius:14px;
+    padding:1.3rem 1.4rem;
+  }
+  .band.dark .stat-chip{background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .band.light .stat-chip{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .stat-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1.7rem;display:block;margin-bottom:.45rem;}
+  .band.dark .stat-num{color:var(--copper-light);}
+  .band.light .stat-num{color:var(--navy);}
+  .stat-label{font-size:.85rem;line-height:1.5;}
+  .band.dark .stat-label{color:var(--muted-dark);}
+  .band.light .stat-label{color:var(--ink-soft);}
+
+  /* callouts */
+  .callout{border-radius:14px;padding:1.3rem 1.5rem;line-height:1.75;font-size:.98rem;}
+  .callout .tag{font-weight:800;margin-right:.5rem;}
+  .callout.copper-border{border:1.5px solid var(--copper);}
+  .band.dark .callout.copper-border{background:#1B1408;color:var(--muted-dark);}
+  .band.dark .callout.copper-border .tag{color:var(--copper-light);}
+  .band.light .callout.copper-border{background:#FBF6E9;color:var(--ink-soft);}
+  .band.light .callout.copper-border .tag{color:var(--copper);}
+
+  .callout.navy-block{background:var(--navy-deep);color:var(--muted-dark);border:1px solid var(--navy-line);}
+  .callout.navy-block .tag{color:var(--copper-light);}
+  .band.light .callout.navy-block{background:var(--navy-deep);}
+
+  .callout.plain-light{background:var(--card-light);border:1px solid var(--card-light-line);color:var(--ink-soft);}
+  .callout.plain-light .tag{color:var(--copper);}
+
+  .callout.copper-solid{background:var(--copper);color:var(--navy-deep);font-weight:700;font-size:1.05rem;border:none;}
+  .callout.copper-solid b{color:var(--navy-deep);}
+
+  .callout ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:.4rem;}
+
+  /* card grids */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
+  .card{border-radius:14px;padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;}
+  .band.dark .card{background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .band.light .card{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .card.accent-copper{background:var(--copper);border:none;}
+  .card.accent-copper .card-title,.card.accent-copper .card-body{color:var(--navy-deep);}
+  .card.accent-navy-strong{background:var(--navy);border:none;}
+
+  .card-num{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.95rem;
+    background:var(--copper);color:var(--navy-deep);
+    flex-shrink:0;
+  }
+  .card.accent-copper .card-num{background:var(--navy-deep);color:var(--copper-light);}
+  .card-title{font-weight:700;font-size:1.02rem;}
+  .band.dark .card-title{color:#fff;}
+  .band.light .card-title{color:var(--navy-deep);}
+  .card-body{font-size:.92rem;line-height:1.7;}
+  .band.dark .card-body{color:var(--muted-dark);}
+  .band.light .card-body{color:var(--ink-soft);}
+  .card-body b{color:var(--copper-light);}
+  .band.light .card-body b{color:var(--copper);}
+  .card-body q{font-style:normal;}
+
+  .card-row{display:flex;align-items:center;gap:.8rem;}
+
+  /* asset stat row */
+  .asset-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;}
+  .asset-card{background:var(--card-neutral);border-radius:12px;padding:1.1rem 1.2rem;}
+  .asset-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1.4rem;color:var(--navy);display:block;margin-bottom:.3rem;}
+  .asset-label{font-size:.82rem;color:var(--ink-soft);}
+
+  .track-record{font-size:.9rem;line-height:1.8;color:var(--ink-soft);font-style:italic;}
+
+  /* two-col compare cards */
+  .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;}
+  .compare-card{border-radius:14px;padding:1.6rem 1.7rem;display:flex;flex-direction:column;gap:.35rem;}
+  .compare-card.neutral{background:var(--card-neutral);}
+  .compare-card.strong-navy{background:var(--navy);color:#fff;border:1px solid var(--copper);}
+  .compare-card .kicker{font-weight:700;font-size:.95rem;color:var(--navy);}
+  .compare-card.strong-navy .kicker{color:var(--copper-light);}
+  .compare-card .bignum{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:2.1rem;color:var(--navy-deep);margin:.2rem 0;}
+  .compare-card.strong-navy .bignum{color:#fff;}
+  .compare-card .caption{font-size:.82rem;color:var(--ink-soft);}
+  .compare-card.strong-navy .caption{color:var(--muted-dark);}
+
+  .lede{font-weight:700;font-size:1.1rem;}
+  .band.light .lede{color:var(--navy-deep);}
+
+  /* table */
+  .table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--card-light-line);}
+  table{width:100%;border-collapse:collapse;min-width:640px;background:var(--card-light);}
+  thead th{background:var(--navy);color:#fff;font-weight:700;text-align:left;padding:.85rem 1.1rem;font-size:.85rem;}
+  tbody td{padding:.85rem 1.1rem;font-size:.92rem;border-top:1px solid var(--card-light-line);}
+  tbody td.mono{font-family:'IBM Plex Mono',monospace;}
+  tbody tr td:first-child{font-weight:700;}
+  .row-worst td:first-child, .row-worst td:last-child{color:var(--red);}
+  .row-normal td:first-child, .row-normal td:last-child{color:var(--copper);}
+  .row-best td:first-child, .row-best td:last-child{color:var(--green);}
+
+  .foot-note{font-size:.82rem;color:var(--ink-soft);}
+  .band.dark .foot-note{color:var(--muted-dark-2);}
+
+  /* flow diagram */
+  .flow-wrap{overflow-x:auto;}
+  .flow{display:flex;align-items:center;gap:.5rem;min-width:760px;padding:.5rem 0;}
+  .flow-step{
+    flex:1;min-width:110px;border-radius:12px;padding:1.3rem 1rem 1rem;
+    background:var(--card-light);border:1px solid var(--card-light-line);
+    display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;
+  }
+  .flow-step.highlight{background:#FBF1DA;border:1.5px solid var(--copper);}
+  .flow-num{
+    width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.85rem;
+    background:var(--navy);color:#fff;
+  }
+  .flow-step.highlight .flow-num{background:var(--copper);color:var(--navy-deep);}
+  .flow-step-label{font-size:.85rem;font-weight:700;color:var(--navy-deep);line-height:1.4;}
+  .flow-arrow{color:var(--ink-soft);font-size:1.1rem;flex-shrink:0;}
+
+  /* chart wraps */
+  .chart-wrap{overflow-x:auto;}
+  .chart-card{border-radius:14px;padding:1.4rem 1.5rem;}
+  .band.light .chart-card{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .band.dark .chart-card{background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .chart-title{font-weight:700;font-size:.95rem;margin-bottom:.9rem;}
+  .band.light .chart-title{color:var(--navy-deep);}
+  .band.dark .chart-title{color:#fff;}
+  .legend{display:flex;gap:1.3rem;font-size:.8rem;margin-bottom:.7rem;align-items:center;}
+  .legend span{display:inline-flex;align-items:center;gap:.4rem;}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  .band.light .legend{color:var(--ink-soft);}
+  .band.dark .legend{color:var(--muted-dark);}
+
+  .two-chart-row{display:flex;gap:1rem;flex-wrap:wrap;}
+  .two-chart-row .chart-card{flex:1;min-width:260px;}
+
+  footer.band-foot{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:.78rem;padding-top:1rem;margin-top:.5rem;
+    border-top:1px solid;
+  }
+  .band.dark footer.band-foot{border-color:var(--navy-line);color:var(--muted-dark-2);}
+  .band.light footer.band-foot{border-color:var(--card-light-line);color:var(--ink-soft);}
+
+  @media (max-width:640px){
+    .band{padding:3rem 1.1rem;}
+    .compare-card .bignum{font-size:1.7rem;}
+  }
+</style>
+
+<!-- ============ 01 / COVER ============ -->
+<section class="band dark" id="s1">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">CFO ＋ BD 独立分析　｜　2026 年 8 月</p>
+      <h1 class="heading" style="font-size:clamp(1.9rem,4.4vw,3rem);">全家私房钱 2.0（The Standard）<br>商业模式健检与变现加速方案</h1>
+      <p class="subhead">交叉比对企划书、财务模型与媒体招商手册后的独立判读。<br>这门生意值不值得投，关键不在内容做得好不好，<b>而在现金多快能落袋</b>。</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-chip">
+        <span class="stat-num">RM 1,634,276</span>
+        <span class="stat-label">Normal 情境・Y3 累积净利（财务模型口径）</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num">90.8%</span>
+        <span class="stat-label">Y3 营收仰赖单一资产类别（厂房分润）</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num">3.3 倍</span>
+        <span class="stat-label">NCT 直营 vs Co-broke 有效抽成率差距</span>
+      </div>
+    </div>
+
+    <div class="callout copper-border">
+      <p><span class="tag">一句话结论</span>这是一门「用内容降低获客成本的地产转介生意」，飞轮本身已被验证，但目前的执行节奏把最赚钱的动作——扩大货源网络、尽早导流——排在最后。加速变现不需要更多内容，需要更快把同一套飞轮转更多圈。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">01 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 02 / 生意模式一页看懂 ============ -->
+<section class="band light" id="s2">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">生意模式一页看懂</p>
+      <h2 class="heading">内容是获客成本，交易才是生意本体</h2>
+      <p class="subhead">用听得懂的故事建立信任，全程不推销；信任在内容之外，变成两条变现引擎的原料</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">01</span></div>
+        <p class="card-title">内容</p>
+        <p class="card-body">信任资产，全程不置入推销</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">02</span></div>
+        <p class="card-title">Hook</p>
+        <p class="card-body">内容退出时刻，精准识别高意向受众</p>
+      </div>
+      <div class="card accent-copper">
+        <div class="card-row"><span class="card-num">03</span></div>
+        <p class="card-title">CRM／业务跟进</p>
+        <p class="card-body">以贴合语气客制化 follow up</p>
+      </div>
+      <div class="card accent-copper">
+        <div class="card-row"><span class="card-num">04</span></div>
+        <p class="card-title">交易分润／业配入账</p>
+        <p class="card-body">两具引擎承接成交，商业化落地</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:.9rem;">
+      <p style="font-weight:700;color:var(--navy-deep);">既有品牌资产（截至提案时）</p>
+      <div class="asset-grid">
+        <div class="asset-card"><span class="asset-num">80,000+</span><span class="asset-label">Facebook 粉丝专页</span></div>
+        <div class="asset-card"><span class="asset-num">20,000+</span><span class="asset-label">YouTube 订阅</span></div>
+        <div class="asset-card"><span class="asset-num">364 万</span><span class="asset-label">电视＋数位平台历史累积观看人次</span></div>
+        <div class="asset-card"><span class="asset-num">Astro 两季 26 集</span><span class="asset-label">电视棚内节目资历</span></div>
+      </div>
+      <p class="track-record">傲人实绩：Bursa Malaysia 万人活动联办・iProperty 三日 Expo・SC Malaysia 指定制作（全马 RapidKL 投放）・VI College 投资课程——单靠线上销售为对方累积 SGD 9,600 万储备金</p>
+    </div>
+
+    <div class="callout navy-block">
+      <p><span class="tag">CFO 判读</span>这套飞轮本质上是一台「低成本地产获客机器」——内容拿下信任与流量，真正的生意在飞轮尾端的交易分润与业配抽成。VI College 案例证明：同一套方法论已被验证能规模化成真金白银的商业成果。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">02 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 03 / 收入引擎解剖 ============ -->
+<section class="band light" id="s3">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">收入引擎解剖</p>
+      <h2 class="heading">规模与利润率互相打架</h2>
+      <p class="subhead">两条引擎的抽成结构并不对称，这是财务模型里最容易被忽略的一行假设</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card strong-navy">
+        <p class="kicker">NCT 直营货源</p>
+        <p class="bignum">2.0%</p>
+        <p class="caption">The Standard 直接抽佣；NCT 旗下 NSIP 厂房，leads 交回 NCT 自家 sales team 成交</p>
+      </div>
+      <div class="compare-card neutral">
+        <p class="kicker">Co-broke 货源</p>
+        <p class="bignum" style="color:var(--red);">0.6%</p>
+        <p class="caption">＝市场标准佣金 2.0% × The Standard 分润 30%；透过全马其他仲介转介完成实际成交</p>
+      </div>
+    </div>
+
+    <p class="lede">→ NCT 直营货源每 RM1 交易额的贡献，是 Co-broke 转介货源的 3.3 倍</p>
+
+    <div class="chart-card">
+      <p class="chart-title">NCT／Co-broke 供给占比逐年变化</p>
+      <div class="legend">
+        <span><i style="background:var(--navy);"></i>NCT 直营</span>
+        <span><i style="background:var(--copper);"></i>Co-broke 转介</span>
+      </div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 400 260" style="width:100%;max-width:420px;height:auto;" role="img" aria-label="NCT 与 Co-broke 供给占比逐年变化柱状图">
+          <line x1="30" y1="40" x2="370" y2="40" stroke="#E5DFCC" stroke-width="1"/>
+          <line x1="30" y1="76" x2="370" y2="76" stroke="#E5DFCC" stroke-width="1"/>
+          <line x1="30" y1="112" x2="370" y2="112" stroke="#E5DFCC" stroke-width="1"/>
+          <line x1="30" y1="148" x2="370" y2="148" stroke="#E5DFCC" stroke-width="1"/>
+          <line x1="30" y1="184" x2="370" y2="184" stroke="#E5DFCC" stroke-width="1"/>
+          <line x1="30" y1="220" x2="370" y2="220" stroke="#B9B49E" stroke-width="1"/>
+          <text x="24" y="223" text-anchor="end" font-size="10" fill="#8A8368" font-family="IBM Plex Mono, monospace">0</text>
+          <text x="24" y="151" text-anchor="end" font-size="10" fill="#8A8368" font-family="IBM Plex Mono, monospace">50</text>
+          <text x="24" y="43" text-anchor="end" font-size="10" fill="#8A8368" font-family="IBM Plex Mono, monospace">100</text>
+
+          <!-- Y1: NCT 100 -->
+          <rect x="45" y="40" width="70" height="180" fill="#1F3864"/>
+          <text x="80" y="135" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="IBM Plex Mono, monospace">100.0</text>
+          <text x="80" y="240" text-anchor="middle" fill="var(--ink)" font-size="12" font-family="Noto Sans SC">Y1</text>
+
+          <!-- Y2: NCT 80, Co-broke 20 -->
+          <rect x="170" y="76" width="70" height="144" fill="#1F3864"/>
+          <rect x="170" y="40" width="70" height="36" fill="#C0862B"/>
+          <text x="205" y="152" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="IBM Plex Mono, monospace">80.0</text>
+          <text x="205" y="62" text-anchor="middle" fill="#3A2A05" font-size="12" font-weight="700" font-family="IBM Plex Mono, monospace">20.0</text>
+          <text x="205" y="240" text-anchor="middle" fill="var(--ink)" font-size="12" font-family="Noto Sans SC">Y2</text>
+
+          <!-- Y3: NCT 70, Co-broke 30 -->
+          <rect x="295" y="94" width="70" height="126" fill="#1F3864"/>
+          <rect x="295" y="40" width="70" height="54" fill="#C0862B"/>
+          <text x="330" y="161" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="IBM Plex Mono, monospace">70.0</text>
+          <text x="330" y="71" text-anchor="middle" fill="#3A2A05" font-size="12" font-weight="700" font-family="IBM Plex Mono, monospace">30.0</text>
+          <text x="330" y="240" text-anchor="middle" fill="var(--ink)" font-size="12" font-family="Noto Sans SC">Y3</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="callout copper-border">
+      <p><span class="tag">CFO 洞察</span>Normal 情境的营收成长，有一部分其实是用「拉高总成交笔数」去弥补「混合抽成率被稀释」换来的。Co-broke 占比每上升一分，同样的交易量能换到的收入就更少。这代表要维持成长曲线，公司需要的 Co-broke 伙伴数量，会比企划书呈现的更关键。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">03 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 04 / 财务情境检视 ============ -->
+<section class="band light" id="s4">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">财务情境检视</p>
+      <h2 class="heading">同一套成本，三种营收路径</h2>
+      <p class="subhead">三个情境的固定成本完全相同，差异 100% 来自成交笔数假设（财务模型口径）</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>情境</th><th>成交笔数 Y1/Y2/Y3</th><th>Y3 总营收 (RM)</th><th>Y3 总成本 (RM)</th><th>Y3 累积净损益 (RM)</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-worst">
+            <td>Worst</td><td class="mono">2 / 4 / 8</td><td class="mono">1,347,031</td><td class="mono">1,870,000</td><td class="mono">(2,030,041)</td>
+          </tr>
+          <tr class="row-normal">
+            <td>Normal</td><td class="mono">6 / 12 / 24</td><td class="mono">3,411,092</td><td class="mono">1,870,000</td><td class="mono">1,634,276</td>
+          </tr>
+          <tr class="row-best">
+            <td>Best</td><td class="mono">8 / 20 / 40</td><td class="mono">5,475,154</td><td class="mono">1,870,000</td><td class="mono">5,018,594</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot-note">成本假设固定：Y1 RM 1,000,000／Y2 RM 1,520,000／Y3 RM 1,870,000，不随情境变动</p>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:1.2rem;align-items:start;" class="chart-grid-4">
+      <div class="chart-card">
+        <p class="chart-title">三大情境：累积净损益路径</p>
+        <div class="legend">
+          <span><i style="background:#B3503F;"></i>Worst</span>
+          <span><i style="background:#C0862B;"></i>Normal</span>
+          <span><i style="background:#3F8F63;"></i>Best</span>
+        </div>
+        <div class="chart-wrap">
+          <svg viewBox="0 0 640 350" style="width:100%;max-width:640px;height:auto;" role="img" aria-label="三大情境累积净损益路径折线图">
+            <!-- gridlines -->
+            <g stroke="#E5DFCC" stroke-width="1">
+              <line x1="90" y1="20" x2="600" y2="20"/>
+              <line x1="90" y1="80" x2="600" y2="80"/>
+              <line x1="90" y1="140" x2="600" y2="140"/>
+              <line x1="90" y1="260" x2="600" y2="260"/>
+              <line x1="90" y1="320" x2="600" y2="320"/>
+            </g>
+            <line x1="90" y1="200" x2="600" y2="200" stroke="#B9B49E" stroke-width="1.2"/>
+            <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#8A8368">
+              <text x="84" y="23" text-anchor="end">6,000,000</text>
+              <text x="84" y="83" text-anchor="end">4,000,000</text>
+              <text x="84" y="143" text-anchor="end">2,000,000</text>
+              <text x="84" y="203" text-anchor="end">0</text>
+              <text x="84" y="263" text-anchor="end">-2,000,000</text>
+              <text x="84" y="323" text-anchor="end">-4,000,000</text>
+            </g>
+            <g font-family="Noto Sans SC" font-size="12" fill="var(--ink)">
+              <text x="70" y="340" text-anchor="middle">起始</text>
+              <text x="240" y="340" text-anchor="middle">Y1</text>
+              <text x="410" y="340" text-anchor="middle">Y2</text>
+              <text x="580" y="340" text-anchor="middle">Y3</text>
+            </g>
+            <!-- Worst -->
+            <polyline points="70,200 240,220 410,245 580,261" fill="none" stroke="#B3503F" stroke-width="2.5"/>
+            <g fill="#B3503F">
+              <circle cx="70" cy="200" r="4"/><circle cx="240" cy="220" r="4"/><circle cx="410" cy="245" r="4"/><circle cx="580" cy="261" r="4"/>
+            </g>
+            <!-- Normal -->
+            <polyline points="70,200 240,203 410,197 580,151" fill="none" stroke="#C0862B" stroke-width="2.5"/>
+            <g fill="#C0862B">
+              <circle cx="70" cy="200" r="4"/><circle cx="240" cy="203" r="4"/><circle cx="410" cy="197" r="4"/><circle cx="580" cy="151" r="4"/>
+            </g>
+            <!-- Best -->
+            <polyline points="70,200 240,195 410,138 580,29" fill="none" stroke="#3F8F63" stroke-width="2.5"/>
+            <g fill="#3F8F63">
+              <circle cx="70" cy="200" r="4"/><circle cx="240" cy="195" r="4"/><circle cx="410" cy="138" r="4"/><circle cx="580" cy="29" r="4"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="callout navy-block" style="align-self:stretch;">
+        <p style="font-weight:700;color:#fff;margin-bottom:.6rem;">读法</p>
+        <ul>
+          <li>Worst：三年皆累积亏损，Y3 仍达 (RM 2,030,041)，凸显加速成交的重要性</li>
+          <li>Normal：Y1 尚处投入期，约在 Y2 过半才转正，Y3 累积净利 RM 1,634,276</li>
+          <li>Best：Y1 即获利，Y3 累积净利达 RM 5,018,594</li>
+        </ul>
+        <p style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--navy-line);"><span class="tag">CFO 判读</span>三个情境的成本假设完全相同。公司真正该问的问题，不是「内容拍得够不够好」，而是「同时在跑的交易够不够多」，这是下一页红旗清单与加速方案的出发点。</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">04 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 05 / CFO 红旗清单 ============ -->
+<section class="band dark" id="s5">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">CFO 红旗清单</p>
+      <h2 class="heading">四个上桌前必须先处理的风险</h2>
+      <p class="subhead">在资金到位前，这些是需要 founder 正面回应、而非带过的问题</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span></div>
+        <p class="card-title">营收集中风险</p>
+        <p class="card-body">Y3 营收 90.8% 来自单一资产类别（厂房／工业地产）分润；房产深探、期权投资两条内容线目前对营收贡献极小</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span></div>
+        <p class="card-title">现金周期错配</p>
+        <p class="card-body">内容与团队成本按月前置支出，厂房交易周期长达 3-6 个月，Y1 恐有现金缺口</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span></div>
+        <p class="card-title">单一供应商依赖</p>
+        <p class="card-body">Y1 100% 仰赖 NCT 一家货源；NCT 自身厂房储备（逾 1,000 英亩，续购约 900 英亩）虽充足，仍是单点风险</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">4</span></div>
+        <p class="card-title">固定成本、变动营收</p>
+        <p class="card-body">Worst 情境下，固定成本几乎吃掉全部营收成长空间，下行保护有限</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">05 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 06 / 流程诊断 ============ -->
+<section class="band light" id="s6">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">流程诊断</p>
+      <h2 class="heading">真正的瓶颈在哪：内容到现金的时间轴</h2>
+      <p class="subhead">同一套飞轮，时间轴的排序方式，决定了现金落袋的速度</p>
+    </div>
+
+    <div class="flow-wrap">
+      <div class="flow">
+        <div class="flow-step"><span class="flow-num">1</span><span class="flow-step-label">拍摄制作</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-num">2</span><span class="flow-step-label">内容上线／累积信任</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step highlight"><span class="flow-num">3</span><span class="flow-step-label">Hook 阶段性释出<br>（现订于 Q2）</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-num">4</span><span class="flow-step-label">CRM／业务跟进</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step highlight"><span class="flow-num">5</span><span class="flow-step-label">成交<br>（周期 3-6 个月）</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-num">6</span><span class="flow-step-label">分润入账</span></div>
+      </div>
+    </div>
+    <p class="foot-note">标橙色 ＝ 目前规划里拖慢现金到位速度的两个环节</p>
+
+    <div class="callout plain-light">
+      <p><span class="tag">现况</span>目前规划把 Hook 排到 Y1 Q2 才开始分阶段释出，等于 Y1 前三个月营收挂零；Co-broke 网络要等 Y2 才启动扩张。公司最赚钱、但也最需要时间累积的动作，反而被排在时间轴最后面。</p>
+    </div>
+
+    <div class="callout navy-block">
+      <p><span class="tag">CFO／BD 判读</span>现有时间轴把最赚钱的动作（扩大 Co-broke 网络、尽早导流）放在最后才做，这正是加速变现最大的杠杆点：<b style="color:var(--copper-light);">不在拍摄端，在启动顺序</b>。下面两页是具体的重排方案。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">06 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 07 / 加速方案 I ============ -->
+<section class="band light" id="s7">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">加速方案 I</p>
+      <h2 class="heading">压缩前端：内容到第一笔 Hook 的时间</h2>
+      <p class="subhead">不需要更多预算，只需要重排既有资源的启动顺序</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span><span class="card-title">回温旧观众</span></div>
+        <p class="card-body">用既有 8 万 FB ＋ 2 万 YouTube 订阅者做第一波精准名单，上线第一天就能导流，不必等新内容重新累积信任</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span><span class="card-title">提前抛出轻量 Hook</span></div>
+        <p class="card-body">用预告／花絮提前释出「厂房投资入门手册」等轻量钩子，不必等 13 集拍完才开始收名单</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span><span class="card-title">从「拍完一季再上线」改为「周更即上线」</span></div>
+        <p class="card-body">把 Hook 释出时间从 Q2 提前到 Q1，缩短内容到现金的等待期</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">4</span><span class="card-title">业配「先卖后拍」</span></div>
+        <p class="card-body">上线前就预售品牌配套，用签约现金填补 Y1 前期内容成本缺口</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">07 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 08 / 加速方案 II ============ -->
+<section class="band dark" id="s8">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">加速方案 II</p>
+      <h2 class="heading">扩大后端：同时在途的交易量与变现结构</h2>
+      <p class="subhead">把「同时在跑的交易数量」当成第一 KPI，而不是「拍了几集」</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span><span class="card-title">Co-broke 网络从 Y2 提前到 Y1 同步启动</span></div>
+        <p class="card-body">即使单笔利润率较低（0.6% vs 2%），也能立刻扩大同时在跑的交易数量，这是把 Worst 推向 Normal、Normal 推向 Best 最直接的杠杆</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span><span class="card-title">业配与转介「双引擎捆绑」</span></div>
+        <p class="card-body">如果业务团队正在跟一个廠房老板谈土地转介，也可以顺带问<b>「要不要也让貴廠曝光一集」</b>，把已经建立的信任变现成业配收入，让两条引擎互为敲门砖，而不是各自单独找客户。</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span><span class="card-title">加一层中频现金收入 – YouTube 会员制</span></div>
+        <p class="card-body">面向 C 端观众的付费订阅，比如深度产业报告、廠房／工业地产市场情报的付费会员或付费 newsletter，把部分本来免费的深度内容拿一部分出来做成付费层，跟 YouTube/FB 的免费内容区隔开。</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">4</span><span class="card-title">挑战保守估价</span></div>
+        <p class="card-body">平均单笔交易额目前用保守估算 RM 700 万，同样成交笔数下，收入结构性存在上修空间</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">08 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 09 / 加速后的财务推演 ============ -->
+<section class="band light" id="s9">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">加速后的财务推演</p>
+      <h2 class="heading">不是变出更多钱，是把同一份钱提早到位</h2>
+      <p class="subhead">以下试算完全沿用企划书自身模型的变数，方向性推演，非正式财务预测</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card neutral">
+        <p class="kicker">Normal · Y1（6 笔成交，100% NCT）</p>
+        <p class="bignum">RM 896,800</p>
+        <p class="caption">Y1 总营收</p>
+        <p class="bignum" style="font-size:1.3rem;color:var(--red);margin-top:.6rem;">净损 (RM 103,200)</p>
+        <p class="caption">Y1 净损益</p>
+      </div>
+      <div class="compare-card strong-navy">
+        <p class="kicker">加速后 · Y1（8 笔成交，同一套抽成结构）</p>
+        <p class="bignum" style="color:var(--copper-light);">RM 1,176,800</p>
+        <p class="caption">Y1 总营收</p>
+        <p class="bignum" style="font-size:1.3rem;color:var(--green);margin-top:.6rem;">净利 RM 176,800</p>
+        <p class="caption">Y1 净损益</p>
+      </div>
+    </div>
+
+    <p class="lede">翻转 RM 280,000　・　只靠既有名单把成交笔数从 6 笔推进到 8 笔（财务模型里 Normal 与 Best 情境 Y1 唯一的差异变数）</p>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1.2rem;align-items:start;" class="chart-grid-9">
+      <div class="chart-card">
+        <p class="chart-title">Y1 总营收与净损益：加速前后对比</p>
+        <div class="legend">
+          <span><i style="background:#7B87A8;"></i>Normal（6 笔）</span>
+          <span><i style="background:#C0862B;"></i>加速后（8 笔）</span>
+        </div>
+        <div class="two-chart-row chart-wrap">
+          <div>
+            <svg viewBox="0 0 220 210" style="width:100%;max-width:230px;height:auto;" role="img" aria-label="Y1总营收对比柱状图">
+              <line x1="15" y1="170" x2="210" y2="170" stroke="#B9B49E" stroke-width="1"/>
+              <rect x="30" y="73" width="55" height="97" fill="#7B87A8"/>
+              <text x="57" y="65" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--ink)">896,800</text>
+              <text x="57" y="188" text-anchor="middle" font-size="10" fill="var(--ink-soft)">Normal</text>
+              <rect x="125" y="43" width="55" height="127" fill="#C0862B"/>
+              <text x="152" y="35" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--ink)">1,176,800</text>
+              <text x="152" y="188" text-anchor="middle" font-size="10" fill="var(--ink-soft)">加速后</text>
+            </svg>
+            <p style="text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:.3rem;">Y1 总营收 (RM)</p>
+          </div>
+          <div>
+            <svg viewBox="0 0 220 210" style="width:100%;max-width:230px;height:auto;" role="img" aria-label="Y1净损益对比柱状图">
+              <line x1="15" y1="100" x2="210" y2="100" stroke="#B9B49E" stroke-width="1"/>
+              <rect x="30" y="100" width="55" height="47" fill="#B3503F"/>
+              <text x="57" y="163" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--red)">(103,200)</text>
+              <text x="57" y="188" text-anchor="middle" font-size="10" fill="var(--ink-soft)">Normal</text>
+              <rect x="125" y="20" width="55" height="80" fill="#3F8F63"/>
+              <text x="152" y="15" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--green)">176,800</text>
+              <text x="152" y="188" text-anchor="middle" font-size="10" fill="var(--ink-soft)">加速后</text>
+            </svg>
+            <p style="text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:.3rem;">Y1 净损益 (RM)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout plain-light" style="align-self:stretch;">
+        <p><span class="tag">延伸方向（仅供参考）</span>若 Y2 能提前做到接近 Best 情境的成交量与供给结构，原本要等 Y3 才出现的健康累积获利，理论上有机会提前一年在 Y2 浮现。这是方向性试算，非正式财务预测，实际仍取决于 <b style="color:var(--copper);">Co-broke 网络建设速度与成交执行力</b>。</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">09 / 10</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 10 / CFO／BD 结论与建议 ============ -->
+<section class="band dark" id="s10">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">CFO／BD 结论与建议</p>
+      <h2 class="heading">条件式支持：RM 1,000,000 的 Y1 提案值得推进</h2>
+      <p class="subhead">商业模式成立，且与 Coffy／NCT 的资源高度互补（不只是找资金，也是找货源伙伴），建议附带四项条件支持提案</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem;align-items:start;" class="conditions-grid">
+      <div style="display:flex;flex-direction:column;gap:1.1rem;">
+        <p style="font-weight:700;color:#fff;">附带条件</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">1</span>
+            <p class="card-body">先统一企划书、财务模型与官网页面的三套数字，列为对外募资前的必要 diligence 项目</p>
+          </div>
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">2</span>
+            <p class="card-body">把 Co-broke 伙伴开发从 Y2 提前到 Y1 同步启动</p>
+          </div>
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">3</span>
+            <p class="card-body">内容上线后 30 天内完成第一波 Hook 导流，不等到 Q2</p>
+          </div>
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">4</span>
+            <p class="card-body">业配配套「先卖后拍」，Y1 至少锁定 2-3 个品牌预售合约作为早期现金流</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout navy-block" style="align-self:stretch;background:var(--navy-soft);">
+        <p style="font-weight:700;color:#fff;margin-bottom:.7rem;">90 天优先事项</p>
+        <ul>
+          <li>核实财务模型三份文件口径</li>
+          <li>启动旧观众 － <span style="color:var(--green);font-weight:700;">可行</span></li>
+          <li>VI College 校友回温名单 － <span style="color:var(--red);font-weight:700;">不可行，之前的 leads 属于 VI</span></li>
+          <li>同步启动 2-3 个 Co-broke 伙伴接洽 － <span style="color:var(--green);font-weight:700;">可行</span></li>
+          <li>预售至少 2 个业配配套 － <span style="color:var(--green);font-weight:700;">可行</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout copper-solid">
+      <p>全家私房钱 2.0 不缺信任，缺的是把信任更快转成同时在跑的交易，<b>这也是这 RM 1,000,000 真正该优化的地方。</b></p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · CFO ＋ BD 独立分析</span>
+      <span class="mono">10 / 10</span>
+    </footer>
+  </div>
+</section>
