@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE STANDARD ｜ 全家私房钱 2.0</title>
+
+<!-- Link-preview tags (WhatsApp, Facebook, Telegram, etc. all read Open Graph) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Standard">
+<meta property="og:url" content="https://thestandard.rexilion.com/">
+<meta property="og:title" content="THE STANDARD">
+<meta property="og:description" content="全家私房钱 2.0 生态系与投资提案">
+
+<!-- Twitter Card falls back to the og: tags above if these are omitted, kept here for completeness -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="THE STANDARD">
+<meta name="twitter:description" content="全家私房钱 2.0 生态系与投资提案">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#141D33;
+    --navy:#1F3864;
+    --navy-soft:#24345C;
+    --navy-line:#33456F;
+    --copper:#C0862B;
+    --copper-light:#E7C179;
+    --cream:#F6F1E3;
+    --card-light:#FFFFFF;
+    --card-light-line:#E5DFCC;
+    --card-neutral:#EEF1F6;
+    --ink:#1C2233;
+    --ink-soft:#54607A;
+    --muted-dark:#9AA6C4;
+    --muted-dark-2:#7C88AA;
+    --red:#B3503F;
+    --green:#3F8F63;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--navy-deep);
+    color:var(--ink);
+    font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Noto Serif SC','Songti SC',serif;
+    margin:0;
+    text-wrap:balance;
+  }
+  p{margin:0;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+  .band{padding:4.5rem 1.5rem;}
+  .band.dark{background:var(--navy-deep);color:#fff;}
+  .band.light{background:var(--cream);color:var(--ink);}
+  .band-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:2rem;}
+
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;}
+  .band.dark .eyebrow{color:var(--copper-light);}
+  .band.light .eyebrow{color:var(--copper);}
+
+  .heading{font-weight:900;font-size:clamp(1.5rem,3.4vw,2.35rem);line-height:1.28;}
+  .band.dark .heading{color:#fff;}
+  .band.light .heading{color:var(--navy-deep);}
+
+  .subhead{font-size:1.02rem;line-height:1.75;max-width:66ch;}
+  .band.dark .subhead{color:var(--muted-dark);}
+  .band.light .subhead{color:var(--ink-soft);}
+  .subhead b{color:inherit;font-weight:800;}
+  .band.light .subhead b{color:var(--navy-deep);}
+  .band.dark .subhead b{color:#fff;}
+
+  .header-block{display:flex;flex-direction:column;gap:.7rem;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;}
+  .stat-chip{border-radius:14px;padding:1.3rem 1.4rem;}
+  .band.dark .stat-chip{background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .band.light .stat-chip{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .stat-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1.7rem;display:block;margin-bottom:.45rem;}
+  .band.dark .stat-num{color:var(--copper-light);}
+  .band.light .stat-num{color:var(--navy);}
+  .stat-label{font-size:.85rem;line-height:1.5;}
+  .band.dark .stat-label{color:var(--muted-dark);}
+  .band.light .stat-label{color:var(--ink-soft);}
+
+  .callout{border-radius:14px;padding:1.3rem 1.5rem;line-height:1.75;font-size:.98rem;}
+  .callout .tag{font-weight:800;margin-right:.5rem;}
+  .callout.copper-border{border:1.5px solid var(--copper);}
+  .band.dark .callout.copper-border{background:#1B1408;color:var(--muted-dark);}
+  .band.dark .callout.copper-border .tag{color:var(--copper-light);}
+  .band.light .callout.copper-border{background:#FBF6E9;color:var(--ink-soft);}
+  .band.light .callout.copper-border .tag{color:var(--copper);}
+
+  .callout.navy-block{background:var(--navy-deep);color:var(--muted-dark);border:1px solid var(--navy-line);}
+  .callout.navy-block .tag{color:var(--copper-light);}
+  .band.light .callout.navy-block{background:var(--navy-deep);}
+
+  .callout.plain-light{background:var(--card-light);border:1px solid var(--card-light-line);color:var(--ink-soft);}
+  .callout.plain-light .tag{color:var(--copper);}
+
+  .callout.copper-solid{background:var(--copper);color:var(--navy-deep);font-weight:700;font-size:1.05rem;border:none;}
+  .callout.copper-solid b{color:var(--navy-deep);}
+
+  .callout ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:.4rem;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
+  .card{border-radius:14px;padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;}
+  .band.dark .card{background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .band.light .card{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .card.accent-copper{background:var(--copper);border:none;}
+  .card.accent-copper .card-title,.card.accent-copper .card-body{color:var(--navy-deep);}
+  .card.accent-navy-strong{background:var(--navy);border:none;color:#fff;}
+  .card.accent-navy-strong .card-title{color:#fff;}
+  .card.accent-navy-strong .card-body{color:var(--muted-dark);}
+
+  .card-num{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.95rem;
+    background:var(--copper);color:var(--navy-deep);
+    flex-shrink:0;
+  }
+  .card.accent-copper .card-num{background:var(--navy-deep);color:var(--copper-light);}
+  .card-title{font-weight:700;font-size:1.02rem;}
+  .band.dark .card-title{color:#fff;}
+  .band.light .card-title{color:var(--navy-deep);}
+  .card-body{font-size:.92rem;line-height:1.7;}
+  .band.dark .card-body{color:var(--muted-dark);}
+  .band.light .card-body{color:var(--ink-soft);}
+  .card-body b{color:var(--copper-light);}
+  .band.light .card-body b{color:var(--copper);}
+
+  .card-row{display:flex;align-items:center;gap:.8rem;}
+
+  .asset-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;}
+  .asset-card{background:var(--card-neutral);border-radius:12px;padding:1.1rem 1.2rem;}
+  .asset-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1.4rem;color:var(--navy);display:block;margin-bottom:.3rem;}
+  .asset-label{font-size:.82rem;color:var(--ink-soft);}
+
+  .track-record{font-size:.9rem;line-height:1.8;color:var(--ink-soft);font-style:italic;}
+
+  .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;}
+  .compare-card{border-radius:14px;padding:1.6rem 1.7rem;display:flex;flex-direction:column;gap:.35rem;}
+  .compare-card.neutral{background:var(--card-neutral);}
+  .compare-card.strong-navy{background:var(--navy);color:#fff;border:1px solid var(--copper);}
+  .compare-card .kicker{font-weight:700;font-size:.95rem;color:var(--navy);}
+  .compare-card.strong-navy .kicker{color:var(--copper-light);}
+  .compare-card .bignum{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:2.1rem;color:var(--navy-deep);margin:.2rem 0;}
+  .compare-card.strong-navy .bignum{color:#fff;}
+  .compare-card .caption{font-size:.82rem;color:var(--ink-soft);}
+  .compare-card.strong-navy .caption{color:var(--muted-dark);}
+
+  .lede{font-weight:700;font-size:1.1rem;}
+  .band.light .lede{color:var(--navy-deep);}
+  .band.dark .lede{color:#fff;}
+
+  .table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--card-light-line);}
+  table{width:100%;border-collapse:collapse;min-width:560px;background:var(--card-light);}
+  thead th{background:var(--navy);color:#fff;font-weight:700;text-align:left;padding:.85rem 1.1rem;font-size:.85rem;}
+  tbody td{padding:.85rem 1.1rem;font-size:.92rem;border-top:1px solid var(--card-light-line);}
+  tbody td.mono{font-family:'IBM Plex Mono',monospace;}
+  tbody tr td:first-child{font-weight:700;}
+  .row-worst td:first-child, .row-worst td:last-child{color:var(--red);}
+  .row-normal td:first-child, .row-normal td:last-child{color:var(--copper);}
+  .row-best td:first-child, .row-best td:last-child{color:var(--green);}
+
+  .foot-note{font-size:.82rem;color:var(--ink-soft);}
+  .band.dark .foot-note{color:var(--muted-dark-2);}
+
+  .flow-wrap{overflow-x:auto;}
+  .flow{display:flex;align-items:center;gap:.5rem;min-width:760px;padding:.5rem 0;}
+  .flow-step{
+    flex:1;min-width:110px;border-radius:12px;padding:1.3rem 1rem 1rem;
+    background:var(--card-light);border:1px solid var(--card-light-line);
+    display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;
+  }
+  .flow-step.highlight{background:#FBF1DA;border:1.5px solid var(--copper);}
+  .flow-step.dark-step{background:var(--navy);border:none;}
+  .flow-step.dark-step .flow-step-label{color:#fff;}
+  .flow-step.copper-step{background:var(--copper);border:none;}
+  .flow-step.copper-step .flow-step-label{color:var(--navy-deep);}
+  .flow-num{
+    width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.85rem;
+    background:var(--navy);color:#fff;
+  }
+  .flow-step.highlight .flow-num{background:var(--copper);color:var(--navy-deep);}
+  .flow-step.dark-step .flow-num, .flow-step.copper-step .flow-num{background:#fff;color:var(--navy);}
+  .flow-step-label{font-size:.85rem;font-weight:700;color:var(--navy-deep);line-height:1.4;}
+  .flow-step-sub{font-size:.76rem;color:var(--ink-soft);line-height:1.5;}
+  .flow-step.dark-step .flow-step-sub, .flow-step.copper-step .flow-step-sub{color:rgba(255,255,255,.75);}
+  .flow-step.copper-step .flow-step-sub{color:rgba(28,20,4,.7);}
+  .flow-arrow{color:var(--ink-soft);font-size:1.1rem;flex-shrink:0;}
+  .band.dark .flow-arrow{color:var(--muted-dark);}
+
+  .chart-wrap{overflow-x:auto;}
+  .chart-card{border-radius:14px;padding:1.4rem 1.5rem;}
+  .band.light .chart-card{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .band.dark .chart-card{background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .chart-title{font-weight:700;font-size:.95rem;margin-bottom:.9rem;}
+  .band.light .chart-title{color:var(--navy-deep);}
+  .band.dark .chart-title{color:#fff;}
+  .legend{display:flex;gap:1.3rem;font-size:.8rem;margin-bottom:.7rem;align-items:center;flex-wrap:wrap;}
+  .legend span{display:inline-flex;align-items:center;gap:.4rem;}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  .band.light .legend{color:var(--ink-soft);}
+  .band.dark .legend{color:var(--muted-dark);}
+
+  .two-chart-row{display:flex;gap:1rem;flex-wrap:wrap;}
+  .two-chart-row .chart-card{flex:1;min-width:260px;}
+
+  .mini-table-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:1rem;}
+  .mini-table{border-radius:12px;overflow:hidden;border:1px solid var(--card-light-line);background:var(--card-light);}
+  .mini-table-head{padding:.75rem 1rem;font-weight:800;font-size:.92rem;display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;}
+  .mini-table-head .sub{font-weight:500;font-size:.72rem;color:var(--ink-soft);}
+  .mini-table-head.worst{background:#F7E9E4;color:var(--red);}
+  .mini-table-head.normal{background:#FBF1DA;color:var(--copper);}
+  .mini-table-head.best{background:#E4F1EA;color:var(--green);}
+  .mini-table .table-scroll{overflow-x:auto;}
+  .mini-table table{width:auto;min-width:100%;}
+  .mini-table thead th{background:var(--navy);font-size:.74rem;padding:.55rem .5rem;white-space:nowrap;}
+  .mini-table tbody td{padding:.5rem .5rem;font-size:.78rem;border-top:1px solid var(--card-light-line);white-space:nowrap;}
+  .mini-table tbody td:first-child{white-space:nowrap;font-size:.76rem;}
+  .mini-table tbody tr:last-child td{font-weight:800;border-top:1.5px solid var(--navy);}
+  .mini-table.worst tbody tr:last-child td:not(:first-child){color:var(--red);}
+  .mini-table.normal tbody tr:last-child td:not(:first-child){color:var(--copper);}
+  .mini-table.best tbody tr:last-child td:not(:first-child){color:var(--green);}
+
+  .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+  .milestone{border-radius:14px;padding:1.5rem 1.4rem;position:relative;display:flex;flex-direction:column;gap:.6rem;}
+  .milestone.dark-m{background:var(--navy);color:#fff;}
+  .milestone.light-m{background:var(--card-light);border:1px solid var(--card-light-line);}
+  .milestone-badge{
+    width:34px;height:34px;border-radius:50%;background:var(--copper);color:var(--navy-deep);
+    display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.9rem;
+  }
+  .milestone-phase{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.78rem;}
+  .milestone.dark-m .milestone-phase{color:var(--copper-light);}
+  .milestone.light-m .milestone-phase{color:var(--copper);}
+  .milestone-title{font-weight:800;font-size:1.05rem;}
+  .milestone.dark-m .milestone-title{color:#fff;}
+  .milestone.light-m .milestone-title{color:var(--navy-deep);}
+  .milestone-body{font-size:.85rem;line-height:1.6;}
+  .milestone.dark-m .milestone-body{color:var(--muted-dark);}
+  .milestone.light-m .milestone-body{color:var(--ink-soft);}
+
+  .info-row{display:flex;gap:1.4rem;flex-wrap:wrap;}
+  .info-row .info-item{flex:1;min-width:220px;display:flex;flex-direction:column;gap:.4rem;}
+  .info-row .info-label{font-weight:800;color:var(--copper-light);font-size:.95rem;}
+  .info-row .info-body{font-size:.92rem;line-height:1.7;color:var(--muted-dark);}
+
+  .cover-info{display:flex;flex-direction:column;gap:.55rem;padding-top:.4rem;border-top:1px solid var(--navy-line);}
+  .cover-info-row{display:flex;gap:1rem;font-size:.92rem;}
+  .cover-info-row .label{color:var(--muted-dark-2);width:96px;flex-shrink:0;}
+  .cover-info-row .value{color:#fff;font-weight:700;}
+
+  footer.band-foot{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:.78rem;padding-top:1rem;margin-top:.5rem;
+    border-top:1px solid;
+  }
+  .band.dark footer.band-foot{border-color:var(--navy-line);color:var(--muted-dark-2);}
+  .band.light footer.band-foot{border-color:var(--card-light-line);color:var(--ink-soft);}
+
+  @media (max-width:640px){
+    .band{padding:2.6rem 1.1rem;}
+    .band-inner{gap:1.6rem;}
+    .compare-card .bignum{font-size:1.7rem;}
+
+    .heading{font-size:clamp(1.35rem,6vw,1.9rem);line-height:1.32;}
+    .subhead{font-size:.96rem;}
+    .lede{font-size:1.02rem;}
+
+    .cover-info-row{flex-direction:column;gap:.15rem;}
+    .cover-info-row .label{width:auto;font-size:.78rem;}
+
+    .card,.stat-chip,.callout,.chart-card,.milestone{padding:1.1rem 1.15rem;}
+
+    /* business model flywheel: stack vertically instead of forcing sideways scroll */
+    .flow-wrap{overflow-x:visible;}
+    .flow{flex-direction:column;min-width:0 !important;align-items:stretch;gap:.15rem;}
+    .flow-step{width:100%;}
+    .flow-arrow{transform:rotate(90deg);align-self:center;padding:.1rem 0;}
+
+    /* wide data tables: shrink to fit instead of relying on hidden horizontal scroll */
+    .table-wrap table{min-width:0;}
+    .table-wrap thead th{font-size:.72rem;padding:.6rem .5rem;}
+    .table-wrap tbody td{font-size:.78rem;padding:.6rem .5rem;}
+
+    /* two-column condition/priority layout: stack on narrow screens */
+    .conditions-grid{grid-template-columns:1fr !important;}
+
+    footer.band-foot{font-size:.72rem;flex-wrap:wrap;gap:.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 01 / COVER ============ -->
+<section class="band dark" id="s1">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">企划书 ・ 2026 年 8 月</p>
+      <h1 class="heading" style="font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:.02em;">THE STANDARD</h1>
+      <p class="subhead" style="max-width:none;font-size:1.15rem;color:var(--copper-light);font-weight:700;">全家私房钱 2.0 生态系与投资提案</p>
+      <p class="subhead">第一个企划：《Coffee &amp; Capital》</p>
+    </div>
+
+    <div class="cover-info">
+      <div class="cover-info-row"><span class="label">呈送对象</span><span class="value">Ms Coffy Yap</span></div>
+      <div class="cover-info-row"><span class="label">提案人</span><span class="value">刘元元 ・ The Standard 创办人暨执行长（CEO）</span></div>
+      <div class="cover-info-row"><span class="label">日期</span><span class="value">2026 年 8 月</span></div>
+    </div>
+
+    <div class="callout copper-border">
+      <p><span class="tag">本版本说明</span>此企划书说明如何利用现有 IP 引出高意向买家；文末附增财务与商务拓展建议。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">01 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 02 / THE OPPORTUNITY ============ -->
+<section class="band light" id="s2">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">The Opportunity</p>
+      <h2 class="heading">厂房与工业地产，是大马最庞大却最不透明的资产类别</h2>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span></div>
+        <p class="card-title">资讯不对称</p>
+        <p class="card-body">交易金额动辄百万令吉、周期长、高度仰赖仲介关系，大众与非公民投资人几乎无从理解</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span></div>
+        <p class="card-title">外资设厂热潮</p>
+        <p class="card-body">半导体、电动车供应链等外资持续南移设厂，工业地与厂房需求稳步上升</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span></div>
+        <p class="card-title">信任的缺口</p>
+        <p class="card-body">谁能第一个用听得懂的故事，把这个资产类别摊开来讲，谁就掌握了信任与流量的入口</p>
+      </div>
+    </div>
+
+    <div class="callout plain-light">
+      <p style="font-weight:700;color:var(--navy-deep);">全家私房钱 2.0，就是为了抢占这个入口而生。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">02 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 03 / TRACK RECORD ============ -->
+<section class="band light" id="s3">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Track Record</p>
+      <h2 class="heading">全家私房钱 MoneyMoneyHome 已经证明：内容可以打入信任的核心圈层</h2>
+      <p class="subhead">这不是第一次。元元过去打造的理财投资内容品牌全家私房钱 MoneyMoneyHome，已经走过「内容→信任→影响力」这条路，并且被三个最难打入的圈层验证过。</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:.9rem;">
+      <div class="card" style="flex-direction:row;align-items:center;gap:1.2rem;">
+        <span class="milestone-badge" style="background:var(--green);color:#fff;flex-shrink:0;">✓</span>
+        <div>
+          <p class="card-title">Authority</p>
+          <p class="card-body">成功打入大马证券监督委员会（SC Malaysia）与大马股票交易所（Bursa Malaysia）</p>
+        </div>
+      </div>
+      <div class="card" style="flex-direction:row;align-items:center;gap:1.2rem;">
+        <span class="milestone-badge" style="background:var(--green);color:#fff;flex-shrink:0;">✓</span>
+        <div>
+          <p class="card-title">大众</p>
+          <p class="card-body">建立广泛认知度与内容黏著度</p>
+        </div>
+      </div>
+      <div class="card" style="flex-direction:row;align-items:center;gap:1.2rem;">
+        <span class="milestone-badge" style="background:var(--green);color:#fff;flex-shrink:0;">✓</span>
+        <div>
+          <p class="card-title">发展商与投资理财学院</p>
+          <p class="card-body">获得产业端（Developers）的认可与合作；主要资方 VI College 也因全家私房钱成功打开大马中文投资课程市场</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout plain-light">
+      <p style="font-weight:700;color:var(--navy-deep);">The Standard，就是把这套已经被验证的方法论，制度化为一家媒体公司的核心能力。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">03 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 04 / VISION & MISSION ============ -->
+<section class="band dark" id="s4">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Vision ＆ Mission</p>
+      <h2 class="heading" style="font-size:clamp(1.8rem,4vw,2.7rem);">让被高度资讯不对称与神秘感包围的资产类别，第一次被大众用听得懂的故事方式理解。</h2>
+    </div>
+    <div style="border-top:1px solid var(--navy-line);padding-top:1.4rem;">
+      <p class="subhead" style="font-size:1.05rem;">透过真实人物与产业故事，重建大众对重大投资决策的信任基础，并在完全不做内容内推销的前提下，把这份信任转化为可验证的商业成果。</p>
+    </div>
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">04 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 05 / BUSINESS MODEL ============ -->
+<section class="band light" id="s5">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Business Model</p>
+      <h2 class="heading">核心逻辑：内容建立信任，交易在内容之外发生</h2>
+    </div>
+
+    <div class="flow-wrap">
+      <div class="flow" style="min-width:640px;">
+        <div class="flow-step dark-step" style="flex:1.1;"><span class="flow-num">01</span><span class="flow-step-label">内容层<br>信任资产</span><span class="flow-step-sub">故事建立黏著度与信任，全程不置入任何产品／服务推销</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step dark-step" style="flex:1.1;"><span class="flow-num">02</span><span class="flow-step-label">导流层<br>Hook + CRM</span><span class="flow-step-sub">内容退出时抛出精准 Hook；业务团队客制化 follow up</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step copper-step" style="flex:1.1;"><span class="flow-num">03</span><span class="flow-step-label">交易层<br>商业化</span><span class="flow-step-sub">Sales team／co-broke 仲介伙伴承接成交分润，首推 Coffy 旗下 NCT</span></div>
+      </div>
+    </div>
+
+    <div class="callout plain-light">
+      <p style="font-weight:700;color:var(--navy-deep);">这套飞轮可复制到不同资产类别，Coffee &amp; Capital 是第一个验证案例。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">05 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 06 / CASE 01 ============ -->
+<section class="band light" id="s6">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Case 01</p>
+      <h2 class="heading">《Coffee &amp; Capital》→ Hook → 成交分润</h2>
+    </div>
+
+    <p class="subhead" style="max-width:none;">以真实故事带出厂房／制造业的细节，为大众揭开厂房的神秘面纱。内容完全不涉及销售讯息；当内容退出时，向被系统性识别出的高意向受众抛出精准 Hook，首推 Coffy 旗下 NCT 的 NSIP 厂房货源，leads 交回 NCT 自家 sales team 成交，The Standard 直接抽佣；NCT 以外的厂房则由业务团队与全马其他能够 perform 的房产仲介 co-broke 完成实际成交。</p>
+
+    <div class="stat-grid">
+      <div class="stat-chip">
+        <span class="stat-num">RM 700 万</span>
+        <span class="stat-label">平均单笔厂房／地交易金额（保守估算）</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num">2%</span>
+        <span class="stat-label">NCT 货源：The Standard 直接抽佣比例（供给充足，逾 1,000 英亩）</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num">30%</span>
+        <span class="stat-label">其他货源：与仲介 co-broke 后之 The Standard 分润比例</span>
+      </div>
+    </div>
+
+    <div class="callout plain-light">
+      <p style="font-weight:700;color:var(--navy-deep);">内容不推销，交易在内容之外，由专责业务团队完成商业化。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">06 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 07 / CASE 02 ============ -->
+<section class="band dark" id="s7">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Case 02 ｜ 模式复制验证</p>
+      <h2 class="heading">美股 Options 故事企划 × 专业理财陪跑团队</h2>
+      <p class="subhead">同一套「内容建信任、交易在内容外」的逻辑，复制到其他资产类别，验证全家私房钱 2.0 模式的可规模化程度。</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span></div>
+        <p class="card-body">内容里完全不推销任何相关产品／服务／平台，纯粹以美股 Options 角度说故事</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span></div>
+        <p class="card-body">出镜的是提供投资陪跑服务的专业理财投资团队，而非销售人员建立的信任</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span></div>
+        <p class="card-body">是对「这个团队、这种投资角度」的信任，交易与服务收入发生在内容之外</p>
+      </div>
+    </div>
+
+    <div class="callout navy-block">
+      <p style="font-weight:700;color:#fff;">同一套飞轮，不同资产类别，证明全家私房钱 2.0 是可规模化的媒体矩阵模型，而非单一节目。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">07 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 08 / THE TEAM WE NEED ============ -->
+<section class="band light" id="s8">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">The Team We Need</p>
+      <h2 class="heading">三大职能群，首年精简编制、随验证结果扩编</h2>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span><span class="card-title">IP 内容制作组</span></div>
+        <p class="foot-note" style="font-weight:700;color:var(--copper);">发展 IP</p>
+        <p class="card-body">内容策划／编剧、导演／摄影、后制剪辑／动态包装</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span><span class="card-title">传播矩阵／PR 组</span></div>
+        <p class="foot-note" style="font-weight:700;color:var(--copper);">建设传播渠道</p>
+        <p class="card-body">社群矩阵经营、PR／媒体公关、成长与数据分析</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span><span class="card-title">业务与伙伴对接组</span></div>
+        <p class="foot-note" style="font-weight:700;color:var(--copper);">把 Hook 转化为交易</p>
+        <p class="card-body">业配销售（抽成 20%，不占固定预算）、co-broke 仲介伙伴对接（首推 Coffy 旗下 NCT）、跨境合规顾问</p>
+      </div>
+    </div>
+
+    <div class="callout plain-light">
+      <p>Y1 以精简核心创作＋业务团队为主，业务／BD 编制较原规划提高，优先支援与 NCT 及其他 co-broke 仲介伙伴的协作对接；待 Y2 起再依验证结果逐步扩编。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">08 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 09 / PRODUCTION PARTNER ============ -->
+<section class="band light" id="s9">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Production Partner</p>
+      <h2 class="heading">为何是 Kaloz Production（Rae ＋ JiaWei）</h2>
+      <p class="subhead">我们深知 Coffy 曾推荐 Evogenetic Studio，也十分感谢这份引荐。审慎评估后，元元选择由 Rae 与 JiaWei 领军的 Kaloz Production，主要基于：</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span><span class="card-title">默契与作品质量</span></div>
+        <p class="card-body">与 Rae、JiaWei 已有实际合作经验，创作默契与作品质感已被验证，降低磨合风险</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span><span class="card-title">报价与成本效益</span></div>
+        <p class="card-body">同等规格下报价更具成本效益，让 RM1,000,000 能更有效分配到内容深度与业务投入</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span><span class="card-title">时程与制作弹性</span></div>
+        <p class="card-body">以拍摄日计费、依剧本锁定排程，节奏更弹性配合内容产出计划</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">4</span><span class="card-title">企业顾问视野</span></div>
+        <p class="card-body">JiaWei 具企业顾问背景，能在制作之外提出商业推广策略与产业人脉建议</p>
+      </div>
+    </div>
+
+    <div class="callout plain-light">
+      <p>Evogenetic Studio 仍是后续内容矩阵（如 Season 2、美股 Options 企划）的合作候选之一，开放、以合适度为优先。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">09 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 10 / FINANCIAL FORECAST (CORRECTED) ============ -->
+<section class="band light" id="s10">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Financial Forecast</p>
+      <h2 class="heading">三年损益情境分析：Worst / Normal / Best</h2>
+      <p class="subhead">情境依三年成交量路径区分（厂房／地笔数，年度累计非逐年新增）；NCT 货源 The Standard 直接抽 2%，其他货源经 co-broke 转介分润 30%</p>
+    </div>
+
+    <div class="mini-table-grid">
+      <div class="mini-table worst">
+        <div class="mini-table-head worst">WORST <span class="sub">Y1 2 ／ Y2 4 ／ Y3 8 间</span></div>
+        <div class="table-scroll"><table>
+          <thead><tr><th>项目</th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+          <tbody>
+            <tr><td>成交笔数（间）</td><td class="mono">2</td><td class="mono">4</td><td class="mono">8</td></tr>
+            <tr><td>总收入 (RM)</td><td class="mono">336,800</td><td class="mono">676,128</td><td class="mono">1,347,031</td></tr>
+            <tr><td>总成本 (RM)</td><td class="mono">1,000,000</td><td class="mono">1,520,000</td><td class="mono">1,870,000</td></tr>
+            <tr><td>净损益 (RM)</td><td class="mono">(663,200)</td><td class="mono">(843,872)</td><td class="mono">(522,969)</td></tr>
+            <tr><td>累积净损益 (RM)</td><td class="mono">(663,200)</td><td class="mono">(1,507,072)</td><td class="mono">(2,030,041)</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="mini-table normal">
+        <div class="mini-table-head normal">NORMAL <span class="sub">Y1 6 ／ Y2 12 ／ Y3 24 间</span></div>
+        <div class="table-scroll"><table>
+          <thead><tr><th>项目</th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+          <tbody>
+            <tr><td>成交笔数（间）</td><td class="mono">6</td><td class="mono">12</td><td class="mono">24</td></tr>
+            <tr><td>总收入 (RM)</td><td class="mono">896,800</td><td class="mono">1,716,384</td><td class="mono">3,411,092</td></tr>
+            <tr><td>总成本 (RM)</td><td class="mono">1,000,000</td><td class="mono">1,520,000</td><td class="mono">1,870,000</td></tr>
+            <tr><td>净损益 (RM)</td><td class="mono">(103,200)</td><td class="mono">196,384</td><td class="mono">1,541,092</td></tr>
+            <tr><td>累积净损益 (RM)</td><td class="mono">(103,200)</td><td class="mono">93,184</td><td class="mono">1,634,276</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="mini-table best">
+        <div class="mini-table-head best">BEST <span class="sub">Y1 8 ／ Y2 20 ／ Y3 40 间</span></div>
+        <div class="table-scroll"><table>
+          <thead><tr><th>项目</th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+          <tbody>
+            <tr><td>成交笔数（间）</td><td class="mono">8</td><td class="mono">20</td><td class="mono">40</td></tr>
+            <tr><td>总收入 (RM)</td><td class="mono">1,176,800</td><td class="mono">2,756,640</td><td class="mono">5,475,154</td></tr>
+            <tr><td>总成本 (RM)</td><td class="mono">1,000,000</td><td class="mono">1,520,000</td><td class="mono">1,870,000</td></tr>
+            <tr><td>净损益 (RM)</td><td class="mono">176,800</td><td class="mono">1,236,640</td><td class="mono">3,605,154</td></tr>
+            <tr><td>累积净损益 (RM)</td><td class="mono">176,800</td><td class="mono">1,413,440</td><td class="mono">5,018,594</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <p class="foot-note">业配收入为 The Standard 净收（已扣业务／BD 抽成 20%），与 YouTube 收入维持管理层估算不变（不随情境变动）；三年成本假设固定，不随成交情境变动，Y2／Y3 开销明细详见后页。</p>
+
+    <div class="callout navy-block">
+      <p><span class="tag">结论</span>Normal 情境 Y1 仍处投入期（净损 RM 103,200），约 Y2 过半转正，Y3 累积净利达 RM 1,634,276；Best 情境 Y1 即获利，Y3 累积净利 RM 5,018,594。Worst 情境三年均为累积亏损，Y3 累积净损达 RM 2,030,041，凸显加速成交、扩大 co-broke 网络的重要性（详见文末 CFO ＋ BD 健检建议）。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">10 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 11 / ACCELERATED FORECAST ============ -->
+<section class="band light" id="s11">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">加速后的财务推演</p>
+      <h2 class="heading">不是变出更多钱，是把同一份钱提早到位</h2>
+      <p class="subhead">以下试算完全沿用企划书自身模型的变数，方向性推演，非正式财务预测</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card neutral">
+        <p class="kicker">Normal · Y1（6 笔成交，100% NCT）</p>
+        <p class="bignum">RM 896,800</p>
+        <p class="caption">Y1 总营收</p>
+        <p class="bignum" style="font-size:1.3rem;color:var(--red);margin-top:.5rem;">净损（RM 103,200）</p>
+        <p class="caption">Y1 净损益</p>
+      </div>
+      <div class="compare-card strong-navy">
+        <p class="kicker">加速后 · Y1（8 笔成交，同一套抽成结构）</p>
+        <p class="bignum">RM 1,176,800</p>
+        <p class="caption">Y1 总营收</p>
+        <p class="bignum" style="font-size:1.3rem;color:var(--green);margin-top:.5rem;">净利 RM 176,800</p>
+        <p class="caption">Y1 净损益</p>
+      </div>
+    </div>
+
+    <p class="lede">翻转 <span class="mono" style="color:var(--copper);">RM 280,000</span> ・ 只靠既有名单把成交笔数从 6 笔推进到 8 笔（财务模型里 Normal 与 Best 情境 Y1 唯一的差异变数）</p>
+
+    <div class="two-chart-row">
+      <div class="chart-card">
+        <p class="chart-title">Y1 总营收与净损益：加速前后对比</p>
+        <div class="legend">
+          <span><i style="background:var(--muted-dark-2);"></i>Normal（6 笔）</span>
+          <span><i style="background:var(--copper);"></i>加速后（8 笔）</span>
+        </div>
+        <div class="chart-wrap">
+          <svg viewBox="0 0 600 260" style="width:100%;height:auto;display:block;">
+            <text x="20" y="26" class="mono" style="font-size:11px;fill:var(--ink-soft);">Y1 总营收 (RM)</text>
+            <line x1="20" y1="210" x2="280" y2="210" style="stroke:var(--card-light-line);stroke-width:1;"/>
+            <rect x="40" y="103" width="70" height="107" rx="3" style="fill:var(--muted-dark-2);"/>
+            <rect x="140" y="70" width="70" height="140" rx="3" style="fill:var(--copper);"/>
+            <text x="75" y="93" text-anchor="middle" class="mono" style="font-size:13px;font-weight:700;fill:var(--ink);">896,800</text>
+            <text x="175" y="60" text-anchor="middle" class="mono" style="font-size:13px;font-weight:700;fill:var(--ink);">1,176,800</text>
+            <text x="75" y="232" text-anchor="middle" style="font-size:12px;fill:var(--ink-soft);">Normal</text>
+            <text x="175" y="232" text-anchor="middle" style="font-size:12px;fill:var(--ink-soft);">加速后</text>
+
+            <text x="320" y="26" class="mono" style="font-size:11px;fill:var(--ink-soft);">Y1 净损益 (RM)</text>
+            <line x1="320" y1="170" x2="580" y2="170" style="stroke:var(--card-light-line);stroke-width:1;"/>
+            <rect x="360" y="170" width="70" height="52.5" rx="3" style="fill:var(--red);"/>
+            <rect x="460" y="80" width="70" height="90" rx="3" style="fill:var(--green);"/>
+            <text x="395" y="238" text-anchor="middle" class="mono" style="font-size:13px;font-weight:700;fill:var(--red);">(103,200)</text>
+            <text x="495" y="72" text-anchor="middle" class="mono" style="font-size:13px;font-weight:700;fill:var(--green);">176,800</text>
+            <text x="395" y="248" text-anchor="middle" style="font-size:12px;fill:var(--ink-soft);">Normal</text>
+            <text x="495" y="248" text-anchor="middle" style="font-size:12px;fill:var(--ink-soft);">加速后</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="callout copper-border" style="flex:1;min-width:260px;">
+        <p><span class="tag">延伸方向（仅供参考）</span>若 Y2 能提前做到接近 Best 情境的成交量与供给结构，原本要等 Y3 才出现的健康累积获利，理论上有机会提前一年在 Y2 浮现。这是方向性试算，非正式财务预测，实际仍取决于 <b style="color:var(--copper);">Co-broke 网络建设速度与成交执行力</b>。</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">11 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 12 / WHY THESE NUMBERS HOLD ============ -->
+<section class="band light" id="s12">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Why These Numbers Hold</p>
+      <h2 class="heading">销量与回酬的实证基础：全家私房钱数据 ＋ 双引擎商业模式</h2>
+      <p class="subhead">前页 Worst／Normal／Best 的成交量与收入假设，即建立在以下观众规模、变现案例与双引擎结构之上</p>
+    </div>
+
+    <div class="asset-grid">
+      <div class="asset-card"><span class="asset-num">364 万</span><span class="asset-label">全家私房钱电视＋数位平台历史累积观看人次</span></div>
+      <div class="asset-card"><span class="asset-num">近 2 万</span><span class="asset-label">目前 YouTube 订阅数</span></div>
+      <div class="asset-card"><span class="asset-num">8 万＋</span><span class="asset-label">目前 Facebook 粉丝数</span></div>
+    </div>
+
+    <div class="callout copper-border">
+      <p><span class="tag">VI College 案例：内容信任如何规模化为商业成果</span>全家私房钱成功打开大马中文投资课程市场：VI College 先投入 RM600,000 制作播出第一季，验证成效后加码邀约元元拍摄第二季；后期加入元元前搭档 Daphne（Astro 中文部前公关 VP）与本地纸媒前线合作，最终单靠线上投资课程销售，为 VI College 累积达 SGD 9,600 万的准备金。</p>
+    </div>
+
+    <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+      <div class="card accent-navy-strong">
+        <p class="card-title">引擎一：厂房／地产成交分润</p>
+        <p class="card-body">NCT 货源 leads 交回 NCT 自家 sales team 成交，The Standard 直接抽佣 2%；NCT 以外货源则转介全马其他能够 perform 的房产仲介 co-broke，The Standard 分润 30%。NCT 供给充足（逾 1,000 英亩，续购约 900 英亩），成交不受单一团队产能限制。</p>
+      </div>
+      <div class="card accent-navy-strong">
+        <p class="card-title">引擎二：内容业配（抽成制）</p>
+        <p class="card-body">业务团队销售集数业配：产品亮相 RM5,000／集、产品介绍 RM1,000／集、量身定制厂房故事 RM40,000／集；收入分润为业务／BD 抽成 20%、The Standard 公司收益 80%，业务为抽成制，不占固定预算，与成交情境（Worst／Normal／Best）各自独立估算。</p>
+        <p class="card-body" style="font-style:italic;color:var(--copper-light);">以上单集报价为方向性参考金额，尚未纳入财务模型三情境测算，实际收入仍以财务模型「三年收入预测」分页为准。</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">12 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 13 / COST BREAKDOWN ============ -->
+<section class="band light" id="s13">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Cost Breakdown</p>
+      <h2 class="heading">Y2 ／ Y3 开销明细：四大成本类别</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>成本类别</th><th>Y2 (RM)</th><th>Y3 (RM)</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>内容制作</td><td class="mono">750,000</td><td class="mono">850,000</td><td>Y2 起含新 IP 企划（如美股 Options 故事系列）</td></tr>
+          <tr><td>团队人才</td><td class="mono">480,000</td><td class="mono">680,000</td><td>随内容矩阵与 co-broke 网络扩张逐年增聘</td></tr>
+          <tr><td>传播矩阵与 PR 推广</td><td class="mono">190,000</td><td class="mono">230,000</td><td>社群矩阵、公关、发行推广费用随规模成长</td></tr>
+          <tr><td>行政与应变预备金</td><td class="mono">100,000</td><td class="mono">110,000</td><td>行政、法务、合规与不可预见支出</td></tr>
+          <tr style="font-weight:800;background:var(--card-neutral);"><td>Total 总成本</td><td class="mono">1,520,000</td><td class="mono">1,870,000</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout plain-light">
+      <p>成本结构承接附件财务模型「三年成本预算」分页；Y1 金额详见资金用途表，Y2／Y3 为扩张阶段管理层估算，不随成交情境（Worst／Normal／Best）变动。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">13 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 14 / USE OF FUNDS ============ -->
+<section class="band dark" id="s14">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Use Of Funds</p>
+      <h2 class="heading">首年资金用途：RM 1,000,000（＋/-）</h2>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <p class="card-title">内容制作</p>
+        <p class="stat-num" style="font-size:1.5rem;">RM 215,000</p>
+        <p class="card-body">Kaloz 拍摄／后制报价＋企划脚本</p>
+      </div>
+      <div class="card">
+        <p class="card-title">团队人才</p>
+        <p class="stat-num" style="font-size:1.5rem;">RM 390,000</p>
+        <p class="card-body">主持人(TBD)＋制作人(TBD)＋业务／BD（较原规划提高，支援 co-broke 协作）</p>
+      </div>
+      <div class="card">
+        <p class="card-title">传播矩阵与 PR</p>
+        <p class="stat-num" style="font-size:1.5rem;">RM 238,000</p>
+        <p class="card-body">Kaloz 社群矩阵经营＋Paid media 预备（较原规划提高）</p>
+      </div>
+      <div class="card">
+        <p class="card-title">行政与预备金</p>
+        <p class="stat-num" style="font-size:1.5rem;">RM 157,000</p>
+        <p class="card-body">行政、法务、合规与不可预见支出（较原规划提高）</p>
+      </div>
+    </div>
+
+    <div class="callout navy-block">
+      <p>内容拍摄／后制与社群矩阵经营报价来自 Kaloz Production（JiaWei），2026-08-10；标注 TBD 项目待双方确认。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">14 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 15 / ROADMAP ============ -->
+<section class="band light" id="s15">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">Roadmap</p>
+      <h2 class="heading">里程碑路线图</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="milestone dark-m">
+        <span class="milestone-badge">1</span>
+        <p class="milestone-phase">Y1 Q1 至 Q2</p>
+        <p class="milestone-title">成立＋首波 Hook</p>
+        <p class="milestone-body">团队组建、拍摄启动；Q2 起分阶段抛出 Hook，尽早导流 NCT 加速首年成交</p>
+      </div>
+      <div class="milestone light-m">
+        <span class="milestone-badge">2</span>
+        <p class="milestone-phase">Y1 Q3 至 Q4</p>
+        <p class="milestone-title">上线＋业务跟进</p>
+        <p class="milestone-body">建立信任、业配落地、业务团队／co-broke 仲介伙伴对接跟进</p>
+      </div>
+      <div class="milestone dark-m">
+        <span class="milestone-badge">3</span>
+        <p class="milestone-phase">Y2</p>
+        <p class="milestone-title">IP 矩阵＋co-broke 扩展</p>
+        <p class="milestone-body">Season 2、美股 Options 企划；co-broke 网络扩展至 NCT 以外货源</p>
+      </div>
+      <div class="milestone light-m">
+        <span class="milestone-badge">4</span>
+        <p class="milestone-phase">Y3</p>
+        <p class="milestone-title">规模化＋转亏为盈</p>
+        <p class="milestone-body">多 IP 矩阵、多仲介 co-broke 网络成熟，Y3 转亏为盈</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">15 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 16 / THE ASK ============ -->
+<section class="band dark" id="s16">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">The Ask</p>
+      <h2 class="heading">邀请 Coffy，成为 The Standard 最重要的伙伴</h2>
+    </div>
+
+    <div class="callout copper-solid">
+      <p style="font-size:.9rem;font-weight:700;color:var(--navy-deep);margin-bottom:.3rem;">资金需求</p>
+      <p style="font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:2.4rem;color:var(--navy-deep);">RM 1,000,000</p>
+      <p style="font-size:.92rem;font-weight:500;">（＋/-）Coffee &amp; Capital 首年制作预算</p>
+    </div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <p class="info-label">资金</p>
+        <p class="info-body">内容制作、核心人才、业务／BD 团队、传播矩阵与 PR</p>
+      </div>
+      <div class="info-item">
+        <p class="info-label">产业资源</p>
+        <p class="info-body">拥有过千英亩厂房／地产（续购约 900 英亩），是故事题材与 NCT 厂房去化的关键伙伴</p>
+      </div>
+      <div class="info-item">
+        <p class="info-label">共同定义</p>
+        <p class="info-body">股权、收入分润或优先项目合作权等回报结构，于本提案基础上另行商议</p>
+      </div>
+    </div>
+
+    <div class="callout navy-block">
+      <p style="font-weight:700;color:#fff;">除了资金，我们邀请的是一个持续、深度的合作伙伴关系。</p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">16 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 17 / CLOSING ============ -->
+<section class="band dark" id="s17">
+  <div class="band-inner" style="gap:1.4rem;">
+    <h2 class="heading" style="font-size:clamp(1.9rem,4.2vw,2.9rem);">用对的故事，<br>让大众第一次看懂、也开始信任。</h2>
+    <p class="subhead" style="font-size:1.05rem;">The Standard 诚挚邀请 Coffy，以资金与产业资源的双重身份，共同展开全家私房钱 2.0 这趟旅程。</p>
+    <p style="font-weight:800;color:var(--copper-light);border-top:1px solid var(--navy-line);padding-top:1rem;">元元 ｜ The Standard 创办人暨执行长（CEO）</p>
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">17 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 18 / CFO+BD 健检 红旗清单 ============ -->
+<section class="band dark" id="s18">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">附录 · CFO ＋ BD 独立健检</p>
+      <h2 class="heading">四个上桌前必须先处理的风险</h2>
+      <p class="subhead">在资金到位前，这些是需要 founder 正面回应、而非带过的问题</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-row"><span class="card-num">1</span></div>
+        <p class="card-title">营收集中风险</p>
+        <p class="card-body">Y3 营收 90.8% 来自单一资产类别（厂房／工业地产）分润；房产深探、期权投资两条内容线目前对营收贡献极小</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">2</span></div>
+        <p class="card-title">现金周期错配</p>
+        <p class="card-body">内容与团队成本按月前置支出，厂房交易周期长达 3-6 个月，Y1 恐有现金缺口</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">3</span></div>
+        <p class="card-title">单一供应商依赖</p>
+        <p class="card-body">Y1 100% 仰赖 NCT 一家货源；NCT 自身厂房储备（逾 1,000 英亩，续购约 900 英亩）虽充足，仍是单点风险</p>
+      </div>
+      <div class="card">
+        <div class="card-row"><span class="card-num">4</span></div>
+        <p class="card-title">固定成本、变动营收</p>
+        <p class="card-body">Worst 情境下，固定成本几乎吃掉全部营收成长空间，下行保护有限</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">18 / 19</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ 19 / CFO+BD 结论与建议 ============ -->
+<section class="band dark" id="s19">
+  <div class="band-inner">
+    <div class="header-block">
+      <p class="eyebrow">附录 · CFO／BD 结论与建议</p>
+      <h2 class="heading">条件式支持：RM 1,000,000 的 Y1 提案值得推进</h2>
+      <p class="subhead">商业模式成立，且与 Coffy／NCT 的资源高度互补（不只是找资金，也是找货源伙伴），建议附带四项条件支持提案</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem;align-items:start;" class="conditions-grid">
+      <div style="display:flex;flex-direction:column;gap:1.1rem;">
+        <p style="font-weight:700;color:#fff;">附带条件</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">1</span>
+            <p class="card-body">先统一企划书、财务模型与官网页面的三套数字，列为对外募资前的必要 diligence 项目</p>
+          </div>
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">2</span>
+            <p class="card-body">把 Co-broke 伙伴开发从 Y2 提前到 Y1 同步启动</p>
+          </div>
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">3</span>
+            <p class="card-body">内容上线后 30 天内完成第一波 Hook 导流，不等到 Q2</p>
+          </div>
+          <div class="card-row" style="align-items:flex-start;gap:1rem;">
+            <span class="card-num">4</span>
+            <p class="card-body">业配配套「先卖后拍」，Y1 至少锁定 2-3 个品牌预售合约作为早期现金流</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout navy-block" style="align-self:stretch;background:var(--navy-soft);">
+        <p style="font-weight:700;color:#fff;margin-bottom:.7rem;">90 天优先事项</p>
+        <ul>
+          <li>核实财务模型三份文件口径</li>
+          <li>启动旧观众 ・ <span style="color:var(--green);font-weight:700;">可行</span></li>
+          <li>VI College 校友回温名单 ・ <span style="color:var(--red);font-weight:700;">不可行，之前的 leads 属于 VI</span></li>
+          <li>同步启动 2-3 个 Co-broke 伙伴接洽 ・ <span style="color:var(--green);font-weight:700;">可行</span></li>
+          <li>预售至少 2 个业配配套 ・ <span style="color:var(--green);font-weight:700;">可行</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout copper-solid">
+      <p>全家私房钱 2.0 不缺信任，缺的是把信任更快转成同时在跑的交易，<b>这也是这 RM 1,000,000 真正该优化的地方。</b></p>
+    </div>
+
+    <footer class="band-foot">
+      <span>The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
+      <span class="mono">19 / 19</span>
+    </footer>
+  </div>
+</section>
+
+</body>
+</html>
