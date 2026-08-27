@@ -1,0 +1,908 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全家私房錢 Money Money Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ink:#16241F;
+  --paper:#F7F2E4;
+  --paper-raised:#EFE7CE;
+  --brass:#A6771F;
+  --jade:#1F5A45;
+  --brick:#9C3F27;
+  --muted:#6E6656;
+  --line:#D9CBA0;
+  --font-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --font-mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F3ECD9;
+    --paper:#101C17;
+    --paper-raised:#182A22;
+    --brass:#D9A64B;
+    --jade:#57AB8A;
+    --brick:#DE8563;
+    --muted:#A79C82;
+    --line:#2A3B32;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F3ECD9;
+  --paper:#101C17;
+  --paper-raised:#182A22;
+  --brass:#D9A64B;
+  --jade:#57AB8A;
+  --brick:#DE8563;
+  --muted:#A79C82;
+  --line:#2A3B32;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+body.lang-en{font-family:var(--font-body);}
+img,svg{max-width:100%;display:block;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+.hairline{border:none;border-top:1px solid var(--line);margin:0;}
+a{color:inherit;}
+::selection{background:var(--brass);color:var(--paper);}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:900;text-wrap:balance;margin:0;}
+h2,h3{font-weight:700;}
+h1{font-weight:900;}
+#page-en h1,#page-en h2,#page-en h3{font-family:"Noto Serif TC","Georgia",serif;}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--brass);}
+
+/* ---------- Language toggle ---------- */
+.lang-toggle{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:999;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  background:var(--ink);
+  color:var(--paper);
+  border:1px solid color-mix(in srgb, var(--paper) 30%, transparent);
+  border-radius:999px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.08em;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  transition:transform .15s ease, background .2s ease;
+}
+.lang-toggle:hover{transform:translateY(-1px);}
+.lang-toggle:active{transform:translateY(0);}
+.lang-toggle .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--brass);
+  transition:background .2s ease;
+}
+html.lang-is-en .lang-toggle .dot{background:var(--jade);}
+.lang-toggle .lt-label{white-space:nowrap;}
+@media (max-width:520px){
+  .lang-toggle{top:12px;right:12px;padding:8px 12px;font-size:11px;}
+}
+
+/* ---------- Page switch ---------- */
+#page-en{display:none;}
+html.lang-is-en #page-zh{display:none;}
+html.lang-is-en #page-en{display:block;}
+
+/* ---------- Masthead ---------- */
+.masthead{
+  background:var(--ink);
+  color:var(--paper);
+  position:relative;
+  overflow:hidden;
+}
+.masthead::after{
+  content:"";
+  position:absolute;
+  inset:auto -20% -60% auto;
+  width:60vw;height:60vw;
+  background:radial-gradient(circle at center, color-mix(in srgb, var(--brass) 22%, transparent), transparent 70%);
+  pointer-events:none;
+}
+.masthead-inner{
+  padding:64px 28px 0;
+  max-width:1080px;
+  margin:0 auto;
+  position:relative;
+}
+.masthead-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.1em;
+  color:color-mix(in srgb, var(--paper) 65%, transparent);
+  padding-bottom:20px;
+  border-bottom:1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+  flex-wrap:wrap;
+  gap:8px;
+}
+.masthead-top span strong{color:var(--brass);font-weight:600;}
+.masthead-title{
+  padding:56px 0 20px;
+}
+.masthead-title .cn{
+  font-size:clamp(38px,7.5vw,84px);
+  line-height:1.08;
+  letter-spacing:.02em;
+  overflow-wrap:break-word;
+}
+.masthead-title .en-tag{
+  display:block;
+  font-family:var(--font-mono);
+  font-weight:500;
+  font-size:clamp(13px,1.6vw,17px);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin-top:18px;
+}
+.masthead-lede{
+  max-width:620px;
+  font-size:18px;
+  color:color-mix(in srgb, var(--paper) 82%, transparent);
+  padding-bottom:44px;
+}
+.ticker{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  border-top:1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+}
+.ticker div{
+  padding:22px 4px 26px;
+  border-left:1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+}
+.ticker div:first-child{border-left:none;}
+.ticker .num{
+  font-family:var(--font-mono);
+  font-variant-numeric:tabular-nums;
+  font-size:clamp(22px,3vw,32px);
+  color:var(--brass);
+  display:block;
+}
+.ticker .label{
+  font-size:13px;
+  color:color-mix(in srgb, var(--paper) 70%, transparent);
+  margin-top:4px;
+}
+
+/* ---------- Sections ---------- */
+section{padding:88px 0;}
+section.tight{padding:64px 0;}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:24px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+.section-head h2{font-size:clamp(28px,3.6vw,40px);}
+.section-head .desc{
+  max-width:340px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* About */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:56px;
+}
+.about-grid p{font-size:16px;color:color-mix(in srgb, var(--ink) 88%, transparent);}
+.about-grid p + p{margin-top:1em;}
+.statement-body{max-width:720px;}
+.statement-body p{font-size:16px;color:color-mix(in srgb, var(--ink) 88%, transparent);}
+.statement-body p + p{margin-top:1em;}
+.lede-quote{
+  border-left:3px solid var(--brass);
+  padding-left:20px;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:700;
+  font-size:18px;
+  color:var(--ink);
+  margin-bottom:26px;
+}
+#page-zh .lede-quote{font-style:normal;}
+.stat-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-top:36px;
+}
+.stat-strip div{background:var(--paper-raised);padding:24px 22px;}
+.stat-strip .num{
+  font-family:var(--font-mono);
+  font-variant-numeric:tabular-nums;
+  font-size:clamp(18px,2.4vw,25px);
+  color:var(--jade);
+  display:block;
+  line-height:1.3;
+}
+.stat-strip .label{font-size:12.5px;color:var(--muted);margin-top:6px;}
+.footnote{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--muted);
+  margin-top:14px;
+}
+.about-card{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  padding:28px;
+  align-self:start;
+}
+.about-card h3{font-size:18px;margin-bottom:14px;}
+.about-card ul{list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted);}
+.about-card li{
+  padding:10px 0;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+.about-card li:first-child{border-top:none;}
+.about-card li span:last-child{
+  font-family:var(--font-mono);
+  color:var(--jade);
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* Milestones */
+.milestones{
+  border-top:1px solid var(--line);
+}
+.milestone{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:28px;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+.milestone .tag{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--brick);
+}
+.milestone h4{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:17px;
+  margin:6px 0 0;
+}
+.milestone p{
+  margin:8px 0 0;
+  font-size:14.5px;
+  color:var(--muted);
+  max-width:60ch;
+}
+
+/* Content matrix */
+.matrix{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.matrix-card{
+  background:var(--paper);
+  padding:32px 26px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.matrix-card .letter{
+  font-family:var(--font-display);
+  font-size:40px;
+  color:var(--brass);
+  line-height:1;
+}
+.matrix-card h3{font-size:20px;}
+.matrix-card p{font-size:14.5px;color:var(--muted);flex-grow:1;}
+.matrix-card .channels{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--jade);
+  letter-spacing:.03em;
+  border-top:1px dashed var(--line);
+  padding-top:14px;
+}
+.cadence-note{
+  margin-top:22px;
+  font-size:13.5px;
+  color:var(--muted);
+  font-family:var(--font-mono);
+}
+.cadence-note strong{color:var(--ink);font-family:var(--font-body);font-weight:700;}
+#page-en .cadence-note strong{font-family:"Noto Serif TC","Georgia",serif;}
+
+/* Pricing */
+.rates{
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+.rate-row{
+  display:grid;
+  grid-template-columns:80px 1.3fr 1.7fr auto;
+  gap:24px;
+  align-items:center;
+  padding:26px 0;
+  border-top:1px solid var(--line);
+}
+.rate-row:first-child{border-top:none;}
+.rate-row .idx{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--brass);
+}
+.rate-row h3{font-size:19px;font-family:var(--font-display);font-weight:700;}
+.rate-row .rate-desc{font-size:14px;color:var(--muted);max-width:46ch;}
+.rate-row .price{
+  font-family:var(--font-mono);
+  font-variant-numeric:tabular-nums;
+  font-size:clamp(20px,2.4vw,26px);
+  color:var(--jade);
+  text-align:right;
+  white-space:nowrap;
+}
+.rate-row .price small{
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+  font-weight:400;
+  text-align:right;
+}
+.rate-row.featured .price{color:var(--brick);}
+
+/* CTA / contact */
+.cta{
+  background:var(--ink);
+  color:var(--paper);
+  padding:80px 0;
+  text-align:center;
+}
+.cta h2{color:var(--paper);font-size:clamp(26px,3.4vw,36px);}
+.cta p{
+  max-width:44ch;
+  margin:18px auto 0;
+  color:color-mix(in srgb, var(--paper) 78%, transparent);
+  font-size:15px;
+}
+.cta .contact-card{
+  display:inline-flex;
+  gap:28px;
+  margin-top:34px;
+  padding:20px 30px;
+  border:1px solid color-mix(in srgb, var(--paper) 28%, transparent);
+  font-family:var(--font-mono);
+  font-size:13px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.cta .contact-card div{text-align:left;}
+.cta .contact-card span{display:block;color:var(--brass);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+
+footer{
+  padding:26px 0 40px;
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--muted);
+  text-align:center;
+}
+
+@media (max-width:760px){
+  .wrap{padding:0 20px;}
+  .masthead-inner{padding:44px 20px 0;}
+  .masthead-title{padding:36px 0 16px;}
+  .masthead-lede{font-size:16px;padding-bottom:32px;}
+  section{padding:56px 0;}
+  section.tight{padding:44px 0;}
+  .section-head{margin-bottom:28px;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .about-card{padding:22px;}
+  .about-card li{flex-direction:column;align-items:flex-start;gap:2px;}
+  .about-card li span:last-child{white-space:normal;text-align:left;}
+  .matrix{grid-template-columns:1fr;}
+  .matrix-card{padding:26px 22px;}
+  .rate-row{grid-template-columns:1fr;text-align:left;gap:10px;padding:22px 0;}
+  .rate-row .price{text-align:left;}
+  .rate-row .price small{text-align:left;}
+  .milestone{grid-template-columns:1fr;gap:6px;padding:20px 0;}
+  .stat-strip{grid-template-columns:1fr;}
+  .cta{padding:56px 0;}
+}
+
+/* ---------- Mobile photo texture ---------- */
+@media (max-width:760px){
+  .photo-section{position:relative;overflow:hidden;}
+  .photo-section::before,
+  .photo-section::after{content:"";position:absolute;inset:0;z-index:0;}
+  .photo-section::before{
+    background-size:cover;
+    background-position:center;
+    filter:blur(26px) saturate(55%);
+    opacity:.4;
+    transform:scale(1.15);
+  }
+  .photo-section::after{
+    background:linear-gradient(180deg,
+      color-mix(in srgb, var(--paper) 90%, transparent),
+      color-mix(in srgb, var(--paper) 95%, transparent));
+  }
+  .photo-section > *{position:relative;z-index:1;}
+  .about-photo::before{background-image:url("主持人劉元元.png");}
+  .milestones-photo::before{background-image:url("與Bursa聯辦萬人線下活動-1.png");}
+  .matrix-photo::before{background-image:url("與iProperty聯辦三天線下活動.png");}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .masthead-title .cn{
+    animation:rise .7s ease both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+}
+</style>
+
+<button type="button" class="lang-toggle" id="langToggle" aria-pressed="false">
+  <span class="dot"></span>
+  <span class="lt-label">EN</span>
+</button>
+
+<div id="page-zh">
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <span>媒體招商手冊</span>
+      <span>目標市場：<strong>馬來西亞・新加坡</strong> 中文家庭</span>
+    </div>
+    <div class="masthead-title">
+      <h1 class="cn">全家私房錢<br>Money Money Home</h1>
+      <span class="en-tag">理財內容 IP · 起家於 Astro 電視台 → 數位 2.0</span>
+    </div>
+    <p class="masthead-lede">從收費電視台節目到 YouTube／FB／IG 矩陣，馬來西亞首個通俗易懂的理財投資品牌《全家私房錢》現重新出發。2.0 全新面貌，同一班底，帶來企業廠房紀實、美股期權和資本故事三條內容線。</p>
+    <div class="ticker">
+      <div><span class="num">80,000+</span><span class="label">Facebook 粉絲專頁</span></div>
+      <div><span class="num">20,000+</span><span class="label">YouTube 訂閱</span></div>
+      <div><span class="num">2 季 26 集</span><span class="label">Astro 電視棚內節目</span></div>
+      <div><span class="num">10,000+</span><span class="label">與 Bursa Malaysia 聯辦線下人流</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="tight photo-section about-photo">
+    <div class="section-head">
+      <h2>品牌介紹</h2>
+      <div class="desc">一個從電視台走出來、又回到內容矩陣的理財 IP。</div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>「全家私房錢 Money Money Home」自馬來西亞 Astro 電視台起家，曾製播兩季共 26 集半小時理財節目，是少數在新馬市場長期經營「全家一起談錢」定位的中文內容品牌。節目下線後，品牌延續原班底經營內容矩陣，累積 8 萬 Facebook 粉絲與 2 萬 YouTube 訂閱，並持續與政府機構、上市公司、發展商合作策劃線下活動與內容項目。</p>
+        <p>隨著內容消費習慣轉移，全家私房錢 2.0 以同一班底、全新面貌重新出發，深耕 YouTube 為主頻道，同步經營 Facebook 與 Instagram，將原本的電視棚內敘事能力，轉化為短影音時代的週更內容與 Shorts／Reels。</p>
+      </div>
+      <div class="about-card">
+        <h3>品牌檔案</h3>
+        <ul>
+          <li><span>核心市場</span><span>馬來西亞・新加坡</span></li>
+          <li><span>語言</span><span>中文</span></li>
+          <li><span>電視資歷</span><span>Astro・2 季 26 集</span></li>
+          <li><span>FB 粉絲專頁</span><span>80,000+</span></li>
+          <li><span>YouTube 訂閱</span><span>20,000+</span></li>
+          <li><span>發布節奏</span><span>週更＋不定時 Shorts/Reels</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline">
+
+  <section class="tight">
+    <div class="section-head">
+      <h2>品牌官方陳述</h2>
+      <div class="desc">品牌官方陳述 — Money Money Home</div>
+    </div>
+    <div class="statement-body">
+      <p class="lede-quote">我們獨到地融合知識性與娛樂性內容，讓理財知識不論新手或專家都能輕鬆理解、人人可及。</p>
+      <p>作為一個數位媒體平台，Money Money Home 透過生動的影音內容、深入淺出的資訊圖表，以及富有洞察力的文章，協助大眾掌握自己的財務狀況。我們的內容涵蓋範圍廣泛，包括日常理財基礎、保險、財務與資產規劃、股票、ETF、房地產，以及其他投資知識。</p>
+      <p>Money Money Home 整合電視、線上與線下三大管道，致力於彌合在地社群的理財知識落差，帶來積極影響。</p>
+    </div>
+    <div class="stat-strip">
+      <div><span class="num">360 萬</span><span class="label">電視與數位平台累計觀看次數*</span></div>
+      <div><span class="num">120,000</span><span class="label">粉絲、訂閱與會員總數</span></div>
+      <div><span class="num">最佳品牌內容</span><span class="label">入圍 · 2019 亞洲電視大獎</span></div>
+    </div>
+    <p class="footnote">*Money Money Home 第一、二季於 Astro AEC 的累計獨立觀眾人數（資料來源：Kantar Media）與 YouTube 觀看次數總和。</p>
+  </section>
+
+  <hr class="hairline">
+
+  <section class="photo-section milestones-photo">
+    <div class="section-head">
+      <h2>傲人紀錄</h2>
+      <div class="desc">從政府單位到上市發展商，全家私房錢是少數同時被財經監管機構與品牌方信任的中文理財 IP。</div>
+    </div>
+    <div class="milestones">
+      <div class="milestone">
+        <div class="tag">政府聯辦</div>
+        <div>
+          <h4>首個與 Bursa Malaysia 聯辦線下萬人活動的理財 IP</h4>
+          <p>於檳城舉辦，由時任財政部長主持開幕，是全家私房錢與國家證券交易所深度合作的代表作。</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">商場聯辦</div>
+        <div>
+          <h4>與 iProperty 於吉隆坡谷中城合辦三天線下理財投資 Expo</h4>
+          <p>結合房產與投資主題，於黃金地段商場舉辦為期三天的大型線下博覽會。</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">發展商合作</div>
+        <div>
+          <h4>與大馬知名發展商合辦理財投資家庭日</h4>
+          <p>將理財教育包裝為家庭日活動，貼合品牌「全家一起談錢」的核心定位。</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">監管機構委任</div>
+        <div>
+          <h4>獲 SC 委任拍攝製作宣傳影片，於全馬 RapidKL 公共交通工具內播放</h4>
+          <p>內容獲馬來西亞證券監督委員會採用，作為全國公共交通媒體投放素材。</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">獎項肯定</div>
+        <div>
+          <h4>獲亞洲電視大獎提名「最佳品牌內容」</h4>
+          <p>於區域性電視獎項中，與亞洲各地內容製作團隊同台角逐。</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">教育市場</div>
+        <div>
+          <h4>與合作投資學院成功打開新馬中文投資課程市場</h4>
+          <p>將節目內容延伸為付費教育產品，驗證品牌在轉化與信任度上的商業價值。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline">
+
+  <section class="photo-section matrix-photo">
+    <div class="section-head">
+      <h2>2.0 內容矩陣</h2>
+      <div class="desc">同一班底，三條全新內容線，週更主軸內容，搭配不定時 Shorts／Reels，於 YouTube・Facebook・Instagram 同步經營。</div>
+    </div>
+    <div class="matrix">
+      <div class="matrix-card">
+        <span class="letter">A</span>
+        <h3>廠房紀實</h3>
+        <p>走進製造業、數據中心等仰賴大面積工業土地與廠房的產業，挖掘一般人不知道的企業背後故事——怎麼選地建廠、怎麼運營、怎麼在市場裡活下來。</p>
+        <div class="channels">YOUTUBE 週更 · FB / IG 同步</div>
+      </div>
+      <div class="matrix-card">
+        <span class="letter">B</span>
+        <h3>期權投資</h3>
+        <p>拆解如何善用美股期權進行穩健投資，用電視棚多年累積的講解功力，把複雜工具講成人話。</p>
+        <div class="channels">YOUTUBE 週更 · FB / IG 同步</div>
+      </div>
+      <div class="matrix-card">
+        <span class="letter">C</span>
+        <h3>資本故事</h3>
+        <p>用深度對話，邀請「願意講真話的資本家」，觸及新馬兩地企業主、投資人與專業服務從業者，內容不做惡意爆料，充分尊重商業敏感度。</p>
+        <div class="channels">YOUTUBE 週更 · FB / IG 同步</div>
+      </div>
+    </div>
+    <p class="cadence-note"><strong>發布節奏　</strong>三條內容線各自週更主要內容，並依話題熱度不定時推出 Shorts／Reels 於三平台矩陣同步曝光。</p>
+  </section>
+
+  <hr class="hairline">
+
+  <section id="rates">
+    <div class="section-head">
+      <h2>業配配套</h2>
+      <div class="desc">三種深度，從品牌曝光到內容共創，依合作深度定價。</div>
+    </div>
+    <div class="rates">
+      <div class="rate-row">
+        <div class="idx">配套一</div>
+        <div>
+          <h3>產品／品牌曝光</h3>
+        </div>
+        <div class="rate-desc">公司標誌出現在畫面裡，作為輕度品牌曝光。</div>
+        <div class="price">RM 5,000<small>／集</small></div>
+      </div>
+      <div class="rate-row">
+        <div class="idx">配套二</div>
+        <div>
+          <h3>產品／品牌介紹</h3>
+        </div>
+        <div class="rate-desc">內容中穿插 30 秒品牌／產品介紹，融入主題敘事。</div>
+        <div class="price">RM 10,000<small>／集</small></div>
+      </div>
+      <div class="rate-row featured">
+        <div class="idx">配套三</div>
+        <div>
+          <h3>內容策劃共創</h3>
+        </div>
+        <div class="rate-desc">以內容策劃角度出發，為品牌量身打造棚內故事線。例：以「過去百年亞洲人餐飲習慣變化」帶出李錦記。</div>
+        <div class="price">RM 40,000<small>／集</small></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="cta">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">洽談合作</span>
+    <h2>讓您的品牌，走進馬新中文家庭的理財日常</h2>
+    <p>不論是輕量曝光或深度內容共創，我們的內容團隊都能依配套與品牌需求，規劃合適的敘事切角。</p>
+    <div class="contact-card">
+      <div><span>業務聯繫</span>請洽全家私房錢 Money Money Home 內容合作窗口</div>
+      <div><span>合作範圍</span>配套一 / 配套二 / 配套三 · 可依需求客製</div>
+    </div>
+  </div>
+</div>
+
+<footer>全家私房錢 Money Money Home © 媒體招商手冊 · 內容資訊如有更動，以最新合作洽談為準</footer>
+
+</div>
+
+<div id="page-en">
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <span>MEDIA SALES KIT</span>
+      <span>Target Market: <strong>Malaysia &amp; Singapore</strong>, Chinese-speaking Families</span>
+    </div>
+    <div class="masthead-title">
+      <h1 class="cn">Money Money Home</h1>
+      <span class="en-tag">Family Finance IP · Est. Astro TV → Digital 2.0</span>
+    </div>
+    <p class="masthead-lede">From pay-TV programming to a YouTube／FB／IG content matrix — Malaysia's first finance and investment brand to make money talk truly accessible, Money Money Home relaunches. Version 2.0 brings the same core team and a fresh look, with three new content lines: corporate factory chronicles, US stock options, and capital stories.</p>
+    <div class="ticker">
+      <div><span class="num">80,000+</span><span class="label">Facebook Page Fans</span></div>
+      <div><span class="num">20,000+</span><span class="label">YouTube Subscribers</span></div>
+      <div><span class="num">2 Seasons, 26 Eps</span><span class="label">Astro In-Studio Episodes</span></div>
+      <div><span class="num">10,000+</span><span class="label">Foot traffic, event co-hosted with Bursa Malaysia</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="tight photo-section about-photo">
+    <div class="section-head">
+      <h2>Brand Introduction</h2>
+      <div class="desc">A finance IP that started on TV and returned to the content matrix.</div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>Money Money Home began on Malaysia's Astro TV, producing two seasons and 26 half-hour finance episodes — one of the few Chinese-language brands in the Malaysia-Singapore market built around "the whole family talking about money." After the show ended, the same core team kept the brand alive across a content matrix, growing to 80,000 Facebook fans and 20,000 YouTube subscribers, while continuing to co-organize offline events and content projects with government bodies, listed companies and property developers.</p>
+        <p>As content consumption habits shift, Money Money Home 2.0 relaunches with the same team and a fresh look, focusing on YouTube as its main channel while running Facebook and Instagram in parallel — turning its original TV-studio storytelling into weekly content and Shorts／Reels for the short-video era.</p>
+      </div>
+      <div class="about-card">
+        <h3>Brand Profile</h3>
+        <ul>
+          <li><span>Core Market</span><span>Malaysia &amp; Singapore</span></li>
+          <li><span>Language</span><span>Chinese</span></li>
+          <li><span>TV Track Record</span><span>Astro · 2 Seasons, 26 Episodes</span></li>
+          <li><span>FB Page Fans</span><span>80,000+</span></li>
+          <li><span>YouTube Subscribers</span><span>20,000+</span></li>
+          <li><span>Publishing Cadence</span><span>Weekly + occasional Shorts/Reels</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline">
+
+  <section class="tight">
+    <div class="section-head">
+      <h2>Official Brand Statement</h2>
+      <div class="desc">Official Brand Statement — Money Money Home</div>
+    </div>
+    <div class="statement-body">
+      <p class="lede-quote">Our unique blend of informative and entertaining content makes financial literacy accessible to everyone, from novices to experts.</p>
+      <p>As a digital media platform, Money Money Home empowers individuals to gain control over their financial well-being through engaging video content, informative infographics, and insightful articles. Our content covers a wide range of topics, including day-to-day money management basics, insurance, financial and estate planning, stocks, ETF, property, and other investing knowledge.</p>
+      <p>With an integrated on-air, online, and on-ground presence, Money Money Home aims to bridge the financial literacy gap in local communities and make a positive impact.</p>
+    </div>
+    <div class="stat-strip">
+      <div><span class="num">3.6 Mil</span><span class="label">Collective views across TV &amp; Digital platforms*</span></div>
+      <div><span class="num">120,000</span><span class="label">Followers, subscribers and members</span></div>
+      <div><span class="num">Best Branded Content</span><span class="label">Nominated · Asian Television Awards 2019</span></div>
+    </div>
+    <p class="footnote">*Total MMH S1–2 unique viewers on Astro AEC (Source: Kantar Media) and YouTube views.</p>
+  </section>
+
+  <hr class="hairline">
+
+  <section class="photo-section milestones-photo">
+    <div class="section-head">
+      <h2>Notable Achievements</h2>
+      <div class="desc">From government bodies to listed developers, Money Money Home is one of the few Chinese-language finance IPs trusted by both financial regulators and brands alike.</div>
+    </div>
+    <div class="milestones">
+      <div class="milestone">
+        <div class="tag">Government Partnership</div>
+        <div>
+          <h4>The first finance IP to co-host a 10,000-strong offline event with Bursa Malaysia</h4>
+          <p>Held in Penang and opened by the then Minister of Finance, this event stands as a flagship example of Money Money Home's deep collaboration with the national stock exchange.</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">Mall Partnership</div>
+        <div>
+          <h4>Co-hosted a 3-day finance &amp; investment expo with iProperty at Mid Valley, Kuala Lumpur</h4>
+          <p>A large-scale, three-day offline expo combining property and investment themes at a prime shopping mall location.</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">Developer Collaboration</div>
+        <div>
+          <h4>Co-organized a finance &amp; investment Family Day with a well-known Malaysian developer</h4>
+          <p>Packaged financial education as a family day event, staying true to the brand's core positioning of "the whole family talking about money."</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">Regulator Commission</div>
+        <div>
+          <h4>Commissioned by the Securities Commission Malaysia to produce a video screened across RapidKL public transport</h4>
+          <p>The content was adopted by the Securities Commission Malaysia and used as nationwide public-transport media material.</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">Award Recognition</div>
+        <div>
+          <h4>Nominated for "Best Branded Content" at the Asian Television Awards</h4>
+          <p>Competed alongside content production teams from across Asia at this regional television award.</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="tag">Education Market</div>
+        <div>
+          <h4>Successfully opened up the Malaysia-Singapore Chinese-language investment course market with a partner investment academy</h4>
+          <p>Extended the show's content into a paid education product, proving the brand's commercial value in conversion and trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline">
+
+  <section class="photo-section matrix-photo">
+    <div class="section-head">
+      <h2>Content Matrix 2.0</h2>
+      <div class="desc">Same core team, three brand-new content lines, weekly flagship content plus occasional Shorts／Reels, run in parallel across YouTube, Facebook and Instagram.</div>
+    </div>
+    <div class="matrix">
+      <div class="matrix-card">
+        <span class="letter">A</span>
+        <h3>Factory Chronicles</h3>
+        <p>Stepping into manufacturing, data centers and other industries built on large-scale industrial land and factories — uncovering the untold stories behind companies: how they choose sites, build plants, operate, and survive in the market.</p>
+        <div class="channels">YOUTUBE WEEKLY · FB / IG SIMULTANEOUS</div>
+      </div>
+      <div class="matrix-card">
+        <span class="letter">B</span>
+        <h3>Options Investing</h3>
+        <p>Breaking down how to use US stock options for steady, disciplined investing — using years of in-studio explanation skills to turn a complex tool into plain, human language.</p>
+        <div class="channels">YOUTUBE WEEKLY · FB / IG SIMULTANEOUS</div>
+      </div>
+      <div class="matrix-card">
+        <span class="letter">C</span>
+        <h3>Capital Stories</h3>
+        <p>Through in-depth conversations, we invite "capitalists willing to speak the truth," reaching business owners, investors and professional-service practitioners across Malaysia and Singapore. The content avoids sensational exposés and fully respects commercial sensitivities.</p>
+        <div class="channels">YOUTUBE WEEKLY · FB / IG SIMULTANEOUS</div>
+      </div>
+    </div>
+    <p class="cadence-note"><strong>Publishing Cadence　</strong>Each of the three content lines publishes its main episode weekly, with Shorts／Reels released as topics gain traction, exposed simultaneously across all three platforms.</p>
+  </section>
+
+  <hr class="hairline">
+
+  <section id="rates">
+    <div class="section-head">
+      <h2>Sponsorship Packages</h2>
+      <div class="desc">Three tiers of depth, from brand exposure to content co-creation, priced by level of collaboration.</div>
+    </div>
+    <div class="rates">
+      <div class="rate-row">
+        <div class="idx">Package 1</div>
+        <div>
+          <h3>Product／Brand Display</h3>
+        </div>
+        <div class="rate-desc">Company logo appears on screen for light-touch brand exposure.</div>
+        <div class="price">RM 5,000<small>/ episode</small></div>
+      </div>
+      <div class="rate-row">
+        <div class="idx">Package 2</div>
+        <div>
+          <h3>Product／Brand Introduction</h3>
+        </div>
+        <div class="rate-desc">A 30-second brand／product introduction woven into the episode's narrative.</div>
+        <div class="price">RM 10,000<small>/ episode</small></div>
+      </div>
+      <div class="rate-row featured">
+        <div class="idx">Package 3</div>
+        <div>
+          <h3>Content Co-creation</h3>
+        </div>
+        <div class="rate-desc">Built from a content-strategy perspective, crafting a custom in-studio storyline for the brand. Example: introducing Lee Kum Kee through "how Asian dining habits have changed over the past century."</div>
+        <div class="price">RM 40,000<small>/ episode</small></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="cta">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">Get in Touch</span>
+    <h2>Bring your brand into the everyday financial conversations of Chinese families in Malaysia &amp; Singapore</h2>
+    <p>Whether it's light-touch exposure or deep content co-creation, our content team can shape the right narrative angle to fit your package and brand needs.</p>
+    <div class="contact-card">
+      <div><span>Business Contact</span>Please contact the Money Money Home content partnership team</div>
+      <div><span>Scope of Cooperation</span>Package 1 / 2 / 3 · customizable on request</div>
+    </div>
+  </div>
+</div>
+
+<footer>Money Money Home © Media Sales Kit · Content details are subject to change; the latest terms apply upon confirmed partnership.</footer>
+
+</div>
+
+<script>
+(function(){
+  var toggle = document.getElementById('langToggle');
+  var root = document.documentElement;
+  var label = toggle.querySelector('.lt-label');
+  toggle.addEventListener('click', function(){
+    var toEnglish = !root.classList.contains('lang-is-en');
+    root.classList.toggle('lang-is-en', toEnglish);
+    toggle.setAttribute('aria-pressed', toEnglish ? 'true' : 'false');
+    label.textContent = toEnglish ? '中文' : 'EN';
+  });
+})();
+</script>
