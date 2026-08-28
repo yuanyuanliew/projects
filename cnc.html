@@ -8,7 +8,7 @@
 <!-- Link-preview tags (WhatsApp, Facebook, Telegram, etc. all read Open Graph) -->
 <meta content="website" property="og:type"/>
 <meta content="The Standard" property="og:site_name"/>
-<meta content="https://thestandard.rexilion.com/" property="og:url"/>
+<meta content="https://thestandard.rexilion.com/cnc" property="og:url"/>
 <meta content="THE STANDARD" property="og:title"/>
 <meta content="全家私房钱 2.0 生态系与投资提案" property="og:description"/>
 <!-- Twitter Card falls back to the og: tags above if these are omitted, kept here for completeness -->
@@ -17,7 +17,7 @@
 <meta content="全家私房钱 2.0 生态系与投资提案" name="twitter:description"/>
 <link href="https://fonts.googleapis.com/" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link href="./THE STANDARD ｜ 全家私房钱 2.0_files/css2" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&amp;family=Noto+Sans+SC:wght@400;500;700;900&amp;family=IBM+Plex+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --navy-deep:#141D33;
@@ -39,6 +39,7 @@
   }
 
   *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--navy-deep);
@@ -319,6 +320,13 @@
   }
   .lang-toggle:hover{background:var(--copper-light);}
   .lang-toggle:active{transform:translateY(1px);}
+
+  .quick-jump{display:flex;flex-direction:column;gap:.7rem;}
+  .quick-jump-label{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-dark-2);}
+  .quick-jump-links{display:flex;gap:.7rem;flex-wrap:wrap;}
+  .quick-jump-links a{display:inline-flex;align-items:center;gap:.45rem;background:var(--navy-soft);border:1px solid var(--navy-line);color:var(--copper-light);text-decoration:none;font-weight:700;font-size:.9rem;padding:.6rem 1.1rem;border-radius:999px;transition:background .15s,border-color .15s;}
+  .quick-jump-links a:hover{background:var(--navy-line);border-color:var(--copper);}
+  .quick-jump-links a .arrow{font-family:'IBM Plex Mono',monospace;font-weight:700;}
   @media (max-width:640px){
     .lang-toggle{top:8px;right:8px;padding:.45rem .85rem;font-size:.72rem;}
   }
@@ -341,6 +349,14 @@
 </div>
 <div class="callout copper-border">
 <p id="i18n-8"><span class="tag">本版本说明</span>这是一门「用内容降低获客成本的地产转介生意」，飞轮本身已被验证，需要提前执行最赚钱的动作如扩大货源网络、尽早导流，以加速变现。不需要更多内容，需要更快把同一套飞轮转更多圈。</p>
+</div>
+<div class="quick-jump">
+<p class="quick-jump-label" id="i18n-221">快速跳转　｜　直接看数字</p>
+<div class="quick-jump-links">
+<a href="#s10"><span id="i18n-222">三年损益情境分析（Worst／Normal／Best）</span><span class="arrow">→</span></a>
+<a href="#s14"><span id="i18n-223">首年资金用途（Use Of Funds）</span><span class="arrow">→</span></a>
+<a href="#s15"><span id="i18n-224">里程碑路线图</span><span class="arrow">→</span></a>
+</div>
 </div>
 <footer class="band-foot">
 <span id="i18n-9">The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
@@ -1213,7 +1229,11 @@
   "i18n-217": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
   "i18n-218": `IG`,
   "i18n-219": `MoneyMoneyHome Instagram ↗`,
-  "i18n-220": `<span class="tag">Content Distribution</span>Every content project in this proposal will premiere on MoneyMoneyHome's own social media and YouTube channel: <a href="https://www.facebook.com/moneymoneyhome.my" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Facebook</a>, <a href="https://www.youtube.com/@MoneyMoneyHomeMy" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">YouTube</a>, and <a href="https://www.instagram.com/moneymoneyhome.my/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Instagram</a>. For story ideas in the pipeline, see the <a href="https://thestandard.rexilion.com/story" target="_blank" rel="noopener" style="color:var(--copper);font-weight:700;">Global Industrial Factory Story Bank</a> (including Ep1's full script and 20 ready to use story ideas).`
+  "i18n-220": `<span class="tag">Content Distribution</span>Every content project in this proposal will premiere on MoneyMoneyHome's own social media and YouTube channel: <a href="https://www.facebook.com/moneymoneyhome.my" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Facebook</a>, <a href="https://www.youtube.com/@MoneyMoneyHomeMy" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">YouTube</a>, and <a href="https://www.instagram.com/moneymoneyhome.my/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Instagram</a>. For story ideas in the pipeline, see the <a href="https://thestandard.rexilion.com/story" target="_blank" rel="noopener" style="color:var(--copper);font-weight:700;">Global Industrial Factory Story Bank</a> (including Ep1's full script and 20 ready to use story ideas).`,
+  "i18n-221": `Quick Jump　|　Straight to the Numbers`,
+  "i18n-222": `Three-Year P&amp;L Scenarios (Worst / Normal / Best)`,
+  "i18n-223": `Use Of Funds`,
+  "i18n-224": `Roadmap Milestones`
 };
   var originalHTML = {};
   var currentLang = 'zh';
