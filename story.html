@@ -1,0 +1,767 @@
+<title>厂房故事库</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --navy-deep:#141D33;
+    --navy:#1F3864;
+    --navy-soft:#24345C;
+    --navy-line:#33456F;
+    --copper:#C0862B;
+    --copper-light:#E7C179;
+    --cream:#F6F1E3;
+    --card-light:#FFFFFF;
+    --card-light-line:#E5DFCC;
+    --card-neutral:#EEF1F6;
+    --ink:#1C2233;
+    --ink-soft:#54607A;
+    --muted-dark:#9AA6C4;
+    --muted-dark-2:#7C88AA;
+    --red:#B3503F;
+    --green:#3F8F63;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy-deep);color:var(--ink);font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Noto Serif SC','Songti SC',serif;margin:0;text-wrap:balance;}
+  p{margin:0;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+  .band{padding:4rem 1.5rem;}
+  .band.dark{background:var(--navy-deep);color:#fff;}
+  .band.light{background:var(--cream);color:var(--ink);}
+  .band-inner{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:2rem;}
+
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;}
+  .band.dark .eyebrow{color:var(--copper-light);}
+  .band.light .eyebrow{color:var(--copper);}
+
+  .heading{font-weight:900;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.3;}
+  .band.dark .heading{color:#fff;}
+  .band.light .heading{color:var(--navy-deep);}
+
+  .subhead{font-size:1.02rem;line-height:1.75;}
+  .band.dark .subhead{color:var(--muted-dark);}
+  .band.light .subhead{color:var(--ink-soft);}
+  .subhead b{font-weight:800;}
+  .band.dark .subhead b{color:#fff;}
+  .band.light .subhead b{color:var(--navy-deep);}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+  .stat-chip{border-radius:14px;padding:1.2rem 1.3rem;background:var(--navy-soft);border:1px solid var(--navy-line);}
+  .stat-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1.5rem;color:var(--copper-light);display:block;margin-bottom:.4rem;}
+  .stat-label{font-size:.82rem;color:var(--muted-dark);line-height:1.5;}
+
+  .group-head{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;margin-bottom:.3rem;}
+  .group-tag{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.85rem;color:#fff;background:var(--navy);border-radius:6px;padding:.25rem .6rem;}
+  .group-tag.alt{background:var(--copper);color:var(--navy-deep);}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.1rem;}
+  .story-card{background:var(--card-light);border:1px solid var(--card-light-line);border-radius:16px;padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.85rem;}
+  .story-card .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;flex-wrap:wrap;}
+  .ep-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.82rem;color:var(--copper);}
+  .tag-pill{font-size:.72rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;background:var(--card-neutral);color:var(--navy);white-space:nowrap;}
+  .story-title{font-family:'Noto Serif SC',serif;font-weight:800;font-size:1.15rem;color:var(--navy-deep);line-height:1.45;}
+  .hook-line{font-size:.92rem;font-style:italic;color:var(--ink-soft);border-left:3px solid var(--copper);padding-left:.7rem;line-height:1.6;}
+  .story-body{font-size:.9rem;line-height:1.75;color:var(--ink-soft);}
+  .story-body b{color:var(--navy-deep);}
+  .fact-line{font-size:.8rem;background:var(--card-neutral);border-radius:8px;padding:.55rem .75rem;color:var(--navy);line-height:1.6;}
+  .fact-line .fact-tag{font-weight:700;color:var(--copper);margin-right:.4rem;}
+
+  .closing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;}
+  .closing-card{background:var(--navy-soft);border:1px solid var(--navy-line);border-radius:14px;padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;}
+  .closing-card .num{width:34px;height:34px;border-radius:50%;background:var(--copper);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.85rem;}
+  .closing-card .ctitle{font-weight:700;color:#fff;font-size:1rem;}
+  .closing-card .cbody{font-size:.88rem;color:var(--muted-dark);line-height:1.7;}
+
+  footer.band-foot{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;padding-top:1rem;margin-top:.3rem;border-top:1px solid;}
+  .band.dark footer.band-foot{border-color:var(--navy-line);color:var(--muted-dark-2);}
+  .band.light footer.band-foot{border-color:var(--card-light-line);color:var(--ink-soft);}
+
+  .script-stack{display:flex;flex-direction:column;gap:1rem;}
+  .script-card{background:var(--card-light);border:1px solid var(--card-light-line);border-radius:16px;padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.8rem;}
+  .script-card .sc-head{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;}
+  .script-card .sc-chapter{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.85rem;color:#fff;background:var(--navy);border-radius:6px;padding:.25rem .6rem;white-space:nowrap;}
+  .script-card .sc-time{font-size:.78rem;color:var(--copper);font-weight:700;}
+  .script-card .sc-title{font-family:'Noto Serif SC',serif;font-weight:800;font-size:1.1rem;color:var(--navy-deep);line-height:1.45;}
+  .script-card .sc-body{display:flex;flex-direction:column;gap:.65rem;font-size:.92rem;line-height:1.8;color:var(--ink-soft);}
+  .script-card .sc-body p{margin:0;}
+  .script-card .sc-body .sub{font-weight:800;color:var(--navy-deep);}
+  .script-card .sc-visual{font-size:.82rem;font-style:italic;color:var(--ink-soft);border-left:3px solid var(--copper);padding-left:.8rem;line-height:1.65;}
+  .script-card .sc-visual .vtag{font-weight:700;font-style:normal;color:var(--copper);margin-right:.4rem;}
+
+  @media (max-width:640px){.band{padding:2.8rem 1.1rem;}}
+
+  .lang-toggle{
+    position:fixed;top:14px;right:14px;z-index:9999;
+    background:var(--copper);color:var(--navy-deep);
+    border:none;border-radius:999px;padding:.55rem 1.1rem;
+    font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:.8rem;
+    letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);
+    display:flex;align-items:center;gap:.4rem;
+  }
+  .lang-toggle:hover{background:var(--copper-light);}
+  .lang-toggle:active{transform:translateY(1px);}
+  @media (max-width:640px){
+    .lang-toggle{top:8px;right:8px;padding:.45rem .85rem;font-size:.72rem;}
+  }
+
+</style>
+
+<button aria-label="Switch language" class="lang-toggle" id="lang-toggle-btn" type="button">EN</button>
+
+<!-- ============ COVER ============ -->
+<section class="band dark">
+  <div class="band-inner">
+    <p class="eyebrow" id="i18n-0">《带着咖啡探厂去》选题库　｜　基于市场调查</p>
+    <h1 class="heading" id="i18n-1" style="font-size:clamp(1.8rem,4vw,2.6rem);">全球工业厂房故事库<br>20 个可以带着走的选题</h1>
+    <p class="subhead" id="i18n-2">沿用 Ep1「一滴水，也能决定 AI 世界的未来」的叙事公式：<b>从一个日常不会多想的东西出发，揭开它背后一群没人知道、却撑住全世界的隐形工厂／企业／材料</b>，制造反差与悬念，最后收束到「把一件事做到极致，就是不可或缺」的价值观。以下每个选题都基于近期真实新闻与产业事件，并标注了可以直接开场引用的关键数据。</p>
+
+    <div class="stat-grid">
+      <div class="stat-chip"><span class="stat-num">12 + 8</span><span class="stat-label" id="i18n-3">12 个全球隐形供应链故事　＋　8 个马来西亚／东南亚在地故事</span></div>
+      <div class="stat-chip"><span class="stat-num" id="i18n-4">Hook → 危机 → 科普 → 揭秘 → 收尾</span><span class="stat-label" id="i18n-5">每个选题都可套用 Ep1 的五段式结构直接展开</span></div>
+      <div class="stat-chip"><span class="stat-num">100%</span><span class="stat-label" id="i18n-6">选题均附真实事件／数据来源，可核实后再写稿</span></div>
+    </div>
+
+    <footer class="band-foot">
+      <span id="i18n-7">The Standard ｜ 带着咖啡探厂去・选题研究</span>
+      <span class="mono" id="i18n-8">01 / 05</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ EP1 REFERENCE ============ -->
+<section class="band light">
+  <div class="band-inner">
+    <div class="header-block" style="display:flex;flex-direction:column;gap:.7rem;">
+      <p class="eyebrow" id="i18n-9">Ep1 · 已完成，结构范本</p>
+      <h2 class="heading" id="i18n-10">Ep1《原来，一滴水，也能决定 AI 世界的未来》完整大纲</h2>
+      <p class="subhead" id="i18n-11">总长约 15 分钟；以下 20 个选题，都沿用这一集验证过的 Hook → 认识危机 → 简单科普 → 揭秘 → 收尾 五段式结构。</p>
+    </div>
+
+    <div class="script-stack">
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-12">Hook</span><span class="sc-time" id="i18n-13">30 秒</span></div>
+        
+        <div class="sc-body">
+        <p id="i18n-14">世界上最先进的芯片，一片价值数万美元。一座晶圆厂，一天可以生产数千万美元的产品。</p>
+        <p id="i18n-15">但它们最害怕的，不是能源危机，不是战争……而是一滴水。</p>
+        <p id="i18n-16">一滴不够纯净的水，就能让整批晶片直接报废。</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-17">画面／视觉参考</span><span id="i18n-18">快速剪辑：NVIDIA GPU、AI 数据中心、台积电 Fab、ASML 光刻机、洁净室、一滴水滴落。慢镜头 macro shot：有些许杂质的一滴水滴落晶片，晶片变成碎片。</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-19">认识危机</span><span class="sc-time" id="i18n-20">1.5 分钟</span></div>
+        <p class="sc-title" id="i18n-21">致命的「绝境水危机」</p>
+        <div class="sc-body">
+        <p id="i18n-22">一个先进的芯片制造厂，一年大概需要消耗数千万吨的水。你以为这些水是为了冷却高度运作的设备而已吗？</p>
+        <p id="i18n-23">其实，真正的用途，是作为芯片的洗澡水！</p>
+        <p id="i18n-24">2021 年，一场几十年来最严重的大旱席卷台湾。缺水影响的不仅仅是民生问题，如果晶圆厂断水，苹果 iPhone 可能延期，汽车芯片将面临断供。全球科技产业将陷入瘫痪。于是，台积电每天砸下重金租用数百辆运水车出动抢水。</p>
+        <p id="i18n-25">以台积电为例，2024 年台积电用水量超过 9 千万立方米，如果以奥运会长 50 米、宽 25 米、平均水深为 2 米的泳池来计算，可以装满超过 3 万 7 千个泳池。</p>
+        <p id="i18n-26">你可能会想，欸，这不就解决了吗？自来水、矿泉水、过滤后的废水，不管怎样，都一定能找得到水，后果有这么严重吗？</p>
+        <p id="i18n-27">事实上，晶片要的不是普通的「水」，而是「超纯水（Ultra-Pure Water, UPW）」。</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-28">画面／视觉参考</span><span id="i18n-29">2021 年台湾大旱，水库干涸裂开，贴着「台积电」标志的巨型运水车排成长龙。</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-30">简单科普：芯片制造过程</span><span class="sc-time" id="i18n-31">1.5 分钟</span></div>
+        <p class="sc-title" id="i18n-32">为什么芯片要一直洗澡？</p>
+        <div class="sc-body">
+        <p id="i18n-33">芯片的制造是一个极其复杂、精密的科学过程。它基本上就像是在微观世界里盖摩天大楼，需要把数十亿个微小的开关（晶体管）塞进一个只有指甲盖大小的面积里。</p>
+        <p id="i18n-34">一路经过光刻 → 显影 → 蚀刻 → 沉积 → CMP（化学机械抛光） → 清洗。同样的过程，需要在同一片芯片上重复数十甚至数百次。</p>
+        <p id="i18n-35">每完成一个小步骤，芯片都需要洗澡。不是因为它有多脏，而是为了把上一层的化学残留完全洗掉。清洗，再清洗。随着芯片线条变得越来越细微，工艺越先进，清洗的频率越高。一片芯片，随着不同的纳米工艺，需要经过数十次甚至超过两百次的清洗。</p>
+        <p id="i18n-36">任何一次的污染，都足以造成以亿为美元单位计算的损失！</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-37">画面／视觉参考</span><span id="i18n-38">动画参考：https://youtu.be/BSQ4ZlMX5o8</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-39">揭露超纯水：简单科普超纯水的制作过程</span><span class="sc-time" id="i18n-40">2.5 分钟</span></div>
+        <p class="sc-title" id="i18n-41">洗澡水要多干净？</p>
+        <div class="sc-body">
+        <p id="i18n-42">普通水 vs. 超纯水：我们喝的矿泉水里充满了钙、镁、钠离子和微粒，这对人是营养，对晶片却是「陨石撞地球」。</p>
+        <p id="i18n-43">超纯水（UPW）的制作是一个「把水扒得精光」的过程。它必须去掉普通水里的矿物质、细菌、病毒、有机物甚至溶解的空气，纯度高达 99.9999999% 以上。</p>
+        <p id="i18n-44">（简单介绍制作过程的 4 个阶段。）</p>
+        <p id="i18n-45">普通自来水里的杂质含量是百万分之一（ppm）级别，超纯水是十亿分之一（ppb）甚至万亿分之一（ppt）级别。半导体超纯水的电阻率需要达到 18.2 MΩ·cm（兆欧厘米）。理论上纯水的极限是 18.24 MΩ·cm。这意味着水中几乎没有任何导电离子。</p>
+        <p id="i18n-46">现代先进制程（如 3nm）的线路宽度，只有人类头发丝的万分之一。超纯水对杂质的要求相当于在一个标准游泳池（50 吨）的水里，只能溶解不到一小撮盐（1 克），「在一个满员的大型足球场里，精准抓出一粒指定的尘埃」。</p>
+        <p id="i18n-47">如果水中带有一个微小的导电金属离子（如铜离子），落在纳米级别的电路之间，就会导致晶体管短路，整片晶圆烧毁。</p>
+        <p id="i18n-48">如此超纯度的水，一座先进的芯片厂，每天消耗的超纯水量高达 2000 到 3000 吨，需要消耗的水高达数千万吨。</p>
+        <p id="i18n-49">但真正难的，不是做出来。而是一天 24 小时，一年 365 天，都做到一样纯。</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-50">画面／视觉参考</span><span id="i18n-51">介绍：超纯水 Ultra Pure Water。比较：自来水、矿泉水、蒸馏水、实验室纯水。最后：超纯水 18.2 MΩ。</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-52">幕后隐形冠军</span><span class="sc-time" id="i18n-53">1 分钟</span></div>
+        
+        <div class="sc-body">
+        <p id="i18n-54">日本，有几家鲜为人知的企业。当全世界在抢 NVIDIA GPU、当我们都在关注 ASML 光刻机、美国投资数千亿美元建芯片厂，日本、美国、欧洲都想摆脱对亚洲晶片供应链的依赖的时候，很少人注意到全球最先进的芯片超级工厂，都有一个共同问题：</p>
+        <p id="i18n-55">它们必须找到几家低调到不能再低调的日本公司。因为，没有这些公司的技术，先进芯片根本无法出生。这几家日本公司卖的不是过滤器，他们卖的是：整座芯片厂的生命系统。</p>
+        <p id="i18n-56">为什么世界最先进的晶片厂，缺了他们就不行？</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-57">画面／视觉参考</span><span id="i18n-58">日本普通工业区。没有高楼，没有 Logo，没有媒体。Organo、Kurita、Nomura 慢慢出现。老师傅、工程师、黑白照。</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-59">为什么没人能取代他们？</span><span class="sc-time" id="i18n-60">4 分钟</span></div>
+        <p class="sc-title" id="i18n-61">绝对的垄断</p>
+        <div class="sc-body">
+        <p id="i18n-62"><span class="sub">第一家隐形冠军：Organo Corporation（オルガノ）</span></p>
+        <p id="i18n-63">从战争年代的「救命水」开始，它不是一开始为了半导体。</p>
+        <p id="i18n-64">1940 年代，日本战后资源短缺，Organo 创办人丸山正武研究离子交换技术与水净化技术。</p>
+        <p id="i18n-65">目标是为了解决饮用水问题，研究的是「如何让人喝到干净的水」。几十年后，他们研究的是：「如何让晶片洗掉一个不存在的灰尘。」后来这些技术慢慢演变成为今天半导体产业需要的超纯水技术。</p>
+        <p id="i18n-66"><span class="sub">第二家隐形冠军：Kurita Water Industries（栗田工业）</span></p>
+        <p id="i18n-67">如果 Organo 像「晶圆厂专属水工程师」，那么 Kurita 更像「全球工业水管家」。</p>
+        <p id="i18n-68">Kurita 创立于 1949 年，最初主要解决锅炉水处理问题。因为日本工业快速发展，工厂越来越多，机器越来越复杂，水里面的杂质会腐蚀设备、降低效率。</p>
+        <p id="i18n-69">后来他们进入半导体、制药、电力、精密制造，成为全球工业水处理巨头。过去卖设备，现在越来越多采用 Water Treatment as a Service（水处理服务化）。客户不用自己管理，Kurita 负责设计、安装、运营、维护、持续供应。</p>
+        <p id="i18n-70"><span class="sub">第三家隐形冠军：Nomura Micro Science（野村微科学）</span></p>
+        <p id="i18n-71">1969 年成立，最早做过滤膜微粒检测，后来进入超纯水领域。1970 年代开始进入电子产业，1975 年向日本电子产业提供超纯水系统，1985 年进入台湾市场。</p>
+        <p id="i18n-72">如果说光刻机是芯片厂的「心脏」，那超纯水系统就是它的「循环系统」。在这个领域，这三家日本企业拿下了全球半导体工厂超纯水系统近 80% 的市场。无论你是贵为全球第一的台积电，还是存储芯片巨头三星，只要你的晶圆厂想要开工，你都必须请这三家日本公司里的至少一家，来为你画管道流程图、安装过滤器。</p>
+        <p id="i18n-73">业界甚至流传一句话：「台积电的厂建到哪里，他们的工程师就提前半年飞到那里蹲点。」</p>
+        <p id="i18n-74">为什么美国、中国、欧洲不能自己做？答案不是不会，而是缺乏了几十年的验证、几十年的数据、和几十年的客户。</p>
+        <p id="i18n-75">超纯水无法预先生产然后装桶运输（因为离开管路就会被空气污染），必须在晶圆厂内部「实时制造、秒级循环」。日本企业强在十几种精密过滤技术的连续整合：离子交换树脂、超滤膜（UF）、反渗透膜（RO）、紫外脱氧等。</p>
+        <p id="i18n-76">半导体要求不是一次做到纯，而是 365 天 24 小时绝对不能有任何一点水质波动。只要水质波动超标 0.01%，水系统就会触发出厂停机（Interlock），整批价值数百万甚至上千万美元的晶圆必须全部报废。损失以天计算。</p>
+        <p id="i18n-77">芯片工艺从 90nm 不断进化到 28nm、7nm、3nm、2nm，超纯水的标准也同步提升，而供应商也必须陪着几十年的客户同步升级。</p>
+        <p id="i18n-78">换一个水系统，新的水是否稳定？新的材料是否释放金属？新的管道是否污染？一套新的水处理系统要经过至少 6 到 12 个月的颗粒物、金属离子析出测试。如果失败，损失不仅是设备费用，而是一批又一批的芯片。</p>
+        <p id="i18n-79">这就是工业世界里的：「隐形锁定」。</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-80">画面／视觉参考</span><span id="i18n-81">商业分析动态图、供应链地图、市占率。</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-82">Closing</span></div>
+        <p class="sc-title" id="i18n-83">AI 战争，最后比的是基础建设</p>
+        <div class="sc-body">
+        <p id="i18n-84">每一次科技革命，人们看到的，都是最耀眼的公司。但真正决定胜负的，往往都是没人注意的基础设施。</p>
+        <p id="i18n-85">GPU → 晶圆 → EUV → 超纯水 → 净水厂 → 工程师。</p>
+        <p id="i18n-86">AI 的未来，或许不是诞生于一间实验室，而是一滴纯净到几乎不存在的水。</p>
+        <p id="i18n-87">或者另一个角度的 Closing：全世界最先进的晶片，不是输给 AI，不是输给美国，而可能输给了一滴不够干净的水。</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-88">画面／视觉参考</span><span id="i18n-89">（暂无画面备注）</span></p>
+      </div>
+      <div class="script-card">
+        <div class="sc-head"><span class="sc-chapter" id="i18n-90">冷知识</span></div>
+        <p class="sc-title" id="i18n-91">为了这一滴水，得烧多少钱？</p>
+        <div class="sc-body">
+        <p id="i18n-92">在一个新建的芯片厂（Fab）中，纯水处理系统（UPW System）的建置成本约占整体厂务设备投资的 5% 到 10%。对于一座投资 200 亿美金的先进工厂，这意味着仅「造水车间」就要花掉 10 亿到 20 亿美金。这个「水厂」比五星级酒店的装修还要豪华无数倍。</p>
+        </div>
+        <p class="sc-visual"><span class="vtag" id="i18n-93">画面／视觉参考</span><span id="i18n-94">（暂无画面备注）</span></p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span id="i18n-95">The Standard ｜ 带着咖啡探厂去・选题研究</span>
+      <span class="mono" id="i18n-96">02 / 05</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ GROUP A ============ -->
+<section class="band light">
+  <div class="band-inner">
+    <div class="group-head">
+      <span class="group-tag" id="i18n-97">A组</span>
+      <h2 class="heading" id="i18n-98">全球隐形供应链故事（12）</h2>
+    </div>
+    <p class="subhead" id="i18n-99">和 Ep1 同一个配方：芯片、AI、电动车这些"最耀眼"的产业背后，永远站着几个没人听过的材料、矿场或工厂。</p>
+
+    <div class="card-grid">
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-100">选题 A1</span><span class="tag-pill" id="i18n-101">材料危机</span></div>
+        <p class="story-title" id="i18n-102">一场颶风，差点让全世界的芯片停产</p>
+        <p class="hook-line" id="i18n-103">你猜，全世界的芯片厂，最怕的是哪里刮风下雨？答案不是台湾，是美国一个你连名字都没听过的小镇。</p>
+        <p class="story-body" id="i18n-104">2024 年飓风 Helene 淹了北卡罗来纳州小镇 Spruce Pine，当地两家公司 <b>Sibelco</b> 与 <b>The Quartz Corp</b> 供应着全世界绝大部分做芯片所需的「超高纯度石英」，用来烧制拉晶用的坩埚。没有它，硅晶圆连"出生"都做不到。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-105">关键数据</span><span id="i18n-106">全球高纯度石英供应高度集中在这一个美国小镇，飓风一来，芯片界集体屏息。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-107">选题 A2</span><span class="tag-pill" id="i18n-108">地缘政治</span></div>
+        <p class="story-title" id="i18n-109">一个气球，捏住了全世界 AI 芯片的脖子</p>
+        <p class="hook-line" id="i18n-110">你有没有想过，医院的 MRI 机和你手机里的 AI 芯片，其实抢的是同一种气体？</p>
+        <p class="story-body" id="i18n-111">2026 年伊朗战事扰动全球氦气供应，氦气被用在芯片厂做泄漏检测、冷却超导磁铁，也是 MRI 机的命脉。全球氦气产地高度集中在美国、卡塔尔、阿尔及利亚等少数几国，任何一个地方地缘动荡，医院和芯片厂会同时缺气。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-112">关键数据</span><span id="i18n-113">2026 年伊朗冲突导致全球氦气供应吃紧，AI 芯片厂与 MRI 医疗体系被迫共抢同一批气源。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-114">选题 A3</span><span class="tag-pill" id="i18n-115">战争冲击</span></div>
+        <p class="story-title" id="i18n-116">一场战争，让全世界芯片厂一夜缺气</p>
+        <p class="hook-line" id="i18n-117">造芯片要用雷射光刻，而那道雷射，靠的是一种你从没听过的气体：氖气。</p>
+        <p class="story-body" id="i18n-118">2022 年俄乌战争爆发前，乌克兰的 Ingas、Cryoin 两家公司供应了全球半导体级氖气的大部分份额（氖气其实是俄罗斯钢厂炼钢时的副产物，再运到乌克兰纯化）。战争一开打，光刻雷射的"呼吸"差点被掐断。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-119">关键数据</span><span id="i18n-120">乌克兰战前供应全球半导体级氖气的绝大部分份额，一场战争打乱了光刻机的气体供应链。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-121">选题 A4</span><span class="tag-pill" id="i18n-122">日常反差</span></div>
+        <p class="story-title" id="i18n-123">沙子也会用完？建筑业和芯片业在抢同一样东西</p>
+        <p class="hook-line" id="i18n-124">沙漠里到处都是沙，但如果告诉你，全世界正在闹"沙荒"，你会不会觉得我疯了？</p>
+        <p class="story-body" id="i18n-125">沙子是仅次于水、用量第二大的天然资源，但沙漠沙太圆滑不能拿来做混凝土，只有河沙、海沙才行。于是各地出现非法"沙霸"盗采河床与海滩，生态被毁。而做芯片用的高纯度硅砂，又是另一场更隐秘的争夺战。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-126">关键数据</span><span id="i18n-127">沙子是人类消耗量第二大的天然资源，仅次于水；非法采沙已在多国引发生态与治安危机。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-128">选题 A5</span><span class="tag-pill" id="i18n-129">极致工艺</span></div>
+        <p class="story-title" id="i18n-130">世界上最平的镜子，藏在德国一个小镇里</p>
+        <p class="hook-line" id="i18n-131">如果把这面镜子放大到整个德国那么大，它的凹凸误差，不会超过一根头发丝的十万分之一。</p>
+        <p class="story-body" id="i18n-132">ASML 的 EUV 光刻机，靠的是德国蔡司（Zeiss）在小镇 Oberkochen 打磨的极致平整镜片，这是人类工业史上精度要求最高的制造之一，全球几乎没有第二家公司做得出来。全世界最先进的芯片，都要先经过这面"看不见的镜子"。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-133">关键数据</span><span id="i18n-134">蔡司是 ASML EUV 光刻机光学系统近乎唯一的供应商，代表全球尖端制造精度的天花板。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-135">选题 A6</span><span class="tag-pill" id="i18n-136">被忽略的巨头</span></div>
+        <p class="story-title" id="i18n-137">一个箱子，撑起了全球贸易</p>
+        <p class="hook-line" id="i18n-138">你今天穿的衣服、用的手机零件，几乎肯定坐过同一家中国公司造的箱子。</p>
+        <p class="story-body" id="i18n-139">中国中集集团（CIMC）是全球最大的集装箱制造商，中国整体供应了全世界绝大多数的标准海运集装箱。没有这个铁盒子，就没有"全球化"和"及时生产"这两个词。它比任何一艘货轮都更早决定了全球贸易的形状。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-140">关键数据</span><span id="i18n-141">中国是全球海运集装箱的绝对主要产地，中集集团是其中最大单一制造商。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-142">选题 A7</span><span class="tag-pill" id="i18n-143">资源博弈</span></div>
+        <p class="story-title" id="i18n-144">谁在管全世界的钨？中国打出的稀有金属牌</p>
+        <p class="hook-line" id="i18n-145">穿甲弹、切割刀头、手机马达里都有它，但你大概从没听过这个字：钨。</p>
+        <p class="story-body" id="i18n-146">中国掌握全球钨矿开采与精炼的主导份额，2025 年宣布收紧出口管制，直接冲击美国国防与精密制造产业。钨是极少数"越低调、越致命"的战略金属，一纸出口令就能让军工厂集体紧张。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-147">关键数据</span><span id="i18n-148">中国主导全球钨供应链，2025 年出口管制引发美国国防产业供应链紧张。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-149">选题 A8</span><span class="tag-pill" id="i18n-150">冷知识元素</span></div>
+        <p class="story-title" id="i18n-151">镓和锗，两个你没听过的元素，卡住了全世界芯片</p>
+        <p class="hook-line" id="i18n-152">这两个字你可能连念都不会念，但它们一断供，5G 基站和红外镜头就得停工。</p>
+        <p class="story-body" id="i18n-153">中国在 2023 到 2025 年间数度收紧镓、锗出口管制（用于化合物半导体、光纤、太阳能电池、军用红外设备），2025 年 11 月一度对美松绑，成为中美贸易谈判桌上最锋利的一张牌。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-154">关键数据</span><span id="i18n-155">中国是全球镓、锗的核心供应国，出口管制曾多次成为中美贸易谈判焦点。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-156">选题 A9</span><span class="tag-pill" id="i18n-157">人性代价</span></div>
+        <p class="story-title" id="i18n-158">电动车最闪亮的电池，背后是刚果最黑暗的矿坑</p>
+        <p class="hook-line" id="i18n-159">你的电动车能跑 600 公里，靠的钴，很可能是一个孩子徒手挖出来的。</p>
+        <p class="story-body" id="i18n-160">刚果民主共和国供应全球绝大多数的钴矿，是电动车、手机、笔电电池的关键原料，但其中相当一部分来自手工矿场，长期存在童工与安全争议，是"绿色能源"叙事里最不愿被提起的一面。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-161">关键数据</span><span id="i18n-162">刚果供应全球绝大多数钴矿产量，手工矿场童工问题持续受国际组织关注。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-163">选题 A10</span><span class="tag-pill" id="i18n-164">逆转翻身</span></div>
+        <p class="story-title" id="i18n-165">一纸禁令，让印尼镍矿从"废矿"变"新石油"</p>
+        <p class="hook-line" id="i18n-166">2020 年之前，印尼只会把镍矿挖出来卖给别人炼；今天，它决定自己炼，全世界电动车电池版图就此改写。</p>
+        <p class="story-body" id="i18n-167">印尼 2020 年起禁止原矿出口，强制要求境内冶炼，短短几年吸引大量中国资本建厂，从"卖土"的角色一跃成为全球精炼镍的重要玩家，成为资源民族主义少数"玩成功"的案例。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-168">关键数据</span><span id="i18n-169">印尼 2020 年起实施镍矿出口禁令，带动本土冶炼产能大幅扩张。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-170">选题 A11</span><span class="tag-pill" id="i18n-171">垄断供应</span></div>
+        <p class="story-title" id="i18n-172">波音、空巴最怕的秘密：钛合金只有一家俄国公司说了算</p>
+        <p class="hook-line" id="i18n-173">就算制裁俄罗斯，波音和空巴都很难说'不用你的钛'，因为找不到替代的人。</p>
+        <p class="story-body" id="i18n-174">俄罗斯 VSMPO-AVISMA 长期供应全球航空级钛合金锻件的重要份额，是波音、空客机身与引擎结构件的关键供应商。2022 年后西方制裁俄罗斯，飞机制造商却发现，钛合金这一项很难说断就断。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-175">关键数据</span><span id="i18n-176">VSMPO-AVISMA 是全球航空级钛合金的重要供应商，制裁背景下暴露航空业的单点依赖风险。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-177">选题 A12</span><span class="tag-pill" id="i18n-178">未来产业</span></div>
+        <p class="story-title" id="i18n-179">会自己造机器人的工厂：日本"熄灯工厂"的秘密</p>
+        <p class="hook-line" id="i18n-180">晚上十点，工厂里一盏灯都不开，机器还在照样干活，因为造它们的，也是机器人。</p>
+        <p class="story-body" id="i18n-181">日本发那科（FANUC）等企业早已实现"熄灯工厂"，机器人自动生产机器人，可以连续无人运作数周。这是日本工业几十年低调深耕的成果，也是未来 Tesla Optimus、Figure AI 这类人形机器人产业最终要走到的样子。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-182">关键数据</span><span id="i18n-183">日本精密机器人企业长期领先全球"熄灯工厂"（无人化产线）技术，是工业自动化的隐形冠军。</span></p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span id="i18n-184">The Standard ｜ 带着咖啡探厂去・选题研究</span>
+      <span class="mono" id="i18n-185">03 / 05</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ GROUP B ============ -->
+<section class="band light" style="padding-top:0;">
+  <div class="band-inner">
+    <div class="group-head">
+      <span class="group-tag alt" id="i18n-186">B组</span>
+      <h2 class="heading" id="i18n-187">马来西亚／东南亚在地故事（8）</h2>
+    </div>
+    <p class="subhead" id="i18n-188">同样的"隐形冠军"配方，换成观众更有代入感的本地场景，也更贴近全家私房钱 2.0 自己的厂房转介生意。</p>
+
+    <div class="card-grid">
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-189">选题 B1</span><span class="tag-pill" id="i18n-190">在地骄傲</span></div>
+        <p class="story-title" id="i18n-191">一包 RM39.5 万的"土"，全世界都要跟马来西亚买</p>
+        <p class="hook-line" id="i18n-192">这包东西看起来就是灰灰的泥土，但一包卖 RM39.5 万，而且全世界都在抢。</p>
+        <p class="story-body" id="i18n-193">关丹的 Lynas 稀土厂，是中国以外全球最大的稀土加工厂，产出的稀土精炼产品是磁铁、电动车马达、风力发电机的核心原料。当各国都在喊"去中国化"，马来西亚早已默默扮演稀土供应链的关键备胎。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-194">关键数据</span><span id="i18n-195">Lynas 关丹厂产出的稀土产品每包价值可达 RM39.5 万，是中国以外最大规模的稀土加工基地之一。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-196">选题 B2</span><span class="tag-pill" id="i18n-197">在地骄傲</span></div>
+        <p class="story-title" id="i18n-198">槟城，为什么被叫做"东方硅谷"？</p>
+        <p class="hook-line" id="i18n-199">英特尔、英飞凌都把工厂开在这里，但槟城既没有硅谷的名气，也没有硅谷的天气。</p>
+        <p class="story-body" id="i18n-200">从 1970 年代自由贸易区起步，槟城一路累积成全球封装测试重镇：英特尔持续加码投资、ASE 收购 ADI 槟城厂、Siliconware 投下 RM60 亿建新厂。半个世纪的低调积累，让一座小岛变成全世界芯片"体检中心"之一。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-201">关键数据</span><span id="i18n-202">近年 Intel、ASE、Siliconware 等企业持续在槟城加码半导体封测投资，累计规模达数十亿令吉级别。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-203">选题 B3</span><span class="tag-pill" id="i18n-204">危机反差</span></div>
+        <p class="story-title" id="i18n-205">新山的 AI 数据中心，一天喝掉 20 个奥运泳池的水</p>
+        <p class="hook-line" id="i18n-206">你在用 AI 聊天的时候，可能有一滴水，正从柔佛的水龙头，流进了新加坡云端的服务器。</p>
+        <p class="story-body" id="i18n-207">柔佛近年掀起数据中心热潮，冷却系统每天耗水量惊人，当地一度出现"数据中心与居民抢水"的争议，柔佛政府甚至因不符合永续标准，拒绝了三成的数据中心投标案。这是 AI 繁荣最容易被忽略的另一面账单。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-208">关键数据</span><span id="i18n-209">柔佛数据中心热潮下，当地政府曾以未达永续标准为由，拒绝约 30% 的数据中心投标案。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-210">选题 B4</span><span class="tag-pill" id="i18n-211">兴衰故事</span></div>
+        <p class="story-title" id="i18n-212">疫情让马来西亚手套厂一夜暴富，又是怎么打回原形的？</p>
+        <p class="hook-line" id="i18n-213">2020 年，全世界抢着买它的手套；两年后，它的股价，只剩巅峰时的零头。</p>
+        <p class="story-body" id="i18n-214">Top Glove 是全球最大的橡胶手套制造商，疫情期间订单爆棚、身价暴涨，但随后遭遇产能过剩、成本上升与劳权争议三重夹击，从"疫情神话"迅速打回现实。是一堂关于"红利期不是护城河"的商业课。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-215">关键数据</span><span id="i18n-216">Top Glove 疫情期间业绩与市值大幅飙升，随后因供应过剩与成本压力大幅回落。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-217">选题 B5</span><span class="tag-pill" id="i18n-218">历史钩子</span></div>
+        <p class="story-title" id="i18n-219">马来西亚曾经的"锡矿王朝"，撑起了大英帝国的工业革命</p>
+        <p class="hook-line" id="i18n-220">在稀土、锂矿变成热词的一百年前，全世界抢的关键资源，其实是马来西亚的锡。</p>
+        <p class="story-body" id="i18n-221">近打谷（Kinta Valley）曾是全球最重要的产锡区之一，锡罐头工业撑起了西方的现代物流与食品保存体系，也塑造了怡保今天的城市财富与华人移民史。今天全球围抢稀土、镍、钴的剧本，一百年前马来西亚早就演过一遍。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-222">关键数据</span><span id="i18n-223">近打谷历史上是全球最重要的锡矿产区之一，深刻影响了怡保的城市发展与移民历史。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-224">选题 B6</span><span class="tag-pill" id="i18n-225">日常反差</span></div>
+        <p class="story-title" id="i18n-226">你早餐吃的每一口，可能都经过一座马来西亚炼油厂</p>
+        <p class="hook-line" id="i18n-227">洗发水、巧克力、泡面调味包，配方表里那个'植物油'，很可能来自马来西亚一座你从没听过的厂房。</p>
+        <p class="story-body" id="i18n-228">马来西亚是全球数一数二的棕榈油生产与出口国，遍布全国的炼油厂把毛棕油加工成食用油、生物柴油乃至化妆品原料，是渗透进全球日用品供应链、却极少被讨论的"厂房生意"。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-229">关键数据</span><span id="i18n-230">马来西亚长期位居全球棕榈油产量与出口量前二名，产业链高度依赖本地炼油厂房网络。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-231">选题 B7</span><span class="tag-pill" id="i18n-232">在地骄傲</span></div>
+        <p class="story-title" id="i18n-233">全世界一半的芯片，可能都要先来马来西亚"体检"一次</p>
+        <p class="hook-line" id="i18n-234">造芯片的名气都被台湾、美国拿走了，但芯片出厂前的最后一道关卡，很多其实是在马来西亚过的。</p>
+        <p class="story-body" id="i18n-235">电气与电子（E&E）产业是马来西亚数十年来最大的出口支柱，靠的正是槟城、居林、芙蓉等自由贸易区里成千上万座封装测试厂房。在"中国＋1"的全球供应链重组浪潮下，这个低调的产业正迎来新一轮扩张。</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-236">关键数据</span><span id="i18n-237">电气与电子产业长期是马来西亚最大出口类别，封装测试是其中的核心环节。</span></p>
+      </div>
+<div class="story-card">
+        <div class="top-row"><span class="ep-num" id="i18n-238">选题 B8</span><span class="tag-pill" id="i18n-239">未来产业</span></div>
+        <p class="story-title" id="i18n-240">下一波抢厂房的，不是芯片，是会走路的机器人</p>
+        <p class="hook-line" id="i18n-241">Tesla Optimus、Figure AI 都在赌一件事：谁能先盖出'造机器人的工厂'，谁就赢下下一个十年。</p>
+        <p class="story-body" id="i18n-242">人形机器人被视为 AI 之后的下一个产业浪潮，而它们的第一个战场不是实验室，是工厂产线。这一集把镜头转回自己最熟悉的题目：当全世界都在抢建"机器人工厂"，东南亚的厂房版图会被重新洗牌吗？</p>
+        <p class="fact-line"><span class="fact-tag" id="i18n-243">关键数据</span><span id="i18n-244">Tesla Optimus、Figure AI 等企业正加速布局人形机器人量产工厂，被视为 AI 产业下一波基础建设竞赛。</span></p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span id="i18n-245">The Standard ｜ 带着咖啡探厂去・选题研究</span>
+      <span class="mono" id="i18n-246">04 / 05</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ CLOSING / HOW TO USE ============ -->
+<section class="band dark">
+  <div class="band-inner">
+    <div class="header-block" style="display:flex;flex-direction:column;gap:.7rem;">
+      <p class="eyebrow" id="i18n-247">怎么用这份选题库</p>
+      <h2 class="heading" id="i18n-248">建议的排播逻辑</h2>
+    </div>
+
+    <div class="closing-grid">
+      <div class="closing-card">
+        <span class="num">1</span>
+        <p class="ctitle" id="i18n-249">全球故事负责"破圈"</p>
+        <p class="cbody" id="i18n-250">A 组更容易被算法推荐、被非本地观众转发，适合用来打知名度、冲订阅，尤其是 A1、A2、A5、A6 这几个反差感最强的选题。</p>
+      </div>
+      <div class="closing-card">
+        <span class="num">2</span>
+        <p class="ctitle" id="i18n-251">在地故事负责"建信任"</p>
+        <p class="cbody" id="i18n-252">B 组更贴近厂房转介的核心业务，适合穿插在系列中段，顺势带出「全家私房钱」的专业背景，天然承接后续业配与转介导流。</p>
+      </div>
+      <div class="closing-card">
+        <span class="num">3</span>
+        <p class="ctitle" id="i18n-253">每集都按 Ep1 的五段式落地</p>
+        <p class="cbody" id="i18n-254">自我介绍 → Hook(30秒) → 认识危机 → 简单科普 → 揭露隐形冠军 → Closing／收尾金句。上面每张卡片的"开场钩子"与"关键数据"可直接对应到这套结构的前两段。</p>
+      </div>
+      <div class="closing-card">
+        <span class="num">4</span>
+        <p class="ctitle" id="i18n-255">正式写稿前务必二次核实</p>
+        <p class="cbody" id="i18n-256">以上数据均来自近期公开报导与产业分析，具体数字、时间点建议在写稿阶段用最新信源再核对一次，尤其是价格、份额类表述。</p>
+      </div>
+    </div>
+
+    <footer class="band-foot">
+      <span id="i18n-257">The Standard ｜ 带着咖啡探厂去・选题研究</span>
+      <span class="mono" id="i18n-258">全 20 个选题</span>
+    </footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  var translations = {
+  "i18n-0": `《Coffee, Meet Factory》 Story Bank　|　Based on Market Research`,
+  "i18n-1": `Global Industrial Factory Story Bank<br>20 Ready to Use Story Ideas`,
+  "i18n-2": `Following the same storytelling formula as Ep1, “A Single Drop of Water Can Decide the Future of the AI World”: <b>start from something ordinary that nobody thinks twice about, then reveal the unknown factories, companies, and materials behind it that quietly hold up the whole world</b>, building contrast and suspense before landing on the value that “doing one thing to the extreme makes you indispensable.” Every story idea below is grounded in recent real news and industry events, each tagged with a key fact you can quote right at the opening.`,
+  "i18n-3": `12 global hidden supply chain stories, plus 8 Malaysia/Southeast Asia local stories`,
+  "i18n-4": `Hook → Crisis → Explainer → Reveal → Closing`,
+  "i18n-5": `Every story idea can drop straight into Ep1's five part structure`,
+  "i18n-6": `Every story idea comes with real events and data sources, ready to verify before scripting`,
+  "i18n-7": `The Standard | Coffee, Meet Factory, Story Research`,
+  "i18n-8": `01 / 05`,
+  "i18n-9": `Ep1 · Already Finished, Reference Template`,
+  "i18n-10": `Ep1《A Single Drop of Water Can Decide the Future of the AI World》Full Outline`,
+  "i18n-11": `Total runtime about 15 minutes. All 20 story ideas below reuse this episode's proven five part structure: Hook → Crisis → Explainer → Reveal → Closing.`,
+  "i18n-12": `Hook`,
+  "i18n-13": `30 seconds`,
+  "i18n-14": `The world's most advanced chip is worth tens of thousands of dollars apiece. A wafer fab can produce tens of millions of dollars worth of product in a single day.`,
+  "i18n-15": `But what these fabs fear most isn't an energy crisis, and it isn't war. It's a drop of water.`,
+  "i18n-16": `One drop of water that isn't pure enough can scrap an entire batch of chips on the spot.`,
+  "i18n-17": `Visual Reference`,
+  "i18n-18": `Fast cuts: an NVIDIA GPU, an AI data center, a TSMC fab, an ASML lithography machine, a cleanroom, a drop of water falling. Slow motion macro shot: a drop of slightly impure water lands on a chip, and the chip shatters.`,
+  "i18n-19": `Understand the Crisis`,
+  "i18n-20": `1.5 minutes`,
+  "i18n-21": `The Deadly Water Crisis`,
+  "i18n-22": `An advanced chip fab consumes tens of millions of tons of water a year. You might assume all that water is just for cooling equipment running at full tilt.`,
+  "i18n-23": `Actually, its real purpose is to be the chip's bath water.`,
+  "i18n-24": `In 2021, the worst drought in decades swept across Taiwan. A water shortage isn't just a household problem. If the wafer fabs lose water, the iPhone could be delayed and car chips could face supply cuts, paralyzing the global tech industry. So TSMC spent heavily every day hiring hundreds of water trucks to secure supply.`,
+  "i18n-25": `Take TSMC as an example. In 2024, TSMC used more than 90 million cubic meters of water. Measured against an Olympic pool 50 meters long, 25 meters wide, and 2 meters deep on average, that's enough to fill more than 37,000 pools.`,
+  "i18n-26": `You might think, wait, isn't this solvable? Tap water, mineral water, filtered wastewater, one way or another there's always water to be found, so is the consequence really that serious?`,
+  "i18n-27": `In fact, what a chip needs isn't ordinary “water” at all. It's “Ultra-Pure Water,” or UPW.`,
+  "i18n-28": `Visual Reference`,
+  "i18n-29": `2021, Taiwan's drought: reservoir beds cracked dry, and a long line of giant water trucks marked with the TSMC logo.`,
+  "i18n-30": `Quick Explainer: How Chips Are Made`,
+  "i18n-31": `1.5 minutes`,
+  "i18n-32": `Why Does a Chip Need to Keep Taking Baths?`,
+  "i18n-33": `Making a chip is an extremely complex and precise scientific process. It's basically like building a skyscraper in the microscopic world, packing billions of tiny switches, transistors, into an area no bigger than a fingernail.`,
+  "i18n-34": `The chip travels through lithography, then developing, then etching, then deposition, then CMP (chemical mechanical polishing), then cleaning. The same sequence repeats on the same chip dozens or even hundreds of times.`,
+  "i18n-35": `After every small step, the chip needs a bath. Not because it's dirty, but to fully rinse away the chemical residue from the previous layer. Clean, then clean again. As the circuit lines get finer and the process gets more advanced, the cleaning happens more often. Depending on the nanometer process, a single chip may go through dozens, even more than two hundred, cleaning cycles.`,
+  "i18n-36": `A single instance of contamination is enough to cause losses measured in hundreds of millions of dollars.`,
+  "i18n-37": `Visual Reference`,
+  "i18n-38": `Animation reference: https://youtu.be/BSQ4ZlMX5o8`,
+  "i18n-39": `The Reveal: How Ultra Pure Water Is Made`,
+  "i18n-40": `2.5 minutes`,
+  "i18n-41": `Just How Clean Does This Bath Water Have to Be?`,
+  "i18n-42": `Ordinary water versus ultra pure water: the mineral water we drink is full of calcium, magnesium, sodium ions, and particles. That's nutrition for a person, but for a chip it's like an asteroid hitting the earth.`,
+  "i18n-43": `Making ultra pure water is a process of stripping water down to absolutely nothing. It has to remove the minerals, bacteria, viruses, organic matter, and even dissolved air found in ordinary water, reaching a purity above 99.9999999%.`,
+  "i18n-44": `(Briefly walk through the four stages of the production process.)`,
+  "i18n-45": `The impurity level in ordinary tap water is measured in parts per million, while ultra pure water is measured in parts per billion or even parts per trillion. Semiconductor grade ultra pure water needs a resistivity of 18.2 megohm centimeters. The theoretical limit for pure water is 18.24 megohm centimeters. That means the water has almost no conductive ions left in it at all.`,
+  "i18n-46": `A modern advanced process node, like 3 nanometers, has circuit lines only one ten thousandth the width of a human hair. The purity ultra pure water demands is like allowing less than a single pinch of salt, one gram, to dissolve in a standard 50 ton swimming pool. It's like picking out one specific speck of dust in a packed football stadium.`,
+  "i18n-47": `If the water carries even a single tiny conductive metal ion, such as a copper ion, and it lands between nanometer scale circuits, it can short the transistor and burn out the entire wafer.`,
+  "i18n-48": `At this level of purity, an advanced chip fab can consume as much as 2,000 to 3,000 tons of ultra pure water a day, drawing on a raw water supply that adds up to tens of millions of tons.`,
+  "i18n-49": `But the real challenge isn't making it once. It's holding that exact same purity 24 hours a day, 365 days a year.`,
+  "i18n-50": `Visual Reference`,
+  "i18n-51": `Intro: Ultra Pure Water. Comparison: tap water, mineral water, distilled water, lab grade pure water. Final beat: ultra pure water at 18.2 megohms.`,
+  "i18n-52": `The Hidden Champions Behind the Scenes`,
+  "i18n-53": `1 minute`,
+  "i18n-54": `In Japan, there are a handful of companies almost nobody has heard of. While the whole world fights over NVIDIA GPUs, while everyone watches ASML's lithography machines, while the US pours hundreds of billions of dollars into building chip fabs, and while Japan, the US, and Europe all try to reduce their reliance on Asia's chip supply chain, almost nobody notices that the world's most advanced chip super factories all share one thing in common:`,
+  "i18n-55": `They all have to find a handful of Japanese companies that keep about as low a profile as a company can. Because without their technology, an advanced chip simply cannot be born. What these Japanese companies sell isn't filters. What they sell is the life support system for an entire chip fab.`,
+  "i18n-56": `Why can't the world's most advanced chip fabs function without them?`,
+  "i18n-57": `Visual Reference`,
+  "i18n-58": `An ordinary Japanese industrial park. No skyscrapers, no logos, no media coverage. Organo, Kurita, and Nomura slowly appear on screen. Veteran craftsmen, engineers, black and white photographs.`,
+  "i18n-59": `Why Can't Anyone Replace Them?`,
+  "i18n-60": `4 minutes`,
+  "i18n-61": `An Absolute Monopoly`,
+  "i18n-62": `<span class="sub">The First Hidden Champion: Organo Corporation</span>`,
+  "i18n-63": `It began with lifesaving water in wartime. It wasn't built for semiconductors from the start.`,
+  "i18n-64": `In the 1940s, postwar Japan faced a resource shortage. Organo's founder, Masatake Maruyama, researched ion exchange technology and water purification.`,
+  "i18n-65": `The goal back then was solving a drinking water problem, the question was how to get people clean water to drink. Decades later, the question became how to get a chip to wash away a speck of dust that technically doesn't exist. Over time, that technology gradually evolved into the ultra pure water technology the semiconductor industry needs today.`,
+  "i18n-66": `<span class="sub">The Second Hidden Champion: Kurita Water Industries</span>`,
+  "i18n-67": `If Organo is like the wafer fab's dedicated water engineer, then Kurita is more like the world's industrial water butler.`,
+  "i18n-68": `Kurita was founded in 1949 and originally focused on boiler water treatment. As Japanese industry grew quickly, factories multiplied and machines grew more complex, and impurities in the water were corroding equipment and dragging down efficiency.`,
+  "i18n-69": `They later expanded into semiconductors, pharmaceuticals, power, and precision manufacturing, becoming a global giant in industrial water treatment. They used to sell equipment. Now they increasingly offer Water Treatment as a Service. The customer doesn't have to manage anything themselves, Kurita handles the design, installation, operation, maintenance, and ongoing supply.`,
+  "i18n-70": `<span class="sub">The Third Hidden Champion: Nomura Micro Science</span>`,
+  "i18n-71": `Founded in 1969, it started out testing particles on filter membranes before moving into ultra pure water. It entered the electronics industry in the 1970s, began supplying ultra pure water systems to Japan's electronics industry in 1975, and entered the Taiwan market in 1985.`,
+  "i18n-72": `If the lithography machine is the chip fab's heart, then the ultra pure water system is its circulatory system. In this field, these three Japanese companies together hold nearly 80% of the world's market for semiconductor fab ultra pure water systems. Whether you're TSMC, the biggest name in the world, or Samsung, a memory chip giant, if you want your wafer fab to open for business, you have to bring in at least one of these three Japanese companies to map out your piping and install your filters.`,
+  "i18n-73": `There's even a saying in the industry: wherever TSMC builds a fab, their engineers fly in and set up camp there half a year ahead of time.`,
+  "i18n-74": `So why can't the US, China, or Europe just do this themselves? The answer isn't that they don't know how. It's that they're missing decades of validation, decades of data, and decades of customers.`,
+  "i18n-75": `Ultra pure water can't be manufactured ahead of time and shipped in barrels, because the moment it leaves the pipe system it gets contaminated by air. It has to be made in real time and cycled within seconds, right inside the wafer fab. What the Japanese companies are strong at is the continuous integration of more than a dozen precision filtration technologies: ion exchange resin, ultrafiltration membranes, reverse osmosis membranes, UV deoxygenation, and more.`,
+  "i18n-76": `The semiconductor requirement isn't getting it pure once. It's zero fluctuation in water quality, 24 hours a day, 365 days a year. If the water quality drifts past the threshold by just 0.01%, the water system triggers a production interlock, and an entire batch of wafers worth millions or even tens of millions of dollars has to be scrapped. Losses are counted by the day.`,
+  "i18n-77": `As chip processes advance from 90 nanometers to 28, 7, 3, and 2 nanometers, the standard for ultra pure water keeps rising with them, and the supplier has to keep upgrading in lockstep with a customer relationship that spans decades.`,
+  "i18n-78": `Switch to a new water system and you have to ask: is the new water stable? Do the new materials leach metal? Do the new pipes introduce contamination? A new water treatment system has to go through at least 6 to 12 months of testing for particulates and metal ion leaching. If it fails, the loss isn't just the equipment cost, it's batch after batch of chips.`,
+  "i18n-79": `This is what the industrial world calls invisible lock in.`,
+  "i18n-80": `Visual Reference`,
+  "i18n-81": `Business analysis motion graphics, a supply chain map, market share charts.`,
+  "i18n-82": `Closing`,
+  "i18n-83": `The AI War Ultimately Comes Down to Infrastructure`,
+  "i18n-84": `In every technology revolution, what people see is the most dazzling company. But what actually decides the outcome is almost always the infrastructure nobody's paying attention to.`,
+  "i18n-85": `GPU → wafer → EUV → ultra pure water → water treatment plant → engineer.`,
+  "i18n-86": `The future of AI might not be born in a laboratory. It might be born in a drop of water so pure it's almost not there at all.`,
+  "i18n-87": `Or another way to close it: the world's most advanced chip might not lose to AI, and might not lose to the US. It might lose to a single drop of water that wasn't clean enough.`,
+  "i18n-88": `Visual Reference`,
+  "i18n-89": `(No visual notes yet)`,
+  "i18n-90": `Bonus Fact`,
+  "i18n-91": `How Much Does It Cost to Make This One Drop of Water?`,
+  "i18n-92": `In a newly built chip fab, the ultra pure water system typically accounts for about 5% to 10% of the total investment in facility equipment. For an advanced fab with a 20 billion dollar budget, that means the water production building alone can cost 1 to 2 billion dollars. This water plant is more lavishly finished than a five star hotel, many times over.`,
+  "i18n-93": `Visual Reference`,
+  "i18n-94": `(No visual notes yet)`,
+  "i18n-95": `The Standard | Coffee, Meet Factory, Story Research`,
+  "i18n-96": `02 / 05`,
+  "i18n-97": `Group A`,
+  "i18n-98": `Global Hidden Supply Chain Stories (12)`,
+  "i18n-99": `Same recipe as Ep1: behind the most dazzling industries like chips, AI, and EVs, there are always a few materials, mines, or factories nobody has heard of.`,
+  "i18n-100": `Story A1`,
+  "i18n-101": `Material Crisis`,
+  "i18n-102": `One Hurricane Almost Shut Down Chip Production Worldwide`,
+  "i18n-103": `Guess where chip factories around the world are most afraid of a storm. It's not Taiwan. It's a small American town you've never even heard of.`,
+  "i18n-104": `In 2024, Hurricane Helene flooded the small town of Spruce Pine, North Carolina. Two local companies, <b>Sibelco</b> and <b>The Quartz Corp</b>, supply most of the world's ultra high purity quartz used for chip making, the crucibles that grow silicon crystals. Without it, a silicon wafer can't even be born.`,
+  "i18n-105": `Key Fact`,
+  "i18n-106": `Global high purity quartz supply is highly concentrated in this one American town. When the hurricane hit, the entire chip industry held its breath.`,
+  "i18n-107": `Story A2`,
+  "i18n-108": `Geopolitics`,
+  "i18n-109": `The Gas Inside Party Balloons Has a Grip on the World's AI Chips`,
+  "i18n-110": `Have you ever thought that the MRI machine at the hospital and the AI chip in your phone are actually fighting over the exact same gas?`,
+  "i18n-111": `In 2026, conflict in Iran disrupted the global helium supply. Helium is used in chip factories for leak detection and cooling superconducting magnets, and it's also the lifeline of MRI machines. Global helium production is concentrated in a handful of countries like the US, Qatar, and Algeria, so unrest in any one of them leaves hospitals and chip factories short of gas at the same time.`,
+  "i18n-112": `Key Fact`,
+  "i18n-113": `The 2026 Iran conflict tightened the global helium supply, forcing AI chip factories and MRI healthcare systems to compete for the same limited source.`,
+  "i18n-114": `Story A3`,
+  "i18n-115": `War Shock`,
+  "i18n-116": `One War Left Chip Factories Worldwide Short on Gas Overnight`,
+  "i18n-117": `Making chips requires laser lithography, and that laser depends on a gas you've probably never heard of: neon.`,
+  "i18n-118": `Before the Russia Ukraine war broke out in 2022, two Ukrainian companies, Ingas and Cryoin, supplied most of the world's semiconductor grade neon (the neon is actually a byproduct of Russian steel mills, shipped to Ukraine for purification). Once the war started, the lithography laser's breath was almost cut off.`,
+  "i18n-119": `Key Fact`,
+  "i18n-120": `Before the war, Ukraine supplied most of the world's semiconductor grade neon. A single war threw the lithography machine's gas supply chain into chaos.`,
+  "i18n-121": `Story A4`,
+  "i18n-122": `Everyday Contrast`,
+  "i18n-123": `Can We Run Out of Sand? Construction and Chipmaking Are Fighting Over the Same Thing`,
+  "i18n-124": `The desert is covered in sand, but if I told you the whole world is facing a sand shortage, would you think I'm crazy?`,
+  "i18n-125": `Sand is the second most used natural resource after water, but desert sand is too smooth and round to make concrete. Only river sand and sea sand will do. That has led to illegal sand mafias stripping riverbeds and beaches all over the world, wrecking local ecosystems. And the ultra pure silica sand used to make chips is an even more hidden fight of its own.`,
+  "i18n-126": `Key Fact`,
+  "i18n-127": `Sand is humanity's second most consumed natural resource after water. Illegal sand mining has already triggered ecological and security crises in multiple countries.`,
+  "i18n-128": `Story A5`,
+  "i18n-129": `Extreme Craftsmanship`,
+  "i18n-130": `The Flattest Mirror in the World Is Hiding in a German Town`,
+  "i18n-131": `If you scaled this mirror up to the size of all of Germany, its surface bumps would still be smaller than one hundred thousandth of a strand of hair.`,
+  "i18n-132": `ASML's EUV lithography machines rely on the ultra flat lenses polished by Germany's Zeiss in the small town of Oberkochen. It's one of the most precise manufacturing feats in industrial history, and almost no other company on earth can pull it off. Every one of the world's most advanced chips has to pass through this invisible mirror first.`,
+  "i18n-133": `Key Fact`,
+  "i18n-134": `Zeiss is close to the sole supplier of the optics inside ASML's EUV lithography machines, representing the absolute ceiling of global precision manufacturing.`,
+  "i18n-135": `Story A6`,
+  "i18n-136": `The Overlooked Giant`,
+  "i18n-137": `One Box Holds Up Global Trade`,
+  "i18n-138": `The clothes you're wearing and the parts inside your phone almost certainly rode inside a box made by the same Chinese company.`,
+  "i18n-139": `China's CIMC is the world's largest shipping container manufacturer, and China as a whole supplies most of the world's standard shipping containers. Without this steel box, there would be no such thing as globalization or just in time production. It shaped the form of global trade before a single cargo ship ever did.`,
+  "i18n-140": `Key Fact`,
+  "i18n-141": `China is by far the dominant producer of the world's shipping containers, and CIMC is the single largest manufacturer among them.`,
+  "i18n-142": `Story A7`,
+  "i18n-143": `Resource Rivalry`,
+  "i18n-144": `Who Controls the World's Tungsten? China's Rare Metal Card`,
+  "i18n-145": `It's inside armor piercing rounds, cutting tool tips, and the motor in your phone, yet you've probably never heard of it: tungsten.`,
+  "i18n-146": `China controls the dominant share of global tungsten mining and refining. In 2025 it announced tighter export controls, hitting the US defense and precision manufacturing industries directly. Tungsten is one of the rare strategic metals that's more dangerous the less attention it gets, and a single export order can put an entire defense industry on edge.`,
+  "i18n-147": `Key Fact`,
+  "i18n-148": `China dominates the global tungsten supply chain, and its 2025 export controls put strain on the US defense industry's supply chain.`,
+  "i18n-149": `Story A8`,
+  "i18n-150": `Obscure Elements`,
+  "i18n-151": `Gallium and Germanium, Two Elements You've Never Heard of, Have a Chokehold on Chips Worldwide`,
+  "i18n-152": `You might not even know how to pronounce these two elements, but if supply stops, 5G base stations and infrared lenses grind to a halt.`,
+  "i18n-153": `Between 2023 and 2025, China repeatedly tightened export controls on gallium and germanium, materials used in compound semiconductors, fiber optics, solar cells, and military infrared equipment. In November 2025 it briefly eased restrictions for the US, turning these elements into one of the sharpest cards on the China US trade negotiating table.`,
+  "i18n-154": `Key Fact`,
+  "i18n-155": `China is the core global supplier of gallium and germanium, and export controls on them have repeatedly become a focal point in China US trade negotiations.`,
+  "i18n-156": `Story A9`,
+  "i18n-157": `The Human Cost`,
+  "i18n-158": `Behind the EV's Shiniest Battery Are Congo's Darkest Mine Shafts`,
+  "i18n-159": `The cobalt that lets your EV drive 600 kilometers on a charge was very possibly dug out by hand, by a child.`,
+  "i18n-160": `The Democratic Republic of Congo supplies most of the world's cobalt, a key material in EV, phone, and laptop batteries. A significant share of it comes from artisanal mines, which have long faced child labor and safety concerns, the side of the green energy story nobody wants to bring up.`,
+  "i18n-161": `Key Fact`,
+  "i18n-162": `Congo supplies the vast majority of the world's cobalt output, and child labor at artisanal mines remains an ongoing concern for international organizations.`,
+  "i18n-163": `Story A10`,
+  "i18n-164": `The Comeback`,
+  "i18n-165": `One Export Ban Turned Indonesia's Nickel from "Waste Ore" into "the New Oil"`,
+  "i18n-166": `Before 2020, Indonesia just dug up nickel ore and sold it for others to refine. Today it refines the ore itself, and that decision rewrote the map of the world's EV battery industry.`,
+  "i18n-167": `Starting in 2020, Indonesia banned raw ore exports and required domestic smelting. Within a few short years it attracted a wave of Chinese capital to build factories, jumping from being a raw material seller to a major player in refined nickel, one of the rare success stories of resource nationalism.`,
+  "i18n-168": `Key Fact`,
+  "i18n-169": `Indonesia's nickel ore export ban, in effect since 2020, has driven a major expansion of domestic smelting capacity.`,
+  "i18n-170": `Story A11`,
+  "i18n-171": `Monopoly Supply`,
+  "i18n-172": `Boeing and Airbus's Biggest Fear: One Russian Company Controls Titanium Alloy`,
+  "i18n-173": `Even with sanctions on Russia, Boeing and Airbus can barely say 'we don't need your titanium', because there's no one else to replace it.`,
+  "i18n-174": `Russia's VSMPO-AVISMA has long supplied a major share of the world's aerospace grade titanium alloy forgings, a key supplier for Boeing and Airbus airframe and engine structural parts. After Western sanctions on Russia in 2022, aircraft makers discovered that titanium alloy was one supply they couldn't simply cut off.`,
+  "i18n-175": `Key Fact`,
+  "i18n-176": `VSMPO-AVISMA is a major global supplier of aerospace grade titanium alloy, and the sanctions era exposed the aviation industry's single point dependency risk.`,
+  "i18n-177": `Story A12`,
+  "i18n-178": `Future Industry`,
+  "i18n-179": `The Factory That Builds Its Own Robots: Japan's "Lights Out Factory" Secret`,
+  "i18n-180": `At ten at night, not a single light is on in the factory, yet the machines keep working, because the ones building them are robots too.`,
+  "i18n-181": `Companies like Japan's FANUC have long achieved "lights out factories," where robots build robots and can run unattended for weeks at a time. It's the payoff of decades of quiet Japanese industrial groundwork, and it's also where humanoid robot ventures like Tesla Optimus and Figure AI are ultimately headed.`,
+  "i18n-182": `Key Fact`,
+  "i18n-183": `Japanese precision robotics companies have long led the world in "lights out factory" (unmanned production line) technology, making them the hidden champions of industrial automation.`,
+  "i18n-184": `The Standard | Coffee, Meet Factory, Story Research`,
+  "i18n-185": `03 / 05`,
+  "i18n-186": `Group B`,
+  "i18n-187": `Malaysia/Southeast Asia Local Stories (8)`,
+  "i18n-188": `The same hidden champion recipe, set in local scenes the audience can relate to more directly, and closer to MoneyMoneyHome 2.0's own factory referral business.`,
+  "i18n-189": `Story B1`,
+  "i18n-190": `Local Pride`,
+  "i18n-191": `A Bag of "Dirt" Worth RM395,000, and the Whole World Buys It from Malaysia`,
+  "i18n-192": `This bag just looks like grey dirt, but one bag sells for RM395,000, and the whole world is fighting over it.`,
+  "i18n-193": `The Lynas rare earth plant in Kuantan is the largest rare earth processing facility outside China. Its refined output is the core material behind magnets, EV motors, and wind turbines. While countries everywhere talk about de risking from China, Malaysia has quietly been playing the role of the rare earth supply chain's key backup.`,
+  "i18n-194": `Key Fact`,
+  "i18n-195": `A single bag of rare earth product from Lynas's Kuantan plant can be worth up to RM395,000, making it one of the largest rare earth processing hubs outside China.`,
+  "i18n-196": `Story B2`,
+  "i18n-197": `Local Pride`,
+  "i18n-198": `Why Is Penang Called the "Silicon Valley of the East"?`,
+  "i18n-199": `Intel and Infineon both built factories here, yet Penang has neither Silicon Valley's fame nor its weather.`,
+  "i18n-200": `Starting from a free trade zone in the 1970s, Penang has built itself up into a major global hub for chip packaging and testing. Intel keeps adding investment, ASE acquired ADI's Penang plant, and Siliconware poured RM6 billion into a new factory. Half a century of quiet accumulation turned a small island into one of the world's chip checkup centers.`,
+  "i18n-201": `Key Fact`,
+  "i18n-202": `In recent years, companies like Intel, ASE, and Siliconware have kept expanding semiconductor packaging and testing investment in Penang, with cumulative spending in the billions of ringgit.`,
+  "i18n-203": `Story B3`,
+  "i18n-204": `Crisis Contrast`,
+  "i18n-205": `Johor Bahru's AI Data Centers Drink 20 Olympic Pools of Water a Day`,
+  "i18n-206": `While you're chatting with an AI, a drop of water might be flowing from a tap in Johor straight into a server in Singapore's cloud.`,
+  "i18n-207": `Johor has seen a data center boom in recent years, and the cooling systems consume a staggering amount of water every day. At one point locals raised concerns about data centers competing with residents for water, and the Johor government even rejected around 30% of data center bids for failing to meet sustainability standards. It's the bill for AI's boom that's easiest to overlook.`,
+  "i18n-208": `Key Fact`,
+  "i18n-209": `Amid Johor's data center boom, the local government has rejected roughly 30% of data center bids for failing to meet sustainability standards.`,
+  "i18n-210": `Story B4`,
+  "i18n-211": `Rise and Fall`,
+  "i18n-212": `The Pandemic Made Malaysia's Glove Makers Rich Overnight, So How Did They Fall Back to Earth?`,
+  "i18n-213": `In 2020, the whole world was scrambling to buy its gloves. Two years later, its share price was a fraction of its peak.`,
+  "i18n-214": `Top Glove is the world's largest rubber glove manufacturer. Orders exploded and its valuation soared during the pandemic, but it was then hit by a triple squeeze of overcapacity, rising costs, and labor rights disputes, quickly bringing its pandemic legend back to earth. It's a business lesson in how a windfall period is not the same thing as a moat.`,
+  "i18n-215": `Key Fact`,
+  "i18n-216": `Top Glove's earnings and market value surged during the pandemic, then fell sharply afterward due to oversupply and cost pressure.`,
+  "i18n-217": `Story B5`,
+  "i18n-218": `Historical Hook`,
+  "i18n-219": `Malaysia's Old "Tin Dynasty" Once Held Up the British Empire's Industrial Revolution`,
+  "i18n-220": `A hundred years before rare earths and lithium became buzzwords, the critical resource the whole world was fighting over was actually Malaysian tin.`,
+  "i18n-221": `The Kinta Valley was once one of the world's most important tin producing regions. The tin can industry it fed underpinned the West's modern logistics and food preservation systems, and it also shaped Ipoh's city wealth and Chinese immigration history today. The same script the world is now playing out over rare earths, nickel, and cobalt, Malaysia already lived through it a hundred years ago.`,
+  "i18n-222": `Key Fact`,
+  "i18n-223": `Historically, the Kinta Valley was one of the world's most important tin mining regions, profoundly shaping Ipoh's urban development and immigration history.`,
+  "i18n-224": `Story B6`,
+  "i18n-225": `Everyday Contrast`,
+  "i18n-226": `Every Bite of Your Breakfast May Have Passed Through a Malaysian Refinery`,
+  "i18n-227": `Shampoo, chocolate, the seasoning packet in instant noodles, that 'vegetable oil' on the ingredients list very likely came from a Malaysian factory you've never heard of.`,
+  "i18n-228": `Malaysia is one of the world's top palm oil producers and exporters. Refineries scattered across the country process crude palm oil into cooking oil, biodiesel, and even cosmetic ingredients, a factory business that has quietly permeated the global consumer goods supply chain while rarely getting talked about.`,
+  "i18n-229": `Key Fact`,
+  "i18n-230": `Malaysia has long ranked among the world's top two in palm oil production and exports, with the industry chain heavily reliant on its local refinery network.`,
+  "i18n-231": `Story B7`,
+  "i18n-232": `Local Pride`,
+  "i18n-233": `Half the World's Chips May Have to Get a "Checkup" in Malaysia First`,
+  "i18n-234": `Taiwan and the US get all the fame for making chips, but the last checkpoint before many of them leave the factory actually happens in Malaysia.`,
+  "i18n-235": `The electrical and electronics (E&E) industry has been Malaysia's biggest export pillar for decades, powered by thousands of packaging and testing plants in free trade zones like Penang, Kulim, and Seremban. Amid the global "China plus one" supply chain reshuffle, this low profile industry is heading into a new wave of expansion.`,
+  "i18n-236": `Key Fact`,
+  "i18n-237": `The electrical and electronics industry has long been Malaysia's largest export category, with packaging and testing at its core.`,
+  "i18n-238": `Story B8`,
+  "i18n-239": `Future Industry`,
+  "i18n-240": `The Next Wave Fighting Over Factory Space Isn't Chips, It's Walking Robots`,
+  "i18n-241": `Tesla Optimus and Figure AI are both betting on the same thing: whoever builds the 'factory that builds robots' first wins the next decade.`,
+  "i18n-242": `Humanoid robots are seen as the next industrial wave after AI, and their first battlefield isn't the lab, it's the factory production line. This episode turns the camera back to our most familiar subject: as the world races to build "robot factories," will Southeast Asia's factory map get reshuffled too?`,
+  "i18n-243": `Key Fact`,
+  "i18n-244": `Companies like Tesla Optimus and Figure AI are racing to build out mass production factories for humanoid robots, seen as the next infrastructure race in the AI industry.`,
+  "i18n-245": `The Standard | Coffee, Meet Factory, Story Research`,
+  "i18n-246": `04 / 05`,
+  "i18n-247": `How to Use This Story Bank`,
+  "i18n-248": `Suggested Programming Logic`,
+  "i18n-249": `Global Stories Are for "Breaking Out"`,
+  "i18n-250": `Group A is more likely to get recommended by the algorithm and shared by non local viewers, making it a good fit for building awareness and driving subscriptions, especially A1, A2, A5, and A6, the story ideas with the strongest contrast.`,
+  "i18n-251": `Local Stories Are for "Building Trust"`,
+  "i18n-252": `Group B sits closer to the core factory referral business, making it a good fit for the middle of the series, where it naturally introduces MoneyMoneyHome's professional background and flows into later sponsorships and referral leads.`,
+  "i18n-253": `Every Episode Follows Ep1's Five Part Structure`,
+  "i18n-254": `Self introduction → Hook (30 seconds) → Understand the crisis → Quick explainer → Reveal the hidden champion → Closing line. The "opening hook" and "key fact" on each card above map directly onto the first two beats of this structure.`,
+  "i18n-255": `Always Double Check Before Scripting`,
+  "i18n-256": `All the facts above come from recent public reporting and industry analysis. Before scripting, verify the specific numbers and timelines once more against the latest sources, especially anything involving prices or market share.`,
+  "i18n-257": `The Standard | Coffee, Meet Factory, Story Research`,
+  "i18n-258": `All 20 Story Ideas`,
+  };
+  var originalHTML = {};
+  var currentLang = 'zh';
+
+  function capture(){
+    Object.keys(translations).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) originalHTML[id] = el.innerHTML;
+    });
+  }
+
+  function applyLang(lang){
+    currentLang = lang;
+    Object.keys(translations).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      el.innerHTML = (lang === 'en') ? translations[id] : originalHTML[id];
+    });
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-Hans';
+    var btn = document.getElementById('lang-toggle-btn');
+    if(btn) btn.textContent = (lang === 'en') ? '中文' : 'EN';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    capture();
+    var btn = document.getElementById('lang-toggle-btn');
+    if(btn){
+      btn.addEventListener('click', function(){
+        applyLang(currentLang === 'zh' ? 'en' : 'zh');
+      });
+    }
+  });
+})();
+</script>
