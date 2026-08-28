@@ -225,8 +225,9 @@
   }
   table{
     border-collapse:collapse;
+    table-layout:fixed;
     width:100%;
-    min-width:720px;
+    min-width:780px;
     font-size:0.95rem;
   }
   thead th{
@@ -254,7 +255,7 @@
     color:var(--accent-deep);
     font-variant-numeric:tabular-nums;
   }
-  td.name{color:var(--ink);font-weight:600;white-space:nowrap;}
+  td.name{color:var(--ink);font-weight:600;overflow-wrap:break-word;}
   td.name .en{
     display:block;
     font-weight:400;
@@ -266,14 +267,12 @@
     font-variant-numeric:tabular-nums;
     font-weight:700;
     color:var(--accent-deep);
-    white-space:nowrap;
   }
   td.rm{
     font-variant-numeric:tabular-nums;
-    white-space:nowrap;
     color:var(--ink);
   }
-  td.content{min-width:260px;}
+  td.content{overflow-wrap:break-word;}
   td.content div{margin-bottom:6px;}
   td.content div:last-child{margin-bottom:0;}
   tfoot td{
@@ -480,7 +479,7 @@
 
     <figure class="diagram">
       <div class="diagram-scroll">
-      <svg id="svg-a" viewBox="0 0 900 320" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
+      <svg id="svg-a" viewBox="0 0 1060 330" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
         <defs>
           <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
@@ -491,51 +490,51 @@
         </defs>
 
         <text id="a-t-trad" x="0" y="24" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--muted)">传统模式</text>
-        <rect x="0" y="38" width="140" height="46" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
-        <text id="a-t-design" x="70" y="65" font-size="13" text-anchor="middle">设计报批</text>
-        <line x1="140" y1="61" x2="176" y2="61" stroke="currentColor" stroke-width="1.2" marker-end="url(#arrowA)"/>
-        <rect x="180" y="38" width="150" height="46" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
-        <text id="a-t-agent" x="255" y="65" font-size="13" text-anchor="middle">委托中介卖楼</text>
-        <line x1="330" y1="61" x2="366" y2="61" stroke="var(--warn)" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrowWarn)"/>
-        <rect x="370" y="30" width="330" height="62" rx="2" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1.2" stroke-dasharray="4 3"/>
-        <text id="a-t-warn1" x="535" y="55" font-size="12.5" text-anchor="middle" fill="var(--warn)">按揭受阻 · 户型滞销</text>
-        <text id="a-t-warn2" x="535" y="74" font-size="12.5" text-anchor="middle" fill="var(--warn)">工程资金断档</text>
+        <rect x="0" y="38" width="160" height="48" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <text id="a-t-design" x="80" y="66" font-size="13" text-anchor="middle">设计报批</text>
+        <line x1="160" y1="62" x2="198" y2="62" stroke="currentColor" stroke-width="1.2" marker-end="url(#arrowA)"/>
+        <rect x="202" y="38" width="180" height="48" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <text id="a-t-agent" x="292" y="66" font-size="13" text-anchor="middle">委托中介卖楼</text>
+        <line x1="382" y1="62" x2="420" y2="62" stroke="var(--warn)" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrowWarn)"/>
+        <rect x="424" y="30" width="420" height="64" rx="2" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <text id="a-t-warn1" x="634" y="56" font-size="12.5" text-anchor="middle" fill="var(--warn)">按揭受阻 · 户型滞销</text>
+        <text id="a-t-warn2" x="634" y="76" font-size="12.5" text-anchor="middle" fill="var(--warn)">工程资金断档</text>
 
-        <line x1="0" y1="128" x2="900" y2="128" stroke="var(--line)" stroke-width="1"/>
+        <line x1="0" y1="130" x2="1060" y2="130" stroke="var(--line)" stroke-width="1"/>
 
-        <text id="a-t-onz" x="0" y="156" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--accent-deep)">ONZ 全案代建模式</text>
+        <text id="a-t-onz" x="0" y="158" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--accent-deep)">ONZ 全案代建模式</text>
         <g font-size="12.5" text-anchor="middle">
-          <rect x="0" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-plan" x="79" y="200">规划研发</text>
-          <line x1="158" y1="196" x2="184" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="0" y="172" width="190" height="54" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-plan" x="95" y="203">规划研发</text>
+          <line x1="190" y1="199" x2="216" y2="199" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="184" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-fin" x="263" y="200">融资与按揭</text>
-          <line x1="342" y1="196" x2="368" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="216" y="172" width="190" height="54" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-fin" x="311" y="203">融资与按揭</text>
+          <line x1="406" y1="199" x2="432" y2="199" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="368" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-mkt" x="447" y="200">自建营销</text>
-          <line x1="526" y1="196" x2="552" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="432" y="172" width="190" height="54" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-mkt" x="527" y="203">自建营销</text>
+          <line x1="622" y1="199" x2="648" y2="199" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="552" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-pmo" x="631" y="200">工程监理</text>
-          <line x1="710" y1="196" x2="736" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="648" y="172" width="190" height="54" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-pmo" x="743" y="203">工程监理</text>
+          <line x1="838" y1="199" x2="864" y2="199" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="736" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-after" x="815" y="200">售后运营</text>
+          <rect x="864" y="172" width="190" height="54" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-after" x="959" y="203">售后运营</text>
         </g>
 
-        <line x1="79" y1="222" x2="79" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <line x1="263" y1="222" x2="263" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <line x1="447" y1="222" x2="447" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <line x1="631" y1="222" x2="631" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <line x1="815" y1="222" x2="815" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <line x1="79" y1="240" x2="815" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <line x1="447" y1="240" x2="447" y2="258" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowA)"/>
+        <line x1="95" y1="226" x2="95" y2="244" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="311" y1="226" x2="311" y2="244" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="527" y1="226" x2="527" y2="244" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="743" y1="226" x2="743" y2="244" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="959" y1="226" x2="959" y2="244" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="95" y1="244" x2="959" y2="244" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="527" y1="244" x2="527" y2="262" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowA)"/>
 
-        <rect x="297" y="262" width="300" height="52" rx="26" fill="var(--accent)"/>
-        <text x="447" y="284" font-size="13" font-weight="600" text-anchor="middle" fill="var(--on-accent)">Kharisma</text>
-        <text id="a-t-own" x="447" y="302" font-size="11.5" text-anchor="middle" fill="var(--on-accent)">100% 控股</text>
+        <rect x="367" y="266" width="320" height="54" rx="27" fill="var(--accent)"/>
+        <text x="527" y="288" font-size="13" font-weight="600" text-anchor="middle" fill="var(--on-accent)">Kharisma</text>
+        <text id="a-t-own" x="527" y="306" font-size="11.5" text-anchor="middle" fill="var(--on-accent)">100% 控股</text>
       </svg>
       </div>
       <figcaption id="s1-fig"><b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。</figcaption>
@@ -556,9 +555,16 @@
 
     <div class="table-wrap">
       <table>
+        <colgroup>
+          <col style="width:4%">
+          <col style="width:21%">
+          <col style="width:8%">
+          <col style="width:18%">
+          <col style="width:49%">
+        </colgroup>
         <thead>
           <tr>
-            <th style="width:34px;"></th>
+            <th></th>
             <th id="t2-th2">服务板块</th>
             <th id="t2-th3">费用比例</th>
             <th id="t2-th4">第一期预估<br>(~3.5亿 GDC)</th>
@@ -940,7 +946,7 @@
   // diagram labels. Whichever language renders wider gets auto-compressed to fit,
   // so a label can never crowd or spill out of its box.
   var FITW = {
-    'a-t-plan': 130, 'a-t-fin': 130, 'a-t-mkt': 130, 'a-t-pmo': 130, 'a-t-after': 130, 'a-t-own': 260,
+    'a-t-plan': 162, 'a-t-fin': 162, 'a-t-mkt': 162, 'a-t-pmo': 162, 'a-t-after': 162, 'a-t-own': 288,
     'b-t-row1': 138, 'b-t-row3': 138,
     'c-t-towerA1a': 164, 'c-t-towerA1b': 164, 'c-t-sales': 164, 'c-t-hda': 164,
     'c-t-feed': 164, 'c-t-towerA23': 164, 'c-t-next': 164, 'c-t-rolling': 164,
