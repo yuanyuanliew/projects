@@ -237,12 +237,15 @@
   /* ---------- Fee table ---------- */
   .table-wrap{
     position:relative;
-    overflow-x:auto;
     border:1px solid var(--line);
     border-radius:2px;
     background:var(--paper-raised);
   }
+  .table-scroll{ overflow-x:auto; }
   @media (max-width:640px){
+    /* The fade lives on .table-wrap (which does NOT scroll), not on the inner
+       .table-scroll — a pseudo-element on the scrolling element itself would
+       scroll along with the content instead of staying pinned to the edge. */
     .table-wrap::after{
       content:"";
       position:absolute;
@@ -382,8 +385,10 @@
     border:1px solid var(--line);
     border-radius:2px;
   }
-  .diagram-scroll{
+  .diagram-frame{
     position:relative;
+  }
+  .diagram-scroll{
     max-width:100%;
   }
   figure.diagram svg{
@@ -406,7 +411,11 @@
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
     }
-    .diagram-scroll::after{
+    /* The fade lives on .diagram-frame (which does NOT scroll), not on the
+       inner .diagram-scroll — a pseudo-element on the scrolling element
+       itself would scroll along with the content instead of staying pinned
+       to the edge, appearing as a dark patch drifting over the diagram. */
+    .diagram-frame::after{
       content:"";
       position:absolute;
       top:0;right:0;bottom:0;
@@ -537,7 +546,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
         <span id="hint-a">左右滑动查看完整图表</span>
       </div>
-      <div class="diagram-scroll">
+      <div class="diagram-frame"><div class="diagram-scroll">
       <svg id="svg-a" viewBox="0 0 1270 350" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
         <defs>
           <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -595,12 +604,12 @@
         <text x="627.5" y="306" font-size="16" font-weight="600" text-anchor="middle" fill="var(--on-accent)">Kharisma</text>
         <text id="a-t-own" x="627.5" y="326" font-size="14" text-anchor="middle" fill="var(--on-accent)">100% 控股</text>
       </svg>
-      </div>
+      </div></div>
       <figcaption id="s1-fig"><b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。</figcaption>
     </figure>
 
     <div class="takeaway">
-      <span class="mark">要点</span>
+      <span class="mark" id="mark1">要点</span>
       <p id="s1-take">地权、控股、品牌<em>一概不出让</em>；ONZ 只做"外脑引擎"，把按揭、去化、资金三大致命风险体系化接管。</p>
     </div>
   </section>
@@ -616,7 +625,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
       <span id="hint-table">左右滑动查看完整表格</span>
     </div>
-    <div class="table-wrap">
+    <div class="table-wrap"><div class="table-scroll">
       <table>
         <colgroup>
           <col style="width:4%">
@@ -689,14 +698,14 @@
           </tr>
         </tfoot>
       </table>
-    </div>
+    </div></div>
 
     <figure class="diagram">
       <div class="scroll-hint">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
         <span id="hint-b">左右滑动查看完整图表</span>
       </div>
-      <div class="diagram-scroll">
+      <div class="diagram-frame"><div class="diagram-scroll">
       <svg id="svg-b" viewBox="0 0 920 260" fill="currentColor" role="img" aria-label="四大服务板块的收费并非一次性收取，而是分别对应报批、开盘、施工、交房四个开发里程碑分期释放：规划设计集中在报批前，营销与品牌从开盘持续到施工期，财务与按揭贯穿全程，工程与售后集中在施工期到交房。">
         <line x1="201" y1="30" x2="895" y2="30" stroke="currentColor" stroke-width="1.2"/>
         <g font-size="14.5" text-anchor="middle" fill="var(--muted)">
@@ -728,12 +737,12 @@
           <rect x="615" y="206" width="260" height="22" rx="2" fill="var(--accent)" opacity="0.78"/>
         </g>
       </svg>
-      </div>
+      </div></div>
       <figcaption id="s2-fig"><b>按里程碑释放，而非一次性收取：</b>规划设计费集中在报批前完成；营销、工程与售后随开盘与施工节奏逐步释放；财务与按揭管控则贯穿全程，四大板块的支付节奏与项目实际进度同步。</figcaption>
     </figure>
 
     <div class="takeaway">
-      <span class="mark">要点</span>
+      <span class="mark" id="mark2">要点</span>
       <p id="s2-take">全案代建总包 <em>17% GDC</em>，按报批、开盘、施工、交房四个节点分期支付，绝非前期一次性收取。</p>
     </div>
   </section>
@@ -767,7 +776,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
         <span id="hint-c">左右滑动查看完整图表</span>
       </div>
-      <div class="diagram-scroll">
+      <div class="diagram-frame"><div class="diagram-scroll">
       <svg id="svg-c" viewBox="0 0 760 405" fill="currentColor" role="img" aria-label="传统模式需一次性启动3.5亿马币重资产；ONZ方案将开发拆分为多期滚动推进，Tower A1开工后销售回款进入HDA资金池，资金池反哺下一期Tower开工，形成自我造血的资金闭环，循环往复，资金沉淀降低60%以上。">
         <defs>
           <marker id="arrowC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -809,7 +818,7 @@
         <text id="c-t-engine" x="380" y="233" font-size="15.5" font-weight="600" text-anchor="middle" fill="var(--accent-deep)">滚动开发引擎</text>
         <text id="c-t-capital" x="380" y="253" font-size="14" text-anchor="middle" fill="var(--muted)">资金沉淀 ↓60%+</text>
       </svg>
-      </div>
+      </div></div>
       <figcaption id="s3-figC"><b>首期自我造血，滚动反哺后续：</b>无需一次性沉淀 3.5 亿 GDC，仅需启动 Tower A1；销售回款进入 HDA 资金池后反哺下一期开工，资金在各期之间循环滚动，利息与资金风险直降 60% 以上。</figcaption>
     </figure>
 
@@ -818,7 +827,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
         <span id="hint-d">左右滑动查看完整图表</span>
       </div>
-      <div class="diagram-scroll">
+      <div class="diagram-frame"><div class="diagram-scroll">
       <svg id="svg-d" viewBox="0 0 760 150" fill="currentColor" role="img" aria-label="原方案87%为微型小户型，去化困难；优化后调整为3300间兼具自住与投资功能的高流动性户型，占比100%，同时保留216万平方英尺批准住宅面积。">
         <text id="d-t-orig" x="0" y="26" font-size="15" fill="var(--muted)">原方案</text>
         <rect x="130" y="6" width="510" height="34" rx="2" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1"/>
@@ -831,12 +840,12 @@
 
         <text id="d-t-gfa" x="130" y="134" font-size="13.5" fill="var(--muted)">批准住宅面积 216 万平方英尺，优化前后 100% 保留</text>
       </svg>
-      </div>
+      </div></div>
       <figcaption id="s3-figD"><b>户型结构反转：</b>去化困难的微型小户型占比从 87% 降至 0，代之以贴合本地 66% 马来客群自住需求的高流动性户型，批准建筑面积不变，去化确定性显著提升。</figcaption>
     </figure>
 
     <div class="takeaway">
-      <span class="mark">要点</span>
+      <span class="mark" id="mark3">要点</span>
       <p id="s3-take">省成本抵管理费、通按揭防卡壳、滚动开发降资金压力 <em>60%+</em>、户型优化保去化 — 四项优化共同指向同一个目标：让项目<em>现金流自己转起来</em>。</p>
     </div>
   </section>
@@ -871,7 +880,7 @@
     </div>
 
     <div class="takeaway">
-      <span class="mark">要点</span>
+      <span class="mark" id="mark4">要点</span>
       <p id="s4-take">先对齐方案、再高层拍板、最后签约 — <em>三步之内</em>锁定规划优化与按揭筹备的黄金窗口期。</p>
     </div>
   </section>
@@ -905,6 +914,10 @@
     's1-li2': { zh:`<strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到工程监理及售后运营，全生命周期负责。`, en:`<strong>End-to-end involvement:</strong> Full lifecycle responsibility — from planning and R&D, bank financing and end-financing, and building the sales system, through construction supervision and after-sales operations.` },
     's1-fig': { zh:`<b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。`, en:`<b>Five connected stages vs. three failure points:</b> the traditional model stops at "approval + agent," breaking down at financing, sell-through, and funding; ONZ's engine runs through planning, financing, marketing, supervision, and after-sales, with Kharisma always retaining 100% ownership and its brand while risk is absorbed systematically by the team.` },
     's1-take': { zh:`地权、控股、品牌<em>一概不出让</em>；ONZ 只做"外脑引擎"，把按揭、去化、资金三大致命风险体系化接管。`, en:`Land, ownership, and brand are <em>never surrendered</em>; ONZ acts purely as the "external engine," systematically taking on the three fatal risks — financing, sell-through, and funding.` },
+    'mark1': { zh:`要点`, en:`Key Takeaway` },
+    'mark2': { zh:`要点`, en:`Key Takeaway` },
+    'mark3': { zh:`要点`, en:`Key Takeaway` },
+    'mark4': { zh:`要点`, en:`Key Takeaway` },
 
     's2-num': { zh:`二`, en:`2` },
     's2-h2': { zh:`四大核心服务板块与费用结构（基于 GDC 测算）`, en:`Four Core Service Pillars & Fee Structure (Based on GDC)` },
