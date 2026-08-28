@@ -355,12 +355,12 @@
     border-radius:2px;
   }
   .diagram-scroll{
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
+    max-width:100%;
   }
   figure.diagram svg{
     display:block;
     width:100%;
+    max-width:100%;
     height:auto;
     color:var(--ink-soft);
   }
@@ -368,8 +368,7 @@
     font-family:"Noto Sans SC",sans-serif;
   }
   @media (max-width:640px){
-    figure.diagram{padding:20px 18px 16px;}
-    .diagram-scroll svg{width:640px;flex:none;}
+    figure.diagram{padding:16px 14px 14px;}
   }
   figure.diagram figcaption{
     margin-top:16px;
@@ -476,12 +475,12 @@
     <p id="s1-p2">ONZ 团队并非普通销售中介，而是作为 Kharisma 的"外脑式开发运营引擎"，全面导入 20 年一线开发商体系化实战经验（Michael Yam 曾全程操盘 EXSIM 从 The Treez 到 Millerz 的全流程开发，并成功交付 UNO 旗下项目）：</p>
     <ul class="plain">
       <li id="s1-li1"><strong>地主利益最大化：</strong> Kharisma 保持 100% 土地所有权与项目控制权，完全拥有"Kharisma"自主品牌资产。</li>
-      <li id="s1-li2"><strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到 48 个月工程监理及售后运营，全生命周期负责。</li>
+      <li id="s1-li2"><strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到工程监理及售后运营，全生命周期负责。</li>
     </ul>
 
     <figure class="diagram">
       <div class="diagram-scroll">
-      <svg id="svg-a" viewBox="0 0 900 250" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
+      <svg id="svg-a" viewBox="0 0 900 320" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
         <defs>
           <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
@@ -506,29 +505,37 @@
 
         <text id="a-t-onz" x="0" y="156" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--accent-deep)">ONZ 全案代建模式</text>
         <g font-size="12.5" text-anchor="middle">
-          <rect x="0" y="170" width="118" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-plan" x="59" y="197">规划研发</text>
-          <line x1="118" y1="193" x2="150" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="0" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-plan" x="79" y="200">规划研发</text>
+          <line x1="158" y1="196" x2="184" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="154" y="170" width="130" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-fin" x="219" y="197">融资与按揭</text>
-          <line x1="284" y1="193" x2="316" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="184" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-fin" x="263" y="200">融资与按揭</text>
+          <line x1="342" y1="196" x2="368" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="320" y="170" width="110" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-mkt" x="375" y="197">自建营销</text>
-          <line x1="430" y1="193" x2="462" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="368" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-mkt" x="447" y="200">自建营销</text>
+          <line x1="526" y1="196" x2="552" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="466" y="170" width="140" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-pmo" x="536" y="197">工程监理 48个月</text>
-          <line x1="606" y1="193" x2="638" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="552" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-pmo" x="631" y="200">工程监理</text>
+          <line x1="710" y1="196" x2="736" y2="196" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
-          <rect x="642" y="170" width="110" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text id="a-t-after" x="697" y="197">售后运营</text>
-          <line x1="752" y1="193" x2="784" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
+          <rect x="736" y="170" width="158" height="52" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
+          <text id="a-t-after" x="815" y="200">售后运营</text>
         </g>
-        <rect x="788" y="162" width="112" height="62" rx="2" fill="var(--accent)" stroke="var(--accent)" stroke-width="1.2"/>
-        <text x="844" y="187" font-size="12" text-anchor="middle" fill="var(--on-accent)">Kharisma</text>
-        <text id="a-t-own" x="844" y="204" font-size="12" text-anchor="middle" fill="var(--on-accent)">100% 控股</text>
+
+        <line x1="79" y1="222" x2="79" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="263" y1="222" x2="263" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="447" y1="222" x2="447" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="631" y1="222" x2="631" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="815" y1="222" x2="815" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="79" y1="240" x2="815" y2="240" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <line x1="447" y1="240" x2="447" y2="258" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowA)"/>
+
+        <rect x="297" y="262" width="300" height="52" rx="26" fill="var(--accent)"/>
+        <text x="447" y="284" font-size="13" font-weight="600" text-anchor="middle" fill="var(--on-accent)">Kharisma</text>
+        <text id="a-t-own" x="447" y="302" font-size="11.5" text-anchor="middle" fill="var(--on-accent)">100% 控股</text>
       </svg>
       </div>
       <figcaption id="s1-fig"><b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。</figcaption>
@@ -625,7 +632,7 @@
           <line x1="340" y1="25" x2="340" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
           <text id="b-t-launch" x="340" y="18">开盘销售</text>
           <line x1="560" y1="25" x2="560" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
-          <text id="b-t-const" x="560" y="18">施工期（48个月）</text>
+          <text id="b-t-const" x="560" y="18">施工期</text>
           <line x1="820" y1="25" x2="820" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
           <text id="b-t-handover" x="815" y="18">交房验收</text>
         </g>
@@ -810,7 +817,7 @@
     's1-lede': { zh:`针对总建筑成本近 9 亿马币、规划超 3,000 间单位的大型高层综合体，若仅采用"传统设计报批 + 后期找中介卖楼"的模式，极易面临银行买房按揭（EF）受阻、户型错配导致土著配额滞销、工程造价浪费及资金断档等致命风险。`, en:`For a large high-rise complex with nearly RM 900 million in total construction cost and over 3,000 planned units, relying on the traditional "design approval, then find an agent to sell later" model risks fatal problems: blocked end-financing (EF) approvals, unit-mix mismatches that leave Bumiputera-quota units unsold, wasted construction budget, and funding gaps.` },
     's1-p2': { zh:`ONZ 团队并非普通销售中介，而是作为 Kharisma 的"外脑式开发运营引擎"，全面导入 20 年一线开发商体系化实战经验（Michael Yam 曾全程操盘 EXSIM 从 The Treez 到 Millerz 的全流程开发，并成功交付 UNO 旗下项目）：`, en:`ONZ is not an ordinary sales agent — we act as Kharisma's external development-operations engine, bringing in 20 years of frontline developer expertise (Michael Yam led EXSIM's full-cycle development from The Treez through Millerz, and has delivered projects under the UNO brand):` },
     's1-li1': { zh:`<strong>地主利益最大化：</strong> Kharisma 保持 100% 土地所有权与项目控制权，完全拥有"Kharisma"自主品牌资产。`, en:`<strong>Landowner value maximized:</strong> Kharisma retains 100% land ownership and project control, and keeps full rights to the "Kharisma" brand asset.` },
-    's1-li2': { zh:`<strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到 48 个月工程监理及售后运营，全生命周期负责。`, en:`<strong>End-to-end involvement:</strong> Full lifecycle responsibility — from planning and R&D, bank financing and end-financing, and building the sales system, through 48 months of construction supervision and after-sales operations.` },
+    's1-li2': { zh:`<strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到工程监理及售后运营，全生命周期负责。`, en:`<strong>End-to-end involvement:</strong> Full lifecycle responsibility — from planning and R&D, bank financing and end-financing, and building the sales system, through construction supervision and after-sales operations.` },
     's1-fig': { zh:`<b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。`, en:`<b>Five connected stages vs. three failure points:</b> the traditional model stops at "approval + agent," breaking down at financing, sell-through, and funding; ONZ's engine runs through planning, financing, marketing, supervision, and after-sales, with Kharisma always retaining 100% ownership and its brand while risk is absorbed systematically by the team.` },
     's1-take': { zh:`地权、控股、品牌<em>一概不出让</em>；ONZ 只做"外脑引擎"，把按揭、去化、资金三大致命风险体系化接管。`, en:`Land, ownership, and brand are <em>never surrendered</em>; ONZ acts purely as the "external engine," systematically taking on the three fatal risks — financing, sell-through, and funding.` },
 
@@ -889,13 +896,13 @@
     'a-t-plan': { zh:`规划研发`, en:`Planning & R&D` },
     'a-t-fin': { zh:`融资与按揭`, en:`Financing & EF` },
     'a-t-mkt': { zh:`自建营销`, en:`In-House Marketing` },
-    'a-t-pmo': { zh:`工程监理 48个月`, en:`48-Month PMO` },
+    'a-t-pmo': { zh:`工程监理`, en:`Construction PMO` },
     'a-t-after': { zh:`售后运营`, en:`After-Sales` },
     'a-t-own': { zh:`100% 控股`, en:`100% Owned` },
 
     'b-t-pre': { zh:`DO 报批前`, en:`Pre-DO Approval` },
     'b-t-launch': { zh:`开盘销售`, en:`Launch & Sales` },
-    'b-t-const': { zh:`施工期（48个月）`, en:`Construction (48 months)` },
+    'b-t-const': { zh:`施工期`, en:`Development Period` },
     'b-t-handover': { zh:`交房验收`, en:`Handover` },
     'b-t-row1': { zh:`01 规划设计 6.0%`, en:`01 Planning & R&D 6.0%` },
     'b-t-row2': { zh:`02 营销品牌 3.0%`, en:`02 Marketing & Brand 3.0%` },
@@ -929,6 +936,37 @@
     'svg-d': { name:'aria-label', zh:`原方案87%为微型小户型，去化困难；优化后调整为3300间兼具自住与投资功能的高流动性户型，占比100%，同时保留216万平方英尺批准住宅面积。`, en:`The original plan was 87% micro-units, difficult to sell through. The optimized plan shifts to 3,300 high-liquidity units serving both owner-occupation and investment, 100% of the mix, while retaining the full 2.16 million sq ft of approved residential floor area.` }
   };
 
+  // Max available width (px, in the SVG's own coordinate space) for boxed/constrained
+  // diagram labels. Whichever language renders wider gets auto-compressed to fit,
+  // so a label can never crowd or spill out of its box.
+  var FITW = {
+    'a-t-plan': 130, 'a-t-fin': 130, 'a-t-mkt': 130, 'a-t-pmo': 130, 'a-t-after': 130, 'a-t-own': 260,
+    'b-t-row1': 138, 'b-t-row3': 138,
+    'c-t-towerA1a': 164, 'c-t-towerA1b': 164, 'c-t-sales': 164, 'c-t-hda': 164,
+    'c-t-feed': 164, 'c-t-towerA23': 164, 'c-t-next': 164, 'c-t-rolling': 164,
+    'c-t-engine': 220, 'c-t-capital': 220,
+    'd-t-origlabel': 470, 'd-t-optlabel': 470
+  };
+
+  function fitText(el, maxw){
+    if (!el) return;
+    el.removeAttribute('textLength');
+    el.removeAttribute('lengthAdjust');
+    try {
+      var len = el.getComputedTextLength();
+      if (len > maxw) {
+        el.setAttribute('textLength', maxw);
+        el.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+      }
+    } catch (e) {}
+  }
+
+  function fitAll(){
+    Object.keys(FITW).forEach(function(id){
+      fitText(document.getElementById(id), FITW[id]);
+    });
+  }
+
   var lang = 'zh';
 
   function applyLang(l){
@@ -945,6 +983,7 @@
       var el = document.getElementById(id);
       if (el) el.setAttribute(ATTR[id].name, ATTR[id][l]);
     });
+    fitAll();
     var label = document.getElementById('lang-toggle-label');
     if (label) label.textContent = (l === 'zh') ? 'EN' : '中文';
     var btn = document.getElementById('lang-toggle');
@@ -958,6 +997,8 @@
       applyLang(lang === 'zh' ? 'en' : 'zh');
     });
   }
+
+  fitAll();
 
   var saved = null;
   try { saved = localStorage.getItem('setiawangsa-lang'); } catch (e) {}
