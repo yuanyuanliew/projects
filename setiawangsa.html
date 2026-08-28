@@ -216,12 +216,39 @@
   }
   ul.plain li strong{color:var(--ink);}
 
+  /* ---------- Scroll affordance (mobile) ---------- */
+  .scroll-hint{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:10px;
+    font-size:0.74rem;
+    letter-spacing:0.02em;
+    color:var(--accent-deep);
+  }
+  .scroll-hint svg{width:13px;height:13px;flex:none;}
+  @media (max-width:640px){
+    .scroll-hint{display:flex;}
+  }
+
   /* ---------- Fee table ---------- */
   .table-wrap{
+    position:relative;
     overflow-x:auto;
     border:1px solid var(--line);
     border-radius:2px;
     background:var(--paper-raised);
+  }
+  @media (max-width:640px){
+    .table-wrap::after{
+      content:"";
+      position:absolute;
+      top:0;right:0;bottom:0;
+      width:28px;
+      background:linear-gradient(to right, transparent, var(--paper-raised));
+      pointer-events:none;
+    }
   }
   table{
     border-collapse:collapse;
@@ -354,6 +381,7 @@
     border-radius:2px;
   }
   .diagram-scroll{
+    position:relative;
     max-width:100%;
   }
   figure.diagram svg{
@@ -368,6 +396,31 @@
   }
   @media (max-width:640px){
     figure.diagram{padding:16px 14px 14px;}
+    /* Below this width, scaling the full-size diagram down to fit would shrink
+       its text past comfortable reading size. Instead, render each diagram at a
+       fixed, legible height and let it scroll horizontally within its frame —
+       with a visible hint and edge fade so scrolling reads as a feature. */
+    .diagram-scroll{
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+    }
+    .diagram-scroll::after{
+      content:"";
+      position:absolute;
+      top:0;right:0;bottom:0;
+      width:24px;
+      background:linear-gradient(to right, transparent, var(--paper-raised));
+      pointer-events:none;
+    }
+    .diagram-scroll svg{
+      width:auto;
+      max-width:none;
+      flex:none;
+    }
+    #svg-a{height:280px;}
+    #svg-b{height:225px;}
+    #svg-c{height:330px;}
+    #svg-d{height:126px;}
   }
   figure.diagram figcaption{
     margin-top:16px;
@@ -478,6 +531,10 @@
     </ul>
 
     <figure class="diagram">
+      <div class="scroll-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
+        <span id="hint-a">左右滑动查看完整图表</span>
+      </div>
       <div class="diagram-scroll">
       <svg id="svg-a" viewBox="0 0 1060 330" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
         <defs>
@@ -553,6 +610,10 @@
     </div>
     <p id="s2-p">服务收费按照马来西亚代建行业标准，以总开发成本（Gross Development Cost, GDC）为基准分拆为四大模块，按开发里程碑分期支付：</p>
 
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
+      <span id="hint-table">左右滑动查看完整表格</span>
+    </div>
     <div class="table-wrap">
       <table>
         <colgroup>
@@ -629,6 +690,10 @@
     </div>
 
     <figure class="diagram">
+      <div class="scroll-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
+        <span id="hint-b">左右滑动查看完整图表</span>
+      </div>
       <div class="diagram-scroll">
       <svg id="svg-b" viewBox="0 0 880 260" fill="currentColor" role="img" aria-label="四大服务板块的收费并非一次性收取，而是分别对应报批、开盘、施工、交房四个开发里程碑分期释放：规划设计集中在报批前，营销与品牌从开盘持续到施工期，财务与按揭贯穿全程，工程与售后集中在施工期到交房。">
         <line x1="146" y1="30" x2="840" y2="30" stroke="currentColor" stroke-width="1.2"/>
@@ -696,6 +761,10 @@
     </div>
 
     <figure class="diagram">
+      <div class="scroll-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
+        <span id="hint-c">左右滑动查看完整图表</span>
+      </div>
       <div class="diagram-scroll">
       <svg id="svg-c" viewBox="0 0 760 400" fill="currentColor" role="img" aria-label="传统模式需一次性启动3.5亿马币重资产；ONZ方案将开发拆分为多期滚动推进，Tower A1开工后销售回款进入HDA资金池，资金池反哺下一期Tower开工，形成自我造血的资金闭环，循环往复，资金沉淀降低60%以上。">
         <defs>
@@ -739,6 +808,10 @@
     </figure>
 
     <figure class="diagram">
+      <div class="scroll-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg>
+        <span id="hint-d">左右滑动查看完整图表</span>
+      </div>
       <div class="diagram-scroll">
       <svg id="svg-d" viewBox="0 0 760 150" fill="currentColor" role="img" aria-label="原方案87%为微型小户型，去化困难；优化后调整为3300间兼具自住与投资功能的高流动性户型，占比100%，同时保留216万平方英尺批准住宅面积。">
         <text id="d-t-orig" x="0" y="24" font-size="12.5" fill="var(--muted)">原方案</text>
@@ -889,7 +962,13 @@
     's4-take': { zh:`先对齐方案、再高层拍板、最后签约 — <em>三步之内</em>锁定规划优化与按揭筹备的黄金窗口期。`, en:`Align first, then get executive sign-off, then sign — locking in the planning-optimization and financing window in <em>three steps</em>.` },
 
     'f-span1': { zh:`Setiawangsa 综合开发项目 · 全案开发管理合作方案`, en:`Setiawangsa Integrated Development · Full-Cycle Development Management Proposal` },
-    'f-span2': { zh:`ONZ 顾问团队`, en:`ONZ Advisory Team` }
+    'f-span2': { zh:`ONZ 顾问团队`, en:`ONZ Advisory Team` },
+
+    'hint-table': { zh:`左右滑动查看完整表格`, en:`Swipe to see the full table` },
+    'hint-a': { zh:`左右滑动查看完整图表`, en:`Swipe to see the full diagram` },
+    'hint-b': { zh:`左右滑动查看完整图表`, en:`Swipe to see the full diagram` },
+    'hint-c': { zh:`左右滑动查看完整图表`, en:`Swipe to see the full diagram` },
+    'hint-d': { zh:`左右滑动查看完整图表`, en:`Swipe to see the full diagram` }
   };
 
   var TEXT = {
