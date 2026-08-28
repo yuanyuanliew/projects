@@ -1,3 +1,4 @@
+
 <title>Setiawangsa 代建操盘简报</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap">
 <style>
@@ -15,6 +16,7 @@
     --tag-bg:#e9e2cd;
     --warn:#a05a3c;
     --warn-tint:#f1e2d6;
+    --on-accent:#fbf8ef;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -31,6 +33,7 @@
       --tag-bg:#2a2f24;
       --warn:#cc8161;
       --warn-tint:#2c211b;
+      --on-accent:#1c1608;
     }
   }
   :root[data-theme="dark"]{
@@ -47,6 +50,7 @@
     --tag-bg:#2a2f24;
     --warn:#cc8161;
     --warn-tint:#2c211b;
+    --on-accent:#1c1608;
   }
 
   *{box-sizing:border-box;}
@@ -63,6 +67,36 @@
     max-width:860px;
     margin:0 auto;
     padding:0 24px 96px;
+    position:relative;
+  }
+
+  /* ---------- Language toggle ---------- */
+  .lang-toggle{
+    position:fixed;
+    top:18px;
+    right:18px;
+    z-index:60;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 16px;
+    background:var(--paper-raised);
+    border:1px solid var(--accent);
+    border-radius:999px;
+    color:var(--accent-deep);
+    font-family:"Noto Sans SC",sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .lang-toggle:hover{background:var(--accent-tint);}
+  .lang-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .lang-toggle svg{flex:none;width:14px;height:14px;}
+  @media (max-width:560px){
+    .lang-toggle{top:12px;right:12px;padding:7px 13px;font-size:0.76rem;}
   }
 
   /* ---------- Masthead ---------- */
@@ -213,7 +247,6 @@
     color:var(--ink-soft);
   }
   tbody tr:last-child td{border-bottom:none;}
-  tbody tr:nth-child(1) td:first-child .idx,
   td .idx{
     display:inline-block;
     font-family:"Noto Serif SC",serif;
@@ -276,6 +309,7 @@
     display:flex;
     align-items:baseline;
     gap:10px;
+    flex-wrap:wrap;
   }
   .value-card .tag{
     font-family:"Noto Sans SC",sans-serif;
@@ -320,6 +354,10 @@
     border:1px solid var(--line);
     border-radius:2px;
   }
+  .diagram-scroll{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
   figure.diagram svg{
     display:block;
     width:100%;
@@ -328,7 +366,10 @@
   }
   figure.diagram svg text{
     font-family:"Noto Sans SC",sans-serif;
-    fill:currentColor;
+  }
+  @media (max-width:640px){
+    figure.diagram{padding:20px 18px 16px;}
+    .diagram-scroll svg{width:640px;flex:none;}
   }
   figure.diagram figcaption{
     margin-top:16px;
@@ -385,52 +426,62 @@
   }
 
   @media (max-width:560px){
-    .masthead{padding:48px 0 32px;}
+    .masthead{padding:64px 0 32px;}
     .section-head{flex-direction:column;gap:4px;}
     .step{grid-template-columns:40px 1fr;}
   }
 </style>
 
+<button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language / 切换语言">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="9.5"/>
+    <path d="M2.5 12h19"/>
+    <path d="M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5Z"/>
+  </svg>
+  <span id="lang-toggle-label">EN</span>
+</button>
+
 <div class="page">
 
   <div class="masthead">
-    <p class="eyebrow">合作方案简报 · ONZ 顾问团队</p>
-    <h1>Setiawangsa 综合开发项目<br>全案开发管理（代建操盘）合作方案</h1>
-    <p class="sub">致：余总（Yu Zhong）及 Kharisma Wira Sdn Bhd 董事会</p>
+    <p class="eyebrow" id="m-eyebrow">合作方案简报 · ONZ 顾问团队</p>
+    <h1 id="m-h1">Setiawangsa 综合开发项目<br>全案开发管理（代建操盘）合作方案</h1>
+    <p class="sub" id="m-sub">致：余总（Yu Zhong）及 Kharisma Wira Sdn Bhd 董事会</p>
     <dl class="meta-grid">
       <div>
-        <dt>提交团队</dt>
-        <dd>ONZ 顾问团队（Michael Yam / Jams Lim）</dd>
+        <dt id="m-dt1">提交团队</dt>
+        <dd id="m-dd1">ONZ 顾问团队（Michael Yam / Jams Lim）</dd>
       </div>
       <div>
-        <dt>项目基准</dt>
+        <dt id="m-dt2">项目基准</dt>
         <dd>Setiawangsa, Kuala Lumpur</dd>
       </div>
       <div>
-        <dt>总 GDC 预算</dt>
-        <dd><span class="figure">约 9 亿</span> 马币</dd>
+        <dt id="m-dt3">总 GDC 预算</dt>
+        <dd id="m-dd3"><span class="figure">约 9 亿</span> 马币</dd>
       </div>
       <div>
-        <dt>首期 GDC</dt>
-        <dd><span class="figure">约 3.5 亿</span> 马币</dd>
+        <dt id="m-dt4">首期 GDC</dt>
+        <dd id="m-dd4"><span class="figure">约 3.5 亿</span> 马币</dd>
       </div>
     </dl>
   </div>
 
   <section>
     <div class="section-head">
-      <span class="section-num">一</span>
-      <h2>合作模式定位：全案开发管理（代建模式）</h2>
+      <span class="section-num" id="s1-num">一</span>
+      <h2 id="s1-h2">合作模式定位：全案开发管理（代建模式）</h2>
     </div>
-    <p class="lede">针对总建筑成本近 9 亿马币、规划超 3,000 间单位的大型高层综合体，若仅采用"传统设计报批 + 后期找中介卖楼"的模式，极易面临银行买房按揭（EF）受阻、户型错配导致土著配额滞销、工程造价浪费及资金断档等致命风险。</p>
-    <p>ONZ 团队并非普通销售中介，而是作为 Kharisma 的"外脑式开发运营引擎"，全面导入 20 年一线开发商体系化实战经验（Michael Yam 曾全程操盘 EXSIM 从 The Treez 到 Millerz 的全流程开发，并成功交付 UNO 旗下项目）：</p>
+    <p class="lede" id="s1-lede">针对总建筑成本近 9 亿马币、规划超 3,000 间单位的大型高层综合体，若仅采用"传统设计报批 + 后期找中介卖楼"的模式，极易面临银行买房按揭（EF）受阻、户型错配导致土著配额滞销、工程造价浪费及资金断档等致命风险。</p>
+    <p id="s1-p2">ONZ 团队并非普通销售中介，而是作为 Kharisma 的"外脑式开发运营引擎"，全面导入 20 年一线开发商体系化实战经验（Michael Yam 曾全程操盘 EXSIM 从 The Treez 到 Millerz 的全流程开发，并成功交付 UNO 旗下项目）：</p>
     <ul class="plain">
-      <li><strong>地主利益最大化：</strong> Kharisma 保持 100% 土地所有权与项目控制权，完全拥有"Kharisma"自主品牌资产。</li>
-      <li><strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到 48 个月工程监理及售后运营，全生命周期负责。</li>
+      <li id="s1-li1"><strong>地主利益最大化：</strong> Kharisma 保持 100% 土地所有权与项目控制权，完全拥有"Kharisma"自主品牌资产。</li>
+      <li id="s1-li2"><strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到 48 个月工程监理及售后运营，全生命周期负责。</li>
     </ul>
 
     <figure class="diagram">
-      <svg viewBox="0 0 900 250" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
+      <div class="diagram-scroll">
+      <svg id="svg-a" viewBox="0 0 900 250" fill="currentColor" role="img" aria-label="传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。">
         <defs>
           <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
@@ -440,79 +491,80 @@
           </marker>
         </defs>
 
-        <text x="0" y="24" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--muted)">传统模式</text>
+        <text id="a-t-trad" x="0" y="24" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--muted)">传统模式</text>
         <rect x="0" y="38" width="140" height="46" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
-        <text x="70" y="65" font-size="13" text-anchor="middle">设计报批</text>
+        <text id="a-t-design" x="70" y="65" font-size="13" text-anchor="middle">设计报批</text>
         <line x1="140" y1="61" x2="176" y2="61" stroke="currentColor" stroke-width="1.2" marker-end="url(#arrowA)"/>
         <rect x="180" y="38" width="150" height="46" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
-        <text x="255" y="65" font-size="13" text-anchor="middle">委托中介卖楼</text>
+        <text id="a-t-agent" x="255" y="65" font-size="13" text-anchor="middle">委托中介卖楼</text>
         <line x1="330" y1="61" x2="366" y2="61" stroke="var(--warn)" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrowWarn)"/>
         <rect x="370" y="30" width="330" height="62" rx="2" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1.2" stroke-dasharray="4 3"/>
-        <text x="535" y="55" font-size="12.5" text-anchor="middle" fill="var(--warn)">按揭受阻 · 户型滞销</text>
-        <text x="535" y="74" font-size="12.5" text-anchor="middle" fill="var(--warn)">工程资金断档</text>
+        <text id="a-t-warn1" x="535" y="55" font-size="12.5" text-anchor="middle" fill="var(--warn)">按揭受阻 · 户型滞销</text>
+        <text id="a-t-warn2" x="535" y="74" font-size="12.5" text-anchor="middle" fill="var(--warn)">工程资金断档</text>
 
         <line x1="0" y1="128" x2="900" y2="128" stroke="var(--line)" stroke-width="1"/>
 
-        <text x="0" y="156" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--accent-deep)">ONZ 全案代建模式</text>
+        <text id="a-t-onz" x="0" y="156" font-size="13" font-weight="600" letter-spacing="0.5" fill="var(--accent-deep)">ONZ 全案代建模式</text>
         <g font-size="12.5" text-anchor="middle">
           <rect x="0" y="170" width="118" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text x="59" y="197">规划研发</text>
+          <text id="a-t-plan" x="59" y="197">规划研发</text>
           <line x1="118" y1="193" x2="150" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
           <rect x="154" y="170" width="130" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text x="219" y="197">融资与按揭</text>
+          <text id="a-t-fin" x="219" y="197">融资与按揭</text>
           <line x1="284" y1="193" x2="316" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
           <rect x="320" y="170" width="110" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text x="375" y="197">自建营销</text>
+          <text id="a-t-mkt" x="375" y="197">自建营销</text>
           <line x1="430" y1="193" x2="462" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
           <rect x="466" y="170" width="140" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text x="536" y="197">工程监理 48个月</text>
+          <text id="a-t-pmo" x="536" y="197">工程监理 48个月</text>
           <line x1="606" y1="193" x2="638" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
 
           <rect x="642" y="170" width="110" height="46" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-          <text x="697" y="197">售后运营</text>
+          <text id="a-t-after" x="697" y="197">售后运营</text>
           <line x1="752" y1="193" x2="784" y2="193" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowA)"/>
         </g>
         <rect x="788" y="162" width="112" height="62" rx="2" fill="var(--accent)" stroke="var(--accent)" stroke-width="1.2"/>
-        <text x="844" y="187" font-size="12" text-anchor="middle" fill="var(--paper)">Kharisma</text>
-        <text x="844" y="204" font-size="12" text-anchor="middle" fill="var(--paper)">100% 控股</text>
+        <text x="844" y="187" font-size="12" text-anchor="middle" fill="var(--on-accent)">Kharisma</text>
+        <text id="a-t-own" x="844" y="204" font-size="12" text-anchor="middle" fill="var(--on-accent)">100% 控股</text>
       </svg>
-      <figcaption><b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。</figcaption>
+      </div>
+      <figcaption id="s1-fig"><b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。</figcaption>
     </figure>
 
     <div class="takeaway">
       <span class="mark">要点</span>
-      <p>地权、控股、品牌<em>一概不出让</em>；ONZ 只做"外脑引擎"，把按揭、去化、资金三大致命风险体系化接管。</p>
+      <p id="s1-take">地权、控股、品牌<em>一概不出让</em>；ONZ 只做"外脑引擎"，把按揭、去化、资金三大致命风险体系化接管。</p>
     </div>
   </section>
 
   <section>
     <div class="section-head">
-      <span class="section-num">二</span>
-      <h2>四大核心服务板块与费用结构（基于 GDC 测算）</h2>
+      <span class="section-num" id="s2-num">二</span>
+      <h2 id="s2-h2">四大核心服务板块与费用结构（基于 GDC 测算）</h2>
     </div>
-    <p>服务收费按照马来西亚代建行业标准，以总开发成本（Gross Development Cost, GDC）为基准分拆为四大模块，按开发里程碑分期支付：</p>
+    <p id="s2-p">服务收费按照马来西亚代建行业标准，以总开发成本（Gross Development Cost, GDC）为基准分拆为四大模块，按开发里程碑分期支付：</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th style="width:34px;"></th>
-            <th>服务板块</th>
-            <th>费用比例</th>
-            <th>第一期预估<br>(~3.5亿 GDC)</th>
-            <th>核心工作内容与交付成果</th>
+            <th id="t2-th2">服务板块</th>
+            <th id="t2-th3">费用比例</th>
+            <th id="t2-th4">第一期预估<br>(~3.5亿 GDC)</th>
+            <th id="t2-th5">核心工作内容与交付成果</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><span class="idx">01</span></td>
-            <td class="name">规划设计与产品研发<span class="en">Planning &amp; R&amp;D</span></td>
+            <td class="name" id="t2-name1">规划设计与产品研发<span class="en">Planning &amp; R&amp;D</span></td>
             <td class="pct">6.0%</td>
-            <td class="rm">RM 2,100 万</td>
-            <td class="content">
+            <td class="rm" id="t2-rm1">RM 2,100 万</td>
+            <td class="content" id="t2-content1">
               <div>土地顾问、DO 报批前空间规划与户型重组。</div>
               <div>柱网模数标准化与核心优化。</div>
               <div>直接锁定硬成本节省：为地主省下施工费。</div>
@@ -520,20 +572,20 @@
           </tr>
           <tr>
             <td><span class="idx">02</span></td>
-            <td class="name">开发商自建营销与品牌<span class="en">Sales &amp; Marketing</span></td>
+            <td class="name" id="t2-name2">开发商自建营销与品牌<span class="en">Sales &amp; Marketing</span></td>
             <td class="pct">3.0%</td>
-            <td class="rm">RM 1,050 万</td>
-            <td class="content">
+            <td class="rm" id="t2-rm2">RM 1,050 万</td>
+            <td class="content" id="t2-content2">
               <div>搭建开发商自有销售铁军、售楼处精细化运营。</div>
               <div>数字化获客引流矩阵与品牌资产沉淀。</div>
             </td>
           </tr>
           <tr>
             <td><span class="idx">03</span></td>
-            <td class="name">财务、信贷与银行按揭控制<span class="en">Admin, Finance &amp; EF</span></td>
+            <td class="name" id="t2-name3">财务、信贷与银行按揭控制<span class="en">Admin, Finance &amp; EF</span></td>
             <td class="pct">3.0%</td>
-            <td class="rm">RM 1,050 万</td>
-            <td class="content">
+            <td class="rm" id="t2-rm3">RM 1,050 万</td>
+            <td class="content" id="t2-content3">
               <div>打通主流商业银行买房贷款（EF）面板。</div>
               <div>协助落实中资央企总包过桥贷款与配资方案。</div>
               <div>动态现金流管控与 HDA 进度请款风控。</div>
@@ -541,10 +593,10 @@
           </tr>
           <tr>
             <td><span class="idx">04</span></td>
-            <td class="name">工程进度管理与售后运营<span class="en">PMO &amp; After-Sales</span></td>
+            <td class="name" id="t2-name4">工程进度管理与售后运营<span class="en">PMO &amp; After-Sales</span></td>
             <td class="pct">5.0%</td>
-            <td class="rm">RM 1,750 万</td>
-            <td class="content">
+            <td class="rm" id="t2-rm4">RM 1,750 万</td>
+            <td class="content" id="t2-content4">
               <div>驻场跟进总包施工节点与质量监控。</div>
               <div>协调建筑师/QS 阶段性请款认证，把控交房验房。</div>
               <div>导入专业短租托管运营，保障买家回报。</div>
@@ -554,27 +606,28 @@
         <tfoot>
           <tr>
             <td></td>
-            <td>合计 · 全案开发管理总包</td>
+            <td id="t2-foot-label">合计 · 全案开发管理总包</td>
             <td class="pct">17.0%</td>
-            <td class="rm">RM 5,950 万</td>
-            <td>全周期交钥匙操盘<span class="foot-note">按工程开发进度分期支付，绝非前期一次性收取</span></td>
+            <td class="rm" id="t2-foot-rm">RM 5,950 万</td>
+            <td id="t2-foot-desc">全周期交钥匙操盘<span class="foot-note">按工程开发进度分期支付，绝非前期一次性收取</span></td>
           </tr>
         </tfoot>
       </table>
     </div>
 
     <figure class="diagram">
-      <svg viewBox="0 0 880 260" role="img" aria-label="四大服务板块的收费并非一次性收取，而是分别对应报批、开盘、施工、交房四个开发里程碑分期释放：规划设计集中在报批前，营销与品牌从开盘持续到施工期，财务与按揭贯穿全程，工程与售后集中在施工期到交房。">
+      <div class="diagram-scroll">
+      <svg id="svg-b" viewBox="0 0 880 260" fill="currentColor" role="img" aria-label="四大服务板块的收费并非一次性收取，而是分别对应报批、开盘、施工、交房四个开发里程碑分期释放：规划设计集中在报批前，营销与品牌从开盘持续到施工期，财务与按揭贯穿全程，工程与售后集中在施工期到交房。">
         <line x1="146" y1="30" x2="840" y2="30" stroke="currentColor" stroke-width="1.2"/>
         <g font-size="12" text-anchor="middle" fill="var(--muted)">
           <line x1="146" y1="25" x2="146" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
-          <text x="146" y="18">DO 报批前</text>
+          <text id="b-t-pre" x="146" y="18">DO 报批前</text>
           <line x1="340" y1="25" x2="340" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
-          <text x="340" y="18">开盘销售</text>
+          <text id="b-t-launch" x="340" y="18">开盘销售</text>
           <line x1="560" y1="25" x2="560" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
-          <text x="560" y="18">施工期（48个月）</text>
+          <text id="b-t-const" x="560" y="18">施工期（48个月）</text>
           <line x1="820" y1="25" x2="820" y2="230" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
-          <text x="815" y="18">交房验收</text>
+          <text id="b-t-handover" x="815" y="18">交房验收</text>
         </g>
         <circle cx="146" cy="30" r="3.5" fill="currentColor"/>
         <circle cx="340" cy="30" r="3.5" fill="currentColor"/>
@@ -582,153 +635,332 @@
         <circle cx="820" cy="30" r="3.5" fill="currentColor"/>
 
         <g font-size="12.5">
-          <text x="0" y="68" fill="var(--ink-soft)">01 规划设计 6.0%</text>
+          <text id="b-t-row1" x="0" y="68" fill="var(--ink-soft)">01 规划设计 6.0%</text>
           <rect x="146" y="56" width="154" height="22" rx="2" fill="var(--accent)"/>
 
-          <text x="0" y="118" fill="var(--ink-soft)">02 营销品牌 3.0%</text>
+          <text id="b-t-row2" x="0" y="118" fill="var(--ink-soft)">02 营销品牌 3.0%</text>
           <rect x="300" y="106" width="320" height="22" rx="2" fill="var(--accent)" opacity="0.78"/>
 
-          <text x="0" y="168" fill="var(--ink-soft)">03 财务按揭 3.0%</text>
+          <text id="b-t-row3" x="0" y="168" fill="var(--ink-soft)">03 财务按揭 3.0%</text>
           <rect x="146" y="156" width="674" height="22" rx="2" fill="var(--accent)" opacity="0.32"/>
 
-          <text x="0" y="218" fill="var(--ink-soft)">04 工程售后 5.0%</text>
+          <text id="b-t-row4" x="0" y="218" fill="var(--ink-soft)">04 工程售后 5.0%</text>
           <rect x="560" y="206" width="260" height="22" rx="2" fill="var(--accent)" opacity="0.78"/>
         </g>
       </svg>
-      <figcaption><b>按里程碑释放，而非一次性收取：</b>规划设计费集中在报批前完成；营销、工程与售后随开盘与施工节奏逐步释放；财务与按揭管控则贯穿全程，四大板块的支付节奏与项目实际进度同步。</figcaption>
+      </div>
+      <figcaption id="s2-fig"><b>按里程碑释放，而非一次性收取：</b>规划设计费集中在报批前完成；营销、工程与售后随开盘与施工节奏逐步释放；财务与按揭管控则贯穿全程，四大板块的支付节奏与项目实际进度同步。</figcaption>
     </figure>
 
     <div class="takeaway">
       <span class="mark">要点</span>
-      <p>全案代建总包 <em>17% GDC</em>，按报批、开盘、施工、交房四个节点分期支付，绝非前期一次性收取。</p>
+      <p id="s2-take">全案代建总包 <em>17% GDC</em>，按报批、开盘、施工、交房四个节点分期支付，绝非前期一次性收取。</p>
     </div>
   </section>
 
   <section>
     <div class="section-head">
-      <span class="section-num">三</span>
-      <h2>为地主创造的核心价值</h2>
+      <span class="section-num" id="s3-num">三</span>
+      <h2 id="s3-h2">为地主创造的核心价值</h2>
     </div>
     <div class="value-list">
       <div class="value-card">
-        <h3>设计优化全额抵消管理费 <span class="tag">成本</span></h3>
-        <p>仅第 1 板块（规划研发），通过项目优化，即可在开工前为地主/开发商省下建筑成本。</p>
+        <h3 id="c1-h3">设计优化全额抵消管理费 <span class="tag">成本</span></h3>
+        <p id="c1-p">仅第 1 板块（规划研发），通过项目优化，即可在开工前为地主/开发商省下建筑成本。</p>
       </div>
       <div class="value-card">
-        <h3>彻底解决首次开发商"买房贷款难"痛点 <span class="tag">融资</span></h3>
-        <p>借助操盘团队过往数十亿马币的成功交付履历与行业信用，为 Kharisma 敲开各大银行大门，确保买家顺利批贷，彻底杜绝项目卡在半路的风险。</p>
+        <h3 id="c2-h3">彻底解决首次开发商"买房贷款难"痛点 <span class="tag">融资</span></h3>
+        <p id="c2-p">借助操盘团队过往数十亿马币的成功交付履历与行业信用，为 Kharisma 敲开各大银行大门，确保买家顺利批贷，彻底杜绝项目卡在半路的风险。</p>
       </div>
       <div class="value-card">
-        <h3>多期滚动开发，降低初期资金沉淀 <span class="tag">现金流</span></h3>
-        <p>改变原先一次性启动 3.5 亿 GDC 的重资产负担，将开发拆分为多期滚动推进。首期仅需启动 Tower A1（约 550 间单位 / GDC 约 1.15 亿马币），通过首期销售资金池（HDA）自我造血滚动后续建设，利息与资金风险直降 <strong>60% 以上</strong>。</p>
+        <h3 id="c3-h3">多期滚动开发，降低初期资金沉淀 <span class="tag">现金流</span></h3>
+        <p id="c3-p">改变原先一次性启动 3.5 亿 GDC 的重资产负担，将开发拆分为多期滚动推进。首期仅需启动 Tower A1（约 550 间单位 / GDC 约 1.15 亿马币），通过首期销售资金池（HDA）自我造血滚动后续建设，利息与资金风险直降 <strong>60% 以上</strong>。</p>
       </div>
       <div class="value-card">
-        <h3>户型优化保障去化，规避土著配额死锁 <span class="tag">产品</span></h3>
-        <p>将原方案 87% 的微型小户型调整为 3,300 间兼具 M40 自住与投资的高流动性户型（100% 保留 216 万平方英尺批准住宅面积），完美契合本地 66% 马来客群的自住需求，每年避免逾 <strong>2,300 万马币</strong>的利息亏损。</p>
+        <h3 id="c4-h3">户型优化保障去化，规避土著配额死锁 <span class="tag">产品</span></h3>
+        <p id="c4-p">将原方案 87% 的微型小户型调整为 3,300 间兼具 M40 自住与投资的高流动性户型（100% 保留 216 万平方英尺批准住宅面积），完美契合本地 66% 马来客群的自住需求，每年避免逾 <strong>2,300 万马币</strong>的利息亏损。</p>
       </div>
     </div>
 
     <figure class="diagram">
-      <svg viewBox="0 0 760 400" role="img" aria-label="传统模式需一次性启动3.5亿马币重资产；ONZ方案将开发拆分为多期滚动推进，Tower A1开工后销售回款进入HDA资金池，资金池反哺下一期Tower开工，形成自我造血的资金闭环，循环往复，资金沉淀降低60%以上。">
+      <div class="diagram-scroll">
+      <svg id="svg-c" viewBox="0 0 760 400" fill="currentColor" role="img" aria-label="传统模式需一次性启动3.5亿马币重资产；ONZ方案将开发拆分为多期滚动推进，Tower A1开工后销售回款进入HDA资金池，资金池反哺下一期Tower开工，形成自我造血的资金闭环，循环往复，资金沉淀降低60%以上。">
         <defs>
           <marker id="arrowC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 Z" fill="var(--accent)"/>
           </marker>
         </defs>
         <rect x="170" y="14" width="420" height="44" rx="2" fill="none" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="4 3"/>
-        <text x="380" y="41" font-size="13" text-anchor="middle" fill="var(--muted)">一次性启动 3.5 亿 GDC（传统重资产模式）</text>
+        <text id="c-t-trad" x="380" y="41" font-size="13" text-anchor="middle" fill="var(--muted)">一次性启动 3.5 亿 GDC（传统重资产模式）</text>
         <line x1="182" y1="20" x2="598" y2="52" stroke="var(--muted)" stroke-width="1.2"/>
 
         <line x1="380" y1="58" x2="380" y2="84" stroke="var(--accent)" stroke-width="1.2" marker-end="url(#arrowC)"/>
-        <text x="380" y="76" font-size="11.5" text-anchor="middle" fill="var(--muted)">拆分为</text>
+        <text id="c-t-split" x="380" y="76" font-size="11.5" text-anchor="middle" fill="var(--muted)">拆分为</text>
 
         <rect x="285" y="90" width="190" height="56" rx="2" fill="var(--accent)"/>
-        <text x="380" y="113" font-size="13" text-anchor="middle" fill="var(--paper)">Tower A1 开工</text>
-        <text x="380" y="132" font-size="11.5" text-anchor="middle" fill="var(--paper)">GDC 约 1.15 亿 · 550 单位</text>
+        <text id="c-t-towerA1a" x="380" y="113" font-size="13" text-anchor="middle" fill="var(--on-accent)">Tower A1 开工</text>
+        <text id="c-t-towerA1b" x="380" y="132" font-size="11.5" text-anchor="middle" fill="var(--on-accent)">GDC 约 1.15 亿 · 550 单位</text>
 
         <rect x="525" y="210" width="190" height="56" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-        <text x="620" y="233" font-size="13" text-anchor="middle">销售回款</text>
-        <text x="620" y="252" font-size="11.5" text-anchor="middle" fill="var(--muted)">HDA 资金池</text>
+        <text id="c-t-sales" x="620" y="233" font-size="13" text-anchor="middle">销售回款</text>
+        <text id="c-t-hda" x="620" y="252" font-size="11.5" text-anchor="middle" fill="var(--muted)">HDA 资金池</text>
 
         <rect x="285" y="330" width="190" height="56" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-        <text x="380" y="353" font-size="13" text-anchor="middle">反哺下一期建设</text>
-        <text x="380" y="372" font-size="11.5" text-anchor="middle" fill="var(--muted)">Tower A2 / A3 …</text>
+        <text id="c-t-feed" x="380" y="353" font-size="13" text-anchor="middle">反哺下一期建设</text>
+        <text id="c-t-towerA23" x="380" y="372" font-size="11.5" text-anchor="middle" fill="var(--muted)">Tower A2 / A3 …</text>
 
         <rect x="45" y="210" width="190" height="56" rx="2" fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-        <text x="140" y="233" font-size="13" text-anchor="middle">下一期开工</text>
-        <text x="140" y="252" font-size="11.5" text-anchor="middle" fill="var(--muted)">滚动推进</text>
+        <text id="c-t-next" x="140" y="233" font-size="13" text-anchor="middle">下一期开工</text>
+        <text id="c-t-rolling" x="140" y="252" font-size="11.5" text-anchor="middle" fill="var(--muted)">滚动推进</text>
 
         <path d="M470,120 C 560,140 610,170 605,206" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowC)"/>
         <path d="M525,245 C 470,280 440,300 410,326" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowC)"/>
         <path d="M285,354 C 220,340 175,300 150,268" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowC)"/>
         <path d="M155,210 C 190,170 240,140 289,122" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrowC)"/>
 
-        <text x="380" y="230" font-size="12.5" font-weight="600" text-anchor="middle" fill="var(--accent-deep)">滚动开发引擎</text>
-        <text x="380" y="248" font-size="11" text-anchor="middle" fill="var(--muted)">资金沉淀 ↓60%+</text>
+        <text id="c-t-engine" x="380" y="230" font-size="12.5" font-weight="600" text-anchor="middle" fill="var(--accent-deep)">滚动开发引擎</text>
+        <text id="c-t-capital" x="380" y="248" font-size="11" text-anchor="middle" fill="var(--muted)">资金沉淀 ↓60%+</text>
       </svg>
-      <figcaption><b>首期自我造血，滚动反哺后续：</b>无需一次性沉淀 3.5 亿 GDC，仅需启动 Tower A1；销售回款进入 HDA 资金池后反哺下一期开工，资金在各期之间循环滚动，利息与资金风险直降 60% 以上。</figcaption>
+      </div>
+      <figcaption id="s3-figC"><b>首期自我造血，滚动反哺后续：</b>无需一次性沉淀 3.5 亿 GDC，仅需启动 Tower A1；销售回款进入 HDA 资金池后反哺下一期开工，资金在各期之间循环滚动，利息与资金风险直降 60% 以上。</figcaption>
     </figure>
 
     <figure class="diagram">
-      <svg viewBox="0 0 760 150" role="img" aria-label="原方案87%为微型小户型，去化困难；优化后调整为3300间兼具自住与投资功能的高流动性户型，占比100%，同时保留216万平方英尺批准住宅面积。">
-        <text x="0" y="24" font-size="12.5" fill="var(--muted)">原方案</text>
+      <div class="diagram-scroll">
+      <svg id="svg-d" viewBox="0 0 760 150" fill="currentColor" role="img" aria-label="原方案87%为微型小户型，去化困难；优化后调整为3300间兼具自住与投资功能的高流动性户型，占比100%，同时保留216万平方英尺批准住宅面积。">
+        <text id="d-t-orig" x="0" y="24" font-size="12.5" fill="var(--muted)">原方案</text>
         <rect x="130" y="10" width="497" height="26" rx="2" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1"/>
         <rect x="130" y="10" width="432" height="26" rx="2" fill="var(--warn)" opacity="0.55"/>
-        <text x="140" y="27" font-size="12" fill="var(--paper)">87% 微型小户型（土著配额易滞销）</text>
+        <text id="d-t-origlabel" x="140" y="27" font-size="12" fill="var(--on-accent)">87% 微型小户型（土著配额易滞销）</text>
 
-        <text x="0" y="90" font-size="12.5" fill="var(--muted)">优化后</text>
+        <text id="d-t-opt" x="0" y="90" font-size="12.5" fill="var(--muted)">优化后</text>
         <rect x="130" y="76" width="497" height="26" rx="2" fill="var(--accent)"/>
-        <text x="140" y="93" font-size="12" fill="var(--paper)">100% · 3,300 间 M40 自住 + 投资高流动性户型</text>
+        <text id="d-t-optlabel" x="140" y="93" font-size="12" fill="var(--on-accent)">100% · 3,300 间 M40 自住 + 投资高流动性户型</text>
 
-        <text x="130" y="128" font-size="11.5" fill="var(--muted)">批准住宅面积 216 万平方英尺，优化前后 100% 保留</text>
+        <text id="d-t-gfa" x="130" y="128" font-size="11.5" fill="var(--muted)">批准住宅面积 216 万平方英尺，优化前后 100% 保留</text>
       </svg>
-      <figcaption><b>户型结构反转：</b>去化困难的微型小户型占比从 87% 降至 0，代之以贴合本地 66% 马来客群自住需求的高流动性户型，批准建筑面积不变，去化确定性显著提升。</figcaption>
+      </div>
+      <figcaption id="s3-figD"><b>户型结构反转：</b>去化困难的微型小户型占比从 87% 降至 0，代之以贴合本地 66% 马来客群自住需求的高流动性户型，批准建筑面积不变，去化确定性显著提升。</figcaption>
     </figure>
 
     <div class="takeaway">
       <span class="mark">要点</span>
-      <p>省成本抵管理费、通按揭防卡壳、滚动开发降资金压力 <em>60%+</em>、户型优化保去化 — 四项优化共同指向同一个目标：让项目<em>现金流自己转起来</em>。</p>
+      <p id="s3-take">省成本抵管理费、通按揭防卡壳、滚动开发降资金压力 <em>60%+</em>、户型优化保去化 — 四项优化共同指向同一个目标：让项目<em>现金流自己转起来</em>。</p>
     </div>
   </section>
 
   <section style="margin-bottom:24px;">
     <div class="section-head">
-      <span class="section-num">四</span>
-      <h2>下一步行动建议</h2>
+      <span class="section-num" id="s4-num">四</span>
+      <h2 id="s4-h2">下一步行动建议</h2>
     </div>
     <div class="steps">
       <div class="step">
         <span class="step-num">1</span>
         <div>
-          <h3>方案对齐</h3>
-          <p>与总确认四大板块的服务范围与 GDC 费用结构。</p>
+          <h3 id="step1-h3">方案对齐</h3>
+          <p id="step1-p">与总确认四大板块的服务范围与 GDC 费用结构。</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">2</span>
         <div>
-          <h3>高层汇报</h3>
-          <p>由余总、Mr. Yew、Michael Yam、及 Jams Lim 共同与董事长召开会议，直接汇报滚动开发与工程降本方案。</p>
+          <h3 id="step2-h3">高层汇报</h3>
+          <p id="step2-p">由余总、Mr. Yew、Michael Yam、及 Jams Lim 共同与董事长召开会议，直接汇报滚动开发与工程降本方案。</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">3</span>
         <div>
-          <h3>正式启动</h3>
-          <p>签署分拆式全案委托协议，立即锁定 DO 报批前规划优化与银行按揭筹备工作。</p>
+          <h3 id="step3-h3">正式启动</h3>
+          <p id="step3-p">签署分拆式全案委托协议，立即锁定 DO 报批前规划优化与银行按揭筹备工作。</p>
         </div>
       </div>
     </div>
 
     <div class="takeaway">
       <span class="mark">要点</span>
-      <p>先对齐方案、再高层拍板、最后签约 — <em>三步之内</em>锁定规划优化与按揭筹备的黄金窗口期。</p>
+      <p id="s4-take">先对齐方案、再高层拍板、最后签约 — <em>三步之内</em>锁定规划优化与按揭筹备的黄金窗口期。</p>
     </div>
   </section>
 
   <footer>
-    <span>Setiawangsa 综合开发项目 · 全案开发管理合作方案</span>
-    <span>ONZ 顾问团队</span>
+    <span id="f-span1">Setiawangsa 综合开发项目 · 全案开发管理合作方案</span>
+    <span id="f-span2">ONZ 顾问团队</span>
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var HTML = {
+    'm-eyebrow': { zh:`合作方案简报 · ONZ 顾问团队`, en:`Partnership Proposal · ONZ Advisory Team` },
+    'm-h1': { zh:`Setiawangsa 综合开发项目<br>全案开发管理（代建操盘）合作方案`, en:`Setiawangsa Integrated Development<br>Full-Cycle Development Management Proposal` },
+    'm-sub': { zh:`致：余总（Yu Zhong）及 Kharisma Wira Sdn Bhd 董事会`, en:`To: Mr. Yu Zhong and the Board of Kharisma Wira Sdn Bhd` },
+    'm-dt1': { zh:`提交团队`, en:`Submitted By` },
+    'm-dd1': { zh:`ONZ 顾问团队（Michael Yam / Jams Lim）`, en:`ONZ Advisory Team (Michael Yam / Jams Lim)` },
+    'm-dt2': { zh:`项目基准`, en:`Project Site` },
+    'm-dt3': { zh:`总 GDC 预算`, en:`Total GDC Budget` },
+    'm-dd3': { zh:`<span class="figure">约 9 亿</span> 马币`, en:`<span class="figure">≈ RM 900 million</span>` },
+    'm-dt4': { zh:`首期 GDC`, en:`Phase 1 GDC` },
+    'm-dd4': { zh:`<span class="figure">约 3.5 亿</span> 马币`, en:`<span class="figure">≈ RM 350 million</span>` },
+
+    's1-num': { zh:`一`, en:`1` },
+    's1-h2': { zh:`合作模式定位：全案开发管理（代建模式）`, en:`Partnership Model: Full-Cycle Development Management` },
+    's1-lede': { zh:`针对总建筑成本近 9 亿马币、规划超 3,000 间单位的大型高层综合体，若仅采用"传统设计报批 + 后期找中介卖楼"的模式，极易面临银行买房按揭（EF）受阻、户型错配导致土著配额滞销、工程造价浪费及资金断档等致命风险。`, en:`For a large high-rise complex with nearly RM 900 million in total construction cost and over 3,000 planned units, relying on the traditional "design approval, then find an agent to sell later" model risks fatal problems: blocked end-financing (EF) approvals, unit-mix mismatches that leave Bumiputera-quota units unsold, wasted construction budget, and funding gaps.` },
+    's1-p2': { zh:`ONZ 团队并非普通销售中介，而是作为 Kharisma 的"外脑式开发运营引擎"，全面导入 20 年一线开发商体系化实战经验（Michael Yam 曾全程操盘 EXSIM 从 The Treez 到 Millerz 的全流程开发，并成功交付 UNO 旗下项目）：`, en:`ONZ is not an ordinary sales agent — we act as Kharisma's external development-operations engine, bringing in 20 years of frontline developer expertise (Michael Yam led EXSIM's full-cycle development from The Treez through Millerz, and has delivered projects under the UNO brand):` },
+    's1-li1': { zh:`<strong>地主利益最大化：</strong> Kharisma 保持 100% 土地所有权与项目控制权，完全拥有"Kharisma"自主品牌资产。`, en:`<strong>Landowner value maximized:</strong> Kharisma retains 100% land ownership and project control, and keeps full rights to the "Kharisma" brand asset.` },
+    's1-li2': { zh:`<strong>全流程深度介入：</strong> 从前期规划研发、银行融资与按揭、营销体系搭建到 48 个月工程监理及售后运营，全生命周期负责。`, en:`<strong>End-to-end involvement:</strong> Full lifecycle responsibility — from planning and R&D, bank financing and end-financing, and building the sales system, through 48 months of construction supervision and after-sales operations.` },
+    's1-fig': { zh:`<b>贯通五环节 vs 断裂三处：</b>传统模式止步于"报批 + 找中介"，风险在按揭、去化、资金三处断裂；ONZ 以运营引擎贯穿规划、融资、营销、监理、售后五个环节，Kharisma 始终保留 100% 控股与品牌，风险由团队体系化承接。`, en:`<b>Five connected stages vs. three failure points:</b> the traditional model stops at "approval + agent," breaking down at financing, sell-through, and funding; ONZ's engine runs through planning, financing, marketing, supervision, and after-sales, with Kharisma always retaining 100% ownership and its brand while risk is absorbed systematically by the team.` },
+    's1-take': { zh:`地权、控股、品牌<em>一概不出让</em>；ONZ 只做"外脑引擎"，把按揭、去化、资金三大致命风险体系化接管。`, en:`Land, ownership, and brand are <em>never surrendered</em>; ONZ acts purely as the "external engine," systematically taking on the three fatal risks — financing, sell-through, and funding.` },
+
+    's2-num': { zh:`二`, en:`2` },
+    's2-h2': { zh:`四大核心服务板块与费用结构（基于 GDC 测算）`, en:`Four Core Service Pillars & Fee Structure (Based on GDC)` },
+    's2-p': { zh:`服务收费按照马来西亚代建行业标准，以总开发成本（Gross Development Cost, GDC）为基准分拆为四大模块，按开发里程碑分期支付：`, en:`Fees follow Malaysia's turnkey development-management industry standard, calculated against Gross Development Cost (GDC) and split into four modules, paid out in installments tied to development milestones:` },
+
+    't2-th2': { zh:`服务板块`, en:`Service Pillar` },
+    't2-th3': { zh:`费用比例`, en:`Fee %` },
+    't2-th4': { zh:`第一期预估<br>(~3.5亿 GDC)`, en:`Phase 1 Estimate<br>(~RM 350M GDC)` },
+    't2-th5': { zh:`核心工作内容与交付成果`, en:`Core Scope & Deliverables` },
+
+    't2-name1': { zh:`规划设计与产品研发<span class="en">Planning &amp; R&amp;D</span>`, en:`Planning & R&D` },
+    't2-rm1': { zh:`RM 2,100 万`, en:`RM 21.0 million` },
+    't2-content1': { zh:`<div>土地顾问、DO 报批前空间规划与户型重组。</div><div>柱网模数标准化与核心优化。</div><div>直接锁定硬成本节省：为地主省下施工费。</div>`, en:`<div>Land consultancy, plus pre-DO spatial planning and unit-mix restructuring.</div><div>Standardized column grid and core layout optimization.</div><div>Locks in hard-cost savings directly, cutting construction cost for the landowner.</div>` },
+
+    't2-name2': { zh:`开发商自建营销与品牌<span class="en">Sales &amp; Marketing</span>`, en:`Sales & Marketing` },
+    't2-rm2': { zh:`RM 1,050 万`, en:`RM 10.5 million` },
+    't2-content2': { zh:`<div>搭建开发商自有销售铁军、售楼处精细化运营。</div><div>数字化获客引流矩阵与品牌资产沉淀。</div>`, en:`<div>Builds the developer's own sales force and refined sales-gallery operations.</div><div>Digital lead-generation funnel and long-term brand-asset building.</div>` },
+
+    't2-name3': { zh:`财务、信贷与银行按揭控制<span class="en">Admin, Finance &amp; EF</span>`, en:`Finance, Credit & Bank EF Control` },
+    't2-rm3': { zh:`RM 1,050 万`, en:`RM 10.5 million` },
+    't2-content3': { zh:`<div>打通主流商业银行买房贷款（EF）面板。</div><div>协助落实中资央企总包过桥贷款与配资方案。</div><div>动态现金流管控与 HDA 进度请款风控。</div>`, en:`<div>Opens access to major commercial banks' end-financing (EF) panels.</div><div>Supports bridging-loan and co-financing arrangements via Chinese state-owned main contractors.</div><div>Dynamic cash-flow control and HDA progress-claim risk management.</div>` },
+
+    't2-name4': { zh:`工程进度管理与售后运营<span class="en">PMO &amp; After-Sales</span>`, en:`PMO & After-Sales` },
+    't2-rm4': { zh:`RM 1,750 万`, en:`RM 17.5 million` },
+    't2-content4': { zh:`<div>驻场跟进总包施工节点与质量监控。</div><div>协调建筑师/QS 阶段性请款认证，把控交房验房。</div><div>导入专业短租托管运营，保障买家回报。</div>`, en:`<div>On-site tracking of main-contractor milestones and quality control.</div><div>Coordinates architect/QS progress-claim certification and oversees handover inspection.</div><div>Introduces professional short-term rental management to protect buyer returns.</div>` },
+
+    't2-foot-label': { zh:`合计 · 全案开发管理总包`, en:`Total · Full-Cycle Development Management` },
+    't2-foot-rm': { zh:`RM 5,950 万`, en:`RM 59.5 million` },
+    't2-foot-desc': { zh:`全周期交钥匙操盘<span class="foot-note">按工程开发进度分期支付，绝非前期一次性收取</span>`, en:`Full-cycle turnkey management<span class="foot-note">Paid in installments tied to construction progress — never collected upfront in one lump sum</span>` },
+
+    's2-fig': { zh:`<b>按里程碑释放，而非一次性收取：</b>规划设计费集中在报批前完成；营销、工程与售后随开盘与施工节奏逐步释放；财务与按揭管控则贯穿全程，四大板块的支付节奏与项目实际进度同步。`, en:`<b>Released by milestone, not upfront:</b> planning and design fees concentrate before approval; marketing, construction, and after-sales fees release progressively with launch and construction; finance and EF oversight run continuously — all four pillars pay out in step with actual project progress.` },
+    's2-take': { zh:`全案代建总包 <em>17% GDC</em>，按报批、开盘、施工、交房四个节点分期支付，绝非前期一次性收取。`, en:`The full-cycle management fee is <em>17% of GDC</em>, paid in installments at approval, launch, construction, and handover — never collected upfront in one lump sum.` },
+
+    's3-num': { zh:`三`, en:`3` },
+    's3-h2': { zh:`为地主创造的核心价值`, en:`Core Value Created for the Landowner` },
+
+    'c1-h3': { zh:`设计优化全额抵消管理费 <span class="tag">成本</span>`, en:`Design Optimization Offsets the Management Fee <span class="tag">Cost</span>` },
+    'c1-p': { zh:`仅第 1 板块（规划研发），通过项目优化，即可在开工前为地主/开发商省下建筑成本。`, en:`Pillar 1 (Planning & R&D) alone, through project optimization, can save the landowner/developer construction cost before groundbreaking.` },
+
+    'c2-h3': { zh:`彻底解决首次开发商"买房贷款难"痛点 <span class="tag">融资</span>`, en:`Solves the First-Time Developer's "Hard to Get End-Financing" Problem <span class="tag">Financing</span>` },
+    'c2-p': { zh:`借助操盘团队过往数十亿马币的成功交付履历与行业信用，为 Kharisma 敲开各大银行大门，确保买家顺利批贷，彻底杜绝项目卡在半路的风险。`, en:`Drawing on the team's track record of delivering projects worth billions of ringgit and its standing with the banks, ONZ opens doors at major banks for Kharisma, ensuring buyers secure financing and eliminating the risk of the project stalling midway.` },
+
+    'c3-h3': { zh:`多期滚动开发，降低初期资金沉淀 <span class="tag">现金流</span>`, en:`Multi-Phase Rolling Development Lowers Upfront Capital Lock-Up <span class="tag">Cash Flow</span>` },
+    'c3-p': { zh:`改变原先一次性启动 3.5 亿 GDC 的重资产负担，将开发拆分为多期滚动推进。首期仅需启动 Tower A1（约 550 间单位 / GDC 约 1.15 亿马币），通过首期销售资金池（HDA）自我造血滚动后续建设，利息与资金风险直降 <strong>60% 以上</strong>。`, en:`Instead of a one-time RM 350 million capital-heavy launch, development is split into rolling phases. Phase 1 only requires launching Tower A1 (~550 units / ~RM 115 million GDC); sales proceeds through the HDA housing-development account self-fund the next phases, cutting interest and funding risk by <strong>60% or more</strong>.` },
+
+    'c4-h3': { zh:`户型优化保障去化，规避土著配额死锁 <span class="tag">产品</span>`, en:`Unit-Mix Optimization Secures Sell-Through and Avoids the Bumiputera Quota Deadlock <span class="tag">Product</span>` },
+    'c4-p': { zh:`将原方案 87% 的微型小户型调整为 3,300 间兼具 M40 自住与投资的高流动性户型（100% 保留 216 万平方英尺批准住宅面积），完美契合本地 66% 马来客群的自住需求，每年避免逾 <strong>2,300 万马币</strong>的利息亏损。`, en:`The original plan's 87% micro-units are reworked into 3,300 high-liquidity units suited to both M40 owner-occupation and investment (retaining 100% of the approved 2.16 million sq ft residential GFA), matching the self-occupancy needs of the local 66% Malay buyer base and avoiding over <strong>RM 23 million</strong> in annual interest losses.` },
+
+    's3-figC': { zh:`<b>首期自我造血，滚动反哺后续：</b>无需一次性沉淀 3.5 亿 GDC，仅需启动 Tower A1；销售回款进入 HDA 资金池后反哺下一期开工，资金在各期之间循环滚动，利息与资金风险直降 60% 以上。`, en:`<b>Phase 1 self-funds; proceeds roll into the next phase:</b> no need to lock up RM 350 million upfront — only Tower A1 needs to launch. Sales proceeds flow into the HDA fund pool and then fund the next phase's groundbreaking, cycling between phases and cutting interest and funding risk by over 60%.` },
+    's3-figD': { zh:`<b>户型结构反转：</b>去化困难的微型小户型占比从 87% 降至 0，代之以贴合本地 66% 马来客群自住需求的高流动性户型，批准建筑面积不变，去化确定性显著提升。`, en:`<b>Unit mix reversed:</b> the hard-to-sell micro-unit share drops from 87% to 0, replaced by high-liquidity units matching the self-occupancy needs of the local 66% Malay buyer base — approved floor area unchanged, sell-through confidence significantly improved.` },
+    's3-take': { zh:`省成本抵管理费、通按揭防卡壳、滚动开发降资金压力 <em>60%+</em>、户型优化保去化 — 四项优化共同指向同一个目标：让项目<em>现金流自己转起来</em>。`, en:`Cost savings offset the fee, financing access prevents stalling, rolling development cuts funding pressure by <em>60%+</em>, and unit-mix optimization secures sell-through — four levers pointed at one goal: making the project's <em>cash flow fund itself</em>.` },
+
+    's4-num': { zh:`四`, en:`4` },
+    's4-h2': { zh:`下一步行动建议`, en:`Recommended Next Steps` },
+    'step1-h3': { zh:`方案对齐`, en:`Align on the Proposal` },
+    'step1-p': { zh:`与总确认四大板块的服务范围与 GDC 费用结构。`, en:`Confirm the scope of the four service pillars and the GDC fee structure with Mr. Yu.` },
+    'step2-h3': { zh:`高层汇报`, en:`Executive Briefing` },
+    'step2-p': { zh:`由余总、Mr. Yew、Michael Yam、及 Jams Lim 共同与董事长召开会议，直接汇报滚动开发与工程降本方案。`, en:`Mr. Yu, Mr. Yew, Michael Yam, and Jams Lim jointly brief the Chairman on the rolling-development and cost-reduction plan.` },
+    'step3-h3': { zh:`正式启动`, en:`Formal Kickoff` },
+    'step3-p': { zh:`签署分拆式全案委托协议，立即锁定 DO 报批前规划优化与银行按揭筹备工作。`, en:`Sign the phased full-cycle mandate agreement and immediately lock in pre-DO planning optimization and bank end-financing preparation.` },
+    's4-take': { zh:`先对齐方案、再高层拍板、最后签约 — <em>三步之内</em>锁定规划优化与按揭筹备的黄金窗口期。`, en:`Align first, then get executive sign-off, then sign — locking in the planning-optimization and financing window in <em>three steps</em>.` },
+
+    'f-span1': { zh:`Setiawangsa 综合开发项目 · 全案开发管理合作方案`, en:`Setiawangsa Integrated Development · Full-Cycle Development Management Proposal` },
+    'f-span2': { zh:`ONZ 顾问团队`, en:`ONZ Advisory Team` }
+  };
+
+  var TEXT = {
+    'a-t-trad': { zh:`传统模式`, en:`Traditional Model` },
+    'a-t-design': { zh:`设计报批`, en:`Design Approval` },
+    'a-t-agent': { zh:`委托中介卖楼`, en:`Sell via Agent` },
+    'a-t-warn1': { zh:`按揭受阻 · 户型滞销`, en:`EF Blocked · Units Unsold` },
+    'a-t-warn2': { zh:`工程资金断档`, en:`Funding Gap` },
+    'a-t-onz': { zh:`ONZ 全案代建模式`, en:`ONZ Full-Cycle Model` },
+    'a-t-plan': { zh:`规划研发`, en:`Planning & R&D` },
+    'a-t-fin': { zh:`融资与按揭`, en:`Financing & EF` },
+    'a-t-mkt': { zh:`自建营销`, en:`In-House Marketing` },
+    'a-t-pmo': { zh:`工程监理 48个月`, en:`48-Month PMO` },
+    'a-t-after': { zh:`售后运营`, en:`After-Sales` },
+    'a-t-own': { zh:`100% 控股`, en:`100% Owned` },
+
+    'b-t-pre': { zh:`DO 报批前`, en:`Pre-DO Approval` },
+    'b-t-launch': { zh:`开盘销售`, en:`Launch & Sales` },
+    'b-t-const': { zh:`施工期（48个月）`, en:`Construction (48 months)` },
+    'b-t-handover': { zh:`交房验收`, en:`Handover` },
+    'b-t-row1': { zh:`01 规划设计 6.0%`, en:`01 Planning & R&D 6.0%` },
+    'b-t-row2': { zh:`02 营销品牌 3.0%`, en:`02 Marketing & Brand 3.0%` },
+    'b-t-row3': { zh:`03 财务按揭 3.0%`, en:`03 Finance & EF 3.0%` },
+    'b-t-row4': { zh:`04 工程售后 5.0%`, en:`04 PMO & After-Sales 5.0%` },
+
+    'c-t-trad': { zh:`一次性启动 3.5 亿 GDC（传统重资产模式）`, en:`One-time RM 350M GDC launch (traditional capital-heavy model)` },
+    'c-t-split': { zh:`拆分为`, en:`Split into` },
+    'c-t-towerA1a': { zh:`Tower A1 开工`, en:`Tower A1 Groundbreaking` },
+    'c-t-towerA1b': { zh:`GDC 约 1.15 亿 · 550 单位`, en:`≈RM 115M GDC · 550 units` },
+    'c-t-sales': { zh:`销售回款`, en:`Sales Proceeds` },
+    'c-t-hda': { zh:`HDA 资金池`, en:`HDA Fund Pool` },
+    'c-t-feed': { zh:`反哺下一期建设`, en:`Funds Next Phase` },
+    'c-t-towerA23': { zh:`Tower A2 / A3 …`, en:`Tower A2 / A3 …` },
+    'c-t-next': { zh:`下一期开工`, en:`Next Phase Groundbreaking` },
+    'c-t-rolling': { zh:`滚动推进`, en:`Rolling Forward` },
+    'c-t-engine': { zh:`滚动开发引擎`, en:`Rolling Development Engine` },
+    'c-t-capital': { zh:`资金沉淀 ↓60%+`, en:`Capital Lock-Up ↓60%+` },
+
+    'd-t-orig': { zh:`原方案`, en:`Original Plan` },
+    'd-t-origlabel': { zh:`87% 微型小户型（土著配额易滞销）`, en:`87% micro-units (Bumiputera quota prone to unsold stock)` },
+    'd-t-opt': { zh:`优化后`, en:`Optimized` },
+    'd-t-optlabel': { zh:`100% · 3,300 间 M40 自住 + 投资高流动性户型`, en:`100% · 3,300 high-liquidity M40 owner-occupier + investment units` },
+    'd-t-gfa': { zh:`批准住宅面积 216 万平方英尺，优化前后 100% 保留`, en:`Approved residential GFA: 2.16M sq ft — 100% retained before and after optimization` }
+  };
+
+  var ATTR = {
+    'svg-a': { name:'aria-label', zh:`传统设计报批加找中介卖楼的模式，在按揭、去化、资金三处断裂；ONZ全案代建模式贯穿规划、融资、营销、监理、售后五个环节，最终仍由Kharisma保留100%控股与稳健交付。`, en:`The traditional design-approval-plus-agent-sales model breaks down at end-financing, unit sell-through, and construction funding; the ONZ full-cycle model runs through five stages, planning, financing, marketing, supervision, and after-sales, with Kharisma retaining 100% ownership and stable delivery.` },
+    'svg-b': { name:'aria-label', zh:`四大服务板块的收费并非一次性收取，而是分别对应报批、开盘、施工、交房四个开发里程碑分期释放：规划设计集中在报批前，营销与品牌从开盘持续到施工期，财务与按揭贯穿全程，工程与售后集中在施工期到交房。`, en:`The four service pillars are not paid upfront in one lump sum. Their fees release across four development milestones, pre-approval, launch, construction, and handover: planning and design front-loads before approval, marketing and brand runs from launch through construction, finance and EF oversight runs continuously, and PMO and after-sales concentrate from construction through handover.` },
+    'svg-c': { name:'aria-label', zh:`传统模式需一次性启动3.5亿马币重资产；ONZ方案将开发拆分为多期滚动推进，Tower A1开工后销售回款进入HDA资金池，资金池反哺下一期Tower开工，形成自我造血的资金闭环，循环往复，资金沉淀降低60%以上。`, en:`The traditional model requires a one-time RM 350 million capital commitment. The ONZ plan splits development into rolling phases: Tower A1 breaks ground, sales proceeds flow into the HDA fund pool, which then funds the next phase's groundbreaking, a self-funding cash loop that repeats and cuts capital lock-up by over 60%.` },
+    'svg-d': { name:'aria-label', zh:`原方案87%为微型小户型，去化困难；优化后调整为3300间兼具自住与投资功能的高流动性户型，占比100%，同时保留216万平方英尺批准住宅面积。`, en:`The original plan was 87% micro-units, difficult to sell through. The optimized plan shifts to 3,300 high-liquidity units serving both owner-occupation and investment, 100% of the mix, while retaining the full 2.16 million sq ft of approved residential floor area.` }
+  };
+
+  var lang = 'zh';
+
+  function applyLang(l){
+    lang = l;
+    Object.keys(HTML).forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = HTML[id][l];
+    });
+    Object.keys(TEXT).forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.textContent = TEXT[id][l];
+    });
+    Object.keys(ATTR).forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.setAttribute(ATTR[id].name, ATTR[id][l]);
+    });
+    var label = document.getElementById('lang-toggle-label');
+    if (label) label.textContent = (l === 'zh') ? 'EN' : '中文';
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.setAttribute('lang', l === 'zh' ? 'zh-CN' : 'en');
+    try { localStorage.setItem('setiawangsa-lang', l); } catch (e) {}
+  }
+
+  var btn = document.getElementById('lang-toggle');
+  if (btn) {
+    btn.addEventListener('click', function(){
+      applyLang(lang === 'zh' ? 'en' : 'zh');
+    });
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('setiawangsa-lang'); } catch (e) {}
+  if (saved === 'en') applyLang('en');
+})();
+</script>
