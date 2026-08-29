@@ -720,7 +720,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
     <figure class="diagram">
       <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
       <div class="diagram-scroll">
-      <svg viewBox="0 0 720 168" role="img" aria-label="Ms Coffy Yap资金到位即完全归属，刘元元4年归属附1年cliff的时间轴对比" fill="currentColor">
+      <svg viewBox="0 0 720 168" role="img" aria-label="Ms Coffy Yap资金到位即完全归属；刘元元4年归属并设1年cliff，此后每满一年归属25%，呈四级阶梯" fill="currentColor">
         <!-- axis -->
         <line x1="150" y1="150" x2="700" y2="150" stroke="currentColor" stroke-opacity=".3"/>
         <g class="mono" font-size="10" opacity=".65">
@@ -743,19 +743,23 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 
         <!-- row 2: Yuan Yuan -->
         <text x="0" y="103" font-size="12" font-weight="700"><tspan class="t-zh">刘元元</tspan><tspan class="t-en">Yuan Yuan</tspan></text>
-        <text x="0" y="118" font-size="9.5" opacity=".6"><tspan class="t-zh">4年归属・1年cliff</tspan><tspan class="t-en">4yr vest, 1yr cliff</tspan></text>
-        <path d="M150,98 L287.5,98 L287.5,73 L700,73" fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round"/>
+        <text x="0" y="118" font-size="9.5" opacity=".6"><tspan class="t-zh">4年归属・1年cliff・每年25%</tspan><tspan class="t-en">4yr vest, 1yr cliff, 25%/yr</tspan></text>
+        <path d="M150,98 L287.5,98 L287.5,85 L425,85 L425,72 L562.5,72 L562.5,59 L700,59 L700,46" fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="150" cy="98" r="4.5" fill="var(--navy)"/>
-        <text x="150" y="64" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">0%</text>
-        <circle cx="287.5" cy="73" r="4.5" fill="var(--navy)"/>
-        <text x="287.5" y="64" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">25%</text>
-        <circle cx="700" cy="73" r="4.5" fill="var(--navy)"/>
-        <text x="690" y="64" text-anchor="end" font-size="9.5" fill="var(--navy)" class="mono">100%</text>
+        <text x="150" y="89" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">0%</text>
+        <circle cx="287.5" cy="85" r="4.5" fill="var(--navy)"/>
+        <text x="287.5" y="76" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">25%</text>
+        <circle cx="425" cy="72" r="4.5" fill="var(--navy)"/>
+        <text x="425" y="63" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">50%</text>
+        <circle cx="562.5" cy="59" r="4.5" fill="var(--navy)"/>
+        <text x="562.5" y="50" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">75%</text>
+        <circle cx="700" cy="46" r="4.5" fill="var(--navy)"/>
+        <text x="690" y="37" text-anchor="end" font-size="9.5" fill="var(--navy)" class="mono">100%</text>
       </svg>
       </div>
       <figcaption>
-        <span class="t-zh">图 3　Ms Coffy Yap 的股权因对应一次性资本注入，于资金全数到位后即视为已归属；刘元元的股权分 4 年归属并设 1 年 cliff，保障公司与投资方权益。</span>
-        <span class="t-en">Fig. 3  Ms Coffy Yap's equity, tied to a one-time capital injection, is treated as fully vested once funds land; Yuan Yuan's equity vests over 4 years with a 1-year cliff, protecting the company and investor.</span>
+        <span class="t-zh">图 3　Ms Coffy Yap 的股权因对应一次性资本注入，于资金全数到位后即视为已归属；刘元元的股权设 1 年 cliff，此后每满一年归属 25%，4 年满归，保障公司与投资方权益。</span>
+        <span class="t-en">Fig. 3  Ms Coffy Yap's equity, tied to a one-time capital injection, is treated as fully vested once funds land; Yuan Yuan's equity has a 1-year cliff, then vests 25% for each full year worked, reaching 100% at Year 4, protecting the company and investor.</span>
       </figcaption>
     </figure>
 
