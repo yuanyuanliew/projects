@@ -1,5 +1,6 @@
 
 <title>The Standard Media 股权提案</title>
+<script>document.documentElement.classList.add('lang-en');document.documentElement.setAttribute('lang','en');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,900&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 
@@ -195,7 +196,7 @@ p{margin:0;}
   color:var(--ink-on-inset-soft);
   max-width:640px;
 }
-.hero-note b{color:var(--copper-strong);font-weight:700;}
+.hero-note b{color:var(--copper-strong);font-weight:800;font-size:1.06em;}
 
 /* ============ SECTIONS ============ */
 section{padding:76px 0;border-bottom:1px solid var(--line);}
@@ -234,7 +235,7 @@ section.on-inset h3.sub{color:#fff;}
   color:var(--ink-soft);
   margin:20px 0;
 }
-.note b{color:var(--ink);font-weight:700;}
+.note b{color:var(--ink);font-weight:800;font-size:1.06em;}
 section.on-inset .note{background:color-mix(in srgb, var(--copper) 14%, transparent);color:var(--ink-on-inset-soft);}
 section.on-inset .note b{color:#fff;}
 
@@ -294,7 +295,7 @@ html.lang-en .stat-row .num.t-en{display:block;}
 .founder-card ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
 .founder-card ul li{position:relative;padding-left:18px;font-size:13.5px;line-height:1.65;color:var(--ink);}
 .founder-card ul li::before{content:"▸";position:absolute;left:0;color:var(--ink-soft);}
-.founder-card ul li b{color:var(--ink);font-weight:700;}
+.founder-card ul li b{color:var(--ink);font-weight:800;font-size:1.06em;}
 
 /* equity split bar */
 .propbar{margin:26px 0 10px;}
@@ -356,7 +357,7 @@ section.on-inset .seg-legend-item .cap{color:var(--ink-on-inset-soft);}
 .risk-card h4 .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;background:color-mix(in srgb, var(--critical) 16%, transparent);color:var(--critical);padding:2px 7px;border-radius:5px;}
 .risk-card p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
 .risk-card p.fix{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);color:var(--ink);}
-.risk-card p.fix b{color:var(--jade);}
+.risk-card p.fix b{color:var(--jade);font-weight:800;font-size:1.08em;}
 
 /* chart wrap */
 .chart-card{background:var(--bg-raised);border:1px solid var(--line);border-radius:14px;padding:22px 22px 16px;margin-top:24px;}
@@ -404,7 +405,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </style>
 
 <div class="progress" id="progress"></div>
-<button type="button" class="lang-toggle" id="langToggle" aria-pressed="false">
+<button type="button" class="lang-toggle" id="langToggle" aria-pressed="true">
   <span class="dot"></span>
   <span class="t-zh">EN</span>
   <span class="t-en">中文</span>
@@ -1149,6 +1150,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
     toggle.setAttribute('aria-pressed', en ? 'true' : 'false');
     root.setAttribute('lang', en ? 'en' : 'zh-Hans');
   }
+  setLang(true);
   toggle.addEventListener('click', function(){
     setLang(!root.classList.contains('lang-en'));
   });
