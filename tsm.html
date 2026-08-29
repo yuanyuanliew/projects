@@ -386,7 +386,7 @@ section.on-inset .diagram{background:color-mix(in srgb, #fff 4%, transparent);bo
   }
   section.on-inset .diagram-scroll-hint{color:var(--ink-on-inset-soft);}
   .diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-right:16px;margin-right:-16px;}
-  .diagram-scroll svg{min-width:600px;width:600px;height:auto;}
+  .diagram-scroll svg{min-width:660px;width:660px;height:auto;}
   .diagram figcaption{padding-right:16px;}
 }
 
@@ -461,7 +461,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
     <figure class="diagram">
       <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
       <div class="diagram-scroll">
-      <svg viewBox="0 0 720 210" role="img" aria-label="内容建立信任，导流层抛出Hook，再由业务团队于内容之外完成交易的三段式商业模式流程" fill="currentColor">
+      <svg viewBox="0 0 800 210" role="img" aria-label="内容层建立信任，内容退出时移交导流层生成精准名单，再由导流层转交业务团队于交易层完成成交与分润" fill="currentColor">
         <defs>
           <marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="var(--copper)"/>
@@ -469,52 +469,56 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
         </defs>
         <!-- boxes -->
         <g>
-          <rect x="14" y="46" width="204" height="118" rx="12" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-          <text x="116" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">01</text>
-          <text x="116" y="100" text-anchor="middle" font-size="14" font-weight="700">
-            <tspan x="116" class="t-zh">内容层</tspan><tspan x="116" class="t-en">Content Layer</tspan>
+          <rect x="14" y="46" width="196" height="118" rx="12" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+          <text x="112" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">01</text>
+          <text x="112" y="100" text-anchor="middle" font-size="14" font-weight="700">
+            <tspan x="112" class="t-zh">内容层</tspan><tspan x="112" class="t-en">Content Layer</tspan>
           </text>
-          <text x="116" y="119" text-anchor="middle" font-size="11.5" opacity=".8">
-            <tspan x="116" class="t-zh">信任资产</tspan><tspan x="116" class="t-en">Trust Asset</tspan>
+          <text x="112" y="119" text-anchor="middle" font-size="11.5" opacity=".8">
+            <tspan x="112" class="t-zh">信任资产</tspan><tspan x="112" class="t-en">Trust Asset</tspan>
           </text>
-          <foreignObject x="26" y="128" width="180" height="30"></foreignObject>
-          <text x="116" y="140" text-anchor="middle" font-size="10" opacity=".65">
-            <tspan x="116" dy="0" class="t-zh">故事建立信任，全程不置入销售</tspan>
-            <tspan x="116" dy="0" class="t-en">Story builds trust, zero in-content selling</tspan>
-          </text>
-        </g>
-        <g>
-          <rect x="258" y="46" width="204" height="118" rx="12" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-          <text x="360" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">02</text>
-          <text x="360" y="100" text-anchor="middle" font-size="14" font-weight="700">
-            <tspan x="360" class="t-zh">导流层</tspan><tspan x="360" class="t-en">Lead Layer</tspan>
-          </text>
-          <text x="360" y="119" text-anchor="middle" font-size="11.5" opacity=".8">Hook + CRM</text>
-          <text x="360" y="140" text-anchor="middle" font-size="10" opacity=".65">
-            <tspan x="360" class="t-zh">内容退出时抛出精准 Hook</tspan>
-            <tspan x="360" class="t-en">A precise hook drops as content ends</tspan>
+          <text x="112" y="140" text-anchor="middle" font-size="10" opacity=".65">
+            <tspan x="112" dy="0" class="t-zh">故事建立信任，全程不置入销售</tspan>
+            <tspan x="112" dy="0" class="t-en">Story builds trust, zero in-content selling</tspan>
           </text>
         </g>
         <g>
-          <rect x="502" y="46" width="204" height="118" rx="12" fill="var(--copper)" fill-opacity=".14" stroke="var(--copper)"/>
-          <text x="604" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">03</text>
-          <text x="604" y="100" text-anchor="middle" font-size="14" font-weight="700">
-            <tspan x="604" class="t-zh">交易层</tspan><tspan x="604" class="t-en">Transaction Layer</tspan>
+          <rect x="300" y="46" width="196" height="118" rx="12" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+          <text x="398" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">02</text>
+          <text x="398" y="100" text-anchor="middle" font-size="14" font-weight="700">
+            <tspan x="398" class="t-zh">导流层</tspan><tspan x="398" class="t-en">Lead Layer</tspan>
           </text>
-          <text x="604" y="119" text-anchor="middle" font-size="11.5" opacity=".8">
-            <tspan x="604" class="t-zh">商业化</tspan><tspan x="604" class="t-en">Monetization</tspan>
-          </text>
-          <text x="604" y="140" text-anchor="middle" font-size="10" opacity=".65">
-            <tspan x="604" class="t-zh">业务团队／co-broke 完成分润</tspan>
-            <tspan x="604" class="t-en">Sales team / co-broke closes &amp; splits</tspan>
+          <text x="398" y="119" text-anchor="middle" font-size="11.5" opacity=".8">Hook + CRM</text>
+          <text x="398" y="140" text-anchor="middle" font-size="10" opacity=".65">
+            <tspan x="398" dy="0" class="t-zh">系统识别高意向受众，纳入名单</tspan>
+            <tspan x="398" dy="0" class="t-en">System flags high-intent viewers into a CRM list</tspan>
           </text>
         </g>
-        <line x1="220" y1="105" x2="256" y2="105" stroke="var(--copper)" stroke-width="2" marker-end="url(#arrow1)"/>
-        <line x1="464" y1="105" x2="500" y2="105" stroke="var(--copper)" stroke-width="2" marker-end="url(#arrow1)"/>
-        <text x="726" y="105" text-anchor="end" font-size="0" opacity="0"> </text>
-        <text x="360" y="195" text-anchor="middle" font-size="11.5" opacity=".7">
-          <tspan x="360" class="t-zh">飞轮可复制到不同资产类别，Coffee &amp; Capital 是第一个验证案例</tspan>
-          <tspan x="360" class="t-en">This flywheel is repeatable across asset classes, with Coffee &amp; Capital as the first proof case</tspan>
+        <g>
+          <rect x="586" y="46" width="196" height="118" rx="12" fill="var(--copper)" fill-opacity=".14" stroke="var(--copper)"/>
+          <text x="684" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">03</text>
+          <text x="684" y="100" text-anchor="middle" font-size="14" font-weight="700">
+            <tspan x="684" class="t-zh">交易层</tspan><tspan x="684" class="t-en">Transaction Layer</tspan>
+          </text>
+          <text x="684" y="119" text-anchor="middle" font-size="11.5" opacity=".8">
+            <tspan x="684" class="t-zh">商业化</tspan><tspan x="684" class="t-en">Monetization</tspan>
+          </text>
+          <text x="684" y="140" text-anchor="middle" font-size="10" opacity=".65">
+            <tspan x="684" dy="0" class="t-zh">业务团队／co-broke 完成分润</tspan>
+            <tspan x="684" dy="0" class="t-en">Sales team / co-broke closes &amp; splits</tspan>
+          </text>
+        </g>
+        <line x1="212" y1="105" x2="298" y2="105" stroke="var(--copper)" stroke-width="2" marker-end="url(#arrow1)"/>
+        <text x="255" y="93" text-anchor="middle" font-size="9.5" class="mono" fill="var(--copper-strong)">
+          <tspan x="255" class="t-zh">内容退出</tspan><tspan x="255" class="t-en">Content ends</tspan>
+        </text>
+        <line x1="498" y1="105" x2="584" y2="105" stroke="var(--copper)" stroke-width="2" marker-end="url(#arrow1)"/>
+        <text x="541" y="93" text-anchor="middle" font-size="9.5" class="mono" fill="var(--copper-strong)">
+          <tspan x="541" class="t-zh">名单转交业务</tspan><tspan x="541" class="t-en">Lead handoff</tspan>
+        </text>
+        <text x="398" y="195" text-anchor="middle" font-size="11.5" opacity=".7">
+          <tspan x="398" class="t-zh">飞轮可复制到不同资产类别，Coffee &amp; Capital 是第一个验证案例</tspan>
+          <tspan x="398" class="t-en">This flywheel is repeatable across asset classes, with Coffee &amp; Capital as the first proof case</tspan>
         </text>
       </svg>
       </div>
