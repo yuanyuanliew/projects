@@ -1,0 +1,1281 @@
+<title>The Standard Media 股权提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,900&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  color-scheme: light;
+  --bg:            #F7F3E6;
+  --bg-raised:     #EFE7D0;
+  --bg-inset:      #141F35;
+  --bg-inset-2:    #0B1424;
+  --ink:           #1B2233;
+  --ink-soft:      #57607C;
+  --ink-on-inset:  #F2EDDD;
+  --ink-on-inset-soft: #A9B2CC;
+  --line:          #DED0A6;
+  --line-inset:    #2B3958;
+  --navy:          #2E5C99;
+  --copper:        #B8801F;
+  --copper-strong: #96690F;
+  --jade:          #1E8F63;
+  --violet:        #6B5CA6;
+  --critical:      #b23434;
+  --warning:       #a4720a;
+  --good:          #0c8f2f;
+  /* fixed (non-theme-swapping) fills for solid white-text badges/bars — chosen dark
+     enough that white text stays >=4.5:1 whether the page is in light or dark mode */
+  --navy-solid:    #2E5C99;
+  --copper-solid:  #7E5710;
+  --jade-solid:    #146B49;
+  --violet-solid:  #5A4B90;
+  --shadow: 0 18px 40px -22px rgba(20,26,44,.35);
+  --font-display: "Source Serif 4", "Noto Serif SC", serif;
+  --font-body: "Noto Sans SC", "Source Serif 4", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:            #0E1421;
+    --bg-raised:     #171F32;
+    --bg-inset:      #060A14;
+    --bg-inset-2:    #030509;
+    --ink:           #ECE6D3;
+    --ink-soft:      #A9B0C8;
+    --ink-on-inset:  #F2EDDD;
+    --ink-on-inset-soft: #96A0BE;
+    --line:          #2B3554;
+    --line-inset:    #212C48;
+    --navy:          #5E93D6;
+    --copper:        #D6A03C;
+    --copper-strong: #E8B559;
+    --jade:          #3FAE81;
+    --violet:        #8D7ECC;
+    --critical:      #e0776e;
+    --warning:       #e0aa3c;
+    --good:          #59c67c;
+    --shadow: 0 18px 44px -20px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:            #0E1421;
+  --bg-raised:     #171F32;
+  --bg-inset:      #060A14;
+  --bg-inset-2:    #030509;
+  --ink:           #ECE6D3;
+  --ink-soft:      #A9B0C8;
+  --ink-on-inset:  #F2EDDD;
+  --ink-on-inset-soft: #96A0BE;
+  --line:          #2B3554;
+  --line-inset:    #212C48;
+  --navy:          #5E93D6;
+  --copper:        #D6A03C;
+  --copper-strong: #E8B559;
+  --jade:          #3FAE81;
+  --violet:        #8D7ECC;
+  --critical:      #e0776e;
+  --warning:       #e0aa3c;
+  --good:          #59c67c;
+  --shadow: 0 18px 44px -20px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img,svg{max-width:100%;display:block;}
+::selection{background:var(--copper);color:#171208;}
+a{color:inherit;}
+.tnum{font-variant-numeric:tabular-nums;}
+
+/* bilingual toggle */
+.t-en{display:none;}
+html.lang-en .t-en{display:inline;}
+html.lang-en .t-zh{display:none;}
+html.lang-en .t-en.block{display:block;}
+html.lang-en .t-en.flex{display:flex;}
+.t-zh.block, .t-en.block{display:block;}
+html.lang-en .t-zh.block{display:none;}
+
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;text-wrap:balance;}
+p{margin:0;}
+
+.wrap{max-width:800px;margin:0 auto;padding:0 24px;}
+.wrap-wide{max-width:960px;margin:0 auto;padding:0 24px;}
+
+/* ============ CHROME ============ */
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--copper);z-index:80;width:0%;transition:width .1s linear;}
+
+.lang-toggle{
+  position:fixed;top:16px;right:16px;z-index:90;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 15px;
+  background:var(--bg-inset);
+  color:var(--ink-on-inset);
+  border:1px solid var(--line-inset);
+  border-radius:999px;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.lang-toggle:hover{border-color:var(--copper);}
+.lang-toggle:focus-visible{outline:2px solid var(--copper);outline-offset:2px;}
+.lang-toggle .dot{width:6px;height:6px;border-radius:50%;background:var(--copper);}
+@media (max-width:640px){ .lang-toggle{top:10px;right:10px;padding:7px 12px;font-size:11px;} }
+
+/* ============ HERO ============ */
+.hero{
+  background:
+    radial-gradient(ellipse 900px 500px at 85% -10%, color-mix(in srgb, var(--copper) 20%, transparent), transparent 70%),
+    var(--bg-inset);
+  color:var(--ink-on-inset);
+  padding:104px 0 72px;
+  position:relative;
+  overflow:clip;
+}
+.hero-eyebrow{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--copper-strong);
+  display:inline-flex;align-items:center;gap:.6em;
+  margin-bottom:22px;
+}
+.hero-eyebrow::before{content:"";width:26px;height:1px;background:var(--copper-strong);}
+.hero h1{
+  font-size:clamp(2.3rem,6vw,3.6rem);
+  font-weight:700;
+  line-height:1.12;
+  color:#fff;
+}
+.hero .sub{
+  margin-top:16px;
+  font-size:clamp(1.05rem,2vw,1.3rem);
+  color:var(--copper-strong);
+  font-family:var(--font-display);
+  font-weight:600;
+}
+.hero .lede{
+  margin-top:22px;
+  max-width:56ch;
+  font-size:16px;
+  color:var(--ink-on-inset-soft);
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:28px 40px;
+  margin-top:44px;padding-top:28px;
+  border-top:1px solid var(--line-inset);
+}
+.hero-meta div{display:flex;flex-direction:column;gap:5px;}
+.hero-meta .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-on-inset-soft);}
+.hero-meta .v{font-weight:700;font-size:15px;color:#fff;}
+.hero-note{
+  margin-top:36px;
+  border:1px solid color-mix(in srgb, var(--copper) 45%, transparent);
+  background:color-mix(in srgb, var(--copper) 10%, transparent);
+  border-radius:10px;
+  padding:16px 20px;
+  font-size:13.5px;
+  line-height:1.75;
+  color:var(--ink-on-inset-soft);
+  max-width:640px;
+}
+.hero-note b{color:var(--copper-strong);font-weight:700;}
+
+/* ============ SECTIONS ============ */
+section{padding:76px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+section.on-inset{background:var(--bg-inset);color:var(--ink-on-inset);border-bottom:none;}
+section.on-raised{background:var(--bg-raised);}
+
+.chapter-head{display:flex;gap:18px;align-items:baseline;margin-bottom:28px;}
+.chapter-num{
+  font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--copper);
+  flex-shrink:0;padding-top:6px;
+}
+.chapter-head h2{font-size:clamp(1.4rem,3vw,1.85rem);font-weight:700;color:var(--ink);}
+section.on-inset .chapter-head h2{color:#fff;}
+.chapter-kicker{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);display:block;margin-bottom:8px;
+}
+section.on-inset .chapter-kicker{color:var(--ink-on-inset-soft);}
+
+.lede{font-size:16px;max-width:66ch;color:var(--ink-soft);margin-bottom:20px;}
+p.body-text{font-size:15.5px;max-width:66ch;color:var(--ink);margin-bottom:14px;}
+section.on-inset p.body-text, section.on-inset .lede{color:var(--ink-on-inset-soft);}
+
+h3.sub{font-size:1.05rem;font-weight:700;color:var(--ink);margin:30px 0 12px;}
+section.on-inset h3.sub{color:#fff;}
+
+/* callout / note */
+.note{
+  border-left:3px solid var(--copper);
+  background:color-mix(in srgb, var(--copper) 9%, var(--bg-raised));
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;
+  font-size:13.5px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin:20px 0;
+}
+.note b{color:var(--ink);font-weight:700;}
+section.on-inset .note{background:color-mix(in srgb, var(--copper) 14%, transparent);color:var(--ink-on-inset-soft);}
+section.on-inset .note b{color:#fff;}
+
+/* bullet list */
+ul.stack{list-style:none;margin:18px 0;padding:0;display:flex;flex-direction:column;gap:12px;}
+ul.stack li{
+  position:relative;padding-left:22px;font-size:15px;line-height:1.75;color:var(--ink);max-width:68ch;
+}
+ul.stack li::before{content:"▸";position:absolute;left:0;color:var(--copper);font-weight:700;}
+section.on-inset ul.stack li{color:var(--ink-on-inset-soft);}
+
+ol.steps{list-style:none;margin:18px 0;padding:0;counter-reset:step;display:flex;flex-direction:column;gap:14px;}
+ol.steps li{counter-increment:step;position:relative;padding-left:34px;font-size:15px;line-height:1.75;color:var(--ink);}
+ol.steps li::before{
+  content:counter(step);
+  position:absolute;left:0;top:1px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--copper);color:#181206;
+  font-family:var(--font-mono);font-weight:700;font-size:11.5px;
+  display:flex;align-items:center;justify-content:center;
+}
+section.on-inset ol.steps li{color:var(--ink-on-inset-soft);}
+
+/* cards */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:20px;}
+.card{
+  background:var(--bg-raised);border:1px solid var(--line);border-radius:12px;
+  padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;
+}
+.card .card-h{display:flex;align-items:center;gap:10px;}
+.card .card-num{
+  width:26px;height:26px;border-radius:50%;background:var(--copper);color:#181206;
+  font-family:var(--font-mono);font-weight:700;font-size:12px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.card h4{font-size:14.5px;font-weight:700;color:var(--ink);}
+.card p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;}
+
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:20px;}
+.stat-row > div{background:var(--bg-raised);padding:20px 18px;text-align:center;}
+.stat-row .num{font-family:var(--font-mono);font-weight:700;font-size:clamp(20px,2.6vw,28px);color:var(--navy);display:block;}
+.stat-row .num.t-en{display:none;}
+html.lang-en .stat-row .num.t-en{display:block;}
+.stat-row .lab{font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
+
+/* two-column founder cards */
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;}
+@media (max-width:680px){.founder-grid{grid-template-columns:1fr;}}
+.founder-card{
+  border-radius:14px;padding:24px 22px;border:1px solid var(--line);background:var(--bg-raised);
+  display:flex;flex-direction:column;gap:14px;
+}
+.founder-card.accent{border-color:color-mix(in srgb, var(--copper) 55%, var(--line));}
+.founder-card .role{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--copper-strong);}
+.founder-card h4{font-size:1.15rem;font-weight:700;}
+.founder-card .role-sub{font-size:13px;color:var(--ink-soft);margin-top:-8px;}
+.founder-card ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.founder-card ul li{position:relative;padding-left:18px;font-size:13.5px;line-height:1.65;color:var(--ink);}
+.founder-card ul li::before{content:"▸";position:absolute;left:0;color:var(--ink-soft);}
+.founder-card ul li b{color:var(--ink);font-weight:700;}
+
+/* equity split bar */
+.propbar{margin:26px 0 10px;}
+.propbar-track{display:flex;width:100%;height:56px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+.propbar-seg{display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;font-family:var(--font-mono);gap:2px;}
+.propbar-seg .pct{font-size:20px;font-weight:700;}
+.propbar-seg .who{font-size:10.5px;letter-spacing:.05em;opacity:.9;}
+.propbar-legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--ink-soft);}
+.propbar-legend span{display:inline-flex;align-items:center;gap:7px;}
+.propbar-legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+
+/* equity rationale table */
+.rtable{width:100%;border-collapse:collapse;margin-top:26px;font-size:13.5px;}
+.rtable th{
+  text-align:left;background:var(--bg-inset);color:var(--ink-on-inset);
+  font-weight:700;padding:11px 14px;font-size:12px;
+}
+.rtable td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink);}
+.rtable tr:nth-child(odd) td{background:color-mix(in srgb, var(--bg-raised) 55%, transparent);}
+.rtable .pct-cell{font-family:var(--font-mono);font-weight:700;font-size:16px;text-align:center;white-space:nowrap;}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+
+/* generic data table */
+table.data{width:100%;border-collapse:collapse;font-size:13px;min-width:460px;}
+table.data caption{caption-side:top;text-align:left;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--ink-soft);padding-bottom:8px;}
+table.data th{background:var(--bg-inset);color:var(--ink-on-inset);text-align:right;font-weight:600;padding:9px 12px;font-size:11.5px;}
+table.data th:first-child{text-align:left;}
+table.data td{padding:9px 12px;text-align:right;border-top:1px solid var(--line);font-family:var(--font-mono);}
+table.data td:first-child{text-align:left;font-family:var(--font-body);color:var(--ink-soft);}
+table.data tr.total td{font-weight:700;border-top:2px solid var(--ink);}
+table.data td.neg{color:var(--critical);}
+table.data td.pos{color:var(--good);}
+
+details.disclose{margin-top:18px;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+details.disclose summary{
+  cursor:pointer;list-style:none;padding:13px 16px;font-size:13.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:space-between;background:var(--bg-raised);
+  font-family:var(--font-mono);
+}
+details.disclose summary::-webkit-details-marker{display:none;}
+details.disclose summary::after{content:"+";font-size:16px;color:var(--copper);}
+details.disclose[open] summary::after{content:"–";}
+details.disclose .disclose-body{padding:16px;}
+
+/* funds bar */
+.segbar{display:flex;width:100%;border-radius:10px;overflow:hidden;height:40px;border:1px solid var(--line);margin-top:22px;}
+.segbar-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-mono);font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;}
+.seg-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:16px;}
+.seg-legend-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;}
+.seg-legend-item i{width:12px;height:12px;border-radius:3px;margin-top:3px;flex-shrink:0;}
+.seg-legend-item .amt{font-family:var(--font-mono);font-weight:700;display:block;}
+.seg-legend-item .cap{color:var(--ink-soft);font-size:12px;}
+section.on-inset .seg-legend-item .cap{color:var(--ink-on-inset-soft);}
+
+/* risk cards */
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px;}
+.risk-card{border:1px solid var(--line);border-left:4px solid var(--critical);border-radius:0 12px 12px 0;background:var(--bg-raised);padding:18px 20px;}
+.risk-card h4{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.risk-card h4 .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;background:color-mix(in srgb, var(--critical) 16%, transparent);color:var(--critical);padding:2px 7px;border-radius:5px;}
+.risk-card p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
+.risk-card p.fix{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);color:var(--ink);}
+.risk-card p.fix b{color:var(--jade);}
+
+/* chart wrap */
+.chart-card{background:var(--bg-raised);border:1px solid var(--line);border-radius:14px;padding:22px 22px 16px;margin-top:24px;}
+.chart-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.chart-sub{font-size:12px;color:var(--ink-soft);margin-bottom:14px;}
+.legend-row{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-soft);margin-top:10px;}
+.legend-row span{display:inline-flex;align-items:center;gap:7px;}
+.legend-row i{width:20px;height:3px;border-radius:2px;display:inline-block;}
+
+figure{margin:0;}
+figcaption{font-size:12px;color:var(--ink-soft);margin-top:10px;}
+
+/* diagram frame */
+.diagram{margin:26px 0 6px;border:1px solid var(--line);border-radius:14px;background:var(--bg-raised);padding:20px;}
+section.on-inset .diagram{background:color-mix(in srgb, #fff 4%, transparent);border-color:var(--line-inset);}
+.diagram svg{overflow:visible;}
+.diagram text{font-family:var(--font-body);}
+.diagram .mono{font-family:var(--font-mono);}
+/* on narrow screens, don't shrink diagram text to illegibility — hold a legible
+   minimum pixel width and let the frame scroll horizontally instead */
+.diagram-scroll-hint{display:none;}
+@media (max-width:640px){
+  .diagram{padding:16px 0 16px 16px;}
+  .diagram-scroll-hint{
+    display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+    color:var(--ink-soft);margin:0 16px 10px 0;text-align:center;
+  }
+  section.on-inset .diagram-scroll-hint{color:var(--ink-on-inset-soft);}
+  .diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-right:16px;margin-right:-16px;}
+  .diagram-scroll svg{min-width:600px;width:600px;height:auto;}
+  .diagram figcaption{padding-right:16px;}
+}
+
+/* footer */
+footer{padding:48px 0 64px;text-align:center;}
+footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
+
+@media (max-width:640px){
+  section{padding:52px 0;}
+  .hero{padding:88px 0 56px;}
+  .hero-meta{gap:20px 28px;}
+  .founder-grid{gap:14px;}
+  .chapter-num{display:none;}
+}
+</style>
+
+<div class="progress" id="progress"></div>
+<button type="button" class="lang-toggle" id="langToggle" aria-pressed="false">
+  <span class="dot"></span>
+  <span class="t-zh">EN</span>
+  <span class="t-en">中文</span>
+</button>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="hero-eyebrow">
+      <span class="t-zh">股权建议书 ・ Equity Proposal</span>
+      <span class="t-en">Equity Proposal ・ 股权建议书</span>
+    </span>
+    <h1>The Standard Media</h1>
+    <p class="sub">
+      <span class="t-zh">（简称 TSM）｜ 创办股权架构与投资分配建议</span>
+      <span class="t-en">(“TSM”) · Founding Equity Structure &amp; Investment Allocation Proposal</span>
+    </p>
+    <p class="lede">
+      <span class="t-zh">全家私房钱 Money Money Home 2.0 生态系下的商业化实体：内容建立信任，交易在内容之外发生。本文件说明刘元元与 Ms Coffy Yap 的创办贡献、建议股权比例、佣金分润机制、启动资金用途与首三年财务预测。</span>
+      <span class="t-en">The commercial engine behind the MoneyMoneyHome 2.0 ecosystem: content builds trust, transactions happen outside the content. This document lays out Yuan Yuan and Ms Coffy Yap's founding contributions, proposed equity split, commission mechanics, use of funds, and three-year financial outlook.</span>
+    </p>
+    <div class="hero-meta">
+      <div><span class="k t-zh">呈送对象</span><span class="k t-en">Presented To</span><span class="v">Ms Coffy Yap</span></div>
+      <div><span class="k t-zh">拟制人</span><span class="k t-en">Presented By</span><span class="v"><span class="t-zh">刘元元 ・ 创办人暨执行长（CEO）</span><span class="t-en">Yuan Yuan · Founder &amp; CEO</span></span></div>
+      <div><span class="k t-zh">日期</span><span class="k t-en">Date</span><span class="v tnum t-zh">2026 年 8 月</span><span class="v tnum t-en">August 2026</span></div>
+    </div>
+    <div class="hero-note">
+      <span class="t-zh"><b>关于本文件　</b>本页为股权架构讨论草案，用于双方合伙协商基础。具体持股比例、归属与治理条款以最终签署之正式股东协议（Shareholders' Agreement）为准，不构成法律、税务或投资建议。</span>
+      <span class="t-en"><b>About this document　</b>A discussion draft of the founding equity structure, intended as a basis for negotiation between the two parties. Final ratios, vesting and governance terms are subject to a duly executed Shareholders' Agreement; nothing here constitutes legal, tax or investment advice.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 一 公司背景 ============ -->
+<section class="">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">01</span>
+      <div>
+        <span class="chapter-kicker t-zh">一　公司背景与商业模式</span>
+        <span class="chapter-kicker t-en">I　Company Background &amp; Business Model</span>
+        <h2><span class="t-zh">内容建立信任，交易在内容之外发生</span><span class="t-en">Content builds trust; the transaction happens outside it</span></h2>
+      </div>
+    </div>
+    <p class="body-text">
+      <span class="t-zh">The Standard Media（TSM）是「全家私房钱 2.0」内容生态系下的商业化实体。核心逻辑：以真实人物与产业故事建立大众信任，内容本身完全不做产品或服务的置入推销；当内容退出时，向系统性识别出的高意向受众抛出精准 Hook，再由业务团队与合作伙伴在内容之外完成实际成交与商业化。</span>
+      <span class="t-en">The Standard Media (TSM) is the commercial entity behind the MoneyMoneyHome 2.0 content ecosystem. The core logic: real people and real industry stories build public trust, with zero product or service pitching inside the content itself. When content ends, a precise hook is dropped to a systematically identified high-intent audience, and the business team and partners then close the actual deal, entirely outside the content.</span>
+    </p>
+    <p class="body-text">
+      <span class="t-zh">首个内容企划《Coffee &amp; Capital》聚焦厂房与工业地产（大马规模最庞大却最不透明的资产类别），将内容累积的信任转化为地产转介佣金与内容业配两大收入引擎（详见第五章）。</span>
+      <span class="t-en">The first project, <i>Coffee &amp; Capital</i>, focuses on factories and industrial real estate (Malaysia's largest yet least transparent asset class), converting accumulated trust into two revenue engines: real-estate referral commission and content sponsorship (see Chapter V).</span>
+    </p>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 720 210" role="img" aria-label="内容建立信任，导流层抛出Hook，再由业务团队于内容之外完成交易的三段式商业模式流程" fill="currentColor">
+        <defs>
+          <marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--copper)"/>
+          </marker>
+        </defs>
+        <!-- boxes -->
+        <g>
+          <rect x="14" y="46" width="204" height="118" rx="12" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+          <text x="116" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">01</text>
+          <text x="116" y="100" text-anchor="middle" font-size="14" font-weight="700">
+            <tspan x="116" class="t-zh">内容层</tspan><tspan x="116" class="t-en">Content Layer</tspan>
+          </text>
+          <text x="116" y="119" text-anchor="middle" font-size="11.5" opacity=".8">
+            <tspan x="116" class="t-zh">信任资产</tspan><tspan x="116" class="t-en">Trust Asset</tspan>
+          </text>
+          <foreignObject x="26" y="128" width="180" height="30"></foreignObject>
+          <text x="116" y="140" text-anchor="middle" font-size="10" opacity=".65">
+            <tspan x="116" dy="0" class="t-zh">故事建立信任，全程不置入销售</tspan>
+            <tspan x="116" dy="0" class="t-en">Story builds trust, zero in-content selling</tspan>
+          </text>
+        </g>
+        <g>
+          <rect x="258" y="46" width="204" height="118" rx="12" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+          <text x="360" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">02</text>
+          <text x="360" y="100" text-anchor="middle" font-size="14" font-weight="700">
+            <tspan x="360" class="t-zh">导流层</tspan><tspan x="360" class="t-en">Lead Layer</tspan>
+          </text>
+          <text x="360" y="119" text-anchor="middle" font-size="11.5" opacity=".8">Hook + CRM</text>
+          <text x="360" y="140" text-anchor="middle" font-size="10" opacity=".65">
+            <tspan x="360" class="t-zh">内容退出时抛出精准 Hook</tspan>
+            <tspan x="360" class="t-en">A precise hook drops as content ends</tspan>
+          </text>
+        </g>
+        <g>
+          <rect x="502" y="46" width="204" height="118" rx="12" fill="var(--copper)" fill-opacity=".14" stroke="var(--copper)"/>
+          <text x="604" y="76" text-anchor="middle" font-size="12" font-weight="700" class="mono" fill="var(--copper)">03</text>
+          <text x="604" y="100" text-anchor="middle" font-size="14" font-weight="700">
+            <tspan x="604" class="t-zh">交易层</tspan><tspan x="604" class="t-en">Transaction Layer</tspan>
+          </text>
+          <text x="604" y="119" text-anchor="middle" font-size="11.5" opacity=".8">
+            <tspan x="604" class="t-zh">商业化</tspan><tspan x="604" class="t-en">Monetization</tspan>
+          </text>
+          <text x="604" y="140" text-anchor="middle" font-size="10" opacity=".65">
+            <tspan x="604" class="t-zh">业务团队／co-broke 完成分润</tspan>
+            <tspan x="604" class="t-en">Sales team / co-broke closes &amp; splits</tspan>
+          </text>
+        </g>
+        <line x1="220" y1="105" x2="256" y2="105" stroke="var(--copper)" stroke-width="2" marker-end="url(#arrow1)"/>
+        <line x1="464" y1="105" x2="500" y2="105" stroke="var(--copper)" stroke-width="2" marker-end="url(#arrow1)"/>
+        <text x="726" y="105" text-anchor="end" font-size="0" opacity="0"> </text>
+        <text x="360" y="195" text-anchor="middle" font-size="11.5" opacity=".7">
+          <tspan x="360" class="t-zh">飞轮可复制到不同资产类别，Coffee &amp; Capital 是第一个验证案例</tspan>
+          <tspan x="360" class="t-en">This flywheel is repeatable across asset classes, with Coffee &amp; Capital as the first proof case</tspan>
+        </text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 1　TSM 三段式商业模式：信任在内容层累积，于导流层转为精准名单，最终在交易层由业务团队完成商业化。</span>
+        <span class="t-en">Fig. 1  TSM's three-layer model: trust accrues in the content layer, converts to a precise lead in the hook layer, and is monetized by the sales team in the transaction layer.</span>
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="t-zh"><b>说明　</b>本章商业模式与后续财务数字，整理自《The Standard 全家私房钱 2.0 企划书》与《全家私房钱 Money Money Home 媒体招商手册》，作为本股权建议书的事实基础。</span>
+      <span class="t-en"><b>Note　</b>The business model and financial figures in this document are drawn from <i>The Standard MoneyMoneyHome 2.0 Proposal</i> and the <i>MoneyMoneyHome Media Sales Kit</i>, forming the factual basis for this equity proposal.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 二 创办人与核心贡献 ============ -->
+<section class="on-raised">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">02</span>
+      <div>
+        <span class="chapter-kicker t-zh">二　创办人与核心贡献</span>
+        <span class="chapter-kicker t-en">II　Founders &amp; Core Contributions</span>
+        <h2><span class="t-zh">两种不同性质的投入：长期人力与 IP，对上资本与渠道</span><span class="t-en">Two different kinds of input: long-term IP and labor, versus capital and channel</span></h2>
+      </div>
+    </div>
+
+    <div class="founder-grid">
+      <div class="founder-card accent">
+        <span class="role t-zh">联合创办人</span><span class="role t-en">Co-Founder</span>
+        <h4>Ms Coffy Yap</h4>
+        <ul>
+          <li><span class="t-zh"><b>启动资金　</b>注入首年营运资金约 <span class="tnum">RM 1,000,000</span>（＋/-），支应内容制作、团队、传播矩阵与行政储备</span>
+              <span class="t-en"><b>Startup capital　</b>Injects approx. <span class="tnum">RM 1,000,000</span> (+/-) in Year-1 operating funds for production, team, distribution/PR and admin reserve</span></li>
+          <li><span class="t-zh"><b>NCT 独家货源渠道　</b>引荐并对接旗下 NCT 逾 <span class="tnum">1,000</span> 英亩厂房／工业地产货源（续购约 <span class="tnum">900</span> 英亩）</span>
+              <span class="t-en"><b>NCT exclusive channel　</b>Introduces and connects TSM to NCT's 1,000+ acres of factory/industrial land (with ~900 more acres in the pipeline)</span></li>
+          <li><span class="t-zh"><b>核心供给来源　</b>是 TSM 地产分润引擎得以启动与规模化的关键策略资源</span>
+              <span class="t-en"><b>Core supply source　</b>The key strategic resource that lets TSM's real-estate revenue engine launch and scale</span></li>
+        </ul>
+      </div>
+      <div class="founder-card">
+        <span class="role t-zh">创办人暨执行长</span><span class="role t-en">Founder &amp; CEO</span>
+        <h4><span class="t-zh">刘元元</span><span class="t-en">Yuan Yuan</span></h4>
+        <ul>
+          <li><span class="t-zh"><b>IP 与品牌资产　</b>全家私房钱 Money Money Home：Astro 电视台起家，两季 26 集节目，80,000+ FB 粉丝、20,000+ YouTube 订阅、历史累积观看 364 万人次</span>
+              <span class="t-en"><b>IP &amp; brand asset　</b>MoneyMoneyHome: born on Astro TV, 2 seasons / 26 episodes, 80,000+ FB fans, 20,000+ YouTube subs, 3.64M lifetime views</span></li>
+          <li><span class="t-zh"><b>已验证的信任资产　</b>获 SC Malaysia、Bursa Malaysia 联办与委任；与 iProperty、发展商合办活动；成功为 VI College 打开中文投资课程市场</span>
+              <span class="t-en"><b>Proven trust asset　</b>Co-organized with / commissioned by SC Malaysia and Bursa Malaysia; events with iProperty and developers; opened the Chinese investment-course market for VI College</span></li>
+          <li><span class="t-zh"><b>内容制作经验　</b>曾任 Astro 电视台主播与节目制作人，具完整内容策划、叙事与团队统筹能力</span>
+              <span class="t-en"><b>Production experience　</b>Former Astro TV anchor &amp; producer, full command of content planning, narrative and team execution</span></li>
+          <li><span class="t-zh"><b>全职营运投入　</b>出任 CEO，全面负责日常经营、内容制作、团队管理与业务拓展统筹</span>
+              <span class="t-en"><b>Full-time operating role　</b>CEO, overseeing day-to-day operations, content production, team management and business development</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 720 260" role="img" aria-label="Ms Coffy Yap的资金与NCT渠道、刘元元的IP与营运投入，共同汇入TSM" fill="currentColor">
+        <defs>
+          <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".55"/>
+          </marker>
+        </defs>
+        <rect x="16" y="16" width="300" height="92" rx="10" fill="var(--copper)" fill-opacity=".12" stroke="var(--copper)"/>
+        <text x="166" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="var(--copper-strong)">Ms Coffy Yap</text>
+        <text x="166" y="60" text-anchor="middle" font-size="10.5" opacity=".8">
+          <tspan x="166" class="t-zh">启动资金 RM 1,000,000</tspan>
+          <tspan x="166" class="t-en">Startup capital RM 1,000,000</tspan>
+        </text>
+        <text x="166" y="80" text-anchor="middle" font-size="10.5" opacity=".8">
+          <tspan x="166" class="t-zh">NCT 独家货源渠道对接</tspan>
+          <tspan x="166" class="t-en">NCT exclusive supply channel</tspan>
+        </text>
+
+        <rect x="404" y="16" width="300" height="92" rx="10" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
+        <text x="554" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="var(--navy)">
+          <tspan x="554" class="t-zh">刘元元</tspan><tspan x="554" class="t-en">Yuan Yuan</tspan>
+        </text>
+        <text x="554" y="60" text-anchor="middle" font-size="10.5" opacity=".8">
+          <tspan x="554" class="t-zh">全家私房钱 IP ・ 内容制作经验 ・ 产业人脉</tspan>
+          <tspan x="554" class="t-en">MMH IP · production experience · industry network</tspan>
+        </text>
+        <text x="554" y="80" text-anchor="middle" font-size="10.5" opacity=".8">
+          <tspan x="554" class="t-zh">全职营运（长期人力投入）</tspan>
+          <tspan x="554" class="t-en">Full-time operating role (long-term labor)</tspan>
+        </text>
+
+        <line x1="200" y1="108" x2="330" y2="176" stroke="currentColor" stroke-opacity=".5" stroke-width="1.6" marker-end="url(#arrow2)"/>
+        <line x1="520" y1="108" x2="390" y2="176" stroke="currentColor" stroke-opacity=".5" stroke-width="1.6" marker-end="url(#arrow2)"/>
+
+        <rect x="260" y="182" width="200" height="60" rx="30" fill="var(--bg-inset)" stroke="var(--copper)" stroke-width="1.4"/>
+        <text x="360" y="209" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink-on-inset)">The Standard Media</text>
+        <text x="360" y="227" text-anchor="middle" font-size="10" fill="var(--ink-on-inset-soft)">TSM</text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 2　双方贡献属性不同：Ms Coffy Yap 投入一次性资本与具持续战略价值的渠道资源；刘元元投入长期、持续的 IP 与人力资源。</span>
+        <span class="t-en">Fig. 2  The two contributions differ in kind: Ms Coffy Yap brings one-time capital plus an ongoing strategic channel; Yuan Yuan brings long-term, ongoing IP and labor.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 三 建议股权分配方案 ============ -->
+<section class="">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">03</span>
+      <div>
+        <span class="chapter-kicker t-zh">三　建议股权分配方案</span>
+        <span class="chapter-kicker t-en">III　Proposed Equity Split</span>
+        <h2><span class="t-zh">建议起点：Ms Coffy Yap 40% ／ 刘元元 60%</span><span class="t-en">Proposed starting point: Ms Coffy Yap 40% / Yuan Yuan 60%</span></h2>
+      </div>
+    </div>
+    <p class="body-text">
+      <span class="t-zh">综合双方贡献之性质（长期营运人力与 IP，相对于资本与渠道资源），并参考媒体／内容型创业公司常见的创办人与策略投资人股权配置惯例，建议初始股权结构如下，供双方进一步协商确认：</span>
+      <span class="t-en">Weighing the nature of each contribution (long-term operating labor and IP versus capital and channel resources) and common practice for founder / strategic-investor splits at media startups, the following initial structure is proposed for further negotiation:</span>
+    </p>
+
+    <div class="propbar">
+      <div class="propbar-track">
+        <div class="propbar-seg" style="width:40%;background:var(--copper-solid);">
+          <span class="pct tnum">40%</span>
+          <span class="who">Coffy Yap</span>
+        </div>
+        <div class="propbar-seg" style="width:60%;background:var(--navy-solid);">
+          <span class="pct tnum">60%</span>
+          <span class="who">Yuan Yuan</span>
+        </div>
+      </div>
+      <div class="propbar-legend">
+        <span><i style="background:var(--copper-solid);"></i><span class="t-zh">Ms Coffy Yap ・ 启动资金、NCT 独家货源渠道</span><span class="t-en">Ms Coffy Yap · startup capital, NCT exclusive channel</span></span>
+        <span><i style="background:var(--navy-solid);"></i><span class="t-zh">刘元元 ・ IP、内容制作经验、产业人脉、全职营运</span><span class="t-en">Yuan Yuan · IP, production experience, network, full-time operations</span></span>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+      <table class="rtable">
+        <thead><tr>
+          <th><span class="t-zh">股东</span><span class="t-en">Shareholder</span></th>
+          <th><span class="t-zh">贡献类型</span><span class="t-en">Contribution</span></th>
+          <th><span class="t-zh">贡献性质</span><span class="t-en">Nature</span></th>
+          <th><span class="t-zh">建议持股</span><span class="t-en">Proposed Stake</span></th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Ms Coffy Yap</b></td>
+            <td><span class="t-zh">启动资金 RM 1,000,000、NCT 独家货源渠道对接</span><span class="t-en">Startup capital RM 1,000,000, NCT channel access</span></td>
+            <td><span class="t-zh">一次性资本注入＋持续性策略渠道资源</span><span class="t-en">One-time capital + ongoing strategic channel</span></td>
+            <td class="pct-cell tnum" style="color:var(--copper-strong);">40%</td>
+          </tr>
+          <tr>
+            <td><b class="t-zh">刘元元</b><b class="t-en">Yuan Yuan</b></td>
+            <td><span class="t-zh">全家私房钱 IP／品牌资产、内容制作经验与产业人脉、全职营运</span><span class="t-en">MMH IP/brand, production experience &amp; network, full-time operations</span></td>
+            <td><span class="t-zh">长期人力投入＋知识产权（sweat equity）</span><span class="t-en">Long-term labor + IP (sweat equity)</span></td>
+            <td class="pct-cell tnum" style="color:var(--navy);">60%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub"><span class="t-zh">3.1　股权归属（Vesting）建议</span><span class="t-en">3.1　Proposed Vesting</span></h3>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 720 168" role="img" aria-label="Ms Coffy Yap资金到位即完全归属，刘元元4年归属附1年cliff的时间轴对比" fill="currentColor">
+        <!-- axis -->
+        <line x1="150" y1="150" x2="700" y2="150" stroke="currentColor" stroke-opacity=".3"/>
+        <g class="mono" font-size="10" opacity=".65">
+          <text x="150" y="164" text-anchor="middle">Y0</text>
+          <text x="287.5" y="164" text-anchor="middle">Y1</text>
+          <text x="425" y="164" text-anchor="middle">Y2</text>
+          <text x="562.5" y="164" text-anchor="middle">Y3</text>
+          <text x="700" y="164" text-anchor="middle">Y4</text>
+        </g>
+        <line x1="150" y1="150" x2="150" y2="20" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
+        <line x1="287.5" y1="150" x2="287.5" y2="20" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
+        <line x1="700" y1="150" x2="700" y2="20" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
+
+        <!-- row 1: Ms Coffy Yap -->
+        <text x="0" y="45" font-size="12" font-weight="700">Ms Coffy Yap</text>
+        <text x="0" y="60" font-size="9.5" opacity=".6"><tspan class="t-zh">资金到位即完全归属</tspan><tspan class="t-en">Fully vested upon funding</tspan></text>
+        <path d="M150,40 L155,15.5 L700,15.5" fill="none" stroke="var(--copper)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="155" cy="15.5" r="4.5" fill="var(--copper)"/>
+        <text x="165" y="9" font-size="9.5" fill="var(--copper-strong)" class="mono">100%</text>
+
+        <!-- row 2: Yuan Yuan -->
+        <text x="0" y="103" font-size="12" font-weight="700"><tspan class="t-zh">刘元元</tspan><tspan class="t-en">Yuan Yuan</tspan></text>
+        <text x="0" y="118" font-size="9.5" opacity=".6"><tspan class="t-zh">4年归属・1年cliff</tspan><tspan class="t-en">4yr vest, 1yr cliff</tspan></text>
+        <path d="M150,98 L287.5,98 L287.5,73 L700,73" fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="150" cy="98" r="4.5" fill="var(--navy)"/>
+        <text x="150" y="64" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">0%</text>
+        <circle cx="287.5" cy="73" r="4.5" fill="var(--navy)"/>
+        <text x="287.5" y="64" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">25%</text>
+        <circle cx="700" cy="73" r="4.5" fill="var(--navy)"/>
+        <text x="690" y="64" text-anchor="end" font-size="9.5" fill="var(--navy)" class="mono">100%</text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 3　Ms Coffy Yap 的股权因对应一次性资本注入，于资金全数到位后即视为已归属；刘元元的股权分 4 年归属并设 1 年 cliff，保障公司与投资方权益。</span>
+        <span class="t-en">Fig. 3  Ms Coffy Yap's equity, tied to a one-time capital injection, is treated as fully vested once funds land; Yuan Yuan's equity vests over 4 years with a 1-year cliff, protecting the company and investor.</span>
+      </figcaption>
+    </figure>
+
+    <ul class="stack">
+      <li><span class="t-zh">若未来引入外部融资、员工期权池（ESOP）或新股东，双方股权原则上按比例同步稀释，除非另行约定优先认购权（Pre-emptive Right）或反稀释条款。</span>
+          <span class="t-en">Future outside funding, an ESOP pool or new shareholders would dilute both parties proportionally, absent a separately agreed pre-emptive right or anti-dilution clause.</span></li>
+      <li><span class="t-zh">若 NCT 合作渠道之独家性或供给条件发生实质变化，建议触发股权或分润条款的重新协商机制。</span>
+          <span class="t-en">A material change to NCT's exclusivity or supply terms should trigger a renegotiation of the equity or revenue-share terms.</span></li>
+    </ul>
+
+    <div class="note">
+      <span class="t-zh"><b>说明　</b>以上 60% / 40% 为建议起点，实际比例可依双方进一步协商、尽职调查结果（见第九章）及正式股东协议内容调整。</span>
+      <span class="t-en"><b>Note　</b>60% / 40% is a proposed starting point; the final ratio may shift based on further negotiation, diligence findings (Chapter IX) and the terms of the definitive shareholders' agreement.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 四 治理架构 ============ -->
+<section class="on-raised">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">04</span>
+      <div>
+        <span class="chapter-kicker t-zh">四　治理架构建议</span>
+        <span class="chapter-kicker t-en">IV　Proposed Governance</span>
+        <h2><span class="t-zh">日常营运自主，重大事项共同决策</span><span class="t-en">Operating autonomy day-to-day, joint decisions on what matters</span></h2>
+      </div>
+    </div>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 720 230" role="img" aria-label="董事会由刘元元董事长兼CEO与Coffy委任董事组成，日常营运由CEO负责，重大保留事项须双方一致同意" fill="currentColor">
+        <defs>
+          <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".5"/>
+          </marker>
+        </defs>
+        <rect x="210" y="10" width="300" height="46" rx="9" fill="var(--bg-inset)" opacity=".06" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="360" y="38" text-anchor="middle" font-size="13" font-weight="700"><tspan class="t-zh">TSM 董事会（2 席）</tspan><tspan class="t-en">TSM Board (2 seats)</tspan></text>
+
+        <line x1="300" y1="56" x2="180" y2="94" stroke="currentColor" stroke-opacity=".4" marker-end="url(#arrow3)"/>
+        <line x1="420" y1="56" x2="540" y2="94" stroke="currentColor" stroke-opacity=".4" marker-end="url(#arrow3)"/>
+
+        <rect x="40" y="96" width="280" height="56" rx="9" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
+        <text x="180" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="var(--navy)"><tspan class="t-zh">刘元元 ・ 董事长暨 CEO</tspan><tspan class="t-en">Yuan Yuan · Chair &amp; CEO</tspan></text>
+        <text x="180" y="136" text-anchor="middle" font-size="10" opacity=".75"><tspan class="t-zh">全权负责日常营运决策</tspan><tspan class="t-en">Full authority over day-to-day ops</tspan></text>
+
+        <rect x="400" y="96" width="280" height="56" rx="9" fill="var(--copper)" fill-opacity=".12" stroke="var(--copper)"/>
+        <text x="540" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="var(--copper-strong)"><tspan class="t-zh">Coffy Yap ・ 委任董事</tspan><tspan class="t-en">Coffy Yap · Appointed Director</tspan></text>
+        <text x="540" y="136" text-anchor="middle" font-size="10" opacity=".75"><tspan class="t-zh">参与重大事项决策</tspan><tspan class="t-en">Votes on reserved matters</tspan></text>
+
+        <line x1="180" y1="152" x2="180" y2="180" stroke="var(--navy)" stroke-opacity=".6" marker-end="url(#arrow3)"/>
+        <line x1="540" y1="152" x2="540" y2="180" stroke="var(--copper)" stroke-opacity=".6" marker-end="url(#arrow3)"/>
+
+        <rect x="40" y="184" width="280" height="40" rx="8" fill="none" stroke="var(--navy)" stroke-dasharray="3 3" stroke-opacity=".6"/>
+        <text x="180" y="208" text-anchor="middle" font-size="10.5"><tspan class="t-zh">内容 ・ 人事 ・ 业务合作签约</tspan><tspan class="t-en">Content, hiring, deal-signing</tspan></text>
+
+        <rect x="400" y="184" width="280" height="40" rx="8" fill="none" stroke="var(--copper)" stroke-dasharray="3 3" stroke-opacity=".6"/>
+        <text x="540" y="208" text-anchor="middle" font-size="10.5"><tspan class="t-zh">保留事项（须一致同意）</tspan><tspan class="t-en">Reserved matters (unanimous)</tspan></text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 4　治理分工：CEO 掌管日常营运，董事会对列名的保留事项共同决策。</span>
+        <span class="t-en">Fig. 4  Governance split: the CEO runs day-to-day operations; the board jointly decides the listed reserved matters.</span>
+      </figcaption>
+    </figure>
+
+    <h3 class="sub"><span class="t-zh">保留事项（须双方一致同意）</span><span class="t-en">Reserved Matters (Unanimous Consent)</span></h3>
+    <div class="card-grid">
+      <div class="card"><div class="card-h"><span class="card-num">1</span></div><p><span class="t-zh">新一轮增资或引入外部投资人</span><span class="t-en">New financing round or outside investor</span></p></div>
+      <div class="card"><div class="card-h"><span class="card-num">2</span></div><p><span class="t-zh">修改与 NCT 之合作条款或佣金结构</span><span class="t-en">Changes to NCT terms or commission structure</span></p></div>
+      <div class="card"><div class="card-h"><span class="card-num">3</span></div><p><span class="t-zh">关联交易</span><span class="t-en">Related-party transactions</span></p></div>
+      <div class="card"><div class="card-h"><span class="card-num">4</span></div><p><span class="t-zh">公司清算、出售或核心资产处分</span><span class="t-en">Liquidation, sale, or disposal of core assets</span></p></div>
+      <div class="card"><div class="card-h"><span class="card-num">5</span></div><p><span class="t-zh">修改本股权协议或公司章程</span><span class="t-en">Amending the shareholders' agreement or charter</span></p></div>
+      <div class="card"><div class="card-h"><span class="card-num">6</span></div><p><span class="t-zh">年度预算超支达 20% 以上</span><span class="t-en">Annual budget overrun exceeding 20%</span></p></div>
+    </div>
+    <p class="body-text" style="margin-top:18px;">
+      <span class="t-zh">建议设置季度董事会议，同步检视财务表现（对照第七章 Worst／Normal／Best 情境）与 90 天优先事项执行进度（见第十章）。</span>
+      <span class="t-en">A quarterly board meeting is recommended to review financial performance (against the Worst/Normal/Best scenarios in Chapter VII) and progress on the 90-day priorities (Chapter X).</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ 五 收入引擎与分润结构 ============ -->
+<section class="">
+  <div class="wrap-wide">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">05</span>
+      <div>
+        <span class="chapter-kicker t-zh">五　公司收入引擎与分润结构</span>
+        <span class="chapter-kicker t-en">V　Revenue Engines &amp; Commission Structure</span>
+        <h2><span class="t-zh">双引擎商业模式，净收益依持股比例共享</span><span class="t-en">A dual-engine model whose net income both shareholders share</span></h2>
+      </div>
+    </div>
+    <p class="lede"><span class="t-zh">两条收入线的净收益均归入公司整体损益：</span><span class="t-en">Both revenue lines flow into the company's overall P&amp;L:</span></p>
+
+    <h3 class="sub"><span class="t-zh">5.1　引擎一：厂房／地产成交分润</span><span class="t-en">5.1　Engine One: Factory / Real-Estate Deal Commission</span></h3>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 760 250" role="img" aria-label="NCT货源交由NCT销售团队成交，TSM直接获得2%佣金；其他货源经co-broke仲介成交，TSM获得仲介2%佣金中的30%分成" fill="currentColor">
+        <defs>
+          <marker id="arrow4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".55"/>
+          </marker>
+        </defs>
+        <!-- row A: NCT -->
+        <text x="0" y="24" font-size="11" font-weight="700" fill="var(--navy)" letter-spacing=".02em"><tspan class="t-zh">路径 A ・ NCT 货源</tspan><tspan class="t-en">Path A · NCT Supply</tspan></text>
+        <rect x="0" y="34" width="150" height="52" rx="9" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
+        <text x="75" y="56" text-anchor="middle" font-size="11" font-weight="700">TSM</text>
+        <text x="75" y="72" text-anchor="middle" font-size="9"><tspan class="t-zh">高意向名单</tspan><tspan class="t-en">High-intent leads</tspan></text>
+        <line x1="150" y1="60" x2="228" y2="60" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow4)"/>
+
+        <rect x="232" y="34" width="180" height="52" rx="9" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="322" y="56" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">NCT 自有销售团队</tspan><tspan class="t-en">NCT's own sales team</tspan></text>
+        <text x="322" y="72" text-anchor="middle" font-size="9" opacity=".7"><tspan class="t-zh">促成成交</tspan><tspan class="t-en">closes the deal</tspan></text>
+        <line x1="412" y1="60" x2="490" y2="60" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow4)"/>
+
+        <rect x="494" y="34" width="200" height="52" rx="9" fill="var(--navy-solid)" stroke="var(--navy-solid)"/>
+        <text x="594" y="55" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" class="mono">2%</text>
+        <text x="594" y="72" text-anchor="middle" font-size="9" fill="#fff" opacity=".85"><tspan class="t-zh">成交价直接佣金 → TSM</tspan><tspan class="t-en">of sale price, direct to TSM</tspan></text>
+
+        <!-- row B: other -->
+        <text x="0" y="128" font-size="11" font-weight="700" fill="var(--copper-strong)"><tspan class="t-zh">路径 B ・ 其他货源</tspan><tspan class="t-en">Path B · Other Supply</tspan></text>
+        <rect x="0" y="138" width="150" height="52" rx="9" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
+        <text x="75" y="160" text-anchor="middle" font-size="11" font-weight="700">TSM</text>
+        <text x="75" y="176" text-anchor="middle" font-size="9"><tspan class="t-zh">co-broke 高意向名单</tspan><tspan class="t-en">co-broke lead hand-off</tspan></text>
+        <line x1="150" y1="164" x2="228" y2="164" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow4)"/>
+
+        <rect x="232" y="138" width="180" height="52" rx="9" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="322" y="160" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">全马其他仲介伙伴</tspan><tspan class="t-en">Other agents nationwide</tspan></text>
+        <text x="322" y="176" text-anchor="middle" font-size="9" opacity=".7"><tspan class="t-zh">促成交易，收 2% 佣金</tspan><tspan class="t-en">closes deal, earns 2% commission</tspan></text>
+        <line x1="412" y1="164" x2="490" y2="164" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow4)"/>
+
+        <rect x="494" y="138" width="200" height="52" rx="9" fill="none" stroke="var(--copper)"/>
+        <g transform="translate(494,138)">
+          <rect x="0" y="0" width="140" height="52" fill="var(--line)" fill-opacity=".5"/>
+          <rect x="0" y="0" width="42" height="52" fill="var(--copper-solid)"/>
+          <rect x="140" y="0" width="60" height="52" fill="none"/>
+        </g>
+        <text x="515" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" class="mono">30%</text>
+        <text x="565" y="160" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" opacity=".55" class="mono">70%</text>
+        <text x="594" y="180" text-anchor="middle" font-size="8.7" opacity=".75"><tspan class="t-zh">该 2% 佣金：TSM 30% ・ 仲介 70%</tspan><tspan class="t-en">of the 2% fee: TSM 30% · agent 70%</tspan></text>
+
+        <text x="0" y="222" font-size="10.5" opacity=".7">
+          <tspan x="0" class="t-zh">NCT 供给充足（逾 1,000 英亩，续购约 900 英亩），成交量不受单一团队产能限制。</tspan>
+          <tspan x="0" class="t-en">NCT's supply is ample (1,000+ acres, ~900 more in the pipeline), so deal volume isn't capped by any single team's capacity.</tspan>
+        </text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 5　厂房／地产分润的两条路径：NCT 货源由 TSM 直接抽佣 2%；其他货源经 co-broke 后，TSM 获该笔 2% 佣金中的 30% 分成（约合成交价的 0.6%）。</span>
+        <span class="t-en">Fig. 5  Two commission paths: TSM takes a direct 2% on NCT supply; on other supply, after co-broking, TSM takes 30% of the agent's 2% fee (≈0.6% of the sale price).</span>
+      </figcaption>
+    </figure>
+
+    <h3 class="sub"><span class="t-zh">5.2　引擎二：内容业配（抽成制）</span><span class="t-en">5.2　Engine Two: Content Sponsorship (Commission-Based)</span></h3>
+    <p class="body-text">
+      <span class="t-zh">业务团队负责销售集数业配（依合作深度分为品牌曝光、品牌介绍、内容策划共创等套餐），收入采抽成制，不占用固定预算，与地产分润各自独立核算。</span>
+      <span class="t-en">The business team sells per-episode sponsorships (tiered by depth: brand exposure, brand feature, co-created storylines). Revenue is commission-based, doesn't draw from the fixed budget, and is accounted for independently of real-estate commission.</span>
+    </p>
+    <div class="propbar" style="max-width:420px;">
+      <div class="propbar-track" style="height:40px;">
+        <div class="propbar-seg" style="width:80%;background:var(--navy-solid);"><span class="pct" style="font-size:14px;">80%</span></div>
+        <div class="propbar-seg" style="width:20%;background:var(--copper-solid);"><span class="pct" style="font-size:13px;">20%</span></div>
+      </div>
+      <div class="propbar-legend">
+        <span><i style="background:var(--navy-solid);"></i><span class="t-zh">TSM 公司收益</span><span class="t-en">TSM company revenue</span></span>
+        <span><i style="background:var(--copper-solid);"></i><span class="t-zh">业务／BD 团队抽成</span><span class="t-en">Business/BD commission</span></span>
+      </div>
+    </div>
+    <div class="note">
+      <span class="t-zh"><b>说明　</b>两大引擎的净收入已一并纳入第七章「三年损益情境分析」的总收入预测；引擎二各套餐之具体报价以最新招商手册与业务合约为准。</span>
+      <span class="t-en"><b>Note　</b>Both engines' net income already feeds the total-revenue forecast in Chapter VII; Engine Two's per-package rates follow the latest sales kit and contracts.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 六 启动资金用途 ============ -->
+<section class="on-inset">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">06</span>
+      <div>
+        <span class="chapter-kicker t-zh">六　首年启动资金用途</span>
+        <span class="chapter-kicker t-en">VI　Year-One Use of Funds</span>
+        <h2><span class="t-zh">RM 1,000,000（＋/-）的四大去向</span><span class="t-en">Where the RM 1,000,000 (+/-) goes</span></h2>
+      </div>
+    </div>
+    <p class="lede"><span class="t-zh">Ms Coffy Yap 注入之启动资金为 TSM 首年（Y1）核心营运预算，规划用途如下：</span><span class="t-en">Ms Coffy Yap's capital forms TSM's Year-1 core operating budget, planned as follows:</span></p>
+
+    <div class="segbar" role="img" aria-label="启动资金RM1,000,000分配：内容制作21.5%，团队人才39%，传播矩阵与PR23.8%，行政与预备金15.7%">
+      <div class="segbar-seg" style="width:21.5%;background:var(--navy-solid);">21.5%</div>
+      <div class="segbar-seg" style="width:39%;background:var(--copper-solid);">39%</div>
+      <div class="segbar-seg" style="width:23.8%;background:var(--jade-solid);">23.8%</div>
+      <div class="segbar-seg" style="width:15.7%;background:var(--violet-solid);">15.7%</div>
+    </div>
+    <div class="seg-legend">
+      <div class="seg-legend-item"><i style="background:var(--navy-solid);"></i><div><span class="amt tnum">RM 215,000 <span class="t-zh">・内容制作</span><span class="t-en">· Content Production</span></span><span class="cap t-zh">拍摄／后制报价＋企划脚本</span><span class="cap t-en">Shooting/post-production quote + scripts</span></div></div>
+      <div class="seg-legend-item"><i style="background:var(--copper-solid);"></i><div><span class="amt tnum">RM 390,000 <span class="t-zh">・团队人才</span><span class="t-en">· Team &amp; Talent</span></span><span class="cap t-zh">主持人、制作人、业务／BD 团队</span><span class="cap t-en">Host, producer, business/BD team</span></div></div>
+      <div class="seg-legend-item"><i style="background:var(--jade-solid);"></i><div><span class="amt tnum">RM 238,000 <span class="t-zh">・传播矩阵与 PR</span><span class="t-en">· Distribution &amp; PR</span></span><span class="cap t-zh">社群矩阵经营＋Paid media 预备</span><span class="cap t-en">Social matrix + paid media reserve</span></div></div>
+      <div class="seg-legend-item"><i style="background:var(--violet-solid);"></i><div><span class="amt tnum">RM 157,000 <span class="t-zh">・行政与预备金</span><span class="t-en">· Admin &amp; Reserve</span></span><span class="cap t-zh">行政、法务、合规与不可预见支出</span><span class="cap t-en">Admin, legal, compliance, contingency</span></div></div>
+    </div>
+
+    <div class="note" style="margin-top:26px;">
+      <span class="t-zh"><b>说明　</b>资金用途明细承接《The Standard 全家私房钱 2.0 企划书》之「首年资金用途」章节，内容拍摄／后制与社群矩阵经营报价来自 Kaloz Production（JiaWei），标注 TBD 之职位待双方进一步确认。</span>
+      <span class="t-en"><b>Note　</b>These figures carry over from the "Year-1 Use of Funds" section of the TSM proposal; shooting/post-production and social-matrix quotes are from Kaloz Production (JiaWei). Roles marked TBD are pending confirmation.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 七 三年损益预测 ============ -->
+<section class="">
+  <div class="wrap-wide">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">07</span>
+      <div>
+        <span class="chapter-kicker t-zh">七　首三年损益预测</span>
+        <span class="chapter-kicker t-en">VII　Three-Year P&amp;L Forecast</span>
+        <h2><span class="t-zh">Worst ／ Normal ／ Best 三情境：何时转亏为盈</span><span class="t-en">Worst / Normal / Best: when does it turn profitable</span></h2>
+      </div>
+    </div>
+    <p class="lede">
+      <span class="t-zh">情境依三年成交量路径区分（厂房／地笔数，为累计数而非逐年新增）；NCT 货源 TSM 直接抽 2%，其他货源经 co-broke 分润 30%。业配收入已扣除业务／BD 20% 抽成，为 TSM 净收；三年成本假设固定，不随成交情境变动。</span>
+      <span class="t-en">Scenarios differ by three-year deal-volume path (cumulative factory/land deals, not added yearly). NCT supply nets TSM a direct 2%; other supply nets 30% after co-broking. Sponsorship revenue is net of the 20% BD commission. Three-year costs are held fixed across scenarios.</span>
+    </p>
+
+    <div class="chart-card">
+      <div class="chart-title"><span class="t-zh">累积净损益走势（RM）</span><span class="t-en">Cumulative Net P&amp;L (RM)</span></div>
+      <div class="chart-sub"><span class="t-zh">Y1 至 Y3 ・ 三情境对照</span><span class="t-en">Year 1 to Year 3 · scenario comparison</span></div>
+      <div id="pnlChart"></div>
+      <div class="legend-row">
+        <span><i style="background:var(--critical);"></i>Worst <span class="tnum" style="margin-left:4px;">(2 / 4 / 8 <span class="t-zh">间</span><span class="t-en">deals</span>)</span></span>
+        <span><i style="background:var(--warning);"></i>Normal <span class="tnum" style="margin-left:4px;">(6 / 12 / 24 <span class="t-zh">间</span><span class="t-en">deals</span>)</span></span>
+        <span><i style="background:var(--good);"></i>Best <span class="tnum" style="margin-left:4px;">(8 / 20 / 40 <span class="t-zh">间</span><span class="t-en">deals</span>)</span></span>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="t-zh"><b>结论　</b>Normal 情境 Y1 仍处投入期（净损 RM 103,200），Y2 中段转正，Y3 累积净利达 RM 1,634,276；Best 情境 Y1 即获利，Y3 累积净利 RM 5,018,594；Worst 情境三年均为累积亏损，Y3 累积净损达 RM 2,030,041，凸显加速成交、扩大 co-broke 网络的重要性。</span>
+      <span class="t-en"><b>Takeaway　</b>Normal: Y1 is still investment phase (net loss RM 103,200), turning positive mid-Y2, reaching RM 1,634,276 cumulative profit by Y3. Best: profitable from Y1, reaching RM 5,018,594 by Y3. Worst: cumulative loss through all three years, reaching RM 2,030,041 by Y3, underscoring the need to accelerate deals and expand the co-broke network.</span>
+    </div>
+
+    <details class="disclose">
+      <summary><span class="t-zh">展开完整数据表（Worst／Normal／Best）</span><span class="t-en">Expand full data tables (Worst/Normal/Best)</span></summary>
+      <div class="disclose-body">
+        <div class="table-scroll">
+          <table class="data" style="margin-bottom:22px;">
+            <caption><span style="color:var(--critical);font-weight:700;">Worst</span> <span class="t-zh">（Y1 2 间 ／ Y2 4 间 ／ Y3 8 间）</span><span class="t-en">(Y1 2 / Y2 4 / Y3 8 deals)</span></caption>
+            <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">成交笔数</span><span class="t-en">Deals</span></td><td>2</td><td>4</td><td>8</td></tr>
+              <tr><td><span class="t-zh">总收入</span><span class="t-en">Revenue</span></td><td>336,800</td><td>676,128</td><td>1,347,031</td></tr>
+              <tr><td><span class="t-zh">总成本</span><span class="t-en">Cost</span></td><td>1,000,000</td><td>1,520,000</td><td>1,870,000</td></tr>
+              <tr><td><span class="t-zh">净损益</span><span class="t-en">Net P&amp;L</span></td><td class="neg">(663,200)</td><td class="neg">(843,872)</td><td class="neg">(522,969)</td></tr>
+              <tr class="total"><td><span class="t-zh">累积净损益</span><span class="t-en">Cumulative</span></td><td class="neg">(663,200)</td><td class="neg">(1,507,072)</td><td class="neg">(2,030,041)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table class="data" style="margin-bottom:22px;">
+            <caption><span style="color:var(--warning);font-weight:700;">Normal</span> <span class="t-zh">（Y1 6 间 ／ Y2 12 间 ／ Y3 24 间）</span><span class="t-en">(Y1 6 / Y2 12 / Y3 24 deals)</span></caption>
+            <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">成交笔数</span><span class="t-en">Deals</span></td><td>6</td><td>12</td><td>24</td></tr>
+              <tr><td><span class="t-zh">总收入</span><span class="t-en">Revenue</span></td><td>896,800</td><td>1,716,384</td><td>3,411,092</td></tr>
+              <tr><td><span class="t-zh">总成本</span><span class="t-en">Cost</span></td><td>1,000,000</td><td>1,520,000</td><td>1,870,000</td></tr>
+              <tr><td><span class="t-zh">净损益</span><span class="t-en">Net P&amp;L</span></td><td class="neg">(103,200)</td><td class="pos">196,384</td><td class="pos">1,541,092</td></tr>
+              <tr class="total"><td><span class="t-zh">累积净损益</span><span class="t-en">Cumulative</span></td><td class="neg">(103,200)</td><td class="pos">93,184</td><td class="pos">1,634,276</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table class="data" style="margin-bottom:10px;">
+            <caption><span style="color:var(--good);font-weight:700;">Best</span> <span class="t-zh">（Y1 8 间 ／ Y2 20 间 ／ Y3 40 间）</span><span class="t-en">(Y1 8 / Y2 20 / Y3 40 deals)</span></caption>
+            <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">成交笔数</span><span class="t-en">Deals</span></td><td>8</td><td>20</td><td>40</td></tr>
+              <tr><td><span class="t-zh">总收入</span><span class="t-en">Revenue</span></td><td>1,176,800</td><td>2,756,640</td><td>5,475,154</td></tr>
+              <tr><td><span class="t-zh">总成本</span><span class="t-en">Cost</span></td><td>1,000,000</td><td>1,520,000</td><td>1,870,000</td></tr>
+              <tr><td><span class="t-zh">净损益</span><span class="t-en">Net P&amp;L</span></td><td class="pos">176,800</td><td class="pos">1,236,640</td><td class="pos">3,605,154</td></tr>
+              <tr class="total"><td><span class="t-zh">累积净损益</span><span class="t-en">Cumulative</span></td><td class="pos">176,800</td><td class="pos">1,413,440</td><td class="pos">5,018,594</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary><span class="t-zh">展开 Y2／Y3 四大成本类别明细</span><span class="t-en">Expand Y2/Y3 cost breakdown</span></summary>
+      <div class="disclose-body">
+        <div class="table-scroll">
+          <table class="data">
+            <thead><tr><th><span class="t-zh">成本类别</span><span class="t-en">Category</span></th><th>Y2 (RM)</th><th>Y3 (RM)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">内容制作</span><span class="t-en">Content Production</span></td><td>750,000</td><td>850,000</td></tr>
+              <tr><td><span class="t-zh">团队人才</span><span class="t-en">Team &amp; Talent</span></td><td>480,000</td><td>680,000</td></tr>
+              <tr><td><span class="t-zh">传播矩阵与 PR</span><span class="t-en">Distribution &amp; PR</span></td><td>190,000</td><td>230,000</td></tr>
+              <tr><td><span class="t-zh">行政与应变预备金</span><span class="t-en">Admin &amp; Contingency</span></td><td>100,000</td><td>110,000</td></tr>
+              <tr class="total"><td><span class="t-zh">合计</span><span class="t-en">Total</span></td><td>1,520,000</td><td>1,870,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 八 实证基础 ============ -->
+<section class="on-raised">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">08</span>
+      <div>
+        <span class="chapter-kicker t-zh">八　销量与回酬的实证基础</span>
+        <span class="chapter-kicker t-en">VIII　Evidence Behind the Numbers</span>
+        <h2><span class="t-zh">既有观众规模与一次已验证的商业转化</span><span class="t-en">Existing audience scale and one proven commercial conversion</span></h2>
+      </div>
+    </div>
+    <p class="lede"><span class="t-zh">上述三年情境之成交量与收入假设，建立于全家私房钱既有观众规模与变现案例之上：</span><span class="t-en">The deal-volume and revenue assumptions above rest on MoneyMoneyHome's existing audience and a proven monetization case:</span></p>
+    <div class="stat-row">
+      <div><span class="num tnum t-zh">364万</span><span class="num tnum t-en">3.64M</span><span class="lab t-zh">电视＋数位平台历史累积观看人次</span><span class="lab t-en">Lifetime views, TV + digital</span></div>
+      <div><span class="num tnum t-zh">近2万</span><span class="num tnum t-en">~20,000</span><span class="lab t-zh">目前 YouTube 订阅数</span><span class="lab t-en">Current YouTube subscribers</span></div>
+      <div><span class="num tnum t-zh">8万+</span><span class="num tnum t-en">80,000+</span><span class="lab t-zh">目前 Facebook 粉丝数</span><span class="lab t-en">Current Facebook followers</span></div>
+    </div>
+    <div class="note" style="margin-top:22px;">
+      <span class="t-zh"><b>VI College 案例　</b>VI College 先投入 RM 600,000 制作播出第一季，验证成效后加码邀约刘元元拍摄第二季；最终单靠线上投资课程销售，为 VI College 累积达 SGD 9,600 万的准备金，印证「内容建立信任」的方法论具备可规模化的商业转化能力。</span>
+      <span class="t-en"><b>The VI College case　</b>VI College first invested RM 600,000 to produce Season 1; validated results led them to commission Season 2. Online course sales alone ultimately built SGD 96M in reserves for VI College, proof that "content builds trust" scales into commercial results.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 九 风险提示 ============ -->
+<section class="">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">09</span>
+      <div>
+        <span class="chapter-kicker t-zh">九　关键风险提示与建议</span>
+        <span class="chapter-kicker t-en">IX　Key Risks &amp; Recommendations</span>
+        <h2><span class="t-zh">签署前应厘清的四项风险</span><span class="t-en">Four risks worth clearing up before signing</span></h2>
+      </div>
+    </div>
+    <p class="lede"><span class="t-zh">以下四项建议在双方签署正式股东协议前一并厘清，属于对 Ms Coffy Yap 之投资权益的必要保障事项：</span><span class="t-en">These four items are worth resolving before the shareholders' agreement is signed, as necessary protection for Ms Coffy Yap's investment:</span></p>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <h4><span class="tag">01</span><span class="t-zh">营收集中风险</span><span class="t-en">Revenue Concentration</span></h4>
+        <p><span class="t-zh">Y3 预测营收中约 90.8% 来自单一资产类别（厂房／工业地产）分润，其他内容线目前贡献极小。</span><span class="t-en">≈90.8% of Y3 forecast revenue comes from one asset class (factory/industrial real estate); other content lines currently contribute very little.</span></p>
+        <p class="fix"><b><span class="t-zh">建议　</span><span class="t-en">Fix　</span></b><span class="t-zh">将其他内容线的商业化验证列为 Y2 重点目标之一。</span><span class="t-en">Make monetizing the other content lines a Y2 priority.</span></p>
+      </div>
+      <div class="risk-card">
+        <h4><span class="tag">02</span><span class="t-zh">现金周期错配</span><span class="t-en">Cash-Cycle Mismatch</span></h4>
+        <p><span class="t-zh">内容与团队成本按月前置支出，厂房交易周期长达 3–6 个月，Y1 恐出现现金缺口。</span><span class="t-en">Content and team costs are paid monthly up front, while factory deals take 3–6 months to close, so a Y1 cash gap is possible.</span></p>
+        <p class="fix"><b><span class="t-zh">建议　</span><span class="t-en">Fix　</span></b><span class="t-zh">预留营运周转金，或将启动资金分阶段拨付、与里程碑挂钩。</span><span class="t-en">Hold a working-capital buffer, or release funds in stages tied to milestones.</span></p>
+      </div>
+      <div class="risk-card">
+        <h4><span class="tag">03</span><span class="t-zh">单一供应商依赖</span><span class="t-en">Single-Supplier Dependency</span></h4>
+        <p><span class="t-zh">Y1 几乎 100% 仰赖 NCT 单一货源；储备虽充足，仍属单点风险。</span><span class="t-en">Y1 relies almost entirely on NCT as the sole supply source; reserves are ample but it remains a single point of risk.</span></p>
+        <p class="fix"><b><span class="t-zh">建议　</span><span class="t-en">Fix　</span></b><span class="t-zh">Co-broke 伙伴网络开发从 Y2 提前至 Y1 同步启动。</span><span class="t-en">Start building the co-broke network in Y1, not Y2.</span></p>
+      </div>
+      <div class="risk-card">
+        <h4><span class="tag">04</span><span class="t-zh">固定成本、变动营收</span><span class="t-en">Fixed Cost, Variable Revenue</span></h4>
+        <p><span class="t-zh">Worst 情境下固定成本几乎吃掉全部营收增长空间，下行保护有限。</span><span class="t-en">Under Worst, fixed costs consume nearly all revenue upside, leaving little downside protection.</span></p>
+        <p class="fix"><b><span class="t-zh">建议　</span><span class="t-en">Fix　</span></b><span class="t-zh">设定阶段性 KPI 作为资金分批到位与治理复核的依据。</span><span class="t-en">Set staged KPIs to gate further fund releases and governance review.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 十 后续步骤 ============ -->
+<section class="on-inset">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">10</span>
+      <div>
+        <span class="chapter-kicker t-zh">十　后续步骤与待确认事项</span>
+        <span class="chapter-kicker t-en">X　Next Steps</span>
+        <h2><span class="t-zh">从建议书到正式协议</span><span class="t-en">From proposal to definitive agreement</span></h2>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><span class="t-zh">双方就本建议书之股权比例（60% / 40%）、归属机制与治理条款进行协商，确认最终方案。</span><span class="t-en">Negotiate and confirm the final equity ratio (60%/40%), vesting mechanics and governance terms.</span></li>
+      <li><span class="t-zh">委托律师拟定正式股东协议，明确股权归属、退出机制、优先认购权、反稀释条款及僵局处理机制等细节。</span><span class="t-en">Instruct counsel to draft the definitive shareholders' agreement, covering vesting, exit, pre-emptive rights, anti-dilution and deadlock resolution.</span></li>
+      <li><span class="t-zh">核实并统一企划书、财务模型与官网页面之间的数字口径，作为对外募资或进一步合作前的必要尽职调查项目。</span><span class="t-en">Reconcile the figures across the proposal, financial model and website, as a required diligence item before further fundraising.</span></li>
+      <li><span class="t-zh">以书面协议明确 NCT 合作细节，包括独家性、期限与佣金结算流程。</span><span class="t-en">Formalize the NCT arrangement in writing, covering exclusivity, term and the commission settlement process.</span></li>
+      <li><span class="t-zh">委托会计师／税务顾问评估 TSM 之公司架构与本次出资之税务处理。</span><span class="t-en">Engage an accountant / tax advisor on TSM's corporate structure and the tax treatment of this investment.</span></li>
+      <li><span class="t-zh">90 天优先事项：核实财务模型三份文件口径、启动旧观众名单再运营、同步启动 2–3 个 co-broke 伙伴接洽、预售至少 2 个业配套餐作为早期现金流。</span><span class="t-en">90-day priorities: reconcile the three source documents, re-engage the existing audience list, open 2–3 co-broke conversations in parallel, pre-sell at least 2 sponsorship packages for early cash flow.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 十一 免责声明 ============ -->
+<section class="">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num tnum">11</span>
+      <div>
+        <span class="chapter-kicker t-zh">十一　免责声明</span>
+        <span class="chapter-kicker t-en">XI　Disclaimer</span>
+        <h2><span class="t-zh">讨论草案，非具约束力的要约</span><span class="t-en">A discussion draft, not a binding offer</span></h2>
+      </div>
+    </div>
+    <p class="body-text" style="max-width:70ch;">
+      <span class="t-zh">本股权建议书为 The Standard Media（TSM）创办股权架构之内部讨论草案，所载股权比例、财务预测与商业条款均为方向性建议，不构成法律、税务或投资建议，亦不构成具约束力的要约。所有条款须经双方与各自的法律、财务及税务顾问确认后，另行签署正式股东协议及相关法律文件为准。财务预测（Worst／Normal／Best 情境）基于现有假设推演，实际经营结果可能因市场环境、执行进度与合作条件变化而有所不同。</span>
+      <span class="t-en">This document is an internal discussion draft of The Standard Media's founding equity structure. The equity split, financial forecasts and commercial terms it contains are directional proposals, not legal, tax or investment advice, and not a binding offer. All terms are subject to confirmation by both parties and their respective legal, financial and tax advisors, and to a duly executed shareholders' agreement and related legal documents. The Worst/Normal/Best financial forecasts are projections based on current assumptions; actual results may differ due to market conditions, execution pace and changes in partnership terms.</span>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p><span class="t-zh">The Standard Media（TSM）股权建议书 · 内部讨论草案 · 2026 年 8 月</span><span class="t-en">The Standard Media (TSM) Equity Proposal · Internal Discussion Draft · August 2026</span></p>
+</footer>
+
+<script>
+(function(){
+  // ---- lang toggle ----
+  var toggle = document.getElementById('langToggle');
+  var root = document.documentElement;
+  function setLang(en){
+    root.classList.toggle('lang-en', en);
+    toggle.setAttribute('aria-pressed', en ? 'true' : 'false');
+    root.setAttribute('lang', en ? 'en' : 'zh-Hans');
+  }
+  toggle.addEventListener('click', function(){
+    setLang(!root.classList.contains('lang-en'));
+  });
+
+  // ---- scroll progress ----
+  var bar = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var scrolled = h.scrollTop;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---- PnL line chart (inline SVG, built in JS so it can read CSS vars) ----
+  var data = {
+    years: ['Y1','Y2','Y3'],
+    worst:  [-663200, -1507072, -2030041],
+    normal: [-103200, 93184, 1634276],
+    best:   [176800, 1413440, 5018594]
+  };
+  var css = getComputedStyle(document.documentElement);
+  function cv(name){ return css.getPropertyValue(name).trim(); }
+
+  function fmt(n){
+    var neg = n < 0; n = Math.abs(n);
+    var s = n.toLocaleString('en-US');
+    return (neg ? '(' : '') + s + (neg ? ')' : '');
+  }
+
+  function buildChart(){
+    var W = 680, H = 300, padL = 56, padR = 20, padT = 18, padB = 34;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+    var all = data.worst.concat(data.normal, data.best);
+    var minV = Math.min.apply(null, all), maxV = Math.max.apply(null, all);
+    var span = maxV - minV; minV -= span*0.12; maxV += span*0.12;
+    function x(i){ return padL + (i/(data.years.length-1))*plotW; }
+    function y(v){ return padT + (1 - (v - minV)/(maxV - minV))*plotH; }
+
+    var seriesDef = [
+      {key:'worst', color: cv('--critical'), label:'Worst'},
+      {key:'normal', color: cv('--warning'), label:'Normal'},
+      {key:'best', color: cv('--good'), label:'Best'}
+    ];
+
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(svgNS,'svg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    svg.setAttribute('role','img');
+    svg.setAttribute('aria-label','Worst, Normal and Best 三情境累积净损益走势，自 Y1 至 Y3');
+    svg.style.width = '100%'; svg.style.height = 'auto'; svg.style.overflow='visible';
+
+    // gridlines + y ticks (0 and rounded steps)
+    var ticks = 5;
+    for (var t=0; t<=ticks; t++){
+      var v = minV + (t/ticks)*(maxV-minV);
+      var yy = y(v);
+      var line = document.createElementNS(svgNS,'line');
+      line.setAttribute('x1',padL); line.setAttribute('x2',W-padR);
+      line.setAttribute('y1',yy); line.setAttribute('y2',yy);
+      line.setAttribute('stroke','currentColor'); line.setAttribute('stroke-opacity','.08');
+      svg.appendChild(line);
+      var lbl = document.createElementNS(svgNS,'text');
+      lbl.setAttribute('x', padL-8); lbl.setAttribute('y', yy+3.5);
+      lbl.setAttribute('text-anchor','end'); lbl.setAttribute('font-size','9');
+      lbl.setAttribute('fill','currentColor'); lbl.setAttribute('opacity','.55');
+      lbl.setAttribute('font-family','var(--font-mono)');
+      lbl.textContent = (v/1e6).toFixed(1)+'M';
+      svg.appendChild(lbl);
+    }
+    // zero baseline emphasized
+    var zeroY = y(0);
+    var zline = document.createElementNS(svgNS,'line');
+    zline.setAttribute('x1',padL); zline.setAttribute('x2',W-padR);
+    zline.setAttribute('y1',zeroY); zline.setAttribute('y2',zeroY);
+    zline.setAttribute('stroke','currentColor'); zline.setAttribute('stroke-opacity','.35');
+    svg.appendChild(zline);
+
+    // x labels
+    data.years.forEach(function(yr,i){
+      var lbl = document.createElementNS(svgNS,'text');
+      lbl.setAttribute('x', x(i)); lbl.setAttribute('y', H-10);
+      lbl.setAttribute('text-anchor','middle'); lbl.setAttribute('font-size','11');
+      lbl.setAttribute('font-weight','700'); lbl.setAttribute('fill','currentColor');
+      lbl.setAttribute('font-family','var(--font-mono)');
+      lbl.textContent = yr;
+      svg.appendChild(lbl);
+      var tick = document.createElementNS(svgNS,'line');
+      tick.setAttribute('x1',x(i)); tick.setAttribute('x2',x(i));
+      tick.setAttribute('y1',padT); tick.setAttribute('y2',H-padB);
+      tick.setAttribute('stroke','currentColor'); tick.setAttribute('stroke-opacity','.06');
+      svg.insertBefore(tick, svg.firstChild);
+    });
+
+    seriesDef.forEach(function(s){
+      var vals = data[s.key];
+      var pts = vals.map(function(v,i){ return x(i)+','+y(v); }).join(' ');
+      var poly = document.createElementNS(svgNS,'polyline');
+      poly.setAttribute('points', pts);
+      poly.setAttribute('fill','none');
+      poly.setAttribute('stroke', s.color);
+      poly.setAttribute('stroke-width','2.5');
+      poly.setAttribute('stroke-linecap','round');
+      poly.setAttribute('stroke-linejoin','round');
+      svg.appendChild(poly);
+
+      vals.forEach(function(v,i){
+        var c = document.createElementNS(svgNS,'circle');
+        c.setAttribute('cx', x(i)); c.setAttribute('cy', y(v));
+        c.setAttribute('r', 4); c.setAttribute('fill', s.color);
+        c.setAttribute('stroke', cv('--bg-raised')); c.setAttribute('stroke-width','2');
+        var title = document.createElementNS(svgNS,'title');
+        title.textContent = s.label+' '+data.years[i]+': RM '+fmt(v);
+        c.appendChild(title);
+        svg.appendChild(c);
+
+        // direct end label only on last point
+        if (i === vals.length-1){
+          var t2 = document.createElementNS(svgNS,'text');
+          t2.setAttribute('x', x(i)+8);
+          t2.setAttribute('y', y(v)+ (s.key==='normal' ? 4 : (s.key==='worst'? -6 : 4)) );
+          t2.setAttribute('font-size','10');
+          t2.setAttribute('font-weight','700');
+          t2.setAttribute('fill', s.color);
+          t2.setAttribute('font-family','var(--font-mono)');
+          t2.textContent = 'RM '+fmt(v);
+          svg.appendChild(t2);
+        }
+      });
+    });
+
+    var host = document.getElementById('pnlChart');
+    host.innerHTML = '';
+    host.appendChild(svg);
+  }
+  buildChart();
+  window.addEventListener('resize', function(){ /* viewBox scales via CSS, no rebuild needed */ });
+})();
+</script>
