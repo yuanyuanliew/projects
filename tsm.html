@@ -1,3 +1,4 @@
+
 <title>The Standard Media 股权提案</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,900&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -85,6 +86,12 @@
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+section[id]{scroll-margin-top:28px;}
+.lede a, p.body-text a, .hero-note a, .note a{
+  color:inherit;text-decoration-line:underline;text-decoration-color:color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset:3px;text-decoration-thickness:1px;transition:text-decoration-color .15s;
+}
+.lede a:hover, p.body-text a:hover, .hero-note a:hover, .note a:hover{text-decoration-color:currentColor;}
 body{
   margin:0;
   background:var(--bg);
@@ -166,7 +173,6 @@ p{margin:0;}
 }
 .hero .lede{
   margin-top:22px;
-  max-width:56ch;
   font-size:16px;
   color:var(--ink-on-inset-soft);
 }
@@ -210,8 +216,8 @@ section.on-inset .chapter-head h2{color:#fff;}
 }
 section.on-inset .chapter-kicker{color:var(--ink-on-inset-soft);}
 
-.lede{font-size:16px;max-width:66ch;color:var(--ink-soft);margin-bottom:20px;}
-p.body-text{font-size:15.5px;max-width:66ch;color:var(--ink);margin-bottom:14px;}
+.lede{font-size:16px;color:var(--ink-soft);margin-bottom:20px;}
+p.body-text{font-size:15.5px;color:var(--ink);margin-bottom:14px;}
 section.on-inset p.body-text, section.on-inset .lede{color:var(--ink-on-inset-soft);}
 
 h3.sub{font-size:1.05rem;font-weight:700;color:var(--ink);margin:30px 0 12px;}
@@ -235,7 +241,7 @@ section.on-inset .note b{color:#fff;}
 /* bullet list */
 ul.stack{list-style:none;margin:18px 0;padding:0;display:flex;flex-direction:column;gap:12px;}
 ul.stack li{
-  position:relative;padding-left:22px;font-size:15px;line-height:1.75;color:var(--ink);max-width:68ch;
+  position:relative;padding-left:22px;font-size:15px;line-height:1.75;color:var(--ink);
 }
 ul.stack li::before{content:"▸";position:absolute;left:0;color:var(--copper);font-weight:700;}
 section.on-inset ul.stack li{color:var(--ink-on-inset-soft);}
@@ -417,8 +423,8 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <span class="t-en">(“TSM”) · Founding Equity Structure &amp; Investment Allocation Proposal</span>
     </p>
     <p class="lede">
-      <span class="t-zh">全家私房钱 Money Money Home 2.0 生态系下的商业化实体：内容建立信任，交易在内容之外发生。本文件说明刘元元与 Ms Coffy Yap 的创办贡献、建议股权比例、佣金分润机制、启动资金用途与首三年财务预测。</span>
-      <span class="t-en">The commercial engine behind the MoneyMoneyHome 2.0 ecosystem: content builds trust, transactions happen outside the content. This document lays out Yuan Yuan and Ms Coffy Yap's founding contributions, proposed equity split, commission mechanics, use of funds, and three-year financial outlook.</span>
+      <span class="t-zh">全家私房钱 Money Money Home 2.0 生态系下的商业化实体：内容建立信任，交易在内容之外发生。本文件说明刘元元与 Ms Coffy Yap 的<a href="#ch-founders">创办贡献</a>、<a href="#ch-equity-split">建议股权比例</a>、<a href="#ch-commission">佣金分润机制</a>、<a href="#ch-use-of-funds">启动资金用途</a>与<a href="#ch-financials">首三年财务预测</a>。</span>
+      <span class="t-en">The commercial engine behind the MoneyMoneyHome 2.0 ecosystem: content builds trust, transactions happen outside the content. This document lays out Yuan Yuan and Ms Coffy Yap's <a href="#ch-founders">founding contributions</a>, <a href="#ch-equity-split">proposed equity split</a>, <a href="#ch-commission">commission mechanics</a>, <a href="#ch-use-of-funds">use of funds</a>, and <a href="#ch-financials">three-year financial outlook</a>.</span>
     </p>
     <div class="hero-meta">
       <div><span class="k t-zh">呈送对象</span><span class="k t-en">Presented To</span><span class="v">Ms Coffy Yap</span></div>
@@ -433,7 +439,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </header>
 
 <!-- ============ 一 公司背景 ============ -->
-<section class="">
+<section class="" id="ch-business-model">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">01</span>
@@ -448,8 +454,8 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <span class="t-en">The Standard Media (TSM) is the commercial entity behind the MoneyMoneyHome 2.0 content ecosystem. The core logic: real people and real industry stories build public trust, with zero product or service pitching inside the content itself. When content ends, a precise hook is dropped to a systematically identified high-intent audience, and the business team and partners then close the actual deal, entirely outside the content.</span>
     </p>
     <p class="body-text">
-      <span class="t-zh">首个内容企划《Coffee &amp; Capital》聚焦厂房与工业地产（大马规模最庞大却最不透明的资产类别），将内容累积的信任转化为地产转介佣金与内容业配两大收入引擎（详见第五章）。</span>
-      <span class="t-en">The first project, <i>Coffee &amp; Capital</i>, focuses on factories and industrial real estate (Malaysia's largest yet least transparent asset class), converting accumulated trust into two revenue engines: real-estate referral commission and content sponsorship (see Chapter V).</span>
+      <span class="t-zh">首个内容企划《Coffee &amp; Capital》聚焦厂房与工业地产（大马规模最庞大却最不透明的资产类别），将内容累积的信任转化为地产转介佣金与内容业配两大收入引擎（详见<a href="#ch-commission">第五章</a>）。</span>
+      <span class="t-en">The first project, <i>Coffee &amp; Capital</i>, focuses on factories and industrial real estate (Malaysia's largest yet least transparent asset class), converting accumulated trust into two revenue engines: real-estate referral commission and content sponsorship (see <a href="#ch-commission">Chapter V</a>).</span>
     </p>
 
     <figure class="diagram">
@@ -526,7 +532,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 二 创办人与核心贡献 ============ -->
-<section class="on-raised">
+<section class="on-raised" id="ch-founders">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">02</span>
@@ -539,7 +545,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 
     <div class="founder-grid">
       <div class="founder-card accent">
-        <span class="role t-zh">联合创办人</span><span class="role t-en">Co-Founder</span>
+        <span class="role t-zh">创办人</span><span class="role t-en">Founder</span>
         <h4>Ms Coffy Yap</h4>
         <ul>
           <li><span class="t-zh"><b>启动资金　</b>注入首年营运资金约 <span class="tnum">RM 1,000,000</span>（＋/-），支应内容制作、团队、传播矩阵与行政储备</span>
@@ -616,7 +622,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 三 建议股权分配方案 ============ -->
-<section class="">
+<section class="" id="ch-equity-split">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">03</span>
@@ -725,14 +731,14 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
     </ul>
 
     <div class="note">
-      <span class="t-zh"><b>说明　</b>以上 60% / 40% 为建议起点，实际比例可依双方进一步协商、尽职调查结果（见第九章）及正式股东协议内容调整。</span>
-      <span class="t-en"><b>Note　</b>60% / 40% is a proposed starting point; the final ratio may shift based on further negotiation, diligence findings (Chapter IX) and the terms of the definitive shareholders' agreement.</span>
+      <span class="t-zh"><b>说明　</b>以上 60% / 40% 为建议起点，实际比例可依双方进一步协商、尽职调查结果（见<a href="#ch-risks">第九章</a>）及正式股东协议内容调整。</span>
+      <span class="t-en"><b>Note　</b>60% / 40% is a proposed starting point; the final ratio may shift based on further negotiation, diligence findings (<a href="#ch-risks">Chapter IX</a>) and the terms of the definitive shareholders' agreement.</span>
     </div>
   </div>
 </section>
 
 <!-- ============ 四 治理架构 ============ -->
-<section class="on-raised">
+<section class="on-raised" id="ch-governance">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">04</span>
@@ -792,14 +798,14 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <div class="card"><div class="card-h"><span class="card-num">6</span></div><p><span class="t-zh">年度预算超支达 20% 以上</span><span class="t-en">Annual budget overrun exceeding 20%</span></p></div>
     </div>
     <p class="body-text" style="margin-top:18px;">
-      <span class="t-zh">建议设置季度董事会议，同步检视财务表现（对照第七章 Worst／Normal／Best 情境）与 90 天优先事项执行进度（见第十章）。</span>
-      <span class="t-en">A quarterly board meeting is recommended to review financial performance (against the Worst/Normal/Best scenarios in Chapter VII) and progress on the 90-day priorities (Chapter X).</span>
+      <span class="t-zh">建议设置季度董事会议，同步检视财务表现（对照<a href="#ch-financials">第七章</a> Worst／Normal／Best 情境）与 90 天优先事项执行进度（见<a href="#ch-next-steps">第十章</a>）。</span>
+      <span class="t-en">A quarterly board meeting is recommended to review financial performance (against the Worst/Normal/Best scenarios in <a href="#ch-financials">Chapter VII</a>) and progress on the 90-day priorities (<a href="#ch-next-steps">Chapter X</a>).</span>
     </p>
   </div>
 </section>
 
 <!-- ============ 五 收入引擎与分润结构 ============ -->
-<section class="">
+<section class="" id="ch-commission">
   <div class="wrap-wide">
     <div class="chapter-head">
       <span class="chapter-num tnum">05</span>
@@ -888,14 +894,14 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       </div>
     </div>
     <div class="note">
-      <span class="t-zh"><b>说明　</b>两大引擎的净收入已一并纳入第七章「三年损益情境分析」的总收入预测；引擎二各套餐之具体报价以最新招商手册与业务合约为准。</span>
-      <span class="t-en"><b>Note　</b>Both engines' net income already feeds the total-revenue forecast in Chapter VII; Engine Two's per-package rates follow the latest sales kit and contracts.</span>
+      <span class="t-zh"><b>说明　</b>两大引擎的净收入已一并纳入<a href="#ch-financials">第七章</a>「三年损益情境分析」的总收入预测；引擎二各套餐之具体报价以最新招商手册与业务合约为准。</span>
+      <span class="t-en"><b>Note　</b>Both engines' net income already feeds the total-revenue forecast in <a href="#ch-financials">Chapter VII</a>; Engine Two's per-package rates follow the latest sales kit and contracts.</span>
     </div>
   </div>
 </section>
 
 <!-- ============ 六 启动资金用途 ============ -->
-<section class="on-inset">
+<section class="on-inset" id="ch-use-of-funds">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">06</span>
@@ -928,7 +934,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 七 三年损益预测 ============ -->
-<section class="">
+<section class="" id="ch-financials">
   <div class="wrap-wide">
     <div class="chapter-head">
       <span class="chapter-num tnum">07</span>
@@ -1025,7 +1031,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 八 实证基础 ============ -->
-<section class="on-raised">
+<section class="on-raised" id="ch-evidence">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">08</span>
@@ -1049,7 +1055,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 九 风险提示 ============ -->
-<section class="">
+<section class="" id="ch-risks">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">09</span>
@@ -1086,7 +1092,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 十 后续步骤 ============ -->
-<section class="on-inset">
+<section class="on-inset" id="ch-next-steps">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">10</span>
@@ -1108,7 +1114,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
 </section>
 
 <!-- ============ 十一 免责声明 ============ -->
-<section class="">
+<section class="" id="ch-disclaimer">
   <div class="wrap">
     <div class="chapter-head">
       <span class="chapter-num tnum">11</span>
@@ -1118,7 +1124,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
         <h2><span class="t-zh">讨论草案，非具约束力的要约</span><span class="t-en">A discussion draft, not a binding offer</span></h2>
       </div>
     </div>
-    <p class="body-text" style="max-width:70ch;">
+    <p class="body-text">
       <span class="t-zh">本股权建议书为 The Standard Media（TSM）创办股权架构之内部讨论草案，所载股权比例、财务预测与商业条款均为方向性建议，不构成法律、税务或投资建议，亦不构成具约束力的要约。所有条款须经双方与各自的法律、财务及税务顾问确认后，另行签署正式股东协议及相关法律文件为准。财务预测（Worst／Normal／Best 情境）基于现有假设推演，实际经营结果可能因市场环境、执行进度与合作条件变化而有所不同。</span>
       <span class="t-en">This document is an internal discussion draft of The Standard Media's founding equity structure. The equity split, financial forecasts and commercial terms it contains are directional proposals, not legal, tax or investment advice, and not a binding offer. All terms are subject to confirmation by both parties and their respective legal, financial and tax advisors, and to a duly executed shareholders' agreement and related legal documents. The Worst/Normal/Best financial forecasts are projections based on current assumptions; actual results may differ due to market conditions, execution pace and changes in partnership terms.</span>
     </p>
