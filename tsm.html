@@ -3,59 +3,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('lang-en');document.documentElement.setAttribute('lang','en');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,900&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 
 <style>
 /* ============ TOKENS ============ */
 :root{
   color-scheme: light;
-  --bg:            #F7F3E6;
-  --bg-raised:     #EFE7D0;
-  --bg-inset:      #141F35;
-  --bg-inset-2:    #0B1424;
-  --ink:           #1B2233;
-  --ink-soft:      #57607C;
-  --ink-on-inset:  #F2EDDD;
-  --ink-on-inset-soft: #A9B2CC;
-  --line:          #DED0A6;
-  --line-inset:    #2B3958;
-  --navy:          #2E5C99;
-  --copper:        #B8801F;
-  --copper-strong: #96690F;
+  --bg:            #F1FAEE;
+  --bg-raised:     #E3F1EC;
+  --bg-inset:      #1A2332;
+  --bg-inset-2:    #10161F;
+  --ink:           #16222C;
+  --ink-soft:      #4F6E76;
+  --ink-on-inset:  #F1FAEE;
+  --ink-on-inset-soft: #A3C9C9;
+  --line:          #CBE2DC;
+  --line-inset:    #283A4E;
+  --navy:          #2C6690;
+  --copper:        #2D8B8B;
+  --copper-strong: #1D6D6D;
   --jade:          #1E8F63;
-  --violet:        #6B5CA6;
+  --violet:        #5A5FA0;
   --critical:      #b23434;
   --warning:       #a4720a;
   --good:          #0c8f2f;
   /* fixed (non-theme-swapping) fills for solid white-text badges/bars — chosen dark
      enough that white text stays >=4.5:1 whether the page is in light or dark mode */
-  --navy-solid:    #2E5C99;
-  --copper-solid:  #7E5710;
+  --navy-solid:    #2C6690;
+  --copper-solid:  #1B5C5C;
   --jade-solid:    #146B49;
-  --violet-solid:  #5A4B90;
+  --violet-solid:  #4B5090;
   --shadow: 0 18px 40px -22px rgba(20,26,44,.35);
-  --font-display: "Source Serif 4", "Noto Serif SC", serif;
-  --font-body: "Noto Sans SC", "Source Serif 4", sans-serif;
+  --font-display: "IBM Plex Sans", "Noto Sans SC", sans-serif;
+  --font-body: "Noto Sans SC", "IBM Plex Sans", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme: dark;
-    --bg:            #0E1421;
-    --bg-raised:     #171F32;
-    --bg-inset:      #060A14;
-    --bg-inset-2:    #030509;
-    --ink:           #ECE6D3;
-    --ink-soft:      #A9B0C8;
-    --ink-on-inset:  #F2EDDD;
-    --ink-on-inset-soft: #96A0BE;
-    --line:          #2B3554;
-    --line-inset:    #212C48;
-    --navy:          #5E93D6;
-    --copper:        #D6A03C;
-    --copper-strong: #E8B559;
+    --bg:            #0C161C;
+    --bg-raised:     #16232A;
+    --bg-inset:      #060D11;
+    --bg-inset-2:    #02060A;
+    --ink:           #E3F3EE;
+    --ink-soft:      #9FC2C2;
+    --ink-on-inset:  #F1FAEE;
+    --ink-on-inset-soft: #9FCFCF;
+    --line:          #26424A;
+    --line-inset:    #1E3038;
+    --navy:          #57A0C4;
+    --copper:        #45BFC0;
+    --copper-strong: #5FD1CE;
     --jade:          #3FAE81;
-    --violet:        #8D7ECC;
+    --violet:        #8D9AD6;
     --critical:      #e0776e;
     --warning:       #e0aa3c;
     --good:          #59c67c;
@@ -64,21 +64,21 @@
 }
 :root[data-theme="dark"]{
   color-scheme: dark;
-  --bg:            #0E1421;
-  --bg-raised:     #171F32;
-  --bg-inset:      #060A14;
-  --bg-inset-2:    #030509;
-  --ink:           #ECE6D3;
-  --ink-soft:      #A9B0C8;
-  --ink-on-inset:  #F2EDDD;
-  --ink-on-inset-soft: #96A0BE;
-  --line:          #2B3554;
-  --line-inset:    #212C48;
-  --navy:          #5E93D6;
-  --copper:        #D6A03C;
-  --copper-strong: #E8B559;
+  --bg:            #0C161C;
+  --bg-raised:     #16232A;
+  --bg-inset:      #060D11;
+  --bg-inset-2:    #02060A;
+  --ink:           #E3F3EE;
+  --ink-soft:      #9FC2C2;
+  --ink-on-inset:  #F1FAEE;
+  --ink-on-inset-soft: #9FCFCF;
+  --line:          #26424A;
+  --line-inset:    #1E3038;
+  --navy:          #57A0C4;
+  --copper:        #45BFC0;
+  --copper-strong: #5FD1CE;
   --jade:          #3FAE81;
-  --violet:        #8D7ECC;
+  --violet:        #8D9AD6;
   --critical:      #e0776e;
   --warning:       #e0aa3c;
   --good:          #59c67c;
@@ -104,7 +104,7 @@ body{
   text-rendering:optimizeLegibility;
 }
 img,svg{max-width:100%;display:block;}
-::selection{background:var(--copper);color:#171208;}
+::selection{background:var(--copper);color:#0B1616;}
 a{color:inherit;}
 .tnum{font-variant-numeric:tabular-nums;}
 
@@ -276,7 +276,7 @@ ol.steps li::before{
   content:counter(step);
   position:absolute;left:0;top:1px;
   width:22px;height:22px;border-radius:50%;
-  background:var(--copper);color:#181206;
+  background:var(--copper);color:#0B1616;
   font-family:var(--font-mono);font-weight:700;font-size:11.5px;
   display:flex;align-items:center;justify-content:center;
 }
@@ -290,7 +290,7 @@ section.on-inset ol.steps li{color:var(--ink-on-inset-soft);}
 }
 .card .card-h{display:flex;align-items:center;gap:10px;}
 .card .card-num{
-  width:26px;height:26px;border-radius:50%;background:var(--copper);color:#181206;
+  width:26px;height:26px;border-radius:50%;background:var(--copper);color:#0B1616;
   font-family:var(--font-mono);font-weight:700;font-size:12px;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
