@@ -465,8 +465,8 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <div><span class="k t-zh">日期</span><span class="k t-en">Date</span><span class="v tnum t-zh">2026 年 8 月</span><span class="v tnum t-en">August 2026</span></div>
     </div>
     <div class="hero-note">
-      <span class="t-zh"><b>关于本文件　</b>本页为股权架构讨论草案，用于双方合伙协商基础。具体持股比例、归属与治理条款以最终签署之正式股东协议（Shareholders' Agreement）为准，不构成法律、税务或投资建议。</span>
-      <span class="t-en"><b>About this document　</b>A discussion draft of the founding equity structure, intended as a basis for negotiation between the two parties. Final ratios, vesting and governance terms are subject to a duly executed Shareholders' Agreement; nothing here constitutes legal, tax or investment advice.</span>
+      <span class="t-zh"><b>关于本文件　</b>本页为股权架构讨论草案，用于双方合伙协商基础。具体持股比例、治理条款与资金归还安排以最终签署之正式股东协议（Shareholders' Agreement）为准，不构成法律、税务或投资建议。</span>
+      <span class="t-en"><b>About this document　</b>A discussion draft of the founding equity structure, intended as a basis for negotiation between the two parties. Final ratios, governance terms and the capital-return arrangement are subject to a duly executed Shareholders' Agreement; nothing here constitutes legal, tax or investment advice.</span>
     </div>
   </div>
 </header>
@@ -709,60 +709,22 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
           <tr>
             <td><b class="t-zh">刘元元</b><b class="t-en">Yuan Yuan</b></td>
             <td><span class="t-zh">全家私房钱 IP／品牌资产、内容制作经验与产业人脉、全职营运</span><span class="t-en">MMH IP/brand, production experience &amp; network, full-time operations</span></td>
-            <td><span class="t-zh">长期人力投入＋知识产权（sweat equity）</span><span class="t-en">Long-term labor + IP (sweat equity)</span></td>
+            <td><span class="t-zh">即时到位之 IP／品牌资产＋持续全职营运投入（营运报酬另计，见第八章）</span><span class="t-en">IP/brand delivered upfront + ongoing full-time operations (operating pay handled separately, see Chapter VIII)</span></td>
             <td class="pct-cell tnum" style="color:var(--navy);">60%</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3 class="sub"><span class="t-zh">3.1　股权归属（Vesting）建议</span><span class="t-en">3.1　Proposed Vesting</span></h3>
-
-    <figure class="diagram">
-      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
-      <div class="diagram-scroll">
-      <svg viewBox="0 0 720 168" role="img" aria-label="Ms Coffy Yap资金到位即完全归属；刘元元4年归属并设1年cliff，此后每满一年归属25%，呈四级阶梯" fill="currentColor">
-        <!-- axis -->
-        <line x1="150" y1="150" x2="700" y2="150" stroke="currentColor" stroke-opacity=".3"/>
-        <g class="mono" font-size="10" opacity=".65">
-          <text x="150" y="164" text-anchor="middle">Y0</text>
-          <text x="287.5" y="164" text-anchor="middle">Y1</text>
-          <text x="425" y="164" text-anchor="middle">Y2</text>
-          <text x="562.5" y="164" text-anchor="middle">Y3</text>
-          <text x="700" y="164" text-anchor="middle">Y4</text>
-        </g>
-        <line x1="150" y1="150" x2="150" y2="20" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
-        <line x1="287.5" y1="150" x2="287.5" y2="20" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
-        <line x1="700" y1="150" x2="700" y2="20" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
-
-        <!-- row 1: Ms Coffy Yap -->
-        <text x="0" y="45" font-size="12" font-weight="700">Ms Coffy Yap</text>
-        <text x="0" y="60" font-size="9.5" opacity=".6"><tspan class="t-zh">资金到位即完全归属</tspan><tspan class="t-en">Fully vested upon funding</tspan></text>
-        <path d="M150,40 L155,15.5 L700,15.5" fill="none" stroke="var(--copper)" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="155" cy="15.5" r="4.5" fill="var(--copper)"/>
-        <text x="165" y="9" font-size="9.5" fill="var(--copper-strong)" class="mono">100%</text>
-
-        <!-- row 2: Yuan Yuan -->
-        <text x="0" y="103" font-size="12" font-weight="700"><tspan class="t-zh">刘元元</tspan><tspan class="t-en">Yuan Yuan</tspan></text>
-        <text x="0" y="118" font-size="9.5" opacity=".6"><tspan class="t-zh">4年归属・1年cliff・每年25%</tspan><tspan class="t-en">4yr vest, 1yr cliff, 25%/yr</tspan></text>
-        <path d="M150,98 L287.5,98 L287.5,85 L425,85 L425,72 L562.5,72 L562.5,59 L700,59 L700,46" fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="150" cy="98" r="4.5" fill="var(--navy)"/>
-        <text x="150" y="89" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">0%</text>
-        <circle cx="287.5" cy="85" r="4.5" fill="var(--navy)"/>
-        <text x="287.5" y="76" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">25%</text>
-        <circle cx="425" cy="72" r="4.5" fill="var(--navy)"/>
-        <text x="425" y="63" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">50%</text>
-        <circle cx="562.5" cy="59" r="4.5" fill="var(--navy)"/>
-        <text x="562.5" y="50" text-anchor="middle" font-size="9.5" fill="var(--navy)" class="mono">75%</text>
-        <circle cx="700" cy="46" r="4.5" fill="var(--navy)"/>
-        <text x="690" y="37" text-anchor="end" font-size="9.5" fill="var(--navy)" class="mono">100%</text>
-      </svg>
-      </div>
-      <figcaption>
-        <span class="t-zh">图 3　Ms Coffy Yap 的股权因对应一次性资本注入，于资金全数到位后即视为已归属；刘元元的股权设 1 年 cliff，此后每满一年归属 25%，4 年满归，保障公司与投资方权益。</span>
-        <span class="t-en">Fig. 3  Ms Coffy Yap's equity, tied to a one-time capital injection, is treated as fully vested once funds land; Yuan Yuan's equity has a 1-year cliff, then vests 25% for each full year worked, reaching 100% at Year 4, protecting the company and investor.</span>
-      </figcaption>
-    </figure>
+    <h3 class="sub"><span class="t-zh">3.1　股权即时全额归属（不设 Vesting）</span><span class="t-en">3.1　Equity Vests Immediately in Full (No Vesting Schedule)</span></h3>
+    <p class="body-text">
+      <span class="t-zh">建议双方股权在公司成立、股东协议签署时即 100% 归属，不设分期兑现（Vesting）机制或 Cliff。理由是：Vesting 通常用来保障「用未来的承诺换股权」这种情况——公司担心的是创办人才做了两个月就走人，却拿走大部分股份。但这套逻辑不完全适用于这次的架构：Ms Coffy Yap 的 RM 1,000,000 是一次性到位的资本，理所当然全额即时归属；刘元元的核心筹码——全家私房钱 IP／品牌资产（两季 26 集节目、80,000+ FB 粉丝、20,000+ YouTube 订阅、364 万历史观看、已验证的信任资产）——同样是她过去多年已经建立、即时带进 TSM 的既有资产，不是靠在 TSM 未来慢慢累积出来的承诺。既然两边的核心筹码都是「即时到位」，股权归属的时间点也应该一致：都不设 Vesting。至于刘元元往后持续投入的全职劳动，则透过第八章的 CEO 薪酬机制单独、按月支付，不需要再靠股权分期兑现来做「防止中途离开」的保险。</span>
+      <span class="t-en">Both parties' equity is proposed to vest 100% immediately at incorporation / signing of the shareholders' agreement, with no vesting schedule or cliff. Vesting typically exists to protect against a founder trading a future promise for equity — the company's worry is someone leaving after two months while walking away with most of the stock. That logic doesn't map cleanly onto this structure: Ms Coffy Yap's RM 1,000,000 is a one-time capital injection, so it's straightforward for it to vest in full immediately; Yuan Yuan's core chip — the MoneyMoneyHome IP/brand asset (2 seasons/26 episodes, 80,000+ FB fans, 20,000+ YouTube subs, 3.64M lifetime views, a proven trust asset) — is likewise an existing asset she built over years and brings to TSM on day one, not a promise to be earned gradually on TSM's clock. Since both sides' core chips are delivered upfront, the vesting timing should match: neither vests over time. Yuan Yuan's ongoing full-time labor going forward is instead compensated directly and separately through the CEO salary mechanism in Chapter VIII, paid monthly — it doesn't need equity vesting to serve as an "early-departure" insurance policy.</span>
+    </p>
+    <div class="note">
+      <span class="t-zh"><b>若刘元元离职　</b>股权不受影响，公司另聘新 CEO 接手日常营运即可——这是与「即时全额归属」逻辑一致的立场，而非疏忽：股权既然不是靠她持续在职才慢慢兑现，那么反过来，离职也不该触发任何形式的股权回购或没收，否则等于换个名目重新引入 Vesting（用「Leaver 条款」取代「兑现时间表」，本质上仍是把股权跟在职与否绑在一起）。CEO 是一个可替换的营运角色，全家私房钱这项 IP／品牌资产才是她换取 60% 股权的对价，而这项资产已在签署时即时、完整地带进 TSM，不因日后由谁担任 CEO 而改变归属。</span>
+      <span class="t-en"><b>If Yuan Yuan leaves　</b>equity is unaffected; the company simply hires a new CEO to run day-to-day operations. This follows directly from — not as an exception to — the "vests immediately in full" logic: if equity isn't earned gradually by staying, then leaving shouldn't trigger any buyback or forfeiture either, since doing so would just reintroduce vesting under another name (a leaver clause substitutes a repurchase trigger for a vesting schedule, but both still tie equity to continued tenure). CEO is a replaceable operating role; the MoneyMoneyHome IP/brand asset is what she traded for her 60%, and that asset is delivered to TSM in full at signing, regardless of who holds the CEO title afterward.</span>
+    </div>
 
     <ul class="stack">
       <li><span class="t-zh">若未来引入外部融资、员工期权池（ESOP）或新股东，双方股权原则上按比例同步稀释，除非另行约定优先认购权（Pre-emptive Right）或反稀释条款。</span>
@@ -824,8 +786,8 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       </svg>
       </div>
       <figcaption>
-        <span class="t-zh">图 4　治理分工：CEO 掌管日常营运，董事会对列名的保留事项共同决策。</span>
-        <span class="t-en">Fig. 4  Governance split: the CEO runs day-to-day operations; the board jointly decides the listed reserved matters.</span>
+        <span class="t-zh">图 3　治理分工：CEO 掌管日常营运，董事会对列名的保留事项共同决策。</span>
+        <span class="t-en">Fig. 3  Governance split: the CEO runs day-to-day operations; the board jointly decides the listed reserved matters.</span>
       </figcaption>
     </figure>
 
@@ -837,7 +799,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <div class="card"><div class="card-h"><span class="card-num">4</span></div><p><span class="t-zh">公司清算、出售或核心资产处分</span><span class="t-en">Liquidation, sale, or disposal of core assets</span></p></div>
       <div class="card"><div class="card-h"><span class="card-num">5</span></div><p><span class="t-zh">修改本股权协议或公司章程</span><span class="t-en">Amending the shareholders' agreement or charter</span></p></div>
       <div class="card"><div class="card-h"><span class="card-num">6</span></div><p><span class="t-zh">年度预算超支达 20% 以上</span><span class="t-en">Annual budget overrun exceeding 20%</span></p></div>
-      <div class="card"><div class="card-h"><span class="card-num">7</span></div><p><span class="t-zh">设立或调整创办人薪酬、内容团队激励奖金池、储备金比例与分红政策（详见<a href="#ch-founder-comp">第八章</a>）</span><span class="t-en">Setting or changing founder compensation, the content talent incentive pool, the reserve ratio, or dividend policy (<a href="#ch-founder-comp">Chapter VIII</a>)</span></p></div>
+      <div class="card"><div class="card-h"><span class="card-num">7</span></div><p><span class="t-zh">设立或调整创办人薪酬、内容团队激励奖金池、Ms Coffy Yap 启动资金归还节奏、Y2 应急资金之触发与动用、储备金比例与分红政策（详见<a href="#ch-founder-comp">第八章</a>）</span><span class="t-en">Setting or changing founder compensation, the content talent incentive pool, Ms Coffy Yap's capital-return pace, triggering/drawing the Y2 contingency facility, the reserve ratio, or dividend policy (<a href="#ch-founder-comp">Chapter VIII</a>)</span></p></div>
     </div>
     <p class="body-text" style="margin-top:18px;">
       <span class="t-zh">建议设置季度董事会议，同步检视财务表现（对照<a href="#ch-financials">第七章</a> Worst／Normal／Best 情境）与 90 天优先事项执行进度（见<a href="#ch-next-steps">第十一章</a>）。</span>
@@ -915,8 +877,8 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       </svg>
       </div>
       <figcaption>
-        <span class="t-zh">图 5　厂房／地产分润的两条路径：NCT 货源由 TSM 直接抽佣 2%；其他货源经 co-broke 后，TSM 获该笔 2% 佣金中的 30% 分成（约合成交价的 0.6%）。</span>
-        <span class="t-en">Fig. 5  Two commission paths: TSM takes a direct 2% on NCT supply; on other supply, after co-broking, TSM takes 30% of the agent's 2% fee (≈0.6% of the sale price).</span>
+        <span class="t-zh">图 4　厂房／地产分润的两条路径：NCT 货源由 TSM 直接抽佣 2%；其他货源经 co-broke 后，TSM 获该笔 2% 佣金中的 30% 分成（约合成交价的 0.6%）。</span>
+        <span class="t-en">Fig. 4  Two commission paths: TSM takes a direct 2% on NCT supply; on other supply, after co-broking, TSM takes 30% of the agent's 2% fee (≈0.6% of the sale price).</span>
       </figcaption>
     </figure>
 
@@ -1094,84 +1056,154 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
         <span class="role t-zh">通道一 ・ 薪酬</span><span class="role t-en">Track One · Salary</span>
         <h4><span class="t-zh">CEO 固定月薪</span><span class="t-en">Fixed CEO Salary</span></h4>
         <ul>
-          <li><span class="t-zh">对价是<b>劳力与全职投入</b>，与公司当年是否盈利无关</span><span class="t-en">Pays for <b>labor and full-time commitment</b>, independent of whether the company is profitable that year</span></li>
-          <li><span class="t-zh">列为固定营运成本，在计算净利<b>之前</b>先行扣除，与团队其他薪资同一性质</span><span class="t-en">Booked as a fixed operating cost, deducted <b>before</b> net profit is calculated — same treatment as the rest of the team's payroll</span></li>
-          <li><span class="t-zh">按月支付，金额需经董事会核定，作为第六章 TBD 职位之一并入团队人才预算</span><span class="t-en">Paid monthly; the amount requires board approval and folds into the Team &amp; Talent budget as one of the TBD roles in Chapter VI</span></li>
+          <li><span class="t-zh">对价是<b>劳力与全职投入</b>，与当年是否盈利无关</span><span class="t-en">Pays for <b>labor and full-time commitment</b>, regardless of profit</span></li>
+          <li><span class="t-zh">列为固定营运成本，在净利<b>之前</b>先行扣除，与团队其他薪资同一性质</span><span class="t-en">Booked as a fixed operating cost, deducted <b>before</b> net profit — same treatment as the rest of payroll</span></li>
+          <li><span class="t-zh">按月支付，金额需经董事会核定</span><span class="t-en">Paid monthly; amount requires board approval</span></li>
         </ul>
       </div>
       <div class="founder-card accent">
         <span class="role t-zh">通道二 ・ 分润</span><span class="role t-en">Track Two · Profit Share</span>
         <h4><span class="t-zh">股权盈利分配</span><span class="t-en">Equity Profit Distribution</span></h4>
         <ul>
-          <li><span class="t-zh">对价是<b>股权与出资风险</b>，两位股东均按 60% / 40% 持股比例领取，与是否全职无关</span><span class="t-en">Pays for <b>ownership and capital risk</b>; both shareholders draw it by their 60%/40% stake, regardless of who works full-time</span></li>
-          <li><span class="t-zh">来自扣除成本、税项与预留储备金<b>之后</b>的可分配利润，非保证发放，须经董事会议决</span><span class="t-en">Drawn from distributable profit <b>after</b> costs, tax and reserves — not guaranteed, and requires a board resolution to declare</span></li>
-          <li><span class="t-zh">建议按年（或每半年）结算一次，与厂房成交 3–6 个月的现金周期匹配（见<a href="#ch-risks">第十章</a>风险二）</span><span class="t-en">Recommended annually (or semi-annually), matched to the 3–6 month cash cycle of factory deals (<a href="#ch-risks">Chapter X</a>, Risk 2)</span></li>
+          <li><span class="t-zh">对价是<b>股权与出资风险</b>，按 60% / 40% 持股比例领取，与是否全职无关</span><span class="t-en">Pays for <b>ownership and capital risk</b>; drawn by the 60%/40% stake, regardless of who works full-time</span></li>
+          <li><span class="t-zh">来自扣除成本、税项与储备金<b>之后</b>的可分配利润，非保证发放，须经董事会议决</span><span class="t-en">Drawn from distributable profit <b>after</b> costs, tax and reserves — not guaranteed, requires a board resolution</span></li>
+          <li><span class="t-zh">建议按年（或每半年）结算，完整处理顺序见 8.3</span><span class="t-en">Recommended annually (or semi-annually); full waterfall in 8.3</span></li>
         </ul>
       </div>
     </div>
 
     <h3 class="sub"><span class="t-zh">8.2　建议 CEO 薪酬水平</span><span class="t-en">8.2　Proposed CEO Salary Level</span></h3>
     <p class="body-text">
-      <span class="t-zh">建议以 <b>RM 8,000–10,000／月</b>（约 RM 96,000–120,000／年）作为刘元元 CEO 薪酬的起始区间，参考大马媒体／内容公司创办人兼主持人的市场水平，并考虑公司仍处早期阶段，刻意压低以保留现金。此薪酬建议从现有第六章 RM 390,000「团队人才」预算中明确切出列支，Y1 总预算 RM 1,000,000 维持不变；若确认另设专职主持人／制作人，则需重新核算团队人才预算总额。以下测算统一采用 <b>RM 8,000／月（RM 96,000／年）</b>为计算基准。</span>
-      <span class="t-en">A starting range of <b>RM 8,000–10,000/month</b> (≈RM 96,000–120,000/year) is proposed for Yuan Yuan's CEO salary — benchmarked against founder-presenters at Malaysian media/content companies, deliberately held down given the company's early stage and cash constraints. This is recommended as an explicit carve-out from the existing RM 390,000 "Team &amp; Talent" budget in Chapter VI, leaving the Y1 total of RM 1,000,000 unchanged; if a separate dedicated host/producer is confirmed, the team budget total would need to be re-costed. The scenario below uses <b>RM 8,000/month (RM 96,000/year)</b> as its baseline.</span>
+      <span class="t-zh">建议 <b>RM 8,000–10,000／月</b>（约 RM 96,000–120,000／年），参考大马媒体／内容公司创办人主持人的市场水平，并考虑早期阶段刻意压低以保留现金；从第六章 RM 390,000「团队人才」预算中明确切出列支，Y1 总预算 RM 1,000,000 维持不变。以下测算统一采用 <b>RM 8,000／月（RM 96,000／年）</b>为基准。</span>
+      <span class="t-en">A range of <b>RM 8,000–10,000/month</b> (≈RM 96,000–120,000/year) is proposed, benchmarked against founder-presenters at Malaysian media/content companies and deliberately held down given the company's early stage. It's carved out of the existing RM 390,000 "Team &amp; Talent" budget in Chapter VI, leaving the Y1 total of RM 1,000,000 unchanged. The walk-through below uses <b>RM 8,000/month (RM 96,000/year)</b> as its baseline.</span>
     </p>
 
     <h3 class="sub"><span class="t-zh">8.3　盈利分配的处理顺序</span><span class="t-en">8.3　Profit Distribution Waterfall</span></h3>
     <p class="body-text">
-      <span class="t-zh">建议可分配利润按以下顺序处理，而非把全年净利直接对半／按比例分掉：</span>
-      <span class="t-en">Rather than splitting the year's net profit straight down the line, distributable profit should run through this order:</span>
+      <span class="t-zh">可分配利润不是把净利直接对半分掉，而是依序走完下图的处理顺序——<b>本金归还排在两位股东分红之前</b>，是整套机制最核心的一点。</span>
+      <span class="t-en">Distributable profit isn't split straight down the line — it runs through the sequence below in order. <b>Capital return sits ahead of both shareholders' dividend</b> — the single most important point in this mechanism.</span>
     </p>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 上下滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 620 526" role="img" aria-label="盈利分配处理顺序：总收入依序扣除营运成本、内容团队奖金池、企业所得税、预留储备金，得出可分配利润；再优先扣除本金归还（年度上限40%），剩余才按60/40分配给两位股东" fill="currentColor">
+        <defs>
+          <marker id="arrow5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".55"/>
+          </marker>
+        </defs>
+
+        <rect x="10" y="6" width="600" height="30" rx="8" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
+        <text x="310" y="25" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">总收入</tspan><tspan class="t-en">Revenue</tspan></text>
+
+        <line x1="310" y1="36" x2="310" y2="74" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
+        <text x="330" y="60" font-size="10" opacity=".75"><tspan class="t-zh">− 营运成本（含 CEO 薪酬）</tspan><tspan class="t-en">− Operating costs (incl. CEO salary)</tspan></text>
+
+        <rect x="10" y="78" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="310" y="97" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">发放奖金池前之利润</tspan><tspan class="t-en">Profit before the incentive pool</tspan></text>
+
+        <line x1="310" y1="108" x2="310" y2="146" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
+        <text x="330" y="132" font-size="10" opacity=".75"><tspan class="t-zh">− 内容团队激励奖金池（8%，税前可扣）</tspan><tspan class="t-en">− Content talent incentive pool (8%, tax-deductible)</tspan></text>
+
+        <rect x="10" y="150" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="310" y="169" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">税前利润</tspan><tspan class="t-en">Profit before tax</tspan></text>
+
+        <line x1="310" y1="180" x2="310" y2="218" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
+        <text x="330" y="204" font-size="10" opacity=".75"><tspan class="t-zh">− 企业所得税</tspan><tspan class="t-en">− Corporate tax</tspan></text>
+
+        <rect x="10" y="222" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="310" y="241" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">税后净利</tspan><tspan class="t-en">Net profit after tax</tspan></text>
+
+        <line x1="310" y1="252" x2="310" y2="290" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
+        <text x="330" y="276" font-size="10" opacity=".75"><tspan class="t-zh">− 预留储备金（约 25%）</tspan><tspan class="t-en">− Retained reserve (~25%)</tspan></text>
+
+        <rect x="10" y="294" width="600" height="30" rx="8" fill="var(--jade)" fill-opacity=".12" stroke="var(--jade)"/>
+        <text x="310" y="313" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">= 可分配利润</tspan><tspan class="t-en">= Distributable profit</tspan></text>
+
+        <line x1="310" y1="324" x2="310" y2="340" stroke="var(--copper-strong)" stroke-width="1.4" marker-end="url(#arrow5)"/>
+
+        <rect x="60" y="344" width="500" height="46" rx="9" fill="var(--copper)" fill-opacity=".14" stroke="var(--copper)" stroke-opacity=".6"/>
+        <text x="310" y="364" text-anchor="middle" font-size="10.3" font-weight="700" fill="var(--copper-strong)"><tspan class="t-zh">− Ms Coffy Yap 本金归还（优先，年度上限 40%）</tspan><tspan class="t-en">− Ms Coffy Yap's capital return (priority, capped 40%/yr)</tspan></text>
+        <text x="310" y="380" text-anchor="middle" font-size="9" fill="var(--copper-strong)" opacity=".85"><tspan class="t-zh">排在两位股东分红之前</tspan><tspan class="t-en">ahead of both shareholders' dividend</tspan></text>
+
+        <line x1="310" y1="394" x2="310" y2="410" stroke="var(--copper-strong)" stroke-width="1.4" marker-end="url(#arrow5)"/>
+
+        <rect x="10" y="414" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="310" y="433" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">分红前剩余利润</tspan><tspan class="t-en">Remaining profit for dividend</tspan></text>
+
+        <line x1="310" y1="444" x2="310" y2="480" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
+        <text x="330" y="466" font-size="10" opacity=".75"><tspan class="t-zh">按 60 / 40 分配</tspan><tspan class="t-en">Split 60 / 40</tspan></text>
+
+        <rect x="10" y="484" width="290" height="36" rx="9" fill="var(--navy-solid)" stroke="var(--navy-solid)"/>
+        <text x="155" y="507" text-anchor="middle" font-size="11" font-weight="700" fill="#fff"><tspan class="t-zh">刘元元 60%</tspan><tspan class="t-en">Yuan Yuan 60%</tspan></text>
+        <rect x="320" y="484" width="290" height="36" rx="9" fill="var(--copper-solid)" stroke="var(--copper-solid)"/>
+        <text x="465" y="507" text-anchor="middle" font-size="11" font-weight="700" fill="#fff"><tspan class="t-zh">Ms Coffy Yap 40%</tspan><tspan class="t-en">Ms Coffy Yap 40%</tspan></text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 5　盈利分配处理顺序：本金归还（优先、年度上限 40%）排在两位股东分红之前；奖金池与本金归还都不改变 60/40 的分配比例本身，只是各自先从利润或分红里拿走一块。</span>
+        <span class="t-en">Fig. 5  Profit distribution waterfall: capital return (priority, capped 40%/year) sits ahead of both shareholders' dividend; neither the pool nor capital return changes the underlying 60/40 ratio — each simply takes a slice first.</span>
+      </figcaption>
+    </figure>
+
     <ol class="steps">
       <li><span class="t-zh"><b>总收入</b>　地产分润（引擎一）＋业配净收入（引擎二），见第五章</span><span class="t-en"><b>Revenue</b>　Real-estate commission (Engine One) + net sponsorship income (Engine Two), per Chapter V</span></li>
-      <li><span class="t-zh"><b>减：营运成本</b>　内容制作、团队人才（含 CEO 薪酬）、传播矩阵与 PR、行政与预备金</span><span class="t-en"><b>Less operating costs</b>　Production, Team &amp; Talent (incl. CEO salary), Distribution &amp; PR, Admin &amp; Reserve</span></li>
-      <li><span class="t-zh"><b>= 税前利润</b></span><span class="t-en"><b>= Profit before tax</b></span></li>
-      <li><span class="t-zh"><b>减：企业所得税</b>　大马 SME 阶梯税率：首 RM 150,000 按 15%、RM 150,001–600,000 部分按 17%、超出部分按 24%（以最终会计师确认为准）</span><span class="t-en"><b>Less corporate tax</b>　Malaysia's tiered SME rate: 15% on the first RM 150,000, 17% on RM 150,001–600,000, 24% above that (subject to accountant confirmation)</span></li>
-      <li><span class="t-zh"><b>减：预留储备金</b>　建议 Y1–Y2 预留税后净利约 25%，作为营运周转与下行缓冲（呼应第十章现金周期与固定成本风险），Y3 后视现金状况调降</span><span class="t-en"><b>Less retained reserve</b>　~25% of after-tax profit recommended in Y1–Y2 as a working-capital and downside buffer (echoing the cash-cycle and fixed-cost risks in Chapter X), scaling down from Y3 as cash position allows</span></li>
-      <li><span class="t-zh"><b>= 可分配利润</b>　按 60%（刘元元）／ 40%（Ms Coffy Yap）股权比例分配</span><span class="t-en"><b>= Distributable profit</b>　Split 60% (Yuan Yuan) / 40% (Ms Coffy Yap) by shareholding</span></li>
+      <li><span class="t-zh"><b>减：营运成本</b>　含 CEO 薪酬，见 8.1／8.2</span><span class="t-en"><b>Less operating costs</b>　incl. CEO salary, per 8.1/8.2</span></li>
+      <li><span class="t-zh"><b>减：内容团队激励奖金池</b>　税前利润的 8%，税前可扣，不论由谁主持都存在，详见 <a href="#ch-founder-comp-talent">8.5</a></span><span class="t-en"><b>Less content talent incentive pool</b>　8% of pre-tax profit, tax-deductible, exists regardless of who hosts; see <a href="#ch-founder-comp-talent">8.5</a></span></li>
+      <li><span class="t-zh"><b>减：企业所得税</b>　大马 SME 阶梯税率（15% / 17% / 24%，以会计师确认为准）</span><span class="t-en"><b>Less corporate tax</b>　Malaysia's tiered SME rate (15%/17%/24%, subject to accountant confirmation)</span></li>
+      <li><span class="t-zh"><b>减：预留储备金</b>　Y1–Y2 约 25%，Y3 后视现金状况调降</span><span class="t-en"><b>Less retained reserve</b>　~25% in Y1–Y2, scaling down from Y3</span></li>
+      <li><span class="t-zh"><b>= 可分配利润</b></span><span class="t-en"><b>= Distributable profit</b></span></li>
+      <li><span class="t-zh"><b>减：Ms Coffy Yap 本金归还</b>　优先于两位股东分红，年度上限为可分配利润的 40%，详见 <a href="#ch-founder-comp">8.6</a></span><span class="t-en"><b>Less Ms Coffy Yap's capital return</b>　ahead of both shareholders' dividends, capped at 40% of distributable profit per year; see <a href="#ch-founder-comp">8.6</a></span></li>
+      <li><span class="t-zh"><b>= 两位股东分红</b>　剩余部分才按 60%（刘元元）／ 40%（Ms Coffy Yap）分配</span><span class="t-en"><b>= Shareholder dividend</b>　Only the remainder splits 60% (Yuan Yuan) / 40% (Ms Coffy Yap)</span></li>
     </ol>
     <div class="note">
-      <span class="t-zh"><b>若刘元元不亲自出镜主持　</b>以上步骤 2「营运成本」与步骤 3「税前利润」之间，需另插入一项「内容制作团队激励奖金池」，用于奖励主持人、撰稿团队、拍摄团队与后制团队。这不影响两位股东 60/40 的分配比例本身，但会先从利润池中拿走一块，两位股东按比例共同分摊这笔成本。机制与测算见 <a href="#ch-founder-comp-talent">8.5</a>。</span>
-      <span class="t-en"><b>If Yuan Yuan isn't the on-camera host　</b>a "Content Talent Incentive Pool" step is inserted between step 2 (operating costs) and step 3 (profit before tax), rewarding the host, scriptwriting team, shooting crew and post-production team. This doesn't change the 60/40 split ratio itself, but it does take a slice out of the profit pool first, which both shareholders bear proportionally. See <a href="#ch-founder-comp-talent">8.5</a> for the mechanism and worked numbers.</span>
+      <span class="t-zh"><b>关于顺序的补充　</b>奖金池与本金归还性质不同：奖金池是税前可扣税费用，影响利润表本身；本金归还只影响可分配利润<b>如何</b>分给两位股东，不影响税项计算，但同样排在分红<b>之前</b>。两者都不改变两位股东 60/40 的分配比例本身。</span>
+      <span class="t-en"><b>A note on the order　</b>The pool and capital return work differently: the pool is a pre-tax deductible expense that affects the P&amp;L itself, while capital return only affects <b>how</b> distributable profit is split — it doesn't touch the tax calculation, but it still sits <b>ahead of</b> the dividend. Neither changes the underlying 60/40 ratio.</span>
     </div>
 
-    <h3 class="sub"><span class="t-zh">8.4　情境测算：Y1 成交 20 间厂房</span><span class="t-en">8.4　Scenario: 20 Factory Deals in Year 1</span></h3>
+    <h3 class="sub"><span class="t-zh">8.4　情境测算：Y1 成交 20 间厂房（完整分配测算）</span><span class="t-en">8.4　Scenario: 20 Factory Deals in Year 1 (Full Distribution Walk-Through)</span></h3>
     <p class="body-text">
-      <span class="t-zh">第七章 Best 情境的 Y1 假设为 8 间成交；20 间已超出原模型范围，属于比 Best 更进取的「加码」情境。以下沿用第七章 Y1 收入与成交量之间的线性关系（每间成交对应约 RM 140,000 收入，加上约 RM 56,800 的固定基础收入）作外推测算，<b>仅供说明分配机制之用，非正式财务预测</b>：</span>
-      <span class="t-en">Chapter VII's Best case assumes 8 Y1 deals; 20 exceeds that original range and represents a more aggressive "stretch" scenario. The table below extrapolates Chapter VII's own Y1 relationship between deal count and revenue (≈RM 140,000 per deal, plus a ≈RM 56,800 fixed base), <b>for illustrating the distribution mechanism only — not a formal forecast</b>:</span>
+      <span class="t-zh">沿用第七章 Y1 收入与成交量的线性关系外推（每间约 RM 140,000＋固定 RM 56,800），<b>仅供说明机制，非正式预测</b>，完整走完 8.3 的处理顺序：</span>
+      <span class="t-en">Extrapolating Chapter VII's own Y1 revenue-to-deal relationship (≈RM 140,000/deal + a RM 56,800 fixed base), <b>for illustration only, not a formal forecast</b>, run through 8.3's full sequence:</span>
     </p>
 
     <div class="table-scroll">
       <table class="data">
-        <caption><span class="t-zh">Y1 ・ 20 间成交 ・ 分配测算（RM）</span><span class="t-en">Y1 · 20 deals · distribution walk-through (RM)</span></caption>
+        <caption><span class="t-zh">Y1 ・ 20 间成交 ・ 完整分配测算（RM）</span><span class="t-en">Y1 · 20 deals · full distribution walk-through (RM)</span></caption>
         <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th><span class="t-zh">金额</span><span class="t-en">Amount</span></th></tr></thead>
         <tbody>
           <tr><td><span class="t-zh">总收入（外推，20 间）</span><span class="t-en">Revenue (extrapolated, 20 deals)</span></td><td>2,856,800</td></tr>
           <tr><td><span class="t-zh">营运成本（含 CEO 薪酬，第六章预算不变）</span><span class="t-en">Operating cost (incl. CEO salary, Ch. VI budget unchanged)</span></td><td>1,000,000</td></tr>
-          <tr class="total"><td><span class="t-zh">税前利润</span><span class="t-en">Profit before tax</span></td><td>1,856,800</td></tr>
-          <tr><td><span class="t-zh">企业所得税（SME 阶梯税率）</span><span class="t-en">Corporate tax (SME tiered rate)</span></td><td class="neg">(400,632)</td></tr>
-          <tr class="total"><td><span class="t-zh">税后净利</span><span class="t-en">Net profit after tax</span></td><td>1,456,168</td></tr>
-          <tr><td><span class="t-zh">预留储备金（25%）</span><span class="t-en">Retained reserve (25%)</span></td><td class="neg">(364,042)</td></tr>
-          <tr class="total"><td><span class="t-zh">可分配利润</span><span class="t-en">Distributable profit</span></td><td>1,092,126</td></tr>
-          <tr><td><span class="t-zh">→ 刘元元（60%）</span><span class="t-en">→ Yuan Yuan (60%)</span></td><td class="pos">655,276</td></tr>
-          <tr><td><span class="t-zh">→ Ms Coffy Yap（40%）</span><span class="t-en">→ Ms Coffy Yap (40%)</span></td><td class="pos">436,850</td></tr>
+          <tr class="total"><td><span class="t-zh">发放奖金池前之利润</span><span class="t-en">Profit before the incentive pool</span></td><td>1,856,800</td></tr>
+          <tr><td><span class="t-zh">内容团队激励奖金池（8%，见 8.5）</span><span class="t-en">Content talent incentive pool (8%, see 8.5)</span></td><td class="neg">(148,544)</td></tr>
+          <tr class="total"><td><span class="t-zh">税前利润</span><span class="t-en">Profit before tax</span></td><td>1,708,256</td></tr>
+          <tr><td><span class="t-zh">企业所得税（SME 阶梯税率）</span><span class="t-en">Corporate tax (SME tiered rate)</span></td><td class="neg">(364,981)</td></tr>
+          <tr class="total"><td><span class="t-zh">税后净利</span><span class="t-en">Net profit after tax</span></td><td>1,343,275</td></tr>
+          <tr><td><span class="t-zh">预留储备金（25%）</span><span class="t-en">Retained reserve (25%)</span></td><td class="neg">(335,819)</td></tr>
+          <tr class="total"><td><span class="t-zh">可分配利润</span><span class="t-en">Distributable profit</span></td><td>1,007,456</td></tr>
+          <tr><td><span class="t-zh">Ms Coffy Yap 本金归还（优先，40% 上限，见 8.6）</span><span class="t-en">Capital return to Ms Coffy Yap (priority, 40% cap, see 8.6)</span></td><td class="neg">(402,982)</td></tr>
+          <tr class="total"><td><span class="t-zh">分红前剩余利润</span><span class="t-en">Remaining profit for dividend</span></td><td>604,474</td></tr>
+          <tr><td><span class="t-zh">→ 刘元元（60%）</span><span class="t-en">→ Yuan Yuan (60%)</span></td><td class="pos">362,684</td></tr>
+          <tr><td><span class="t-zh">→ Ms Coffy Yap（40%，分红部分）</span><span class="t-en">→ Ms Coffy Yap (40%, dividend only)</span></td><td class="pos">241,790</td></tr>
         </tbody>
       </table>
     </div>
 
     <p class="body-text" style="margin-top:18px;">
-      <span class="t-zh">换算成两人个人所得：刘元元 Y1 到手总额为 <b>CEO 年薪 RM 96,000 ＋ 60% 分润 RM 655,276 ＝ RM 751,276</b>；Ms Coffy Yap 不支薪，Y1 到手总额为 <b>40% 分润 RM 436,850</b>。</span>
-      <span class="t-en">In personal terms: Yuan Yuan's Y1 take-home is <b>CEO salary RM 96,000 + 60% profit share RM 655,276 = RM 751,276</b>; Ms Coffy Yap draws no salary, so her Y1 take-home is <b>40% profit share, RM 436,850</b>.</span>
+      <span class="t-zh">两人 Y1 实际到手：刘元元 <b>CEO 年薪 RM 96,000 ＋ 分润 RM 362,684 ＝ RM 458,684</b>；Ms Coffy Yap <b>本金归还 RM 402,982 ＋ 分润 RM 241,790 ＝ RM 644,772</b>。奖金池拆分比例见 8.5，本金归还的完整机制见 8.6。</span>
+      <span class="t-en">Actual Y1 take-home: Yuan Yuan <b>CEO salary RM 96,000 + dividend RM 362,684 = RM 458,684</b>; Ms Coffy Yap <b>capital return RM 402,982 + dividend RM 241,790 = RM 644,772</b>. The pool's split ratios are in 8.5; the full capital-return mechanism is in 8.6.</span>
     </p>
 
     <div class="note">
-      <span class="t-zh"><b>说明　</b>以上测算以 20 间成交外推第七章模型得出，实际收入结构（NCT 直营 2% 与 co-broke 30% 分润的比例）、成本是否随规模调整、CEO 薪酬水平与储备金比例，均待双方与会计师／税务顾问确认后写入正式股东协议（见<a href="#ch-next-steps">第十一章</a>）。储备金比例、CEO 薪酬调整建议列为董事会保留事项（见<a href="#ch-governance">第四章</a>）。</span>
-      <span class="t-en"><b>Note　</b>This walk-through extrapolates Chapter VII's model to 20 deals; the actual revenue mix (NCT direct 2% vs. co-broke 30%), whether costs scale with volume, the CEO salary level and the reserve ratio all need confirmation with an accountant/tax advisor before being written into the definitive shareholders' agreement (<a href="#ch-next-steps">Chapter XI</a>). Changes to the CEO salary or reserve ratio are recommended as board reserved matters (<a href="#ch-governance">Chapter IV</a>).</span>
+      <span class="t-zh"><b>说明　</b>实际收入结构、成本是否随规模调整、CEO 薪酬水平与储备金比例，均待与会计师／税务顾问确认后写入正式股东协议（见<a href="#ch-next-steps">第十一章</a>），相关调整为<a href="#ch-governance">第四章</a>董事会保留事项。</span>
+      <span class="t-en"><b>Note　</b>The actual revenue mix, whether costs scale with volume, the CEO salary level and the reserve ratio all need confirmation with an accountant/tax advisor before being written into the definitive shareholders' agreement (<a href="#ch-next-steps">Chapter XI</a>); related adjustments are <a href="#ch-governance">Chapter IV</a> board reserved matters.</span>
     </div>
 
-    <h3 class="sub" id="ch-founder-comp-talent"><span class="t-zh">8.5　若非元元本人主持：内容制作团队激励机制</span><span class="t-en">8.5　If Yuan Yuan Isn't the Host: Content Team Incentive Mechanism</span></h3>
+    <h3 class="sub" id="ch-founder-comp-talent"><span class="t-zh">8.5　内容制作团队激励机制：拆分比例与发放时点</span><span class="t-en">8.5　Content Production Team Incentive: Split Ratios &amp; Payout Timing</span></h3>
     <p class="body-text">
-      <span class="t-zh">制作团队——主持人、撰稿团队、拍摄团队、后制团队——都不是股东，报酬原则上仍应留在营运成本里，而不是去动两位股东 60/40 的分配比例。但他们和业务／BD 团队不同：BD 直接促成成交，因此按<a href="#ch-commission">第五章 5.2</a>拿收入抽成（20%）；制作团队的贡献在更上游——内容质量带动信任与名单量，再由下游的地产分润（引擎一）变现，很难精确追溯「哪一集内容对应哪一笔成交」。比较合理的做法，是把他们的报酬做成「固定制作费＋利润挂钩奖金池」两段式，而非按单笔交易抽成。</span>
-      <span class="t-en">The production team — host, scriptwriting team, shooting crew and post-production team — aren't shareholders, so their pay should in principle stay inside operating costs rather than touch the shareholders' 60/40 split. But they differ from the Business/BD team: BD closes deals directly, which is why they earn a revenue commission (20%) under <a href="#ch-commission">Chapter V, 5.2</a>. The production team's contribution sits further upstream — content quality drives trust and lead volume, which is monetized downstream by Engine One — and it's impractical to trace any one episode to any one deal. A cleaner structure is a two-part package: a fixed production fee plus a profit-linked bonus pool, rather than a per-deal commission.</span>
+      <span class="t-zh">制作团队（主持人、撰稿、拍摄、后制）不是股东，报酬留在营运成本内；但内容贡献很难精确追溯到某一笔成交，因此采「固定制作费＋利润挂钩奖金池」两段式，而非按笔抽成（BD 团队因直接促成成交，按<a href="#ch-commission">5.2</a>抽成 20%，性质不同）。</span>
+      <span class="t-en">The production team (host, scriptwriting, shooting, post-production) aren't shareholders, so their pay stays inside operating costs. But their contribution can't be traced to any one deal, so it's structured as a fixed fee plus a profit-linked pool, not a per-deal commission (BD earns a 20% commission under <a href="#ch-commission">5.2</a> because it closes deals directly — a different case).</span>
     </p>
 
     <div class="founder-grid">
@@ -1179,60 +1211,199 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
         <span class="role t-zh">第一部分</span><span class="role t-en">Part One</span>
         <h4><span class="t-zh">固定制作费</span><span class="t-en">Fixed Production Fee</span></h4>
         <ul>
-          <li><span class="t-zh">按集数或月结算，从第六章 RM 215,000 内容制作＋RM 390,000 团队人才预算中列支，市场行情报价（Kaloz Production 已提供拍摄／后制报价可作参考）</span><span class="t-en">Paid per episode or monthly, funded from Chapter VI's RM 215,000 Content Production + RM 390,000 Team &amp; Talent budgets, at market rate (Kaloz Production's quote is a reference point)</span></li>
-          <li><span class="t-zh">与业绩、公司盈亏无关，是所有情境（Worst／Normal／Best）下都要付的固定成本</span><span class="t-en">Independent of performance or company profitability — a fixed cost payable under every scenario (Worst/Normal/Best)</span></li>
+          <li><span class="t-zh">按集或按月结算，从第六章 RM 215,000＋RM 390,000 预算中列支，市场行情报价</span><span class="t-en">Paid per episode or monthly, funded from Chapter VI's RM 215,000 + RM 390,000 budgets, at market rate</span></li>
+          <li><span class="t-zh">与盈亏无关，是所有情境下都要付的固定成本</span><span class="t-en">Independent of profitability — payable under every scenario</span></li>
         </ul>
       </div>
       <div class="founder-card accent">
         <span class="role t-zh">第二部分</span><span class="role t-en">Part Two</span>
         <h4><span class="t-zh">内容团队激励奖金池</span><span class="t-en">Content Talent Incentive Pool</span></h4>
         <ul>
-          <li><span class="t-zh">建议为税前利润（营运成本扣除<b>之后</b>、缴税<b>之前</b>）的 <b>5%–10%</b>，作为留才与绑定业绩的诱因；以下测算取 <b>8%</b> 为基准</span><span class="t-en">Recommended at <b>5%–10%</b> of pre-tax profit (after operating costs, <b>before</b> tax), as a retention and performance incentive; the walk-through below uses <b>8%</b> as its baseline</span></li>
-          <li><span class="t-zh">奖金池建议按 <b>主持人 45% ／ 撰稿团队 20% ／ 后制团队 20% ／ 拍摄团队 15%</b> 拆分：四者之中唯有主持人对应单一个人，是信任资产真正的单点风险所在，权重理应最重；撰稿、拍摄、后制都是团队编制，团队内部本身有冗余，抗风险能力较强，权重可以相对平均；后制（剪辑节奏、Hook 呈现）比拍摄（多为标准化访谈取景）更直接决定内容能否转化为名单，权重略高于拍摄</span><span class="t-en">The pool is split <b>45% host / 20% scriptwriting team / 20% post-production team / 15% shooting crew</b>: of the four, only the host maps to a single individual — the real single point of failure for the trust asset — so it carries the heaviest weight; the scriptwriting, shooting and post-production functions are all team-based with built-in redundancy, so their weights sit closer together; post-production (edit pacing, hook delivery) has more direct leverage over whether content converts into leads than shooting (largely standardized interview footage), hence its slightly higher weight</span></li>
-          <li><span class="t-zh">撰稿团队、拍摄团队、后制团队通常是数人小组而非单一个人，各自的份额建议由制作人／CEO 按组内实际贡献再行拆分；主持人一般对应具体的人，可直接发放</span><span class="t-en">The scriptwriting, shooting and post-production teams are typically small groups rather than one person, so each share should be further split by the producer/CEO based on individual contribution within the team; the host share usually goes straight to one named person</span></li>
-          <li><span class="t-zh">作为公司可扣税费用，在计算企业所得税<b>之前</b>先行扣除，两位股东共同、按比例分摊这笔成本</span><span class="t-en">Booked as a deductible company expense <b>before</b> corporate tax is calculated; both shareholders bear the cost proportionally</span></li>
+          <li><span class="t-zh">税前利润的 <b>5%–10%</b>（测算取 <b>8%</b> 为基准），作为留才与绑定业绩的诱因</span><span class="t-en"><b>5%–10%</b> of pre-tax profit (baseline <b>8%</b>), as a retention and performance incentive</span></li>
+          <li><span class="t-zh">拆分：<b>主持人 45% ／ 撰稿团队 20% ／ 后制团队 20% ／ 拍摄团队 15%</b>——主持人是唯一对应单一个人的角色，是信任资产真正的单点风险所在，权重理应最高；其余三者是团队编制，本身有冗余，权重相对平均</span><span class="t-en">Split <b>45% host / 20% scriptwriting / 20% post-production / 15% shooting</b> — the host is the only role tied to one individual, the real single point of failure for the trust asset, hence the heaviest weight; the other three are team-based with built-in redundancy, so their weights sit closer together</span></li>
+          <li><span class="t-zh">团队份额由制作人／CEO 按组内贡献再行拆分；主持人份额直接发放</span><span class="t-en">Team shares are further split by the producer/CEO based on individual contribution; the host share pays out directly</span></li>
+          <li><span class="t-zh">税前可扣税费用，两位股东共同、按比例分摊这笔成本</span><span class="t-en">A pre-tax deductible expense; both shareholders bear the cost proportionally</span></li>
         </ul>
       </div>
     </div>
 
-    <p class="body-text" style="margin-top:4px;">
-      <span class="t-zh">把这项奖金池插入 8.3 的处理顺序，并沿用 8.4 同一套 20 间成交外推数字，测算如下：</span>
-      <span class="t-en">Inserting this pool into the 8.3 waterfall, and reusing the same 20-deal extrapolation from 8.4, the walk-through looks like this:</span>
+    <div class="note">
+      <span class="t-zh"><b>关键人风险　</b>主持人是唯一对应单一个人的角色，风险因此高度集中——若非刘元元本人主持，TSM 的信任资产就从「绑定创办人」变成「绑定该主持人」。建议：① 节目品牌（全家私房钱）与内容库 IP 明确归 TSM／刘元元，不随人员异动；② 主持人合约设通知期与同业禁止条款（覆盖厂房／工业地产垂直领域），是四个角色中最需严格把关的一份；③ 奖金池分期发放，提高留任诱因（见下）。此机制与比例调整，建议列为<a href="#ch-governance">第四章</a>董事会保留事项。</span>
+      <span class="t-en"><b>Key-person risk　</b>The host is the only role tied to one individual, so risk concentrates there — if it isn't Yuan Yuan herself, TSM's trust asset shifts from being tied to the founder to being tied to that host. Recommended: ① the show's brand (MoneyMoneyHome) and content-library IP stay with TSM/Yuan Yuan regardless of who's on the team; ② the host's contract carries a notice period and a non-compete covering the factory/industrial-real-estate vertical — the one contract among the four that most needs tight terms; ③ the pool pays out in stages to strengthen retention (below). A <a href="#ch-governance">Chapter IV</a> board reserved matter.</span>
+    </div>
+
+    <h4 style="font-size:1rem;font-weight:700;margin:22px 0 10px;color:var(--ink);"><span class="t-zh">发放时点：两道门槛先过，再分两批</span><span class="t-en">Payout timing: two gates, then two tranches</span></h4>
+    <p class="body-text">
+      <span class="t-zh">计算基准不变（财年结束按税前利润算出）；但 <a href="#ch-founder-comp">8.7</a> 已预见 Y1–Y2 现金可能偏紧，所以<b>实际拨款时间</b>可以往后挪，挪到公司现金真的撑得住为止：</span>
+      <span class="t-en">The calculation basis stays fixed (computed at fiscal year-end off pre-tax profit); but since <a href="#ch-founder-comp">8.7</a> flags possible Y1–Y2 cash tightness, the <b>actual payout date</b> can be pushed back until cash is confirmed to support it:</span>
+    </p>
+    <ol class="steps">
+      <li><span class="t-zh"><b>现金门槛　</b>等实际到账利润经会计师／董事会确认后才发放（通常次年 Q1 前后），用「已到账」而非「已签约」的钱来算</span><span class="t-en"><b>Cash gate　</b>Payout waits until actual-cash profit is confirmed by the accountant/board (typically around Q1 next year), using cash that's landed rather than deals merely signed</span></li>
+      <li><span class="t-zh"><b>储备门槛　</b>还要等次年营运储备（含应急资金，如有触发）确认到位——公司先活下去，奖金池才发</span><span class="t-en"><b>Reserve gate　</b>Also waits until next year's operating reserve (plus contingency facility, if drawn) is confirmed secure — the company survives first</span></li>
+      <li><span class="t-zh">两道门槛都过，才分两批：第一批达标即发；第二批延至次年年中，进一步分散现金压力并强化留任</span><span class="t-en">Once both clear, pay in two tranches: the first as soon as both are met; the second held to mid-following-year, spreading cash impact and reinforcing retention</span></li>
+      <li><span class="t-zh">若触发 <a href="#ch-founder-comp">8.7</a> 情况一（Y1 未满 7 间），奖金池通常很小甚至为零，且全数递延至应急资金归还为止——建议在合约签署前就说清楚</span><span class="t-en">If <a href="#ch-founder-comp">8.7</a>'s Scenario 1 is triggered (Y1 under 7 deals), the pool is usually small or zero, and deferred entirely until the contingency facility is repaid — set this expectation before contracts are signed</span></li>
+    </ol>
+
+    <div class="table-scroll">
+      <table class="data">
+        <caption><span class="t-zh">按 8.7 三种情境对照的奖金池发放建议</span><span class="t-en">Recommended pool payout, mapped to 8.7's three scenarios</span></caption>
+        <thead><tr><th><span class="t-zh">情境</span><span class="t-en">Scenario</span></th><th><span class="t-zh">奖金池预期水位</span><span class="t-en">Expected pool size</span></th><th><span class="t-zh">建议发放时点</span><span class="t-en">Recommended payout timing</span></th></tr></thead>
+        <tbody>
+          <tr><td><span class="t-zh">情况一・Y1 未满 7 间</span><span class="t-en">Scenario 1 · Under 7 deals</span></td><td><span class="t-zh">极低或为零</span><span class="t-en">Very low or zero</span></td><td><span class="t-zh">全数递延，至应急资金归还、Y2 现金解除警报后再议</span><span class="t-en">Defer entirely, until the contingency facility is repaid and Y2 cash is no longer flagged</span></td></tr>
+          <tr><td><span class="t-zh">情况二・Y1 约 7–9 间</span><span class="t-en">Scenario 2 · Around 7–9 deals</span></td><td><span class="t-zh">按公式算出，但金额有限</span><span class="t-en">Computed normally, but modest</span></td><td><span class="t-zh">分两批：第一批待 Q1（Y2）现金与储备确认后发放；第二批延至 Q2／Q3（Y2）</span><span class="t-en">Two tranches: first once Q1-Y2 cash and reserve are confirmed; second held to Q2/Q3-Y2</span></td></tr>
+          <tr><td><span class="t-zh">情况三・Y1 明显超过 9–10 间</span><span class="t-en">Scenario 3 · Comfortably over 9–10 deals</span></td><td><span class="t-zh">按公式算出，水位正常</span><span class="t-en">Computed normally, at full size</span></td><td><span class="t-zh">第一批可在现金确认后较快发放（约 60 天内）；第二批仍建议保留至年中，作为留才机制</span><span class="t-en">First tranche can move faster once cash is confirmed (within ~60 days); second still held to mid-year as a retention lever</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="t-zh"><b>建议　</b>把「两道门槛、两批发放」写进制作团队（尤其主持人）的合约，让对方从一开始就清楚奖金池跟公司现金状况绑定，避免临时变卦；同列为<a href="#ch-governance">第四章</a>董事会保留事项。</span>
+      <span class="t-en"><b>Recommendation　</b>Write "two gates, two tranches" into the production team's contracts (especially the host's), so everyone understands upfront that the pool is tied to the company's cash position, avoiding last-minute changes; also a <a href="#ch-governance">Chapter IV</a> board reserved matter.</span>
+    </div>
+
+    <h3 class="sub"><span class="t-zh">8.6　Ms Coffy Yap 启动资金的分阶段归还</span><span class="t-en">8.6　Phased Return of Ms Coffy Yap's Startup Capital</span></h3>
+    <p class="body-text">
+      <span class="t-zh">RM 1,000,000 已是第六章 Y1 核心预算，无法一次性退还；厂房交易周期长达 3–6 个月（见<a href="#ch-risks">第十章</a>风险二），因此本金归还直接挂在 8.3 的分配顺序上，随实收现金自然发生，不另立固定还款时间表。</span>
+      <span class="t-en">RM 1,000,000 is already Chapter VI's core Y1 budget and can't be repaid in one lump sum; factory deals take 3–6 months to close (<a href="#ch-risks">Chapter X</a>, Risk 2), so capital return is hung directly off 8.3's distribution order — happening naturally as cash is collected, with no separate fixed repayment calendar.</span>
+    </p>
+
+    <h4 style="font-size:1rem;font-weight:700;margin:22px 0 10px;color:var(--ink);"><span class="t-zh">机制：本金归还优先于两位股东分润，但每年封顶为可分配利润的 40%</span><span class="t-en">Mechanism: capital return takes priority over both shareholders' dividends, capped at 40% of distributable profit per year</span></h4>
+    <ol class="steps">
+      <li><span class="t-zh">当年本金归还 ＝「剩余未还本金」与「可分配利润的 <b>40%</b>」两者中较小者——上限确保任何一年两人都不会分润归零</span><span class="t-en">This year's capital return = the smaller of the remaining unrecovered principal and <b>40%</b> of distributable profit — the cap ensures neither shareholder's dividend ever drops to zero</span></li>
+      <li><span class="t-zh">划出本金归还后，<b>剩余</b>才按 60%（刘元元）／ 40%（Ms Coffy Yap）分红——本金未还清期间，Ms Coffy Yap 实收（本金＋分红）会高于单纯 40%，刘元元实收会低于单纯 60%，这正是「优先于分润」的实际效果</span><span class="t-en">After capital return is set aside, the <b>remainder</b> splits 60% (Yuan Yuan) / 40% (Ms Coffy Yap) as ordinary dividend — while principal is outstanding, Ms Coffy Yap's total (capital + dividend) runs above a plain 40% share, Yuan Yuan's below a plain 60% share — this is the real effect of "ahead of both shareholders' dividends"</span></li>
+      <li><span class="t-zh">哪一年剩余本金低于 40% 上限，当年归还金额改按剩余本金计算；还清后不再有这一步，往后每年全部恢复正常 60/40</span><span class="t-en">In whichever year the remaining principal falls below the 40% cap, that year's return is set at the remaining balance instead; once fully repaid, this step drops out and every later year reverts to a plain 60/40</span></li>
+      <li><span class="t-zh">可分配利润为零或负的年份不归还，余额不计息、原数结转下一年</span><span class="t-en">In a zero-or-negative-profit year, nothing is returned; the balance carries forward at no interest</span></li>
+    </ol>
+
+    <p class="body-text">
+      <span class="t-zh">完整测算见 <a href="#ch-founder-comp">8.4</a>：可分配利润 RM 1,007,456，40% 上限即 RM 402,982（本金远大于此数，上限生效），一年拿回 40.3% 的本金，剩余 RM 597,018 结转 Y2。</span>
+      <span class="t-en">See <a href="#ch-founder-comp">8.4</a> for the full worked example: distributable profit RM 1,007,456, the 40% cap = RM 402,982 (principal far exceeds this, so the cap binds), recovering 40.3% of principal in a single year, with RM 597,018 carried into Y2.</span>
+    </p>
+
+    <figure class="diagram">
+      <div class="diagram-scroll-hint"><span class="t-zh">← 左右滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
+      <div class="diagram-scroll">
+      <svg viewBox="0 0 620 200" role="img" aria-label="三年情境下本金累计回收比例：Worst情境Y3为0%，Normal情境Y3为69.5%，Best情境Y3为100%已还清" fill="currentColor">
+        <text x="0" y="39" font-size="11" font-weight="700" fill="var(--critical)">Worst</text>
+        <rect x="140" y="20" width="460" height="30" rx="6" fill="currentColor" fill-opacity=".08"/>
+        <text x="150" y="39" font-size="10.5" font-weight="700">0%</text>
+
+        <text x="0" y="104" font-size="11" font-weight="700" fill="var(--warning)">Normal</text>
+        <rect x="140" y="85" width="460" height="30" rx="6" fill="currentColor" fill-opacity=".08"/>
+        <rect x="140" y="85" width="320" height="30" rx="6" fill="var(--warning)"/>
+        <text x="470" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">69.5%</text>
+
+        <text x="0" y="169" font-size="11" font-weight="700" fill="var(--good)">Best</text>
+        <rect x="140" y="150" width="460" height="30" rx="6" fill="var(--good)"/>
+        <text x="370" y="169" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff"><tspan>100% </tspan><tspan class="t-zh">（已还清）</tspan><tspan class="t-en">(fully repaid)</tspan></text>
+
+        <line x1="600" y1="14" x2="600" y2="184" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="2,3"/>
+        <text x="600" y="10" text-anchor="end" font-size="9" opacity=".6">100%</text>
+      </svg>
+      </div>
+      <figcaption>
+        <span class="t-zh">图 6　三年情境下 Ms Coffy Yap 本金累计回收比例（Y3）：Worst 0%、Normal 69.5%、Best 100%（当年内还清）。逐年数据见下方展开表。</span>
+        <span class="t-en">Fig. 6  Cumulative capital recovered by Y3, across scenarios: Worst 0%, Normal 69.5%, Best 100% (repaid within the year). Year-by-year figures in the table below.</span>
+      </figcaption>
+    </figure>
+
+    <details class="disclose">
+      <summary><span class="t-zh">展开三年归还节奏推算（Worst／Normal／Best，简化版）</span><span class="t-en">Expand 3-year recovery pacing (Worst/Normal/Best, simplified)</span></summary>
+      <div class="disclose-body">
+        <div class="table-scroll">
+          <table class="data" style="margin-bottom:22px;">
+            <caption><span style="color:var(--critical);font-weight:700;">Worst</span></caption>
+            <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">年度净利（简化，承第七章）</span><span class="t-en">Annual net P&amp;L (simplified, per Ch. VII)</span></td><td class="neg">(663,200)</td><td class="neg">(843,872)</td><td class="neg">(522,969)</td></tr>
+              <tr><td><span class="t-zh">计入本金归还</span><span class="t-en">Applied to capital return</span></td><td>0</td><td>0</td><td>0</td></tr>
+              <tr class="total"><td><span class="t-zh">累积已归还本金</span><span class="t-en">Cumulative capital returned</span></td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td><span class="t-zh">累积回收比例</span><span class="t-en">Cumulative recovery</span></td><td>0%</td><td>0%</td><td>0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table class="data" style="margin-bottom:22px;">
+            <caption><span style="color:var(--warning);font-weight:700;">Normal</span></caption>
+            <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">年度净利（简化，承第七章）</span><span class="t-en">Annual net P&amp;L (simplified, per Ch. VII)</span></td><td class="neg">(103,200)</td><td class="pos">196,384</td><td class="pos">1,541,092</td></tr>
+              <tr><td><span class="t-zh">计入本金归还</span><span class="t-en">Applied to capital return</span></td><td>0</td><td>78,554</td><td>616,437</td></tr>
+              <tr class="total"><td><span class="t-zh">累积已归还本金</span><span class="t-en">Cumulative capital returned</span></td><td>0</td><td>78,554</td><td>694,990</td></tr>
+              <tr><td><span class="t-zh">累积回收比例</span><span class="t-en">Cumulative recovery</span></td><td>0%</td><td>7.9%</td><td>69.5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table class="data" style="margin-bottom:10px;">
+            <caption><span style="color:var(--good);font-weight:700;">Best</span></caption>
+            <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+            <tbody>
+              <tr><td><span class="t-zh">年度净利（简化，承第七章）</span><span class="t-en">Annual net P&amp;L (simplified, per Ch. VII)</span></td><td class="pos">176,800</td><td class="pos">1,236,640</td><td class="pos">3,605,154</td></tr>
+              <tr><td><span class="t-zh">计入本金归还</span><span class="t-en">Applied to capital return</span></td><td>70,720</td><td>494,656</td><td>434,624<sup>*</sup></td></tr>
+              <tr class="total"><td><span class="t-zh">累积已归还本金</span><span class="t-en">Cumulative capital returned</span></td><td>70,720</td><td>565,376</td><td>1,000,000</td></tr>
+              <tr><td><span class="t-zh">累积回收比例</span><span class="t-en">Cumulative recovery</span></td><td>7.1%</td><td>56.5%</td><td>100%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="body-text" style="font-size:13px;color:var(--ink-soft);margin-top:-4px;">
+          <span class="t-zh">* Best 情境 Y3，剩余未还本金 RM 434,624 低于 40% 上限（RM 1,442,062），故当年划出的本金归还以剩余本金为准，本金于当年内即全数还清；还清后，当年剩余的 RM 3,170,530 才恢复正常 60/40 分红——刘元元 RM 1,902,318、Ms Coffy Yap RM 1,268,212，Ms Coffy Yap 当年到手总额（本金归还＋分红）为 RM 1,702,836。</span>
+          <span class="t-en">* Under Best in Y3, the remaining unrecovered principal (RM 434,624) is below the 40% cap (RM 1,442,062), so that year's capital return is set at the remaining principal — the principal is fully repaid within the year. Once repaid, the year's remaining RM 3,170,530 reverts to an ordinary 60/40 split: RM 1,902,318 to Yuan Yuan, RM 1,268,212 to Ms Coffy Yap — bringing Ms Coffy Yap's total for the year (capital return + dividend) to RM 1,702,836.</span>
+        </p>
+      </div>
+    </details>
+
+    <div class="note">
+      <span class="t-zh"><b>说明　</b>以上三年推算沿用第七章「年度净利」（未扣 CEO 薪酬、奖金池、税项与储备金），属乐观上限，实际会更慢；上表只追踪 Ms Coffy Yap 的本金归还进度，不是两人当年实收的分红（分红算法见上文与 8.4）。建议在股东协议中为她设一个「本金余额」科目，每季度董事会检视（<a href="#ch-governance">第四章</a>），归还节奏与 40% 上限之调整亦列为保留事项。</span>
+      <span class="t-en"><b>Note　</b>The 3-year pacing above reuses Chapter VII's "annual net P&amp;L" (before CEO salary, the pool, tax and reserve are deducted) — an optimistic ceiling; the real pace will be slower. The table tracks only Ms Coffy Yap's capital-recovery progress, not either shareholder's actual dividend for the year (see above and 8.4 for that). The definitive agreement should track a "capital balance" account for her, reviewed quarterly by the board (<a href="#ch-governance">Chapter IV</a>); changes to the recovery pace or the 40% cap are also a reserved matter.</span>
+    </div>
+
+    <h3 class="sub"><span class="t-zh">8.7　Y1→Y2 现金衔接：情境与应对方案</span><span class="t-en">8.7　Y1→Y2 Cash Bridge: Scenarios &amp; Contingency Plans</span></h3>
+    <p class="body-text">
+      <span class="t-zh">第六章 RM 1,000,000 只覆盖 Y1；Y2 预算 RM 1,520,000，目前默认「公司自己造血」。反推第七章公式，Y1 打平点约 <b>6.7 间</b>——低于 7 间，Y1 净损，没有盈余带入 Y2；即使成交 8 间，净盈余也只有 RM 176,800，不到 Y2 一个半月的开销（月均约 RM 126,667），且「成交」不等于「到账」，实际可用现金可能更薄。</span>
+      <span class="t-en">Chapter VI's RM 1,000,000 covers Y1 only; the Y2 budget is RM 1,520,000, currently assumed to be self-funded. Working back from Chapter VII's formula, Y1 breakeven is ≈<b>6.7 deals</b> — below that, Y1 posts a loss and nothing carries into Y2; even at 8 deals, the surplus is only RM 176,800, barely six weeks of Y2's ~RM 126,667 monthly burn, and "closed" isn't "in the bank" — actual available cash could be thinner still.</span>
     </p>
 
     <div class="table-scroll">
       <table class="data">
-        <caption><span class="t-zh">Y1 ・ 20 间成交 ・ 含内容团队激励奖金池（RM）</span><span class="t-en">Y1 · 20 deals · with content talent incentive pool (RM)</span></caption>
-        <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th><span class="t-zh">金额</span><span class="t-en">Amount</span></th></tr></thead>
+        <caption><span class="t-zh">Y1 成交笔数 → Y1 净盈余 → 可覆盖 Y2 几个月开销（RM，简化推算）</span><span class="t-en">Y1 deal count → Y1 net surplus → months of Y2 burn covered (RM, simplified)</span></caption>
+        <thead><tr><th><span class="t-zh">项目</span><span class="t-en">Item</span></th><th>2<span class="t-zh">间</span></th><th>6<span class="t-zh">间</span></th><th>7<span class="t-zh">间</span></th><th>8<span class="t-zh">间</span></th><th>12<span class="t-zh">间</span></th><th>20<span class="t-zh">间</span></th></tr></thead>
         <tbody>
-          <tr><td><span class="t-zh">总收入（外推，20 间）</span><span class="t-en">Revenue (extrapolated, 20 deals)</span></td><td>2,856,800</td></tr>
-          <tr><td><span class="t-zh">营运成本（含 CEO 薪酬与制作团队制作费，第六章预算不变）</span><span class="t-en">Operating cost (incl. CEO salary and production team fees, Ch. VI budget unchanged)</span></td><td>1,000,000</td></tr>
-          <tr class="total"><td><span class="t-zh">发放奖金池前之利润</span><span class="t-en">Profit before the incentive pool</span></td><td>1,856,800</td></tr>
-          <tr><td><span class="t-zh">内容团队激励奖金池（8%）</span><span class="t-en">Content talent incentive pool (8%)</span></td><td class="neg">(148,544)</td></tr>
-          <tr><td style="padding-left:26px;"><span class="t-zh">→ 主持人（45%）</span><span class="t-en">→ Host (45%)</span></td><td>66,844</td></tr>
-          <tr><td style="padding-left:26px;"><span class="t-zh">→ 撰稿团队（20%）</span><span class="t-en">→ Scriptwriting team (20%)</span></td><td>29,709</td></tr>
-          <tr><td style="padding-left:26px;"><span class="t-zh">→ 后制团队（20%）</span><span class="t-en">→ Post-production team (20%)</span></td><td>29,709</td></tr>
-          <tr><td style="padding-left:26px;"><span class="t-zh">→ 拍摄团队（15%）</span><span class="t-en">→ Shooting crew (15%)</span></td><td>22,282</td></tr>
-          <tr class="total"><td><span class="t-zh">税前利润</span><span class="t-en">Profit before tax</span></td><td>1,708,256</td></tr>
-          <tr><td><span class="t-zh">企业所得税（SME 阶梯税率）</span><span class="t-en">Corporate tax (SME tiered rate)</span></td><td class="neg">(364,981)</td></tr>
-          <tr class="total"><td><span class="t-zh">税后净利</span><span class="t-en">Net profit after tax</span></td><td>1,343,275</td></tr>
-          <tr><td><span class="t-zh">预留储备金（25%）</span><span class="t-en">Retained reserve (25%)</span></td><td class="neg">(335,819)</td></tr>
-          <tr class="total"><td><span class="t-zh">可分配利润</span><span class="t-en">Distributable profit</span></td><td>1,007,456</td></tr>
-          <tr><td><span class="t-zh">→ 刘元元（60%）</span><span class="t-en">→ Yuan Yuan (60%)</span></td><td class="pos">604,474</td></tr>
-          <tr><td><span class="t-zh">→ Ms Coffy Yap（40%）</span><span class="t-en">→ Ms Coffy Yap (40%)</span></td><td class="pos">402,982</td></tr>
+          <tr><td><span class="t-zh">Y1 收入（外推）</span><span class="t-en">Y1 revenue (extrapolated)</span></td><td>336,800</td><td>896,800</td><td>1,036,800</td><td>1,176,800</td><td>1,736,800</td><td>2,856,800</td></tr>
+          <tr><td><span class="t-zh">Y1 净损益</span><span class="t-en">Y1 net P&amp;L</span></td><td class="neg">(663,200)</td><td class="neg">(103,200)</td><td class="pos">36,800</td><td class="pos">176,800</td><td class="pos">736,800</td><td class="pos">1,856,800</td></tr>
+          <tr class="total"><td><span class="t-zh">可覆盖 Y2 开销月数</span><span class="t-en">Months of Y2 burn covered</span></td><td>0</td><td>0</td><td>0.3</td><td>1.4</td><td>5.8</td><td>14.7</td></tr>
         </tbody>
       </table>
     </div>
 
     <p class="body-text" style="margin-top:18px;">
-      <span class="t-zh">对比 8.4：不设奖金池时，两位股东可分配利润合计 RM 1,092,126；设 8% 奖金池后降至 RM 1,007,456，即两位股东合计让出 RM 84,670，按 60/40 比例分摊——刘元元少拿 RM 50,802，Ms Coffy Yap 少拿 RM 33,868。换来的是内容供给不必绑死在单一创办人身上的稳定性。</span>
-      <span class="t-en">Compared with 8.4: without the pool, the two shareholders' combined distributable profit is RM 1,092,126; with an 8% pool it drops to RM 1,007,456 — a combined RM 84,670 given up, borne 60/40 (Yuan Yuan gives up RM 50,802, Ms Coffy Yap RM 33,868). What that buys is content supply that isn't hard-wired to one single founder.</span>
+      <span class="t-zh">与其假设「公司到时候自然会有钱」，更稳妥的做法是把 Y1→Y2 的现金衔接当成一个需要主动管理的风险点，按实际落点准备对应方案：</span>
+      <span class="t-en">Rather than assuming the company will simply have the cash when the time comes, it's safer to treat the Y1→Y2 cash bridge as a risk that needs active management, with a plan ready for wherever Y1 actually lands:</span>
     </p>
 
-    <div class="note">
-      <span class="t-zh"><b>关键人风险　</b>四个角色里，只有主持人对应单一个人，风险因此高度集中在这里：若主持人不是刘元元本人，TSM 的信任资产就从「绑定创办人」变成「绑定该主持人」，等于换了一种单点风险，这也是主持人拿到 45% 最大权重的核心原因。撰稿、拍摄、后制都改为团队编制，团队本身就有冗余，走一个人不至于伤到内容产出的连续性，市场上也有多家制作公司（如已提供报价的 Kaloz Production）可承接拍摄／后制，这是三者权重明显低于主持人的原因。建议：① 节目品牌／格式（全家私房钱 Money Money Home）与既有内容库之知识产权，明确归 TSM／刘元元所有，不随任何一位制作团队成员异动；② 与主持人的合约设置通知期与同业禁止条款，覆盖厂房／工业地产这一垂直领域，是四个角色中最需要严格把关的一份合约；③ 奖金池分期发放（如按季或按年结算，而非按集），提高留任诱因。此机制之设立与奖金池比例调整，建议一并列为<a href="#ch-governance">第四章</a>董事会保留事项。</span>
-      <span class="t-en"><b>Key-person risk　</b>Of the four roles, only the host maps to a single individual, so the risk concentrates there: if the host isn't Yuan Yuan, TSM's trust asset shifts from being tied to the founder to being tied to that host — a different single point of failure, not a solved one, and the core reason the host carries the pool's largest weight at 45%. The scriptwriting, shooting and post-production functions are all team-based, so they carry built-in redundancy — losing one person doesn't break content continuity — and several production houses in the market (including Kaloz Production, which has already quoted) can pick up shooting/post-production work, which is why all three sit well below the host's weight. Recommended: ① the show's brand/format (MoneyMoneyHome) and existing content library stay IP of TSM/Yuan Yuan regardless of who's on the production team; ② the host's contract carries a notice period and a non-compete covering the factory/industrial-real-estate vertical — the one contract among the four that most needs tight terms; ③ the incentive pool pays out periodically (quarterly or annually, not per episode) to strengthen retention. Setting up this mechanism and adjusting the pool percentage should also sit under <a href="#ch-governance">Chapter IV</a>'s board reserved matters.</span>
+    <div class="risk-grid">
+      <div class="risk-card" style="border-left-color:var(--critical);">
+        <h4><span class="tag" style="background:color-mix(in srgb, var(--critical) 16%, transparent);color:var(--critical);"><span class="t-zh">情况一</span><span class="t-en">Scenario 1</span></span><span class="t-zh">Y1 未满 7 间（未打平）</span><span class="t-en">Under 7 deals (below breakeven)</span></h4>
+        <p><span class="t-zh">Y1 净损，RM 1,000,000 全数用完，Y2 没有任何内部资金来源。</span><span class="t-en">Y1 posts a net loss, the full RM 1,000,000 is consumed, and Y2 has no internal funding source at all.</span></p>
+        <p class="fix"><b><span class="t-zh">方案　</span><span class="t-en">Fix　</span></b><span class="t-zh">触发预先约定的应急资金（RM 300,000–500,000，Ms Coffy Yap 认购，计入 8.6 本金余额、同样分阶段归还）；同步启用精简版 Y2 预算，只保留内容制作与核心团队；集中冲刺业配（引擎二）——现金周期以周计，用来顶住地产佣金到账前的空窗期。</span><span class="t-en">Trigger a pre-agreed contingency facility (RM 300,000–500,000, subscribed by Ms Coffy Yap, added to the 8.6 capital balance and subject to the same phased return); switch to a lean Y2 budget, keeping only content production and the core team; push hard on Engine Two sponsorship sales, whose cash cycle runs in weeks, to bridge the gap before real-estate commissions land.</span></p>
+      </div>
+      <div class="risk-card" style="border-left-color:var(--warning);">
+        <h4><span class="tag" style="background:color-mix(in srgb, var(--warning) 16%, transparent);color:var(--warning);"><span class="t-zh">情况二</span><span class="t-en">Scenario 2</span></span><span class="t-zh">Y1 约 7–9 间（勉强打平）</span><span class="t-en">Around 7–9 deals (barely breakeven)</span></h4>
+        <p><span class="t-zh">账面净利仅 RM 3.7 万–25 万，理论上没亏钱，但「打平」不等于「有现金」——已签约的佣金可能还卡在返佣流程里。</span><span class="t-en">Net profit on paper is only RM 37,000–250,000 — technically not a loss, but "breakeven" isn't "cash in hand": signed commissions may still be moving through the remittance pipeline.</span></p>
+        <p class="fix"><b><span class="t-zh">方案　</span><span class="t-en">Fix　</span></b><span class="t-zh">该年度暂停利润分配、全数留存（8.3 的 25% 储备金比例上调至 50%+，直到 Y2 资金确认到位）；Y2 预算按季核定释放，而非年初一次拨足；同样优先冲刺业配。</span><span class="t-en">Pause profit distribution and retain all distributable profit for the year (raise the 8.3 reserve ratio to 50%+ until Y2 funding is confirmed); release the Y2 budget quarterly against confirmed cash rather than committing it upfront; again prioritize sponsorship sales.</span></p>
+      </div>
+      <div class="risk-card" style="border-left-color:var(--good);">
+        <h4><span class="tag" style="background:color-mix(in srgb, var(--good) 16%, transparent);color:var(--good);"><span class="t-zh">情况三</span><span class="t-en">Scenario 3</span></span><span class="t-zh">Y1 明显超过 9–10 间</span><span class="t-en">Comfortably over 9–10 deals</span></h4>
+        <p><span class="t-zh">现金盈余较厚，足以覆盖 Y2 大部分甚至全部预算——原始「公司自己造血」假设真正成立的情况。</span><span class="t-en">The cash surplus is thick enough to plausibly cover most or all of Y2's budget — the one scenario where the original "self-funds" assumption actually holds.</span></p>
+        <p class="fix"><b><span class="t-zh">方案　</span><span class="t-en">Fix　</span></b><span class="t-zh">仍先确认年结时有多少是「真正到账」的现金，预留一部分跨年缓冲，其余才按 8.3／8.6 处理。</span><span class="t-en">Still confirm at year-end how much has actually landed in the bank, hold back a cross-year buffer, and only then run the rest through 8.3/8.6.</span></p>
+      </div>
     </div>
+
+    <div class="note">
+      <span class="t-zh"><b>建议　</b>不论落在哪种情况，Y1 Q3（约 9 月）按「实际到账现金」盘点，作为是否启动应急资金、下修 Y2 预算的依据（<a href="#ch-governance">第四章</a>季度议程）。应急资金若不计入股权资本，也可改为短期股东借款——不稀释、不改变股权与分润结构，仅约定还本条件。</span>
+      <span class="t-en"><b>Recommendation　</b>Whichever scenario plays out, check actual cash received at Y1 Q3 (≈September) as the trigger for drawing the contingency facility or scaling back Y2 (<a href="#ch-governance">Chapter IV</a>'s quarterly agenda). If preferred, the facility can be structured as a short-term shareholder loan instead — no dilution, no change to equity or profit split, just agreed repayment terms.</span>
+    </div>
+
   </div>
 </section>
 
@@ -1281,7 +1452,7 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <div class="risk-card">
         <h4><span class="tag">02</span><span class="t-zh">现金周期错配</span><span class="t-en">Cash-Cycle Mismatch</span></h4>
         <p><span class="t-zh">内容与团队成本按月前置支出，厂房交易周期长达 3–6 个月，Y1 恐出现现金缺口。</span><span class="t-en">Content and team costs are paid monthly up front, while factory deals take 3–6 months to close, so a Y1 cash gap is possible.</span></p>
-        <p class="fix"><b><span class="t-zh">建议　</span><span class="t-en">Fix　</span></b><span class="t-zh">预留营运周转金，或将启动资金分阶段拨付、与里程碑挂钩。</span><span class="t-en">Hold a working-capital buffer, or release funds in stages tied to milestones.</span></p>
+        <p class="fix"><b><span class="t-zh">建议　</span><span class="t-en">Fix　</span></b><span class="t-zh">预留营运周转金，或将启动资金分阶段拨付、与里程碑挂钩；同样的现金周期，也是启动资金要分阶段归还给 Ms Coffy Yap（<a href="#ch-founder-comp">第八章 8.6</a>），以及 Y1→Y2 需要一笔应急资金与情境应对方案（<a href="#ch-founder-comp">第八章 8.7</a>）的原因。</span><span class="t-en">Hold a working-capital buffer, or release funds in stages tied to milestones; the same cash cycle is why the startup capital is returned to Ms Coffy Yap in phases (<a href="#ch-founder-comp">Chapter VIII, 8.6</a>), and why the Y1→Y2 transition needs a contingency facility and scenario plans (<a href="#ch-founder-comp">Chapter VIII, 8.7</a>).</span></p>
       </div>
       <div class="risk-card">
         <h4><span class="tag">03</span><span class="t-zh">单一供应商依赖</span><span class="t-en">Single-Supplier Dependency</span></h4>
@@ -1309,9 +1480,9 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       </div>
     </div>
     <ol class="steps">
-      <li><span class="t-zh">双方就本建议书之股权比例（60% / 40%）、归属机制与治理条款进行协商，确认最终方案。</span><span class="t-en">Negotiate and confirm the final equity ratio (60%/40%), vesting mechanics and governance terms.</span></li>
+      <li><span class="t-zh">双方就本建议书之股权比例（60% / 40%，即时全额归属、不设 Vesting）与治理条款进行协商，确认最终方案。</span><span class="t-en">Negotiate and confirm the final equity ratio (60%/40%, vesting immediately and in full, no vesting schedule) and governance terms.</span></li>
       <li><span class="t-zh">确认刘元元 CEO 薪酬水平、盈利分配处理顺序与预留储备金比例（详见<a href="#ch-founder-comp">第八章</a>），一并纳入正式股东协议。</span><span class="t-en">Confirm Yuan Yuan's CEO salary level, the profit-distribution waterfall and the reserve ratio (<a href="#ch-founder-comp">Chapter VIII</a>), and fold them into the definitive shareholders' agreement.</span></li>
-      <li><span class="t-zh">委托律师拟定正式股东协议，明确股权归属、退出机制、优先认购权、反稀释条款及僵局处理机制等细节。</span><span class="t-en">Instruct counsel to draft the definitive shareholders' agreement, covering vesting, exit, pre-emptive rights, anti-dilution and deadlock resolution.</span></li>
+      <li><span class="t-zh">委托律师拟定正式股东协议，明确刘元元离职时的治理交接安排（股权不受影响）、优先认购权、反稀释条款及僵局处理机制等细节。</span><span class="t-en">Instruct counsel to draft the definitive shareholders' agreement, covering the governance handover if Yuan Yuan leaves (equity unaffected), pre-emptive rights, anti-dilution and deadlock resolution.</span></li>
       <li><span class="t-zh">核实并统一企划书、财务模型与官网页面之间的数字口径，作为对外募资或进一步合作前的必要尽职调查项目。</span><span class="t-en">Reconcile the figures across the proposal, financial model and website, as a required diligence item before further fundraising.</span></li>
       <li><span class="t-zh">以书面协议明确 NCT 合作细节，包括独家性、期限与佣金结算流程。</span><span class="t-en">Formalize the NCT arrangement in writing, covering exclusivity, term and the commission settlement process.</span></li>
       <li><span class="t-zh">委托会计师／税务顾问评估 TSM 之公司架构与本次出资之税务处理。</span><span class="t-en">Engage an accountant / tax advisor on TSM's corporate structure and the tax treatment of this investment.</span></li>
@@ -1402,8 +1573,8 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       </svg>
       </div>
       <figcaption>
-        <span class="t-zh">图 6　两人的投入汇入 TSM，按 60% ／ 40% 分股；三年后的结果，取决于落在 Worst、Normal、Best 哪一种成交节奏。</span>
-        <span class="t-en">Fig. 6  Both founders' contributions flow into TSM at a 60/40 split; the three-year result depends on which deal-pace scenario plays out.</span>
+        <span class="t-zh">图 7　两人的投入汇入 TSM，按 60% ／ 40% 分股；三年后的结果，取决于落在 Worst、Normal、Best 哪一种成交节奏。</span>
+        <span class="t-en">Fig. 7  Both founders' contributions flow into TSM at a 60/40 split; the three-year result depends on which deal-pace scenario plays out.</span>
       </figcaption>
     </figure>
 
