@@ -412,6 +412,11 @@ section.on-inset .diagram{background:color-mix(in srgb, #fff 4%, transparent);bo
   .diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-right:16px;margin-right:-16px;}
   .diagram-scroll svg{min-width:660px;width:660px;height:auto;}
   .diagram figcaption{padding-right:16px;}
+  /* tall, narrow diagrams (single-column flow, no side-by-side content) read fine
+     scaled down to the viewport — skip the forced min-width and the scroll hint */
+  .diagram-fit .diagram-scroll{overflow-x:visible;}
+  .diagram-fit .diagram-scroll svg{min-width:0;width:100%;}
+  .diagram-fit .diagram-scroll-hint{display:none;}
 }
 
 /* footer */
@@ -1084,61 +1089,61 @@ footer p{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
       <span class="t-en">Distributable profit isn't split straight down the line — it runs through the sequence below in order. <b>Capital return sits ahead of both shareholders' dividend</b> — the single most important point in this mechanism.</span>
     </p>
 
-    <figure class="diagram">
+    <figure class="diagram diagram-fit">
       <div class="diagram-scroll-hint"><span class="t-zh">← 上下滑动查看完整图表 →</span><span class="t-en">← Scroll to see the full diagram →</span></div>
       <div class="diagram-scroll">
-      <svg viewBox="0 0 620 526" role="img" aria-label="盈利分配处理顺序：总收入依序扣除营运成本、内容团队奖金池、企业所得税、预留储备金，得出可分配利润；再优先扣除本金归还（年度上限40%），剩余才按60/40分配给两位股东" fill="currentColor">
+      <svg viewBox="0 0 460 536" role="img" aria-label="盈利分配处理顺序：总收入依序扣除营运成本、内容团队奖金池、企业所得税、预留储备金，得出可分配利润；再优先扣除本金归还（年度上限40%），剩余才按60/40分配给两位股东" fill="currentColor">
         <defs>
           <marker id="arrow5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".55"/>
           </marker>
         </defs>
 
-        <rect x="10" y="6" width="600" height="30" rx="8" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
-        <text x="310" y="25" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">总收入</tspan><tspan class="t-en">Revenue</tspan></text>
+        <rect x="10" y="6" width="440" height="32" rx="8" fill="var(--navy)" fill-opacity=".12" stroke="var(--navy)"/>
+        <text x="230" y="27" text-anchor="middle" font-size="12" font-weight="700"><tspan class="t-zh">总收入</tspan><tspan class="t-en">Revenue</tspan></text>
 
-        <line x1="310" y1="36" x2="310" y2="74" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
-        <text x="330" y="60" font-size="10" opacity=".75"><tspan class="t-zh">− 营运成本（含 CEO 薪酬）</tspan><tspan class="t-en">− Operating costs (incl. CEO salary)</tspan></text>
+        <line x1="230" y1="38" x2="230" y2="52" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow5)"/>
+        <text x="230" y="70" text-anchor="middle" font-size="10.5" opacity=".75"><tspan class="t-zh">− 营运成本（含 CEO 薪酬）</tspan><tspan class="t-en">− Operating costs (incl. CEO salary)</tspan></text>
 
-        <rect x="10" y="78" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-        <text x="310" y="97" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">发放奖金池前之利润</tspan><tspan class="t-en">Profit before the incentive pool</tspan></text>
+        <rect x="10" y="80" width="440" height="32" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="230" y="101" text-anchor="middle" font-size="12" font-weight="700"><tspan class="t-zh">发放奖金池前之利润</tspan><tspan class="t-en">Profit before the incentive pool</tspan></text>
 
-        <line x1="310" y1="108" x2="310" y2="146" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
-        <text x="330" y="132" font-size="10" opacity=".75"><tspan class="t-zh">− 内容团队激励奖金池（8%，税前可扣）</tspan><tspan class="t-en">− Content talent incentive pool (8%, tax-deductible)</tspan></text>
+        <line x1="230" y1="112" x2="230" y2="126" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow5)"/>
+        <text x="230" y="144" text-anchor="middle" font-size="10.5" opacity=".75"><tspan class="t-zh">− 内容团队激励奖金池（8%，税前可扣）</tspan><tspan class="t-en">− Content talent incentive pool (8%, tax-deductible)</tspan></text>
 
-        <rect x="10" y="150" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-        <text x="310" y="169" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">税前利润</tspan><tspan class="t-en">Profit before tax</tspan></text>
+        <rect x="10" y="154" width="440" height="32" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="230" y="175" text-anchor="middle" font-size="12" font-weight="700"><tspan class="t-zh">税前利润</tspan><tspan class="t-en">Profit before tax</tspan></text>
 
-        <line x1="310" y1="180" x2="310" y2="218" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
-        <text x="330" y="204" font-size="10" opacity=".75"><tspan class="t-zh">− 企业所得税</tspan><tspan class="t-en">− Corporate tax</tspan></text>
+        <line x1="230" y1="186" x2="230" y2="200" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow5)"/>
+        <text x="230" y="218" text-anchor="middle" font-size="10.5" opacity=".75"><tspan class="t-zh">− 企业所得税</tspan><tspan class="t-en">− Corporate tax</tspan></text>
 
-        <rect x="10" y="222" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-        <text x="310" y="241" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">税后净利</tspan><tspan class="t-en">Net profit after tax</tspan></text>
+        <rect x="10" y="228" width="440" height="32" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="230" y="249" text-anchor="middle" font-size="12" font-weight="700"><tspan class="t-zh">税后净利</tspan><tspan class="t-en">Net profit after tax</tspan></text>
 
-        <line x1="310" y1="252" x2="310" y2="290" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
-        <text x="330" y="276" font-size="10" opacity=".75"><tspan class="t-zh">− 预留储备金（约 25%）</tspan><tspan class="t-en">− Retained reserve (~25%)</tspan></text>
+        <line x1="230" y1="260" x2="230" y2="274" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow5)"/>
+        <text x="230" y="292" text-anchor="middle" font-size="10.5" opacity=".75"><tspan class="t-zh">− 预留储备金（约 25%）</tspan><tspan class="t-en">− Retained reserve (~25%)</tspan></text>
 
-        <rect x="10" y="294" width="600" height="30" rx="8" fill="var(--jade)" fill-opacity=".12" stroke="var(--jade)"/>
-        <text x="310" y="313" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">= 可分配利润</tspan><tspan class="t-en">= Distributable profit</tspan></text>
+        <rect x="10" y="302" width="440" height="32" rx="8" fill="var(--jade)" fill-opacity=".12" stroke="var(--jade)"/>
+        <text x="230" y="323" text-anchor="middle" font-size="12" font-weight="700"><tspan class="t-zh">= 可分配利润</tspan><tspan class="t-en">= Distributable profit</tspan></text>
 
-        <line x1="310" y1="324" x2="310" y2="340" stroke="var(--copper-strong)" stroke-width="1.4" marker-end="url(#arrow5)"/>
+        <line x1="230" y1="334" x2="230" y2="348" stroke="var(--copper-strong)" stroke-width="1.4" marker-end="url(#arrow5)"/>
 
-        <rect x="60" y="344" width="500" height="46" rx="9" fill="var(--copper)" fill-opacity=".14" stroke="var(--copper)" stroke-opacity=".6"/>
-        <text x="310" y="364" text-anchor="middle" font-size="10.3" font-weight="700" fill="var(--copper-strong)"><tspan class="t-zh">− Ms Coffy Yap 本金归还（优先，年度上限 40%）</tspan><tspan class="t-en">− Ms Coffy Yap's capital return (priority, capped 40%/yr)</tspan></text>
-        <text x="310" y="380" text-anchor="middle" font-size="9" fill="var(--copper-strong)" opacity=".85"><tspan class="t-zh">排在两位股东分红之前</tspan><tspan class="t-en">ahead of both shareholders' dividend</tspan></text>
+        <rect x="20" y="352" width="420" height="48" rx="9" fill="var(--copper)" fill-opacity=".14" stroke="var(--copper)" stroke-opacity=".6"/>
+        <text x="230" y="373" text-anchor="middle" font-size="10.8" font-weight="700" fill="var(--copper-strong)"><tspan class="t-zh">− Ms Coffy Yap 本金归还（优先，年度上限 40%）</tspan><tspan class="t-en">− Ms Coffy Yap's capital return (priority, capped 40%/yr)</tspan></text>
+        <text x="230" y="390" text-anchor="middle" font-size="9.5" fill="var(--copper-strong)" opacity=".85"><tspan class="t-zh">排在两位股东分红之前</tspan><tspan class="t-en">ahead of both shareholders' dividend</tspan></text>
 
-        <line x1="310" y1="394" x2="310" y2="410" stroke="var(--copper-strong)" stroke-width="1.4" marker-end="url(#arrow5)"/>
+        <line x1="230" y1="400" x2="230" y2="414" stroke="var(--copper-strong)" stroke-width="1.4" marker-end="url(#arrow5)"/>
 
-        <rect x="10" y="414" width="600" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-        <text x="310" y="433" text-anchor="middle" font-size="11" font-weight="700"><tspan class="t-zh">分红前剩余利润</tspan><tspan class="t-en">Remaining profit for dividend</tspan></text>
+        <rect x="10" y="418" width="440" height="32" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="230" y="439" text-anchor="middle" font-size="12" font-weight="700"><tspan class="t-zh">分红前剩余利润</tspan><tspan class="t-en">Remaining profit for dividend</tspan></text>
 
-        <line x1="310" y1="444" x2="310" y2="480" stroke="currentColor" stroke-opacity=".45" marker-end="url(#arrow5)"/>
-        <text x="330" y="466" font-size="10" opacity=".75"><tspan class="t-zh">按 60 / 40 分配</tspan><tspan class="t-en">Split 60 / 40</tspan></text>
+        <line x1="230" y1="450" x2="230" y2="464" stroke="currentColor" stroke-opacity=".5" marker-end="url(#arrow5)"/>
+        <text x="230" y="482" text-anchor="middle" font-size="10.5" opacity=".75"><tspan class="t-zh">按 60 / 40 分配</tspan><tspan class="t-en">Split 60 / 40</tspan></text>
 
-        <rect x="10" y="484" width="290" height="36" rx="9" fill="var(--navy-solid)" stroke="var(--navy-solid)"/>
-        <text x="155" y="507" text-anchor="middle" font-size="11" font-weight="700" fill="#fff"><tspan class="t-zh">刘元元 60%</tspan><tspan class="t-en">Yuan Yuan 60%</tspan></text>
-        <rect x="320" y="484" width="290" height="36" rx="9" fill="var(--copper-solid)" stroke="var(--copper-solid)"/>
-        <text x="465" y="507" text-anchor="middle" font-size="11" font-weight="700" fill="#fff"><tspan class="t-zh">Ms Coffy Yap 40%</tspan><tspan class="t-en">Ms Coffy Yap 40%</tspan></text>
+        <rect x="10" y="492" width="212" height="38" rx="9" fill="var(--navy-solid)" stroke="var(--navy-solid)"/>
+        <text x="116" y="516" text-anchor="middle" font-size="12" font-weight="700" fill="#fff"><tspan class="t-zh">刘元元 60%</tspan><tspan class="t-en">Yuan Yuan 60%</tspan></text>
+        <rect x="238" y="492" width="212" height="38" rx="9" fill="var(--copper-solid)" stroke="var(--copper-solid)"/>
+        <text x="344" y="516" text-anchor="middle" font-size="12" font-weight="700" fill="#fff"><tspan class="t-zh">Ms Coffy Yap 40%</tspan><tspan class="t-en">Ms Coffy Yap 40%</tspan></text>
       </svg>
       </div>
       <figcaption>
