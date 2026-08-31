@@ -369,8 +369,8 @@ html.lang-en .stat-row .num.t-en{display:block;}
 .propbar-seg .pct{font-size:20px;font-weight:700;}
 .propbar-seg .who{font-size:10.5px;letter-spacing:.05em;opacity:.9;}
 .propbar-legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--ink-soft);}
-.propbar-legend span{display:inline-flex;align-items:center;gap:7px;}
-.propbar-legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+.propbar-legend > span{display:inline-flex;align-items:flex-start;gap:7px;max-width:100%;}
+.propbar-legend i{width:11px;height:11px;border-radius:3px;display:inline-block;flex-shrink:0;margin-top:3px;}
 
 /* equity rationale table */
 .rtable{width:100%;border-collapse:collapse;margin-top:26px;font-size:13.5px;}
@@ -382,6 +382,14 @@ html.lang-en .stat-row .num.t-en{display:block;}
 .rtable tr:nth-child(odd) td{background:color-mix(in srgb, var(--bg-raised) 55%, transparent);}
 .rtable .pct-cell{font-family:var(--font-mono);font-weight:700;font-size:16px;text-align:center;white-space:nowrap;}
 .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+.table-scroll-hint{display:none;}
+@media (max-width:640px){
+  .table-scroll-hint{
+    display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+    color:var(--ink-soft);margin:0 0 8px;text-align:center;
+  }
+  section.on-inset .table-scroll-hint{color:var(--ink-on-inset-soft);}
+}
 
 /* generic data table */
 table.data{width:100%;border-collapse:collapse;font-size:13px;min-width:460px;}
@@ -429,7 +437,7 @@ section.on-inset .seg-legend-item .cap{color:var(--ink-on-inset-soft);}
 .chart-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:4px;}
 .chart-sub{font-size:12px;color:var(--ink-soft);margin-bottom:14px;}
 .legend-row{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-soft);margin-top:10px;}
-.legend-row span{display:inline-flex;align-items:center;gap:7px;}
+.legend-row > span{display:inline-flex;align-items:center;gap:7px;}
 .legend-row i{width:20px;height:3px;border-radius:2px;display:inline-block;}
 
 figure{margin:0;}
@@ -573,8 +581,8 @@ footer .footer-links a:hover{color:var(--copper-strong);}
       </div>
     </div>
     <p class="body-text">
-      <span class="t-zh">The Standard Media（TSM）是「全家私房钱 2.0」内容生态系下的商业化实体。运作的逻辑其实很简单：用真实人物与产业故事赢得大众信任，内容里完全不卖东西、不置入任何产品或服务。等一段内容走到尾声，系统会从高意向的观众里抛出精准的 Hook，真正的成交与商业化，交给业务团队与合作伙伴在内容之外完成。</span>
-      <span class="t-en">The Standard Media (TSM) is the commercial entity behind the MoneyMoneyHome 2.0 content ecosystem. The logic behind it is fairly simple: real people and real industry stories earn public trust, and the content itself never pitches a product or service. Once a piece of content runs its course, a precise hook goes out to whichever viewers show high intent, and the business team and partners take it from there, closing the actual deal entirely outside the content.</span>
+      <span class="t-zh">The Standard Media（TSM）是「全家私房钱 2.0」内容生态系下的商业化实体，逻辑很简单：用真实人物与产业故事赢得大众信任，内容里完全不卖东西、不置入产品或服务。内容走到尾声，系统从高意向观众中抛出精准 Hook，真正的成交与商业化交由业务团队与合作伙伴在内容之外完成。</span>
+      <span class="t-en">The Standard Media (TSM) is the commercial entity behind the MoneyMoneyHome 2.0 content ecosystem. The logic is simple: real people and real industry stories earn public trust, and the content itself never pitches a product or service. Once a piece runs its course, a precise hook goes out to high-intent viewers, and the business team and partners close the actual deal entirely outside the content.</span>
     </p>
     <p class="body-text">
       <span class="t-zh">第一个内容企划《Coffee &amp; Capital》，锁定的是厂房与工业地产（大马规模最大、却也最不透明的一类资产）。内容累积下来的信任，最终转化成两条收入线：地产转介佣金，以及内容业配（详见<a href="#ch-commission">第五章</a>）。</span>
@@ -781,6 +789,7 @@ footer .footer-links a:hover{color:var(--copper-strong);}
       </div>
     </div>
 
+    <div class="table-scroll-hint"><span class="t-zh">← 左右滑动查看完整表格 →</span><span class="t-en">← Scroll to see the full table →</span></div>
     <div class="table-scroll">
       <table class="rtable">
         <thead><tr>
@@ -808,12 +817,12 @@ footer .footer-links a:hover{color:var(--copper-strong);}
 
     <h3 class="sub"><span class="t-zh">3.1　股权即时全额归属（不设 Vesting）</span><span class="t-en">3.1　Equity Vests Immediately in Full (No Vesting Schedule)</span></h3>
     <p class="body-text">
-      <span class="t-zh">建议双方股权在公司成立、股东协议签署时即 100% 归属，不设分期兑现（Vesting）机制或 Cliff。理由是：Vesting 通常用来保障「用未来的承诺换股权」这种情况——公司担心的是创办人才做了两个月就走人，却拿走大部分股份。但这套逻辑不完全适用于这次的架构：Ms Coffy Yap 的 RM 1,000,000 是一次性到位的资本，理所当然全额即时归属；刘元元的核心筹码——全家私房钱 IP／品牌资产（两季 26 集节目、80,000+ FB 粉丝、20,000+ YouTube 订阅、364 万历史观看、已验证的信任资产）——同样是她过去多年已经建立、即时带进 TSM 的既有资产，不是靠在 TSM 未来慢慢累积出来的承诺。既然两边的核心筹码都是「即时到位」，股权归属的时间点也应该一致：都不设 Vesting。至于刘元元往后持续投入的全职劳动，则透过第八章的 CEO 薪酬机制单独、按月支付，不需要再靠股权分期兑现来做「防止中途离开」的保险。</span>
-      <span class="t-en">Both parties' equity is proposed to vest 100% immediately at incorporation / signing of the shareholders' agreement, with no vesting schedule or cliff. Vesting typically exists to protect against a founder trading a future promise for equity — the company's worry is someone leaving after two months while walking away with most of the stock. That logic doesn't map cleanly onto this structure: Ms Coffy Yap's RM 1,000,000 is a one-time capital injection, so it's straightforward for it to vest in full immediately; Yuan Yuan's core chip — the MoneyMoneyHome IP/brand asset (2 seasons/26 episodes, 80,000+ FB fans, 20,000+ YouTube subs, 3.64M lifetime views, a proven trust asset) — is likewise an existing asset she built over years and brings to TSM on day one, not a promise to be earned gradually on TSM's clock. Since both sides' core chips are delivered upfront, the vesting timing should match: neither vests over time. Yuan Yuan's ongoing full-time labor going forward is instead compensated directly and separately through the CEO salary mechanism in Chapter VIII, paid monthly — it doesn't need equity vesting to serve as an "early-departure" insurance policy.</span>
+      <span class="t-zh">建议双方股权在公司成立、股东协议签署时即 100% 归属，不设 Vesting 或 Cliff。Vesting 通常是为了防范「创办人拿了股权却提早离场」，但这里不适用：Ms Coffy Yap 的 RM 1,000,000 一次性到位，理应即时全额归属；刘元元的核心筹码——全家私房钱 IP／品牌资产（两季 26 集节目、80,000+ FB 粉丝、20,000+ YouTube 订阅、364 万历史观看、已验证的信任资产）——同样是她过去多年已建立、即时带进 TSM 的既有资产，而非未来慢慢兑现的承诺。两边核心筹码都即时到位，归属时点也应一致。至于她往后持续投入的全职劳动，则透过第八章 CEO 薪酬机制按月单独支付，不需要再靠股权分期来防止中途离开。</span>
+      <span class="t-en">Both parties' equity is proposed to vest 100% immediately at incorporation, with no vesting schedule or cliff. Vesting typically guards against a founder trading a future promise for equity and leaving early with most of the stock — that risk doesn't apply here. Ms Coffy Yap's RM 1,000,000 is a one-time injection, so it vests in full immediately; Yuan Yuan's core chip — the MoneyMoneyHome IP/brand asset (2 seasons/26 episodes, 80,000+ FB fans, 20,000+ YouTube subs, 3.64M lifetime views, a proven trust asset) — is likewise an existing asset built over years and delivered to TSM on day one, not a promise earned gradually. Since both sides' core chips arrive upfront, vesting timing should match. Her ongoing full-time labor is instead compensated separately and monthly through the Chapter VIII CEO salary — equity vesting isn't needed as insurance against an early exit.</span>
     </p>
     <div class="note">
-      <span class="t-zh"><b>若刘元元离职　</b>股权不受影响，公司另聘新 CEO 接手日常营运即可——这是与「即时全额归属」逻辑一致的立场，而非疏忽：股权既然不是靠她持续在职才慢慢兑现，那么反过来，离职也不该触发任何形式的股权回购或没收，否则等于换个名目重新引入 Vesting（用「Leaver 条款」取代「兑现时间表」，本质上仍是把股权跟在职与否绑在一起）。CEO 是一个可替换的营运角色，全家私房钱这项 IP／品牌资产才是她换取 60% 股权的对价，而这项资产已在签署时即时、完整地带进 TSM，不因日后由谁担任 CEO 而改变归属。</span>
-      <span class="t-en"><b>If Yuan Yuan leaves　</b>equity is unaffected; the company simply hires a new CEO to run day-to-day operations. This follows directly from — not as an exception to — the "vests immediately in full" logic: if equity isn't earned gradually by staying, then leaving shouldn't trigger any buyback or forfeiture either, since doing so would just reintroduce vesting under another name (a leaver clause substitutes a repurchase trigger for a vesting schedule, but both still tie equity to continued tenure). CEO is a replaceable operating role; the MoneyMoneyHome IP/brand asset is what she traded for her 60%, and that asset is delivered to TSM in full at signing, regardless of who holds the CEO title afterward.</span>
+      <span class="t-zh"><b>若刘元元离职　</b>股权不受影响，公司另聘新 CEO 接手日常营运即可。这与「即时全额归属」逻辑一致，而非疏忽：股权既非靠她持续在职才慢慢兑现，离职自然也不该触发回购或没收——否则等于换个名目重新引入 Vesting（用「Leaver 条款」取代「兑现时间表」，本质相同）。CEO 是可替换的营运角色，全家私房钱这项 IP／品牌资产才是她换取 60% 股权的对价，且已在签署时完整交付，不因日后由谁任 CEO 而改变归属。</span>
+      <span class="t-en"><b>If Yuan Yuan leaves　</b>equity is unaffected; the company simply hires a new CEO. This follows the same logic as "vests immediately in full": if equity isn't earned gradually by staying, leaving shouldn't trigger a buyback or forfeiture either — that would just reintroduce vesting under another name (a leaver clause instead of a vesting schedule, same effect). CEO is a replaceable operating role; the MoneyMoneyHome IP/brand asset is what she traded for her 60%, delivered in full at signing regardless of who holds the CEO title afterward.</span>
     </div>
 
     <ul class="stack">
@@ -1136,8 +1145,8 @@ footer .footer-links a:hover{color:var(--copper-strong);}
       </div>
     </div>
     <p class="lede">
-      <span class="t-zh">刘元元全职出任 CEO，理论上可以、也建议同时透过两条不同性质的通道从 TSM 取得报酬：作为员工领取市场水平的固定月薪，以及作为 60% 股东按比例领取盈利分红。两者性质不同、不互相替代，也不构成「重复拿钱」——Ms Coffy Yap 同样以 40% 股权分享公司利润，却不需要投入全职人力；刘元元的薪酬正是对这部分「Coffy 不需要做、但元元必须做」的劳力与机会成本的补偿。</span>
-      <span class="t-en">As full-time CEO, Yuan Yuan can — and should — draw pay from TSM through two distinct channels: a market-rate fixed monthly salary as an employee, and a profit distribution as a 60% shareholder. The two aren't the same thing, and one doesn't substitute for the other, nor is it "double-dipping": Ms Coffy Yap also shares in company profit through her 40% stake without contributing full-time labor. Yuan Yuan's salary is precisely the compensation for the labor and opportunity cost Coffy doesn't have to put in.</span>
+      <span class="t-zh">刘元元全职出任 CEO，建议同时透过两条通道取酬：作为员工领取市场水平固定月薪，以及作为 60% 股东按比例领取分红。两者性质不同，不构成「重复拿钱」——Ms Coffy Yap 同样以 40% 股权分享利润，却不必投入全职人力；薪酬正是补偿元元这份「Coffy 不需要做、但元元必须做」的劳力与机会成本。</span>
+      <span class="t-en">As full-time CEO, Yuan Yuan should draw pay through two channels: a market-rate fixed monthly salary as an employee, and a profit distribution as a 60% shareholder. The two aren't "double-dipping" — Ms Coffy Yap also shares in profit via her 40% stake without contributing full-time labor; the salary compensates Yuan Yuan for exactly the labor and opportunity cost Coffy doesn't bear.</span>
     </p>
 
     <h3 class="sub"><span class="t-zh">8.1　两条报酬通道</span><span class="t-en">8.1　Two Compensation Tracks</span></h3>
@@ -1248,8 +1257,8 @@ footer .footer-links a:hover{color:var(--copper-strong);}
       <li><span class="t-zh"><b>= 两位股东分红</b>　剩余部分才按 60%（刘元元）／ 40%（Ms Coffy Yap）分配</span><span class="t-en"><b>= Shareholder dividend</b>　Only the remainder splits 60% (Yuan Yuan) / 40% (Ms Coffy Yap)</span></li>
     </ol>
     <div class="note">
-      <span class="t-zh"><b>关于顺序的补充　</b>奖金池与本金归还性质不同：奖金池是税前可扣税费用，影响利润表本身；本金归还只影响可分配利润<b>如何</b>分给两位股东，不影响税项计算，但同样排在分红<b>之前</b>。两者都不改变两位股东 60/40 的分配比例本身。</span>
-      <span class="t-en"><b>A note on the order　</b>The pool and capital return work differently: the pool is a pre-tax deductible expense that affects the P&amp;L itself, while capital return only affects <b>how</b> distributable profit is split — it doesn't touch the tax calculation, but it still sits <b>ahead of</b> the dividend. Neither changes the underlying 60/40 ratio.</span>
+      <span class="t-zh"><b>关于顺序的补充　</b>两者性质不同：奖金池是税前可扣费用，影响利润表本身；本金归还只影响可分配利润<b>如何</b>分给两位股东，不涉及税项，但同样排在分红<b>之前</b>。两者都不改变 60/40 的分配比例本身。</span>
+      <span class="t-en"><b>A note on the order　</b>The pool and capital return work differently: the pool is a pre-tax deductible expense affecting the P&amp;L itself, while capital return only affects <b>how</b> distributable profit is split — it doesn't touch tax, but still sits <b>ahead of</b> the dividend. Neither changes the underlying 60/40 ratio.</span>
     </div>
 
     <h3 class="sub"><span class="t-zh">8.4　情境测算：Y1 成交 20 间厂房（完整分配测算）</span><span class="t-en">8.4　Scenario: 20 Factory Deals in Year 1 (Full Distribution Walk-Through)</span></h3>
@@ -1292,8 +1301,8 @@ footer .footer-links a:hover{color:var(--copper-strong);}
 
     <h3 class="sub" id="ch-founder-comp-talent"><span class="t-zh">8.5　内容制作团队激励机制：拆分比例与发放时点</span><span class="t-en">8.5　Content Production Team Incentive: Split Ratios &amp; Payout Timing</span></h3>
     <p class="body-text">
-      <span class="t-zh">制作团队（主持人、撰稿、拍摄、后制）不是股东，报酬留在营运成本内；但内容贡献很难精确追溯到某一笔成交，因此采「固定制作费＋利润挂钩奖金池」两段式，而非按笔抽成（BD 团队因直接促成成交，按<a href="#ch-commission">5.2</a>抽成 20%，性质不同）。</span>
-      <span class="t-en">The production team (host, scriptwriting, shooting, post-production) aren't shareholders, so their pay stays inside operating costs. But their contribution can't be traced to any one deal, so it's structured as a fixed fee plus a profit-linked pool, not a per-deal commission (BD earns a 20% commission under <a href="#ch-commission">5.2</a> because it closes deals directly — a different case).</span>
+      <span class="t-zh">制作团队（主持人、撰稿、拍摄、后制）非股东，报酬计入营运成本；因内容贡献难以追溯到单笔成交，采「固定制作费＋利润挂钩奖金池」两段式，而非按笔抽成（BD 团队直接促成成交，按<a href="#ch-commission">5.2</a>抽成 20%，性质不同）。</span>
+      <span class="t-en">The production team (host, scriptwriting, shooting, post-production) aren't shareholders, so their pay stays in operating costs. Since their contribution can't be traced to any one deal, it's structured as a fixed fee plus a profit-linked pool, not a per-deal commission (BD earns 20% under <a href="#ch-commission">5.2</a> because it closes deals directly — a different case).</span>
     </p>
 
     <div class="founder-grid">
@@ -1318,8 +1327,8 @@ footer .footer-links a:hover{color:var(--copper-strong);}
     </div>
 
     <div class="note">
-      <span class="t-zh"><b>关键人风险　</b>主持人是唯一对应单一个人的角色，风险因此高度集中——若非刘元元本人主持，TSM 的信任资产就从「绑定创办人」变成「绑定该主持人」。建议：① 节目品牌（全家私房钱）与内容库 IP 明确归 TSM／刘元元，不随人员异动；② 主持人合约设通知期与同业禁止条款（覆盖厂房／工业地产垂直领域），是四个角色中最需严格把关的一份；③ 奖金池分期发放，提高留任诱因（见下）。此机制与比例调整，建议列为<a href="#ch-governance">第四章</a>董事会保留事项。</span>
-      <span class="t-en"><b>Key-person risk　</b>The host is the only role tied to one individual, so risk concentrates there — if it isn't Yuan Yuan herself, TSM's trust asset shifts from being tied to the founder to being tied to that host. Recommended: ① the show's brand (MoneyMoneyHome) and content-library IP stay with TSM/Yuan Yuan regardless of who's on the team; ② the host's contract carries a notice period and a non-compete covering the factory/industrial-real-estate vertical — the one contract among the four that most needs tight terms; ③ the pool pays out in stages to strengthen retention (below). A <a href="#ch-governance">Chapter IV</a> board reserved matter.</span>
+      <span class="t-zh"><b>关键人风险　</b>主持人是唯一对应单一个人的角色，风险高度集中——若非刘元元本人主持，TSM 的信任资产将从「绑定创办人」变成「绑定该主持人」。建议：① 品牌（全家私房钱）与内容库 IP 明确归 TSM／刘元元；② 主持人合约设通知期与同业禁止条款（覆盖厂房／工业地产垂直），是四份合约中最需严格把关的一份；③ 奖金池分期发放以提高留任诱因（见下）。此机制列为<a href="#ch-governance">第四章</a>董事会保留事项。</span>
+      <span class="t-en"><b>Key-person risk　</b>The host is the only role tied to one individual, so risk concentrates there — if it isn't Yuan Yuan herself, TSM's trust asset shifts from the founder to that host. Recommended: ① the brand (MoneyMoneyHome) and content-library IP stay with TSM/Yuan Yuan regardless of who's on the team; ② the host's contract carries a notice period and a non-compete covering the factory/industrial-real-estate vertical — the tightest of the four contracts; ③ the pool pays out in stages to strengthen retention (below). A <a href="#ch-governance">Chapter IV</a> board reserved matter.</span>
     </div>
 
     <h4 style="font-size:1rem;font-weight:700;margin:22px 0 10px;color:var(--ink);"><span class="t-zh">发放时点：两道门槛先过，再分两批</span><span class="t-en">Payout timing: two gates, then two tranches</span></h4>
@@ -1360,7 +1369,7 @@ footer .footer-links a:hover{color:var(--copper-strong);}
     <h4 style="font-size:1rem;font-weight:700;margin:22px 0 10px;color:var(--ink);"><span class="t-zh">机制：本金归还优先于两位股东分润，但每年封顶为可分配利润的 40%</span><span class="t-en">Mechanism: capital return takes priority over both shareholders' dividends, capped at 40% of distributable profit per year</span></h4>
     <ol class="steps">
       <li><span class="t-zh">当年本金归还 ＝「剩余未还本金」与「可分配利润的 <b>40%</b>」两者中较小者——上限确保任何一年两人都不会分润归零</span><span class="t-en">This year's capital return = the smaller of the remaining unrecovered principal and <b>40%</b> of distributable profit — the cap ensures neither shareholder's dividend ever drops to zero</span></li>
-      <li><span class="t-zh">划出本金归还后，<b>剩余</b>才按 60%（刘元元）／ 40%（Ms Coffy Yap）分红——本金未还清期间，Ms Coffy Yap 实收（本金＋分红）会高于单纯 40%，刘元元实收会低于单纯 60%，这正是「优先于分润」的实际效果</span><span class="t-en">After capital return is set aside, the <b>remainder</b> splits 60% (Yuan Yuan) / 40% (Ms Coffy Yap) as ordinary dividend — while principal is outstanding, Ms Coffy Yap's total (capital + dividend) runs above a plain 40% share, Yuan Yuan's below a plain 60% share — this is the real effect of "ahead of both shareholders' dividends"</span></li>
+      <li><span class="t-zh">划出本金归还后，<b>剩余</b>才按 60%（刘元元）／ 40%（Ms Coffy Yap）分红——本金未还清期间，Ms Coffy Yap 实收（本金＋分红）高于单纯 40%，刘元元实收低于单纯 60%，这正是「优先于分润」的实际效果</span><span class="t-en">After capital return is set aside, the <b>remainder</b> splits 60% (Yuan Yuan) / 40% (Ms Coffy Yap) as ordinary dividend — while principal is outstanding, Ms Coffy Yap's total (capital + dividend) runs above a plain 40% share and Yuan Yuan's below a plain 60% share, which is the real effect of "ahead of both shareholders' dividends"</span></li>
       <li><span class="t-zh">哪一年剩余本金低于 40% 上限，当年归还金额改按剩余本金计算；还清后不再有这一步，往后每年全部恢复正常 60/40</span><span class="t-en">In whichever year the remaining principal falls below the 40% cap, that year's return is set at the remaining balance instead; once fully repaid, this step drops out and every later year reverts to a plain 60/40</span></li>
       <li><span class="t-zh">可分配利润为零或负的年份不归还，余额不计息、原数结转下一年</span><span class="t-en">In a zero-or-negative-profit year, nothing is returned; the balance carries forward at no interest</span></li>
     </ol>
@@ -1444,14 +1453,14 @@ footer .footer-links a:hover{color:var(--copper-strong);}
     </details>
 
     <div class="note">
-      <span class="t-zh"><b>说明　</b>以上三年推算沿用第七章「年度净利」（未扣 CEO 薪酬、奖金池、税项与储备金），属乐观上限，实际会更慢；上表只追踪 Ms Coffy Yap 的本金归还进度，不是两人当年实收的分红（分红算法见上文与 8.4）。建议在股东协议中为她设一个「本金余额」科目，每季度董事会检视（<a href="#ch-governance">第四章</a>），归还节奏与 40% 上限之调整亦列为保留事项。</span>
-      <span class="t-en"><b>Note　</b>The 3-year pacing above reuses Chapter VII's "annual net P&amp;L" (before CEO salary, the pool, tax and reserve are deducted) — an optimistic ceiling; the real pace will be slower. The table tracks only Ms Coffy Yap's capital-recovery progress, not either shareholder's actual dividend for the year (see above and 8.4 for that). The definitive agreement should track a "capital balance" account for her, reviewed quarterly by the board (<a href="#ch-governance">Chapter IV</a>); changes to the recovery pace or the 40% cap are also a reserved matter.</span>
+      <span class="t-zh"><b>说明　</b>以上三年推算沿用第七章「年度净利」（未扣 CEO 薪酬、奖金池、税项与储备金），属乐观上限，实际会更慢；上表仅追踪 Ms Coffy Yap 的本金归还进度，非两人当年实收分红（分红算法见上文与 8.4）。建议为她在股东协议中设「本金余额」科目，每季由董事会检视（<a href="#ch-governance">第四章</a>），归还节奏与 40% 上限之调整亦列为保留事项。</span>
+      <span class="t-en"><b>Note　</b>The 3-year pacing above reuses Chapter VII's "annual net P&amp;L" (before CEO salary, the pool, tax and reserve) — an optimistic ceiling; the real pace will be slower. The table tracks only Ms Coffy Yap's capital-recovery progress, not either shareholder's actual dividend (see above and 8.4). The agreement should track a "capital balance" account for her, reviewed quarterly by the board (<a href="#ch-governance">Chapter IV</a>); changes to the pace or the 40% cap are also a reserved matter.</span>
     </div>
 
     <h3 class="sub"><span class="t-zh">8.7　Y1→Y2 现金衔接：情境与应对方案</span><span class="t-en">8.7　Y1→Y2 Cash Bridge: Scenarios &amp; Contingency Plans</span></h3>
     <p class="body-text">
-      <span class="t-zh">第六章 RM 1,000,000 只覆盖 Y1；Y2 预算 RM 1,520,000，目前默认「公司自己造血」。反推第七章公式，Y1 打平点约 <b>6.7 间</b>——低于 7 间，Y1 净损，没有盈余带入 Y2；即使成交 8 间，净盈余也只有 RM 176,800，不到 Y2 一个半月的开销（月均约 RM 126,667），且「成交」不等于「到账」，实际可用现金可能更薄。</span>
-      <span class="t-en">Chapter VI's RM 1,000,000 covers Y1 only; the Y2 budget is RM 1,520,000, currently assumed to be self-funded. Working back from Chapter VII's formula, Y1 breakeven is ≈<b>6.7 deals</b> — below that, Y1 posts a loss and nothing carries into Y2; even at 8 deals, the surplus is only RM 176,800, barely six weeks of Y2's ~RM 126,667 monthly burn, and "closed" isn't "in the bank" — actual available cash could be thinner still.</span>
+      <span class="t-zh">第六章 RM 1,000,000 只覆盖 Y1；Y2 预算 RM 1,520,000，目前默认「公司自己造血」。按第七章公式反推，Y1 打平点约 <b>6.7 间</b>——低于此数即净损，没有盈余带入 Y2；即使成交 8 间，净盈余仅 RM 176,800，不到 Y2 一个半月开销（月均约 RM 126,667），且「成交」不等于「到账」，实际可用现金可能更薄。</span>
+      <span class="t-en">Chapter VI's RM 1,000,000 covers Y1 only; the Y2 budget is RM 1,520,000, currently assumed to be self-funded. Working back from Chapter VII's formula, Y1 breakeven is ≈<b>6.7 deals</b> — below that, Y1 posts a loss and nothing carries into Y2; even at 8 deals, the surplus is only RM 176,800, barely six weeks of Y2's ~RM 126,667 monthly burn, and "closed" isn't "in the bank."</span>
     </p>
 
     <div class="table-scroll">
