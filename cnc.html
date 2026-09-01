@@ -39,6 +39,7 @@
   }
 
   *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--navy-deep);
@@ -57,7 +58,7 @@
   /* keeps a Chinese word/term intact so automatic line-wrapping never splits it mid-word */
   .nw{white-space:nowrap;}
 
-  .band{padding:4.5rem 1.5rem;}
+  .band{padding:4.5rem 1.5rem;scroll-margin-top:76px;}
   .band.dark{background:var(--navy-deep);color:#fff;}
   .band.light{background:var(--cream);color:var(--ink);}
   .band-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:2rem;}
@@ -319,21 +320,78 @@
   }
 
   .lang-toggle{
-    position:fixed;top:14px;right:14px;z-index:9999;
     background:var(--copper);color:var(--navy-deep);
-    border:none;border-radius:999px;padding:.55rem 1.1rem;
-    font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:.8rem;
-    letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);
-    display:flex;align-items:center;gap:.4rem;
+    border:none;border-radius:999px;padding:.45rem 1rem;
+    font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:.75rem;
+    letter-spacing:.05em;cursor:pointer;flex-shrink:0;
+    display:inline-flex;align-items:center;gap:.4rem;
   }
   .lang-toggle:hover{background:var(--copper-light);}
   .lang-toggle:active{transform:translateY(1px);}
-  @media (max-width:640px){
-    .lang-toggle{top:8px;right:8px;padding:.45rem .85rem;font-size:.72rem;}
+
+  /* ============ Site header / nav ============ */
+  .site-header{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(20,29,51,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--navy-line);
+  }
+  .site-header-inner{
+    max-width:1080px;margin:0 auto;position:relative;
+    display:flex;align-items:center;gap:1rem;
+    padding:.8rem 1.5rem;
+  }
+  .site-logo{
+    font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;
+    font-size:1.05rem;color:#fff;letter-spacing:.02em;text-decoration:none;flex-shrink:0;
+  }
+  .site-nav{display:flex;align-items:center;gap:1.5rem;margin-left:auto;}
+  .nav-link{
+    font-family:'IBM Plex Mono',monospace;font-size:.76rem;font-weight:600;
+    letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;
+    color:var(--muted-dark);text-decoration:none;
+  }
+  .nav-link:hover{color:var(--copper-light);}
+  .hamburger-btn{
+    display:none;flex-direction:column;justify-content:center;gap:5px;
+    width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;
+    margin-left:auto;flex-shrink:0;
+  }
+  .hamburger-btn span{display:block;width:100%;height:2px;background:#fff;border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+  .hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger-btn.open span:nth-child(2){opacity:0;}
+  .hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:860px){
+    .hamburger-btn{display:flex;}
+    .site-nav{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:0;margin-left:0;
+      background:var(--navy-deep);border-bottom:1px solid var(--navy-line);
+      padding:.3rem 1.5rem 1.1rem;max-height:calc(100vh - 56px);overflow-y:auto;
+    }
+    .site-nav.open{display:flex;}
+    .nav-link{padding:.85rem 0;border-bottom:1px solid var(--navy-line);font-size:.85rem;}
+    .site-nav .lang-toggle{align-self:flex-start;margin-top:1rem;}
   }
 </style>
 </head>
-<body><button aria-label="Switch language" class="lang-toggle" id="lang-toggle-btn" type="button">EN</button>
+<body>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-logo" href="#s1">THE STANDARD</a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Menu" class="hamburger-btn" id="hamburger-btn" type="button"><span></span><span></span><span></span></button>
+<nav class="site-nav" id="site-nav">
+<a class="nav-link" href="#s2" id="i18n-218">商机</a>
+<a class="nav-link" href="#s5" id="i18n-219">商业模式</a>
+<a class="nav-link" href="#s6" id="i18n-220">案例</a>
+<a class="nav-link" href="#s8" id="i18n-221">团队</a>
+<a class="nav-link" href="#s10" id="i18n-222">财务预测</a>
+<a class="nav-link" href="#s16" id="i18n-223">资金邀请</a>
+<a class="nav-link" href="#s18" id="i18n-224">附录</a>
+<button aria-label="Switch language" class="lang-toggle" id="lang-toggle-btn" type="button">EN</button>
+</nav>
+</div>
+</header>
 <!-- ============ 01 / COVER ============ -->
 <section class="band dark" id="s1">
 <div class="band-inner">
@@ -1208,7 +1266,14 @@
   "i18n-214": `Kick off 2–3 co-broke partner conversations in parallel ・ <span style="color:var(--green);font-weight:700;">Feasible</span>`,
   "i18n-215": `Pre-sell at least 2 sponsorship packages ・ <span style="color:var(--green);font-weight:700;">Feasible</span>`,
   "i18n-216": `MoneyMoneyHome 2.0 isn't short on trust — what it's short on is converting that trust into deals running in parallel, faster. <b>That's exactly what this RM 1,000,000 should really be optimizing for.</b>`,
-  "i18n-217": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`
+  "i18n-217": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
+  "i18n-218": `Opportunity`,
+  "i18n-219": `Business Model`,
+  "i18n-220": `Case Studies`,
+  "i18n-221": `Team`,
+  "i18n-222": `Financial Forecast`,
+  "i18n-223": `The Ask`,
+  "i18n-224": `Appendix`
 };
   var originalHTML = {};
   var currentLang = 'zh';
@@ -1238,6 +1303,23 @@
     if(btn){
       btn.addEventListener('click', function(){
         applyLang(currentLang === 'zh' ? 'en' : 'zh');
+      });
+    }
+
+    var hamburger = document.getElementById('hamburger-btn');
+    var siteNav = document.getElementById('site-nav');
+    if(hamburger && siteNav){
+      hamburger.addEventListener('click', function(){
+        var isOpen = siteNav.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      siteNav.querySelectorAll('.nav-link').forEach(function(a){
+        a.addEventListener('click', function(){
+          siteNav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
       });
     }
   });
