@@ -8,7 +8,7 @@
 <!-- Link-preview tags (WhatsApp, Facebook, Telegram, etc. all read Open Graph) -->
 <meta content="website" property="og:type"/>
 <meta content="The Standard" property="og:site_name"/>
-<meta content="https://thestandard.rexilion.com/cnc" property="og:url"/>
+<meta content="https://thestandard.rexilion.com/" property="og:url"/>
 <meta content="THE STANDARD" property="og:title"/>
 <meta content="全家私房钱 2.0 生态系与投资提案" property="og:description"/>
 <!-- Twitter Card falls back to the og: tags above if these are omitted, kept here for completeness -->
@@ -17,7 +17,7 @@
 <meta content="全家私房钱 2.0 生态系与投资提案" name="twitter:description"/>
 <link href="https://fonts.googleapis.com/" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&amp;family=Noto+Sans+SC:wght@400;500;700;900&amp;family=IBM+Plex+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="./THE STANDARD ｜ 全家私房钱 2.0_files/css2" rel="stylesheet"/>
 <style>
   :root{
     --navy-deep:#141D33;
@@ -39,7 +39,6 @@
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--navy-deep);
@@ -51,9 +50,12 @@
   h1,h2,h3{
     font-family:'Noto Serif SC','Songti SC',serif;
     margin:0;
+    text-wrap:balance;
   }
   p{margin:0;}
   .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  /* keeps a Chinese word/term intact so automatic line-wrapping never splits it mid-word */
+  .nw{white-space:nowrap;}
 
   .band{padding:4.5rem 1.5rem;}
   .band.dark{background:var(--navy-deep);color:#fff;}
@@ -68,7 +70,7 @@
   .band.dark .heading{color:#fff;}
   .band.light .heading{color:var(--navy-deep);}
 
-  .subhead{font-size:1.02rem;line-height:1.75;}
+  .subhead{font-size:1.02rem;line-height:1.75;max-width:66ch;}
   .band.dark .subhead{color:var(--muted-dark);}
   .band.light .subhead{color:var(--ink-soft);}
   .subhead b{color:inherit;font-weight:800;}
@@ -249,6 +251,13 @@
   .milestone.dark-m .milestone-body{color:var(--muted-dark);}
   .milestone.light-m .milestone-body{color:var(--ink-soft);}
 
+  .persona-card{background:var(--cream);border-radius:16px;padding:2.1rem 2.2rem;display:flex;flex-direction:column;gap:.85rem;}
+  .persona-avatar{font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;font-size:2.6rem;line-height:1;color:#8B4B33;}
+  .persona-title{font-family:'Noto Serif SC','Songti SC',serif;font-weight:800;font-size:1.5rem;color:var(--navy-deep);}
+  .persona-desc{font-size:.98rem;line-height:1.8;color:var(--ink-soft);max-width:60ch;}
+  .persona-divider{border-top:1px dashed var(--card-light-line);margin-top:.3rem;}
+  .persona-footer{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);padding-top:1rem;}
+
   .info-row{display:flex;gap:1.4rem;flex-wrap:wrap;}
   .info-row .info-item{flex:1;min-width:220px;display:flex;flex-direction:column;gap:.4rem;}
   .info-row .info-label{font-weight:800;color:var(--copper-light);font-size:.95rem;}
@@ -279,7 +288,7 @@
     .cover-info-row{flex-direction:column;gap:.15rem;}
     .cover-info-row .label{width:auto;font-size:.78rem;}
 
-    .card,.stat-chip,.callout,.chart-card,.milestone{padding:1.1rem 1.15rem;}
+    .card,.stat-chip,.callout,.chart-card,.milestone,.persona-card{padding:1.1rem 1.15rem;}
 
     /* business model flywheel: stack vertically instead of forcing sideways scroll */
     .flow-wrap{overflow-x:visible;}
@@ -319,18 +328,6 @@
   }
   .lang-toggle:hover{background:var(--copper-light);}
   .lang-toggle:active{transform:translateY(1px);}
-
-  .quick-jump{display:flex;flex-direction:column;gap:.7rem;}
-  .quick-jump-label{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-dark-2);}
-  .quick-jump-links{display:flex;gap:.7rem;flex-wrap:wrap;}
-  .quick-jump-links a{display:inline-flex;align-items:center;gap:.45rem;background:var(--navy-soft);border:1px solid var(--navy-line);color:var(--copper-light);text-decoration:none;font-weight:700;font-size:.9rem;padding:.6rem 1.1rem;border-radius:999px;transition:background .15s,border-color .15s;}
-  .quick-jump-links a:hover{background:var(--navy-line);border-color:var(--copper);}
-  .quick-jump-links a .arrow{font-family:'IBM Plex Mono',monospace;font-weight:700;}
-
-  .inline-jump{display:flex;}
-  .inline-jump a{display:inline-flex;align-items:center;gap:.45rem;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:.6rem 1.1rem;border-radius:999px;transition:background .15s;}
-  .inline-jump a:hover{background:var(--navy-soft);}
-  .inline-jump a .arrow{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--copper-light);}
   @media (max-width:640px){
     .lang-toggle{top:8px;right:8px;padding:.45rem .85rem;font-size:.72rem;}
   }
@@ -354,14 +351,6 @@
 <div class="callout copper-border">
 <p id="i18n-8"><span class="tag">本版本说明</span>这是一门「用内容降低获客成本的地产转介生意」，飞轮本身已被验证，需要提前执行最赚钱的动作如扩大货源网络、尽早导流，以加速变现。不需要更多内容，需要更快把同一套飞轮转更多圈。</p>
 </div>
-<div class="quick-jump">
-<p class="quick-jump-label" id="i18n-221">快速跳转　｜　直接看数字</p>
-<div class="quick-jump-links">
-<a href="#s10"><span id="i18n-222">三年损益情境分析（Worst／Normal／Best）</span><span class="arrow">→</span></a>
-<a href="#s14"><span id="i18n-223">首年资金用途（Use Of Funds）</span><span class="arrow">→</span></a>
-<a href="#s15"><span id="i18n-224">里程碑路线图</span><span class="arrow">→</span></a>
-</div>
-</div>
 <footer class="band-foot">
 <span id="i18n-9">The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
 <span class="mono">01 / 19</span>
@@ -373,7 +362,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">The Opportunity</p>
-<h2 class="heading" id="i18n-10">大马最大，却最不透明的资产类别。</h2>
+<h2 class="heading" id="i18n-10"><span class="nw">厂房</span>与<span class="nw">工业地产</span>，是<span class="nw">大马</span>最<span class="nw">庞大</span>却最<span class="nw">不透明</span>的<span class="nw">资产类别</span></h2>
 </div>
 <div class="card-grid">
 <div class="card">
@@ -406,7 +395,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Track Record</p>
-<h2 class="heading" id="i18n-19">全家私房钱，已打入信任核心圈层。</h2>
+<h2 class="heading" id="i18n-19"><span class="nw">全家私房钱</span> MoneyMoneyHome <span class="nw">已经</span><span class="nw">证明</span>：<span class="nw">内容</span><span class="nw">可以</span><span class="nw">打入</span><span class="nw">信任</span>的<span class="nw">核心</span><span class="nw">圈层</span></h2>
 <p class="subhead" id="i18n-20">这不是第一次。元元过去打造的理财投资内容品牌全家私房钱 MoneyMoneyHome，已经走过「内容→信任→影响力」这条路，并且被三个最难打入的圈层验证过。</p>
 </div>
 <div style="display:flex;flex-direction:column;gap:.9rem;">
@@ -446,7 +435,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Vision ＆ Mission</p>
-<h2 class="heading" id="i18n-28" style="font-size:clamp(1.8rem,4vw,2.7rem);">让看不懂的资产，第一次被讲懂。</h2>
+<h2 class="heading" id="i18n-28" style="font-size:clamp(1.8rem,4vw,2.7rem);">让被<span class="nw">高度</span><span class="nw">资讯</span><span class="nw">不对称</span>与<span class="nw">神秘感</span><span class="nw">包围</span>的<span class="nw">资产类别</span>，<span class="nw">第一次</span>被<span class="nw">大众</span>用<span class="nw">听得懂</span>的<span class="nw">故事</span><span class="nw">方式</span><span class="nw">理解</span>。</h2>
 </div>
 <div style="border-top:1px solid var(--navy-line);padding-top:1.4rem;">
 <p class="subhead" id="i18n-29" style="font-size:1.05rem;">透过真实人物与产业故事，重建大众对重大投资决策的信任基础，并在完全不做内容内推销的前提下，把这份信任转化为可验证的商业成果。</p>
@@ -462,7 +451,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Business Model</p>
-<h2 class="heading" id="i18n-31">内容建立信任，交易在内容之外发生。</h2>
+<h2 class="heading" id="i18n-31"><span class="nw">核心逻辑</span>：<span class="nw">内容</span><span class="nw">建立</span><span class="nw">信任</span>，<span class="nw">交易</span>在<span class="nw">内容</span><span class="nw">之外</span><span class="nw">发生</span></h2>
 </div>
 <div class="flow-wrap">
 <div class="flow" style="min-width:640px;">
@@ -487,7 +476,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Case 01</p>
-<h2 class="heading" id="i18n-40">《Coffee &amp; Capital》→ Hook → 成交分润</h2>
+<h2 class="heading" id="i18n-40">《Coffee &amp; Capital》→ Hook → <span class="nw">成交</span><span class="nw">分润</span></h2>
 </div>
 <p class="subhead" id="i18n-41" style="max-width:none;">以真实故事带出厂房／制造业的细节，为大众揭开厂房的神秘面纱。内容完全不涉及销售讯息；当内容退出时，向被系统性识别出的高意向受众抛出精准 Hook，首推 Coffy 旗下 NCT 的 NSIP 厂房货源，leads 交回 NCT 自家 sales team 成交，The Standard 直接抽佣；NCT 以外的厂房则由业务团队与全马其他能够 perform 的房产仲介 co-broke 完成实际成交。</p>
 <div class="stat-grid">
@@ -518,22 +507,15 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow" id="i18n-48">Case 02 ｜ 模式复制验证</p>
-<h2 class="heading" id="i18n-49">美股 Options 故事 × 专业陪跑团队</h2>
-<p class="subhead" id="i18n-50">同一套「内容建信任、交易在内容外」的逻辑，复制到其他资产类别，验证全家私房钱 2.0 模式的可规模化程度。</p>
+<h2 class="heading" id="i18n-49">《<span class="nw">全职生活投资家</span>》：<span class="nw">马股</span>／<span class="nw">美股</span>／<span class="nw">期权</span><span class="nw">实战</span><span class="nw">故事</span><span class="nw">企划</span></h2>
+<p class="subhead" id="i18n-50">同一套「内容建信任、交易在内容外」的逻辑，复制到马股／美股／期权资产类别，验证全家私房钱 2.0 模式的可规模化程度。</p>
 </div>
-<div class="card-grid">
-<div class="card">
-<div class="card-row"><span class="card-num">1</span></div>
-<p class="card-body" id="i18n-51">内容里完全不推销任何相关产品／服务／平台，纯粹以美股 Options 角度说故事</p>
-</div>
-<div class="card">
-<div class="card-row"><span class="card-num">2</span></div>
-<p class="card-body" id="i18n-52">出镜的是提供投资陪跑服务的专业理财投资团队，而非销售人员建立的信任</p>
-</div>
-<div class="card">
-<div class="card-row"><span class="card-num">3</span></div>
-<p class="card-body" id="i18n-53">是对「这个团队、这种投资角度」的信任，交易与服务收入发生在内容之外</p>
-</div>
+<div class="persona-card">
+<span class="persona-avatar">B</span>
+<p class="persona-title" id="i18n-51">全职生活投资家</p>
+<p class="persona-desc" id="i18n-52">拆解如何善用马股/美股/期权进行稳健投资，用实战多年累积的投资与讲解功力，把复杂工具讲成人话。</p>
+<div class="persona-divider"></div>
+<p class="persona-footer" id="i18n-53">YouTube 周更 ・ FB / IG 同步</p>
 </div>
 <div class="callout navy-block">
 <p id="i18n-54" style="font-weight:700;color:#fff;">同一套飞轮，不同资产类别，证明全家私房钱 2.0 是可规模化的媒体矩阵模型，而非单一节目。</p>
@@ -549,7 +531,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">The Team We Need</p>
-<h2 class="heading" id="i18n-56">三组人，先精简，再扩编。</h2>
+<h2 class="heading" id="i18n-56"><span class="nw">三大</span><span class="nw">职能群</span>，<span class="nw">首年</span><span class="nw">精简</span><span class="nw">编制</span>、随<span class="nw">验证</span><span class="nw">结果</span><span class="nw">扩编</span></h2>
 </div>
 <div class="card-grid">
 <div class="card">
@@ -582,7 +564,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Production Partner</p>
-<h2 class="heading" id="i18n-68">为何是 Kaloz Production？</h2>
+<h2 class="heading" id="i18n-68"><span class="nw">为何是</span> Kaloz Production（Rae ＋ JiaWei）</h2>
 <p class="subhead" id="i18n-69">我们深知 Coffy 曾推荐 Evogenetic Studio，也十分感谢这份引荐。审慎评估后，元元选择由 Rae 与 JiaWei 领军的 Kaloz Production，主要基于：</p>
 </div>
 <div class="card-grid">
@@ -617,7 +599,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Financial Forecast</p>
-<h2 class="heading" id="i18n-80">三年损益情境分析：Worst / Normal / Best</h2>
+<h2 class="heading" id="i18n-80"><span class="nw">三年</span><span class="nw">损益</span><span class="nw">情境</span><span class="nw">分析</span>：Worst / Normal / Best</h2>
 <p class="subhead" id="i18n-81">情境依三年成交量路径区分（厂房／地笔数，年度累计非逐年新增）；NCT 货源 The Standard 直接抽 2%，其他货源经 co-broke 转介分润 30%</p>
 </div>
 <div class="mini-table-grid">
@@ -665,9 +647,6 @@
 <div class="callout navy-block">
 <p id="i18n-104"><span class="tag">结论</span>Normal 情境 Y1 仍处投入期（净损 RM 103,200），约 Y2 过半转正，Y3 累积净利达 RM 1,634,276；Best 情境 Y1 即获利，Y3 累积净利 RM 5,018,594。Worst 情境三年均为累积亏损，Y3 累积净损达 RM 2,030,041，凸显加速成交、扩大 co-broke 网络的重要性（详见文末 CFO ＋ BD 健检建议）。</p>
 </div>
-<div class="inline-jump">
-<a href="#s14"><span id="i18n-225">启动资金主要用处 Use Of Capital</span><span class="arrow">→</span></a>
-</div>
 <footer class="band-foot">
 <span id="i18n-105">The Standard ｜ 全家私房钱 2.0 · 企划书（含 CFO ＋ BD 健检建议）</span>
 <span class="mono">10 / 19</span>
@@ -679,7 +658,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow" id="i18n-106">加速后的财务推演</p>
-<h2 class="heading" id="i18n-107">钱没变多，只是提早到位。</h2>
+<h2 class="heading" id="i18n-107"><span class="nw">不是</span><span class="nw">变出</span><span class="nw">更多</span>钱，是把<span class="nw">同一份</span>钱<span class="nw">提早</span><span class="nw">到位</span></h2>
 <p class="subhead" id="i18n-108">以下试算完全沿用企划书自身模型的变数，方向性推演，非正式财务预测</p>
 </div>
 <div class="compare-grid">
@@ -742,17 +721,13 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Why These Numbers Hold</p>
-<h2 class="heading" id="i18n-123">数字背后：数据 ＋ 双引擎。</h2>
+<h2 class="heading" id="i18n-123"><span class="nw">销量</span>与<span class="nw">回酬</span>的<span class="nw">实证基础</span>：<span class="nw">全家私房钱</span><span class="nw">数据</span> ＋ <span class="nw">双引擎</span><span class="nw">商业模式</span></h2>
 <p class="subhead" id="i18n-124">前页 Worst／Normal／Best 的成交量与收入假设，即建立在以下观众规模、变现案例与双引擎结构之上</p>
 </div>
 <div class="asset-grid">
 <div class="asset-card"><span class="asset-num" id="i18n-125">364 万</span><span class="asset-label" id="i18n-126">全家私房钱电视＋数位平台历史累积观看人次</span></div>
-<a class="asset-card" href="https://www.youtube.com/@MoneyMoneyHomeMy" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;"><span class="asset-num" id="i18n-127">近 2 万</span><span class="asset-label" id="i18n-128">目前 YouTube 订阅数 ↗</span></a>
-<a class="asset-card" href="https://www.facebook.com/moneymoneyhome.my" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;"><span class="asset-num" id="i18n-129">8 万＋</span><span class="asset-label" id="i18n-130">目前 Facebook 粉丝数 ↗</span></a>
-<a class="asset-card" href="https://www.instagram.com/moneymoneyhome.my/" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;"><span class="asset-num" id="i18n-218">IG</span><span class="asset-label" id="i18n-219">全家私房钱 Instagram ↗</span></a>
-</div>
-<div class="callout plain-light">
-<p id="i18n-220"><span class="tag">内容分发</span>本提案所有内容企划，均将于全家私房钱旗下社交媒体与 YouTube 频道首发播出：<a href="https://www.facebook.com/moneymoneyhome.my" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Facebook</a>、<a href="https://www.youtube.com/@MoneyMoneyHomeMy" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">YouTube</a>、<a href="https://www.instagram.com/moneymoneyhome.my/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Instagram</a>。选题储备可参考<a href="https://thestandard.rexilion.com/story" target="_blank" rel="noopener" style="color:var(--copper);font-weight:700;">《全球工业厂房故事库》</a>（含 Ep1 完整脚本与 20 个可执行选题）。</p>
+<div class="asset-card"><span class="asset-num" id="i18n-127">近 2 万</span><span class="asset-label" id="i18n-128">目前 YouTube 订阅数</span></div>
+<div class="asset-card"><span class="asset-num" id="i18n-129">8 万＋</span><span class="asset-label" id="i18n-130">目前 Facebook 粉丝数</span></div>
 </div>
 <div class="callout copper-border">
 <p id="i18n-131"><span class="tag">VI College 案例：内容信任如何规模化为商业成果</span>全家私房钱成功打开大马中文投资课程市场：VI College 先投入 RM600,000 制作播出第一季，验证成效后加码邀约元元拍摄第二季；后期加入元元前搭档 Daphne（Astro 中文部前公关 VP）与本地纸媒前线合作，最终单靠线上投资课程销售，为 VI College 累积达 SGD 9,600 万的准备金。</p>
@@ -779,7 +754,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Cost Breakdown</p>
-<h2 class="heading" id="i18n-138">Y2／Y3 四大成本类别</h2>
+<h2 class="heading" id="i18n-138">Y2 ／ Y3 <span class="nw">开销明细</span>：<span class="nw">四大</span><span class="nw">成本类别</span></h2>
 </div>
 <div class="table-wrap">
 <table>
@@ -807,7 +782,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Use Of Funds</p>
-<h2 class="heading" id="i18n-152">首年资金 RM 1,000,000，怎么花？</h2>
+<h2 class="heading" id="i18n-152"><span class="nw">首年</span><span class="nw">资金用途</span>：RM 1,000,000（＋/-）</h2>
 </div>
 <div class="card-grid">
 <div class="card">
@@ -845,7 +820,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">Roadmap</p>
-<h2 class="heading" id="i18n-163">路线图</h2>
+<h2 class="heading" id="i18n-163"><span class="nw">里程碑</span><span class="nw">路线图</span></h2>
 </div>
 <div class="timeline">
 <div class="milestone dark-m">
@@ -884,7 +859,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow">The Ask</p>
-<h2 class="heading" id="i18n-175">邀请 Coffy，成为最重要的伙伴。</h2>
+<h2 class="heading" id="i18n-175"><span class="nw">邀请</span> Coffy，<span class="nw">成为</span> The Standard <span class="nw">最重要</span>的<span class="nw">伙伴</span></h2>
 </div>
 <div class="callout copper-solid">
 <p id="i18n-176" style="font-size:.9rem;font-weight:700;color:var(--navy-deep);margin-bottom:.3rem;">资金需求</p>
@@ -917,7 +892,7 @@
 <!-- ============ 17 / CLOSING ============ -->
 <section class="band dark" id="s17">
 <div class="band-inner" style="gap:1.4rem;">
-<h2 class="heading" id="i18n-186" style="font-size:clamp(1.9rem,4.2vw,2.9rem);">用对的故事，<br/>让大众第一次看懂、也开始信任。</h2>
+<h2 class="heading" id="i18n-186" style="font-size:clamp(1.9rem,4.2vw,2.9rem);"><span class="nw">用对</span>的<span class="nw">故事</span>，<br/>让<span class="nw">大众</span><span class="nw">第一次</span><span class="nw">看懂</span>、也<span class="nw">开始</span><span class="nw">信任</span>。</h2>
 <p class="subhead" id="i18n-187" style="font-size:1.05rem;">The Standard 诚挚邀请 Coffy，以资金与产业资源的双重身份，共同展开全家私房钱 2.0 这趟旅程。</p>
 <p id="i18n-188" style="font-weight:800;color:var(--copper-light);border-top:1px solid var(--navy-line);padding-top:1rem;">元元 ｜ The Standard 创办人暨执行长（CEO）</p>
 <footer class="band-foot">
@@ -931,7 +906,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow" id="i18n-190">附录 · CFO ＋ BD 独立健检</p>
-<h2 class="heading" id="i18n-191">上桌前，必须先处理的四个风险。</h2>
+<h2 class="heading" id="i18n-191"><span class="nw">四个</span><span class="nw">上桌前</span><span class="nw">必须</span>先<span class="nw">处理</span>的<span class="nw">风险</span></h2>
 <p class="subhead" id="i18n-192">在资金到位前，这些是需要 founder 正面回应、而非带过的问题</p>
 </div>
 <div class="card-grid">
@@ -967,7 +942,7 @@
 <div class="band-inner">
 <div class="header-block">
 <p class="eyebrow" id="i18n-202">附录 · CFO／BD 结论与建议</p>
-<h2 class="heading" id="i18n-203">值得推进，但有条件。</h2>
+<h2 class="heading" id="i18n-203"><span class="nw">条件式支持</span>：RM 1,000,000 的 Y1 <span class="nw">提案</span><span class="nw">值得</span><span class="nw">推进</span></h2>
 <p class="subhead" id="i18n-204">商业模式成立，且与 Coffy／NCT 的资源高度互补（不只是找资金，也是找货源伙伴），建议附带四项条件支持提案</p>
 </div>
 <div class="conditions-grid" style="display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem;align-items:start;">
@@ -1021,12 +996,12 @@
   "i18n-2": `First Project: 《Coffee &amp; Capital》`,
   "i18n-3": `Presented To`,
   "i18n-4": `Presented By`,
-  "i18n-5": `Liew YuanYuan ・ Founder &amp; CEO, The Standard`,
+  "i18n-5": `Liu Yuanyuan ・ Founder &amp; CEO, The Standard`,
   "i18n-6": `Date`,
   "i18n-7": `August 2026`,
   "i18n-8": `<span class="tag">About This Version</span>This is fundamentally a real-estate referral business that uses content to lower customer acquisition cost. The flywheel itself has already been proven — what's needed now is to move earlier on the highest-return actions: expanding the supply network and driving leads sooner, to accelerate monetization. The need isn't more content; it's spinning the same flywheel faster.`,
   "i18n-9": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-10": `Malaysia's biggest, least transparent asset class.`,
+  "i18n-10": `Factories and industrial real estate are Malaysia's largest yet least transparent asset class`,
   "i18n-11": `Information Asymmetry`,
   "i18n-12": `Deals often run into the millions of ringgit, take a long time to close, and depend heavily on broker relationships — the public and non-citizen investors have almost no way to understand them`,
   "i18n-13": `Foreign Manufacturing Boom`,
@@ -1035,7 +1010,7 @@
   "i18n-16": `Whoever is first to tell this asset class's story in a way ordinary people understand controls the gateway to trust and traffic`,
   "i18n-17": `MoneyMoneyHome 2.0 exists to seize that gateway.`,
   "i18n-18": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-19": `MoneyMoneyHome has already broken into the inner circle of trust.`,
+  "i18n-19": `MoneyMoneyHome has already proven that content can break into the innermost circles of trust`,
   "i18n-20": `This isn't the first time. Yuanyuan's earlier finance and investment content brand, MoneyMoneyHome, has already walked the "content → trust → influence" path — and has been validated by three of the hardest circles to break into.`,
   "i18n-21": `Successfully broke into the Securities Commission Malaysia (SC Malaysia) and Bursa Malaysia`,
   "i18n-22": `The Public`,
@@ -1044,10 +1019,10 @@
   "i18n-25": `Earned recognition and cooperation from the property sector (Developers); lead investor VI College also successfully opened up Malaysia's Chinese-language investment course market because of MoneyMoneyHome`,
   "i18n-26": `The Standard is institutionalizing this already-proven methodology as the core capability of a media company.`,
   "i18n-27": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-28": `The incomprehensible, finally understood.`,
+  "i18n-28": `Letting an asset class long wrapped in deep information asymmetry and mystery be understood by the public, for the first time, through a story they can actually follow.`,
   "i18n-29": `Through real people and real industry stories, rebuild the public's trust foundation for major investment decisions — and, without ever pitching inside the content itself, convert that trust into verifiable commercial results.`,
   "i18n-30": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-31": `Content builds trust; the deal happens outside the content.`,
+  "i18n-31": `Core Logic: Content builds trust; transactions happen outside the content`,
   "i18n-32": `Content Layer<br>Trust Asset`,
   "i18n-33": `Stories build stickiness and trust, with zero product/service selling throughout`,
   "i18n-34": `Lead Layer<br>Hook + CRM`,
@@ -1065,14 +1040,14 @@
   "i18n-46": `Content doesn't sell — transactions happen outside the content, closed by a dedicated business team.`,
   "i18n-47": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
   "i18n-48": `Case 02 | Model Replication Validation`,
-  "i18n-49": `US Stock Options Stories × Professional Wealth Coaching Team`,
-  "i18n-50": `The same logic — "content builds trust, transactions happen outside the content" — replicated into another asset class, to validate how scalable the MoneyMoneyHome 2.0 model really is.`,
-  "i18n-51": `No product, service, or platform is ever pitched inside the content — it's told purely from the angle of US stock options`,
-  "i18n-52": `The people on screen are the professional wealth-coaching team providing the investment coaching service, not salespeople building the trust`,
-  "i18n-53": `It's trust in "this team, this investment angle" — the transaction and service revenue happen outside the content`,
+  "i18n-49": `"The Full-Time Lifestyle Investor": A Malaysian / US Stocks / Options Storytelling Project`,
+  "i18n-50": `The same logic — "content builds trust, transactions happen outside the content" — replicated into the Malaysian stocks / US stocks / options asset class, to validate how scalable the MoneyMoneyHome 2.0 model really is.`,
+  "i18n-51": `The Full-Time Lifestyle Investor`,
+  "i18n-52": `Breaking down how to use Malaysian stocks, US stocks, and options for steady investing — years of hands-on trading and teaching experience, turning complex tools into plain talk.`,
+  "i18n-53": `YouTube Weekly ・ Synced to FB / IG`,
   "i18n-54": `The same flywheel, a different asset class — proof that MoneyMoneyHome 2.0 is a scalable media matrix model, not a single show.`,
   "i18n-55": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-56": `Three teams. Lean first, scale later.`,
+  "i18n-56": `Three functional groups, lean headcount in Year 1, scaling with validated results`,
   "i18n-57": `IP Content Production Team`,
   "i18n-58": `Build the IP`,
   "i18n-59": `Content planning/scriptwriting, directing/cinematography, post-production editing/motion packaging`,
@@ -1084,7 +1059,7 @@
   "i18n-65": `Sponsorship sales (20% commission, not drawn from the fixed budget), co-broke agent partner liaison (starting with Coffy's NCT), cross-border compliance advisory`,
   "i18n-66": `Y1 centers on a lean core creative team plus a business team; the business/BD headcount is higher than originally planned, prioritizing collaboration with NCT and other co-broke agent partners; from Y2 onward, headcount scales up based on validated results.`,
   "i18n-67": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-68": `Why Kaloz Production?`,
+  "i18n-68": `Why Kaloz Production (Rae + JiaWei)`,
   "i18n-69": `We're well aware that Coffy previously recommended Evogenetic Studio, and we're grateful for that introduction. After careful evaluation, Yuanyuan chose Kaloz Production, led by Rae and JiaWei, primarily because of:`,
   "i18n-70": `Chemistry &amp; Quality of Work`,
   "i18n-71": `Already have real working experience with Rae and JiaWei — creative chemistry and output quality are proven, lowering the risk of friction`,
@@ -1123,7 +1098,7 @@
   "i18n-104": `<span class="tag">Conclusion</span>In the Normal scenario, Y1 is still an investment phase (net loss of RM 103,200), turning positive around mid-Y2, with cumulative net profit reaching RM 1,634,276 by Y3. In the Best scenario, Y1 is already profitable, with cumulative net profit of RM 5,018,594 by Y3. The Worst scenario stays in cumulative loss across all three years, reaching a cumulative net loss of RM 2,030,041 by Y3 — underscoring how important it is to accelerate deal closing and expand the co-broke network (see the CFO + BD health-check recommendations at the end).`,
   "i18n-105": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
   "i18n-106": `Accelerated Financial Projection`,
-  "i18n-107": `Not more money. Just earlier money.`,
+  "i18n-107": `Not conjuring more money — bringing the same money in sooner`,
   "i18n-108": `The following projection uses only the proposal's own model variables — it's a directional exercise, not a formal financial forecast`,
   "i18n-109": `Normal · Y1 (6 deals, 100% NCT)`,
   "i18n-110": `Y1 Total Revenue`,
@@ -1139,14 +1114,14 @@
   "i18n-120": `<i style="background:var(--copper);"></i>Accelerated (8 deals)`,
   "i18n-121": `<span class="tag">Extended Direction (for reference only)</span>If Y2 can get close to the Best scenario's deal volume and supply structure ahead of schedule, the healthy cumulative profit that would otherwise only appear in Y3 could, in theory, show up a year early in Y2. This is a directional projection, not a formal financial forecast — actual results still depend on <b style="color:var(--copper);">how fast the co-broke network is built and how well deals get executed</b>.`,
   "i18n-122": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-123": `Behind the numbers: data plus dual engines.`,
+  "i18n-123": `The Evidence Behind These Numbers: MoneyMoneyHome Data + Dual-Engine Business Model`,
   "i18n-124": `The deal-volume and revenue assumptions on the previous page rest on the audience scale, monetization case studies, and dual-engine structure below`,
   "i18n-125": `3.64M`,
   "i18n-126": `Historical cumulative views across MoneyMoneyHome's TV + digital platforms`,
   "i18n-127": `~20K`,
-  "i18n-128": `Current YouTube subscribers ↗`,
+  "i18n-128": `Current YouTube subscribers`,
   "i18n-129": `80K+`,
-  "i18n-130": `Current Facebook followers ↗`,
+  "i18n-130": `Current Facebook followers`,
   "i18n-131": `<span class="tag">VI College Case: How Content Trust Scales into Commercial Results</span>MoneyMoneyHome successfully opened up Malaysia's Chinese-language investment course market: VI College first invested RM600,000 to produce and air Season 1; after validating results, they came back to commission Yuanyuan for Season 2. Later, Yuanyuan's former co-host Daphne (former PR VP of Astro's Chinese division) joined, working alongside local print media on the front line. Ultimately, online investment course sales alone built up SGD 96 million in reserves for VI College.`,
   "i18n-132": `Engine One: Factory / Real Estate Deal Commission`,
   "i18n-133": `Leads from NCT supply go back to NCT's own sales team to close, with The Standard taking a direct 2% commission; supply outside NCT is referred to other high-performing property agents across Malaysia through co-broking, with The Standard taking a 30% revenue share. NCT's supply is ample (1,000+ acres, with roughly 900 more acres in the pipeline), so deal closing isn't limited by any single team's capacity.`,
@@ -1154,7 +1129,7 @@
   "i18n-135": `The business team sells per-episode sponsorships: product placement at RM5,000/episode, product feature at RM1,000/episode, a custom-tailored factory story at RM40,000/episode. Revenue splits 20% to business/BD commission and 80% to The Standard; this is commission-based and doesn't draw from the fixed budget, estimated independently of the deal scenarios (Worst/Normal/Best).`,
   "i18n-136": `The per-episode rates above are directional reference figures not yet built into the three financial-model scenarios; actual revenue still follows the "Three-Year Revenue Forecast" tab of the financial model.`,
   "i18n-137": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-138": `Four Major Cost Categories for Y2/Y3`,
+  "i18n-138": `Y2 / Y3 Cost Breakdown: Four Major Cost Categories`,
   "i18n-139": `Cost Category`,
   "i18n-140": `Notes`,
   "i18n-141": `Content Production`,
@@ -1168,7 +1143,7 @@
   "i18n-149": `Total Cost`,
   "i18n-150": `The cost structure carries over from the "Three-Year Cost Budget" tab of the attached financial model; see the Use of Funds table for Y1 figures — Y2/Y3 are management's estimates for the expansion phase and don't vary with deal scenario (Worst/Normal/Best).`,
   "i18n-151": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-152": `RM 1,000,000 in Year 1. Where does it go?`,
+  "i18n-152": `Year 1 Use of Funds: RM 1,000,000 (+/-)`,
   "i18n-153": `Content Production`,
   "i18n-154": `Kaloz shooting/post-production quote + project scripts`,
   "i18n-155": `Team &amp; Talent`,
@@ -1191,7 +1166,7 @@
   "i18n-172": `Scale + Turn Profitable`,
   "i18n-173": `Multiple IP matrix, multiple co-broke agent networks mature — Y3 turns profitable`,
   "i18n-174": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-175": `Inviting Coffy to become our most important partner.`,
+  "i18n-175": `Inviting Coffy to become The Standard's most important partner`,
   "i18n-176": `Funding Needed`,
   "i18n-177": `(+/-) Coffee &amp; Capital's Year 1 production budget`,
   "i18n-178": `Funding`,
@@ -1202,12 +1177,12 @@
   "i18n-183": `Equity, revenue share, or priority-project rights — the return structure to be negotiated further on the basis of this proposal`,
   "i18n-184": `Beyond funding, what we're inviting is an ongoing, deep partnership.`,
   "i18n-185": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-186": `The right story,<br>seen clearly, and trusted, for the first time.`,
+  "i18n-186": `The right story,<br>letting the public understand — and start to trust — for the first time.`,
   "i18n-187": `The Standard sincerely invites Coffy to embark on the MoneyMoneyHome 2.0 journey together, as both a funder and an industry-resource partner.`,
   "i18n-188": `Yuanyuan | Founder &amp; CEO, The Standard`,
   "i18n-189": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
   "i18n-190": `Appendix · Independent CFO + BD Health Check`,
-  "i18n-191": `Four risks to clear before the table.`,
+  "i18n-191": `Four risks that must be addressed before this goes to the table`,
   "i18n-192": `Before the funds land, these are questions the founder needs to answer head-on — not brush past`,
   "i18n-193": `Revenue Concentration Risk`,
   "i18n-194": `90.8% of Y3 revenue comes from commissions on a single asset class (factories/industrial real estate); the two other content lines — real-estate deep dives and options investing — currently contribute very little revenue`,
@@ -1219,7 +1194,7 @@
   "i18n-200": `Under the Worst scenario, fixed costs consume nearly all the room for revenue growth, leaving limited downside protection`,
   "i18n-201": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
   "i18n-202": `Appendix · CFO/BD Conclusion &amp; Recommendations`,
-  "i18n-203": `Worth advancing, with conditions.`,
+  "i18n-203": `Conditional Support: The RM 1,000,000 Year 1 proposal is worth advancing`,
   "i18n-204": `The business model holds up, and it's highly complementary to Coffy/NCT's resources (this isn't just about raising funds — it's also about finding a supply partner). We recommend supporting the proposal with four conditions attached`,
   "i18n-205": `Attached Conditions`,
   "i18n-206": `First reconcile the three sets of numbers across the proposal, the financial model, and the website — make this a required diligence item before any external fundraising`,
@@ -1233,15 +1208,7 @@
   "i18n-214": `Kick off 2–3 co-broke partner conversations in parallel ・ <span style="color:var(--green);font-weight:700;">Feasible</span>`,
   "i18n-215": `Pre-sell at least 2 sponsorship packages ・ <span style="color:var(--green);font-weight:700;">Feasible</span>`,
   "i18n-216": `MoneyMoneyHome 2.0 isn't short on trust — what it's short on is converting that trust into deals running in parallel, faster. <b>That's exactly what this RM 1,000,000 should really be optimizing for.</b>`,
-  "i18n-217": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`,
-  "i18n-218": `IG`,
-  "i18n-219": `MoneyMoneyHome Instagram ↗`,
-  "i18n-220": `<span class="tag">Content Distribution</span>Every content project in this proposal will premiere on MoneyMoneyHome's own social media and YouTube channel: <a href="https://www.facebook.com/moneymoneyhome.my" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Facebook</a>, <a href="https://www.youtube.com/@MoneyMoneyHomeMy" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">YouTube</a>, and <a href="https://www.instagram.com/moneymoneyhome.my/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700;">Instagram</a>. For story ideas in the pipeline, see the <a href="https://thestandard.rexilion.com/story" target="_blank" rel="noopener" style="color:var(--copper);font-weight:700;">Global Industrial Factory Story Bank</a> (including Ep1's full script and 20 ready to use story ideas).`,
-  "i18n-221": `Quick Jump　|　Straight to the Numbers`,
-  "i18n-222": `Three-Year P&amp;L Scenarios (Worst / Normal / Best)`,
-  "i18n-223": `Use Of Funds`,
-  "i18n-224": `Roadmap Milestones`,
-  "i18n-225": `Use Of Capital`
+  "i18n-217": `The Standard | MoneyMoneyHome 2.0 · Proposal (incl. CFO + BD Health-Check Recommendations)`
 };
   var originalHTML = {};
   var currentLang = 'zh';
