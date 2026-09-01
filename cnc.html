@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 <!-- saved from url=(0036)https://thestandard.rexilion.com/cnc -->
@@ -344,7 +345,8 @@
     font-family:'Noto Serif SC','Songti SC',serif;font-weight:900;
     font-size:1.05rem;color:#fff;letter-spacing:.02em;text-decoration:none;flex-shrink:0;
   }
-  .site-nav{display:flex;align-items:center;gap:1.5rem;margin-left:auto;}
+  .nav-wrap{display:flex;align-items:center;gap:1.5rem;margin-left:auto;}
+  .site-nav{display:flex;align-items:center;gap:1.5rem;}
   .nav-link{
     font-family:'IBM Plex Mono',monospace;font-size:.76rem;font-weight:600;
     letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;
@@ -354,7 +356,7 @@
   .hamburger-btn{
     display:none;flex-direction:column;justify-content:center;gap:5px;
     width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;
-    margin-left:auto;flex-shrink:0;
+    flex-shrink:0;
   }
   .hamburger-btn span{display:block;width:100%;height:2px;background:#fff;border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
   .hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -362,16 +364,16 @@
   .hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
   @media (max-width:860px){
+    .nav-wrap{gap:.75rem;}
     .hamburger-btn{display:flex;}
     .site-nav{
       display:none;position:absolute;top:100%;left:0;right:0;
-      flex-direction:column;align-items:stretch;gap:0;margin-left:0;
+      flex-direction:column;align-items:stretch;gap:0;
       background:var(--navy-deep);border-bottom:1px solid var(--navy-line);
       padding:.3rem 1.5rem 1.1rem;max-height:calc(100vh - 56px);overflow-y:auto;
     }
     .site-nav.open{display:flex;}
     .nav-link{padding:.85rem 0;border-bottom:1px solid var(--navy-line);font-size:.85rem;}
-    .site-nav .lang-toggle{align-self:flex-start;margin-top:1rem;}
   }
 </style>
 </head>
@@ -379,7 +381,7 @@
 <header class="site-header">
 <div class="site-header-inner">
 <a class="site-logo" href="#s1">THE STANDARD MEDIA</a>
-<button aria-controls="site-nav" aria-expanded="false" aria-label="Menu" class="hamburger-btn" id="hamburger-btn" type="button"><span></span><span></span><span></span></button>
+<div class="nav-wrap">
 <nav class="site-nav" id="site-nav">
 <a class="nav-link" href="#s2" id="i18n-218">商机</a>
 <a class="nav-link" href="#s5" id="i18n-219">商业模式</a>
@@ -388,8 +390,10 @@
 <a class="nav-link" href="#s10" id="i18n-222">财务预测</a>
 <a class="nav-link" href="#s16" id="i18n-223">资金邀请</a>
 <a class="nav-link" href="#s18" id="i18n-224">附录</a>
-<button aria-label="Switch language" class="lang-toggle" id="lang-toggle-btn" type="button">EN</button>
 </nav>
+<button aria-label="Switch language" class="lang-toggle" id="lang-toggle-btn" type="button">EN</button>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Menu" class="hamburger-btn" id="hamburger-btn" type="button"><span></span><span></span><span></span></button>
+</div>
 </div>
 </header>
 <!-- ============ 01 / COVER ============ -->
