@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>巳山亥向入宅吉課</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FBF7EF;
+  --paper-2:#F4ECDD;
+  --paper-3:#EFE5D2;
+  --ink:#23201B;
+  --ink-2:#5E564A;
+  --ink-3:#8C8371;
+  --rule:#DFD4BD;
+  --rule-2:#CDBEA1;
+  --cinnabar:#A8342A;
+  --cinnabar-ink:#8E2A21;
+  --cinnabar-soft:#F0DED9;
+  --celadon:#3C7663;
+  --celadon-soft:#E0EBE4;
+  --amber:#8F6410;
+  --amber-soft:#F3E7C9;
+  --shadow:0 1px 0 rgba(35,32,27,.06);
+  --serif:"Noto Serif TC","Songti TC","SimSun",Georgia,serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#181613;
+    --paper-2:#211E19;
+    --paper-3:#282420;
+    --ink:#EFE6D5;
+    --ink-2:#B9AF9B;
+    --ink-3:#8A8170;
+    --rule:#393429;
+    --rule-2:#4B4436;
+    --cinnabar:#E27C6E;
+    --cinnabar-ink:#EE9184;
+    --cinnabar-soft:#3A221E;
+    --celadon:#86C1A7;
+    --celadon-soft:#1D2C26;
+    --amber:#D7A94A;
+    --amber-soft:#2E2617;
+    --shadow:0 1px 0 rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#181613;
+  --paper-2:#211E19;
+  --paper-3:#282420;
+  --ink:#EFE6D5;
+  --ink-2:#B9AF9B;
+  --ink-3:#8A8170;
+  --rule:#393429;
+  --rule-2:#4B4436;
+  --cinnabar:#E27C6E;
+  --cinnabar-ink:#EE9184;
+  --cinnabar-soft:#3A221E;
+  --celadon:#86C1A7;
+  --celadon-soft:#1D2C26;
+  --amber:#D7A94A;
+  --amber-soft:#2E2617;
+  --shadow:0 1px 0 rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.7;
+  margin:0;
+  padding-inline:20px;
+  padding-block:0 64px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0}
+.eyebrow{
+  font-size:11.5px;letter-spacing:.22em;color:var(--ink-3);
+  text-transform:uppercase;font-weight:500;
+}
+
+/* ---------- masthead ---------- */
+.masthead{
+  display:flex;gap:28px;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;
+  padding-block:44px 22px;
+  border-bottom:2px solid var(--ink);
+}
+.mast-main{flex:1 1 340px;display:flex;flex-direction:column;gap:8px}
+h1{font-size:clamp(34px,6.4vw,52px);font-weight:900;letter-spacing:.06em;line-height:1.15}
+.mast-sub{color:var(--ink-2);font-size:14px}
+.mast-sub b{font-weight:700;color:var(--ink)}
+.seal{
+  flex:0 0 auto;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.seal-col{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:25px;line-height:1.05;
+  color:var(--paper);
+  background:var(--cinnabar);
+  padding:13px 11px;
+  border-radius:2px;
+}
+.seal-note{
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  font-family:var(--serif);
+  font-size:14px;line-height:1.05;color:var(--ink-2);
+  padding-block:8px;
+}
+.source-line{
+  display:flex;flex-wrap:wrap;gap:8px 22px;
+  padding-block:12px;
+  border-bottom:1px solid var(--rule);
+  font-size:12.5px;color:var(--ink-3);
+}
+.source-line b{color:var(--ink-2);font-weight:500}
+
+/* ---------- section ---------- */
+section{padding-block:38px 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+h2{font-size:21px;font-weight:900;letter-spacing:.08em}
+.sec-head p{margin:0;font-size:13px;color:var(--ink-3)}
+
+/* ---------- 三命 ---------- */
+.ming{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ming-card{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:16px 16px 14px;
+  display:flex;gap:14px;align-items:center;
+}
+.ming-gz{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.05;
+  color:var(--cinnabar-ink);
+  border-right:1px solid var(--rule-2);
+  padding-right:14px;
+}
+.ming-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ming-role{font-size:11.5px;letter-spacing:.16em;color:var(--ink-3)}
+.ming-name{font-family:var(--serif);font-size:19px;font-weight:600}
+.ming-meta{font-size:12.5px;color:var(--ink-2)}
+
+/* ---------- 吉日 ---------- */
+.legend{
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;
+  font-size:12px;color:var(--ink-2);margin-bottom:16px;
+}
+.key{display:inline-flex;align-items:center;gap:6px}
+.swatch{width:14px;height:14px;border-radius:2px;border:1px solid var(--rule-2);display:inline-block}
+.sw-ji{background:var(--cinnabar);border-color:var(--cinnabar)}
+.sw-ping{background:var(--paper-3)}
+.sw-bi{background:repeating-linear-gradient(-45deg,var(--paper-3),var(--paper-3) 3px,var(--rule) 3px,var(--rule) 4px)}
+
+.days{display:flex;flex-direction:column;gap:16px}
+.day{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  overflow:hidden;
+}
+.day.pick{border-color:var(--cinnabar);border-width:1.5px;background:var(--paper)}
+.day-top{
+  display:flex;gap:20px;align-items:stretch;
+  padding:18px 20px;
+}
+.gz{
+  flex:0 0 auto;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  font-family:var(--serif);font-weight:900;
+  font-size:36px;line-height:1;
+  color:var(--ink);
+  border-right:1px solid var(--rule-2);
+  padding-right:18px;
+}
+.day.pick .gz{color:var(--cinnabar-ink)}
+.day-main{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:10px}
+.day-line1{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.date{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:.02em}
+.dow{font-size:13px;color:var(--ink-3)}
+.rank{
+  font-size:11.5px;letter-spacing:.14em;font-weight:700;
+  padding:3px 9px;border-radius:2px;
+  background:var(--paper-3);color:var(--ink-2);
+}
+.rank.first{background:var(--cinnabar);color:var(--paper)}
+.rank.hold{background:var(--amber-soft);color:var(--amber)}
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  gap:10px 18px;
+  border-block:1px solid var(--rule);
+  padding-block:10px;
+}
+.fact{display:flex;flex-direction:column;gap:1px}
+.fact dt{font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.fact dd{margin:0;font-size:14px;font-family:var(--serif);font-weight:600}
+.tag{
+  display:inline-block;font-family:var(--sans);font-weight:500;
+  font-size:12px;padding:1px 7px;border-radius:2px;
+}
+.tag-yi{background:var(--celadon-soft);color:var(--celadon)}
+.tag-no{background:var(--paper-3);color:var(--ink-3)}
+.rel{font-size:13.5px;color:var(--ink-2);line-height:1.75}
+.rel b{color:var(--celadon);font-weight:700}
+.rel .warn{color:var(--amber);font-weight:700}
+
+/* ---------- 時辰 strip ---------- */
+.strip{padding:0 20px 18px}
+.strip-label{font-size:11px;letter-spacing:.16em;color:var(--ink-3);margin-bottom:6px}
+.hours{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:3px;
+}
+.sc{
+  background:var(--paper-3);
+  border-radius:2px;
+  padding:6px 2px 5px;
+  text-align:center;
+  display:flex;flex-direction:column;gap:1px;align-items:center;
+  position:relative;
+}
+.sc-z{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.1}
+.sc-t{font-size:9.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sc-ji{background:var(--cinnabar);}
+.sc-ji .sc-z{color:var(--paper)}
+.sc-ji .sc-t{color:var(--paper);opacity:.82}
+.sc-bi{background:repeating-linear-gradient(-45deg,var(--paper-3),var(--paper-3) 3px,var(--rule) 3px,var(--rule) 4px);opacity:.75}
+.sc-bi .sc-z{color:var(--ink-3)}
+.horse::after{
+  content:"馬";
+  position:absolute;top:-1px;right:2px;
+  font-family:var(--serif);font-size:8.5px;line-height:1;
+  color:var(--paper);opacity:.9;
+}
+
+/* ---------- 合局 ---------- */
+.he{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+.he figure{margin:0;background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;padding:10px}
+.he figcaption{font-size:12px;color:var(--ink-3);text-align:center;padding-top:4px}
+.he svg{display:block;width:100%;height:auto}
+.helist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.helist li{
+  display:grid;grid-template-columns:96px 1fr;gap:16px;
+  padding-block:11px;border-bottom:1px solid var(--rule);
+  font-size:13.5px;color:var(--ink-2);
+}
+.helist li:first-child{border-top:1px solid var(--rule)}
+.helist .term{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink)}
+
+/* ---------- notes ---------- */
+.notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.notes li{
+  display:grid;grid-template-columns:auto 1fr;gap:12px;
+  font-size:13.5px;color:var(--ink-2);line-height:1.72;
+}
+.mark{
+  font-family:var(--serif);font-size:12px;font-weight:700;
+  padding:2px 7px;border-radius:2px;height:fit-content;white-space:nowrap;
+}
+.m-warn{background:var(--amber-soft);color:var(--amber)}
+.m-ok{background:var(--celadon-soft);color:var(--celadon)}
+.m-info{background:var(--paper-3);color:var(--ink-3)}
+.notes b{color:var(--ink)}
+
+/* ---------- 流程 ---------- */
+.flow{list-style:none;margin:0;padding:0;counter-reset:step;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 26px}
+.flow li{
+  counter-increment:step;
+  display:grid;grid-template-columns:28px 1fr;gap:12px;
+  padding-block:12px;border-bottom:1px solid var(--rule);
+  font-size:13.5px;color:var(--ink-2);
+}
+.flow li::before{
+  content:counter(step,decimal-leading-zero);
+  font-family:var(--serif);font-size:12px;font-weight:700;color:var(--cinnabar);
+  padding-top:3px;font-variant-numeric:tabular-nums;
+}
+.flow b{color:var(--ink);font-weight:700}
+.taboo{
+  margin-top:18px;padding:14px 16px;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;
+  font-size:13.5px;color:var(--ink-2);
+}
+.taboo b{color:var(--ink)}
+
+footer{
+  margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--ink-3);line-height:1.8;
+}
+
+@media (max-width:780px){
+  .he{grid-template-columns:1fr}
+  .ming{grid-template-columns:1fr}
+  .hours{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .day-top{flex-direction:column;gap:14px;padding:16px}
+  .gz{flex-direction:row;justify-content:flex-start;gap:6px;border-right:0;border-bottom:1px solid var(--rule-2);padding:0 0 10px;font-size:32px}
+  .strip{padding:0 16px 16px}
+  .helist li{grid-template-columns:1fr;gap:2px}
+}
+</style>
+<style>
+:root{color-scheme:light dark}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="mast-main">
+    <span class="eyebrow">蔡炳圳通書 · 丙午年 丁酉月—戊戌月</span>
+    <h1>巳山亥向入宅吉課</h1>
+    <p class="mast-sub">新居坐巳向亥（<b>坐南朝北</b>）· 一家三口：<b>Jams</b>、<b>元元</b>、<b>澔楊</b><br>通書所列可遷入吉日四天，吉時皆止於午時，合家「未時以後不用」之定例。</p>
+  </div>
+  <div class="seal">
+    <div class="seal-note"><span>坐</span><span>南</span><span>朝</span><span>北</span></div>
+    <div class="seal-col"><span>巳</span><span>山</span><span>亥</span><span>向</span></div>
+  </div>
+</header>
+
+<div class="source-line">
+  <span><b>吉日來源：</b>蔡炳圳通書</span>
+  <span><b>節氣：</b>寒露 10/8 14:29 · 霜降 10/23 17:38 · 立冬 11/7 17:52</span>
+  <span><b>標記：</b>◆ 通書所載　◇ 補充參考</span>
+</div>
+
+<section>
+  <div class="sec-head">
+    <h2>三命本命</h2>
+    <p>納音與生肖，是下方各日「合、貴、祿、馬」判斷的基準</p>
+  </div>
+  <div class="ming">
+    <div class="ming-card">
+      <div class="ming-gz"><span>乙</span><span>丑</span></div>
+      <div class="ming-body">
+        <span class="ming-role">男主人</span>
+        <span class="ming-name">Jams</span>
+        <span class="ming-meta">海中金 · 生肖牛（丑）</span>
+      </div>
+    </div>
+    <div class="ming-card">
+      <div class="ming-gz"><span>甲</span><span>子</span></div>
+      <div class="ming-body">
+        <span class="ming-role">女主人</span>
+        <span class="ming-name">元元</span>
+        <span class="ming-meta">海中金 · 生肖鼠（子）</span>
+      </div>
+    </div>
+    <div class="ming-card">
+      <div class="ming-gz"><span>己</span><span>亥</span></div>
+      <div class="ming-body">
+        <span class="ming-role">孩子</span>
+        <span class="ming-name">澔楊</span>
+        <span class="ming-meta">平地木 · 生肖豬（亥）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>四個吉日</h2>
+    <p>時辰帶以紅色標出通書吉時；斜紋為合家自定迴避的未時以後</p>
+  </div>
+
+  <div class="legend">
+    <span class="key"><i class="swatch sw-ji"></i>通書吉時</span>
+    <span class="key"><i class="swatch sw-ping"></i>平（未取）</span>
+    <span class="key"><i class="swatch sw-bi"></i>未時起迴避</span>
+    <span class="key">「馬」＝巳時為孩子己亥命之驛馬，主遷移</span>
+  </div>
+
+  <div class="days">
+
+    <!-- 10/6 首選 -->
+    <article class="day pick">
+      <div class="day-top">
+        <div class="gz"><span>癸</span><span>丑</span></div>
+        <div class="day-main">
+          <div class="day-line1">
+            <span class="date">10月6日</span>
+            <span class="dow">星期二 · 丁酉月</span>
+            <span class="rank first">首選</span>
+          </div>
+          <dl class="facts">
+            <div class="fact"><dt>宜</dt><dd><span class="tag tag-yi">◆ 入宅安香</span></dd></div>
+            <div class="fact"><dt>日沖</dt><dd>沖羊（未）煞東</dd></div>
+            <div class="fact"><dt>納音</dt><dd>桑柘木</dd></div>
+            <div class="fact"><dt>吉時</dt><dd>寅 · 卯 · 巳 · 午</dd></div>
+          </dl>
+          <p class="rel">
+            ◆ 宅坐巳，<b>與酉丑三合</b>成金局；女主人甲子命：<b>子丑六合</b>、<b>丑未堆貴</b>（甲貴人在丑未）、<b>癸進祿</b>；孩子己亥命：<b>癸進旺</b>。<br>
+            ◇ 男主人乙丑與日支丑同氣比和；沖羊，家中無屬羊者。四日之中合局最密，且通書明列宜安香。
+          </p>
+        </div>
+      </div>
+      <div class="strip">
+        <div class="strip-label">時辰</div>
+        <ul class="hours">
+          <li class="sc"><span class="sc-z">子</span><span class="sc-t">23–01</span></li>
+          <li class="sc"><span class="sc-z">丑</span><span class="sc-t">01–03</span></li>
+          <li class="sc sc-ji"><span class="sc-z">寅</span><span class="sc-t">03–05</span></li>
+          <li class="sc sc-ji"><span class="sc-z">卯</span><span class="sc-t">05–07</span></li>
+          <li class="sc"><span class="sc-z">辰</span><span class="sc-t">07–09</span></li>
+          <li class="sc sc-ji horse"><span class="sc-z">巳</span><span class="sc-t">09–11</span></li>
+          <li class="sc sc-ji"><span class="sc-z">午</span><span class="sc-t">11–13</span></li>
+          <li class="sc sc-bi"><span class="sc-z">未</span><span class="sc-t">13–15</span></li>
+          <li class="sc sc-bi"><span class="sc-z">申</span><span class="sc-t">15–17</span></li>
+          <li class="sc sc-bi"><span class="sc-z">酉</span><span class="sc-t">17–19</span></li>
+          <li class="sc sc-bi"><span class="sc-z">戌</span><span class="sc-t">19–21</span></li>
+          <li class="sc sc-bi"><span class="sc-z">亥</span><span class="sc-t">21–23</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 11/1 -->
+    <article class="day">
+      <div class="day-top">
+        <div class="gz"><span>己</span><span>卯</span></div>
+        <div class="day-main">
+          <div class="day-line1">
+            <span class="date">11月1日</span>
+            <span class="dow">星期日 · 戊戌月（立冬前）</span>
+            <span class="rank">次選</span>
+          </div>
+          <dl class="facts">
+            <div class="fact"><dt>宜</dt><dd><span class="tag tag-yi">◆ 入宅安香</span></dd></div>
+            <div class="fact"><dt>日沖</dt><dd>沖雞（酉）煞西</dd></div>
+            <div class="fact"><dt>納音</dt><dd>城頭土</dd></div>
+            <div class="fact"><dt>吉時</dt><dd>丑 · 寅 · 卯 · 巳 · 午</dd></div>
+          </dl>
+          <p class="rel">
+            ◆ 通書明列宜入宅安香，吉時五個，四日中最寬裕。<br>
+            ◇ 日支卯與孩子亥命半合木局；卯與月建戊戌六合。沖雞，家中無屬雞者。距今最遠，備料與請假最從容；唯與宅坐巳無直接合局。
+          </p>
+        </div>
+      </div>
+      <div class="strip">
+        <div class="strip-label">時辰</div>
+        <ul class="hours">
+          <li class="sc"><span class="sc-z">子</span><span class="sc-t">23–01</span></li>
+          <li class="sc sc-ji"><span class="sc-z">丑</span><span class="sc-t">01–03</span></li>
+          <li class="sc sc-ji"><span class="sc-z">寅</span><span class="sc-t">03–05</span></li>
+          <li class="sc sc-ji"><span class="sc-z">卯</span><span class="sc-t">05–07</span></li>
+          <li class="sc"><span class="sc-z">辰</span><span class="sc-t">07–09</span></li>
+          <li class="sc sc-ji horse"><span class="sc-z">巳</span><span class="sc-t">09–11</span></li>
+          <li class="sc sc-ji"><span class="sc-z">午</span><span class="sc-t">11–13</span></li>
+          <li class="sc sc-bi"><span class="sc-z">未</span><span class="sc-t">13–15</span></li>
+          <li class="sc sc-bi"><span class="sc-z">申</span><span class="sc-t">15–17</span></li>
+          <li class="sc sc-bi"><span class="sc-z">酉</span><span class="sc-t">17–19</span></li>
+          <li class="sc sc-bi"><span class="sc-z">戌</span><span class="sc-t">19–21</span></li>
+          <li class="sc sc-bi"><span class="sc-z">亥</span><span class="sc-t">21–23</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 10/2 -->
+    <article class="day">
+      <div class="day-top">
+        <div class="gz"><span>己</span><span>酉</span></div>
+        <div class="day-main">
+          <div class="day-line1">
+            <span class="date">10月2日</span>
+            <span class="dow">星期五 · 丁酉月</span>
+            <span class="rank">第三</span>
+          </div>
+          <dl class="facts">
+            <div class="fact"><dt>宜</dt><dd><span class="tag tag-no">◆ 吉日（未註宜安香）</span></dd></div>
+            <div class="fact"><dt>日沖</dt><dd>沖兔（卯）煞東</dd></div>
+            <div class="fact"><dt>納音</dt><dd>大驛土</dd></div>
+            <div class="fact"><dt>吉時</dt><dd>丑 · 寅 · 巳 · 午</dd></div>
+          </dl>
+          <p class="rel">
+            ◆ 宅坐巳<b>與酉丑三合</b>；孩子己亥命：<b>酉堆長生</b>。<br>
+            ◇ 宅坐巳 ＋ 日支酉 ＋ 男主人丑命，三字齊聚成「巳酉丑」金局，合宅最緊。惟通書於此日未特別標明宜安香；且距今僅約兩週半，搬遷備料時間最緊。
+          </p>
+        </div>
+      </div>
+      <div class="strip">
+        <div class="strip-label">時辰</div>
+        <ul class="hours">
+          <li class="sc"><span class="sc-z">子</span><span class="sc-t">23–01</span></li>
+          <li class="sc sc-ji"><span class="sc-z">丑</span><span class="sc-t">01–03</span></li>
+          <li class="sc sc-ji"><span class="sc-z">寅</span><span class="sc-t">03–05</span></li>
+          <li class="sc"><span class="sc-z">卯</span><span class="sc-t">05–07</span></li>
+          <li class="sc"><span class="sc-z">辰</span><span class="sc-t">07–09</span></li>
+          <li class="sc sc-ji horse"><span class="sc-z">巳</span><span class="sc-t">09–11</span></li>
+          <li class="sc sc-ji"><span class="sc-z">午</span><span class="sc-t">11–13</span></li>
+          <li class="sc sc-bi"><span class="sc-z">未</span><span class="sc-t">13–15</span></li>
+          <li class="sc sc-bi"><span class="sc-z">申</span><span class="sc-t">15–17</span></li>
+          <li class="sc sc-bi"><span class="sc-z">酉</span><span class="sc-t">17–19</span></li>
+          <li class="sc sc-bi"><span class="sc-z">戌</span><span class="sc-t">19–21</span></li>
+          <li class="sc sc-bi"><span class="sc-z">亥</span><span class="sc-t">21–23</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 10/23 -->
+    <article class="day">
+      <div class="day-top">
+        <div class="gz"><span>庚</span><span>午</span></div>
+        <div class="day-main">
+          <div class="day-line1">
+            <span class="date">10月23日</span>
+            <span class="dow">星期五 · 戊戌月</span>
+            <span class="rank hold">待師傅確認</span>
+          </div>
+          <dl class="facts">
+            <div class="fact"><dt>宜</dt><dd><span class="tag tag-yi">◆ 入宅安香</span></dd></div>
+            <div class="fact"><dt>日沖</dt><dd>沖鼠（子）煞北</dd></div>
+            <div class="fact"><dt>納音</dt><dd>路旁土</dd></div>
+            <div class="fact"><dt>吉時</dt><dd>丑 · 寅 · 卯 · 巳</dd></div>
+          </dl>
+          <p class="rel">
+            ◆ 通書明列宜入宅安香，吉時四個，皆在當日 17:38 交霜降之前。<br>
+            ◇ <span class="warn">日支午沖女主人甲子本命（子午相沖）</span>；<span class="warn">該日煞方在北，與本宅亥向同方</span>，而丙午年三煞亦落北方亥子丑。三項同指北方，建議請師傅判定可用與否，或優先取其餘三日。
+          </p>
+        </div>
+      </div>
+      <div class="strip">
+        <div class="strip-label">時辰</div>
+        <ul class="hours">
+          <li class="sc"><span class="sc-z">子</span><span class="sc-t">23–01</span></li>
+          <li class="sc sc-ji"><span class="sc-z">丑</span><span class="sc-t">01–03</span></li>
+          <li class="sc sc-ji"><span class="sc-z">寅</span><span class="sc-t">03–05</span></li>
+          <li class="sc sc-ji"><span class="sc-z">卯</span><span class="sc-t">05–07</span></li>
+          <li class="sc"><span class="sc-z">辰</span><span class="sc-t">07–09</span></li>
+          <li class="sc sc-ji horse"><span class="sc-z">巳</span><span class="sc-t">09–11</span></li>
+          <li class="sc"><span class="sc-z">午</span><span class="sc-t">11–13</span></li>
+          <li class="sc sc-bi"><span class="sc-z">未</span><span class="sc-t">13–15</span></li>
+          <li class="sc sc-bi"><span class="sc-z">申</span><span class="sc-t">15–17</span></li>
+          <li class="sc sc-bi"><span class="sc-z">酉</span><span class="sc-t">17–19</span></li>
+          <li class="sc sc-bi"><span class="sc-z">戌</span><span class="sc-t">19–21</span></li>
+          <li class="sc sc-bi"><span class="sc-z">亥</span><span class="sc-t">21–23</span></li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>合局圖解</h2>
+    <p>宅坐、日支與三命之間的合、貴、祿、馬</p>
+  </div>
+  <div class="he">
+    <figure>
+      <svg viewBox="0 0 300 262" role="img" aria-label="巳酉丑三合金局示意圖">
+        <polygon points="150,54 256,228 44,228" fill="none" stroke="var(--cinnabar)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <circle cx="150" cy="54" r="27" fill="var(--cinnabar)"/>
+        <text x="150" y="54" fill="var(--paper)" font-family="Noto Serif TC, serif" font-size="24" font-weight="900" text-anchor="middle" dominant-baseline="central">巳</text>
+        <text x="150" y="16" fill="currentColor" font-family="Noto Sans TC, sans-serif" font-size="12" text-anchor="middle">宅坐巳</text>
+        <circle cx="256" cy="228" r="27" fill="var(--cinnabar)"/>
+        <text x="256" y="228" fill="var(--paper)" font-family="Noto Serif TC, serif" font-size="24" font-weight="900" text-anchor="middle" dominant-baseline="central">酉</text>
+        <text x="256" y="254" fill="currentColor" font-family="Noto Sans TC, sans-serif" font-size="12" text-anchor="middle">10/2 己酉日</text>
+        <circle cx="44" cy="228" r="27" fill="var(--cinnabar)"/>
+        <text x="44" y="228" fill="var(--paper)" font-family="Noto Serif TC, serif" font-size="24" font-weight="900" text-anchor="middle" dominant-baseline="central">丑</text>
+        <text x="44" y="254" fill="currentColor" font-family="Noto Sans TC, sans-serif" font-size="12" text-anchor="middle">10/6 癸丑日</text>
+        <text x="150" y="168" fill="currentColor" font-family="Noto Serif TC, serif" font-size="19" font-weight="900" text-anchor="middle">金局</text>
+        <text x="150" y="190" fill="currentColor" font-family="Noto Sans TC, sans-serif" font-size="11.5" text-anchor="middle" opacity="0.66">男主人乙丑命亦居丑位</text>
+      </svg>
+      <figcaption>巳酉丑三合 —— 宅坐與兩個吉日同局</figcaption>
+    </figure>
+    <ul class="helist">
+      <li><span class="term">三合</span><span>巳（宅坐）· 酉（10/2）· 丑（10/6）成金局；男主人乙丑命居丑，與宅同氣。</span></li>
+      <li><span class="term">六合</span><span>女主人甲子命 × 10/6 癸丑日 —— 子丑六合，四日中唯一與女主人本命相合之日。</span></li>
+      <li><span class="term">堆貴</span><span>甲命貴人在丑未；10/6 丑日為女主人甲子命之天乙貴人。</span></li>
+      <li><span class="term">進祿</span><span>10/6 日干癸，於女主人甲子命為進祿。</span></li>
+      <li><span class="term">進旺</span><span>10/6 日干癸，於孩子己亥命為進旺。</span></li>
+      <li><span class="term">堆長生</span><span>10/2 酉日，於孩子己亥命為堆長生。</span></li>
+      <li><span class="term">驛馬</span><span>孩子己亥命驛馬在巳 —— <b>巳時（09:00–11:00）四日皆為吉時</b>，主遷移，亦最合實際作業。</span></li>
+      <li><span class="term">相沖</span><span>10/23 午日沖女主人子命；其餘三日所沖生肖（兔、羊、雞）家中皆無人屬之。</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>注意事項</h2>
+    <p>◆ 通書所載　◇ 一般擇日通則之補充，實際仍以通書與師傅為準</p>
+  </div>
+  <ul class="notes">
+    <li><span class="mark m-ok">結論</span><span><b>10月6日（二）癸丑日 巳時 09:00–11:00</b> 為最穩妥之選：通書明列宜入宅安香，合宅三合、合女主人本命六合並堆貴進祿、孩子進旺，且巳時正為孩子驛馬。若須週末，則取 <b>11月1日（日）己卯日 巳時</b>。</span></li>
+    <li><span class="mark m-warn">年三煞</span><span>丙午年（寅午戌）三煞在北方 <b>亥子丑</b>，正落本宅 <b>亥向</b>。此於動土、修方、拆改該方最忌；單純入宅安香是否須另行制化或迴避，請向師傅確認後再定案。</span></li>
+    <li><span class="mark m-warn">10/23</span><span>庚午日日支午沖女主人甲子本命，且當日煞方在北，與宅向、年三煞同指北方。三項相疊，非經師傅首肯不建議採用。</span></li>
+    <li><span class="mark m-info">節氣</span><span>10/2、10/6 屬丁酉月；10/8 14:29 寒露後入戊戌月，10/23 與 11/1 屬戊戌月（11/7 17:52 立冬前）。10/23 當日 17:38 交霜降，所列吉時皆在交節之前。</span></li>
+    <li><span class="mark m-info">時辰</span><span>合家已定「未時（13:00）以後不用」。四日所有吉時最晚止於午時 13:00，全數符合。實務上丑、寅、卯時在凌晨至清晨，搬運與安爐不便，<b>巳時為唯一四日通用且可行的時段</b>。</span></li>
+    <li><span class="mark m-info">時制</span><span>表中時間為馬來西亞時間（UTC+8）。時辰以當地鐘錶時間計；若師傅採真太陽時，需按經度微調，請一併確認。</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>入宅安香備忘</h2>
+    <p>◇ 民俗參考流程，各家各派略有不同，細節以師傅交代為準</p>
+  </div>
+  <ol class="flow">
+    <li><span><b>吉時前備妥</b>　新米（米缸裝七分滿）、鹽、糖、水（裝七分滿）、發糕或甜品、新碗筷六雙、新掃把畚箕、銅錢或紅包、火柴或爐具。</span></li>
+    <li><span><b>吉時進門</b>　主要動作（進門—安爐—開火）務必在所選吉時內完成，忌空手入門，每人手上皆持一物。</span></li>
+    <li><span><b>入門次序</b>　家長捧神明爐（或祖先爐）先入，其餘家人依序隨後，孩子由大人帶入。</span></li>
+    <li><span><b>安香</b>　先安神明爐、後安祖先爐，爐位坐向依師傅指示；上香稟報遷入及一家姓名。</span></li>
+    <li><span><b>開火</b>　於廚房煮甜湯圓或甜茶，全家分食，取圓滿甜蜜之意。</span></li>
+    <li><span><b>開燈</b>　當日起全屋燈火通明，部分習俗維持三日；水龍頭可略開放流，取財水長流。</span></li>
+  </ol>
+  <div class="taboo">
+    <b>當日忌：</b>空手入門 · 午睡 · 爭執與不吉之語 · 動土敲打（尤忌北方亥子丑位） · 送鐘、刀剪等物入宅。<b>孕婦</b>宜避開搬遷現場，待安頓後再入。
+  </div>
+</section>
+
+<footer>
+  吉日、吉時與「宜入宅安香」之標註出自蔡炳圳通書（丙午年）；納音、日沖煞方、節氣時刻、三合六合貴祿馬之對照為據此整理之補充參考。<br>
+  最終採用之日課與時刻，請以通書原文及擇日師傅之核定為準。
+</footer>
+
+</div>
+</body>
+</html>
