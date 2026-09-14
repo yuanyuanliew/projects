@@ -29,45 +29,6 @@
   --serif:"Noto Serif TC","Songti TC","SimSun",Georgia,serif;
   --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#181613;
-    --paper-2:#211E19;
-    --paper-3:#282420;
-    --ink:#EFE6D5;
-    --ink-2:#B9AF9B;
-    --ink-3:#8A8170;
-    --rule:#393429;
-    --rule-2:#4B4436;
-    --cinnabar:#E27C6E;
-    --cinnabar-ink:#EE9184;
-    --cinnabar-soft:#3A221E;
-    --celadon:#86C1A7;
-    --celadon-soft:#1D2C26;
-    --amber:#D7A94A;
-    --amber-soft:#2E2617;
-    --shadow:0 1px 0 rgba(0,0,0,.35);
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#181613;
-  --paper-2:#211E19;
-  --paper-3:#282420;
-  --ink:#EFE6D5;
-  --ink-2:#B9AF9B;
-  --ink-3:#8A8170;
-  --rule:#393429;
-  --rule-2:#4B4436;
-  --cinnabar:#E27C6E;
-  --cinnabar-ink:#EE9184;
-  --cinnabar-soft:#3A221E;
-  --celadon:#86C1A7;
-  --celadon-soft:#1D2C26;
-  --amber:#D7A94A;
-  --amber-soft:#2E2617;
-  --shadow:0 1px 0 rgba(0,0,0,.35);
-}
-
 *{box-sizing:border-box}
 body{
   background:var(--paper);
@@ -322,18 +283,131 @@ footer{
   font-size:12px;color:var(--ink-3);line-height:1.8;
 }
 
-@media (max-width:780px){
+@media (max-width:820px){
   .he{grid-template-columns:1fr}
   .ming{grid-template-columns:1fr}
-  .hours{grid-template-columns:repeat(6,minmax(0,1fr))}
   .day-top{flex-direction:column;gap:14px;padding:16px}
   .gz{flex-direction:row;justify-content:flex-start;gap:6px;border-right:0;border-bottom:1px solid var(--rule-2);padding:0 0 10px;font-size:32px}
   .strip{padding:0 16px 16px}
   .helist li{grid-template-columns:1fr;gap:2px}
 }
+
+/* ================= 手機版 ================= */
+@media (max-width:640px){
+  body{font-size:16px;line-height:1.75;padding-inline:16px;padding-block:0 52px}
+
+  /* 報頭：印章移到標題上方，不再擠在右側 */
+  .masthead{flex-direction:column;align-items:stretch;gap:16px;padding-block:28px 18px}
+  .mast-main{flex:0 0 auto;width:100%}
+  h1{font-size:34px;letter-spacing:.04em}
+  .mast-sub{font-size:14.5px}
+  .seal{order:-1;flex:0 0 auto;align-self:flex-start;flex-direction:row;align-items:center;gap:12px}
+  .seal-col{flex-direction:row;gap:2px;font-size:19px;padding:7px 12px}
+  .seal-note{flex-direction:row;gap:2px;font-size:13px;padding:0}
+  .source-line{flex-direction:column;gap:5px;font-size:13px;line-height:1.6}
+
+  section{padding-block:30px 0}
+  .sec-head{flex-direction:column;gap:3px;margin-bottom:14px}
+  h2{font-size:20px}
+  .sec-head p{font-size:13px;line-height:1.6}
+
+  .ming-card{padding:13px 14px}
+  .ming-gz{font-size:26px;padding-right:12px}
+  .ming-name{font-size:18px}
+  .ming-meta{font-size:13px}
+
+  .legend{font-size:12.5px;gap:5px 14px;line-height:1.6}
+
+  /* 日卡 */
+  .date{font-size:21px}
+  .dow{font-size:13px;width:100%}
+  .facts{grid-template-columns:1fr 1fr;gap:9px 14px}
+  .fact dd{font-size:14.5px}
+  .rel{font-size:14px;line-height:1.8}
+
+  /* 時辰帶：四格一行，字大好按 */
+  .hours{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  .sc{padding:8px 2px 7px}
+  .sc-z{font-size:17px}
+  .sc-t{font-size:11px}
+  .horse::after{font-size:10px;top:1px;right:4px}
+
+  /* 表格改成卡片式，取消橫向捲動 */
+  .tbl-wrap{overflow:visible;margin-bottom:18px}
+  .matrix{min-width:0;display:block}
+  .matrix caption{display:block;width:100%;text-align:left;font-size:12px;letter-spacing:.1em;padding-bottom:9px}
+  .matrix thead{display:none}
+  .matrix tbody{display:block}
+  .matrix tbody tr{
+    display:block;
+    border:1px solid var(--rule);border-radius:4px;
+    background:var(--paper-2);
+    margin-bottom:12px;overflow:hidden;
+  }
+  .matrix tbody tr.hl{border-color:var(--cinnabar);background:var(--cinnabar-soft)}
+  .matrix tbody tr > th,
+  .matrix tbody tr > td{
+    display:block;width:auto;
+    border:0;border-top:1px solid var(--rule);
+    padding:9px 14px;background:transparent;
+    font-size:14.5px;
+  }
+  .matrix tbody tr > th{
+    border-top:0;
+    background:var(--paper-3);
+    font-size:16px;padding:10px 14px;
+  }
+  .matrix tbody tr.hl > th{background:transparent;color:var(--cinnabar-ink)}
+  .matrix tbody tr[data-row] > th[rowspan]{display:none}
+  .matrix tbody tr[data-row]::before{
+    content:attr(data-row);
+    display:block;
+    background:var(--paper-3);
+    font-family:var(--serif);font-weight:700;font-size:16px;
+    padding:10px 14px;
+  }
+  .matrix tbody tr.hl[data-row]::before{background:transparent;color:var(--cinnabar-ink)}
+  .matrix td[data-label]::before{
+    content:attr(data-label);
+    display:block;
+    font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+    margin-bottom:3px;
+  }
+  /* 基準表格字少，手機上仍用表格較省版面 */
+  .matrix.compact{display:table;width:100%;min-width:0;table-layout:fixed}
+  .matrix.compact thead{display:table-header-group}
+  .matrix.compact tbody{display:table-row-group}
+  .matrix.compact tbody tr{display:table-row;border:0;margin:0;background:transparent;border-radius:0}
+  .matrix.compact th,.matrix.compact td{
+    display:table-cell;border:1px solid var(--rule);
+    padding:7px 5px;font-size:13.5px;text-align:center;
+  }
+  .matrix.compact thead th{background:var(--paper-3);font-size:11.5px;line-height:1.45;padding:6px 3px;white-space:normal}
+  .matrix.compact tbody th{background:var(--paper-3);font-size:13.5px;white-space:normal}
+  .matrix.compact caption{display:table-caption;caption-side:top;text-align:left;width:auto}
+  .matrix.compact td{background:var(--paper-2)}
+  .matrix.compact td[data-label]::before{display:none}
+  .matrix.compact th:first-child{width:23%}
+
+  .chip{font-size:13px;padding:2px 9px;margin:2px 5px 2px 0}
+  .mono-note{font-size:13.5px;line-height:1.85}
+
+  /* 注意事項、流程 */
+  .notes li{grid-template-columns:1fr;gap:5px;font-size:14.5px;line-height:1.85}
+  .mark{justify-self:start}
+  .flow{grid-template-columns:1fr}
+  .flow li{font-size:14.5px;line-height:1.8}
+  .taboo{font-size:14px;line-height:1.85}
+  footer{font-size:12.5px}
+}
+
+@media (max-width:380px){
+  .hours{grid-template-columns:repeat(3,minmax(0,1fr))}
+  h1{font-size:30px}
+  .facts{grid-template-columns:1fr}
+}
 </style>
 <style>
-:root{color-scheme:light dark}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
@@ -581,7 +655,7 @@ img{max-width:100%}
   </div>
   <div class="he">
     <figure>
-      <svg viewBox="0 0 300 262" role="img" aria-label="巳酉丑三合金局示意圖">
+      <svg viewBox="-22 -4 344 274" role="img" aria-label="巳酉丑三合金局示意圖">
         <polygon points="150,54 256,228 44,228" fill="none" stroke="var(--cinnabar)" stroke-width="1.4" stroke-dasharray="5 4"/>
         <circle cx="150" cy="54" r="27" fill="var(--cinnabar)"/>
         <text x="150" y="54" fill="var(--paper)" font-family="Noto Serif TC, serif" font-size="24" font-weight="900" text-anchor="middle" dominant-baseline="central">巳</text>
@@ -619,25 +693,25 @@ img{max-width:100%}
   </div>
 
   <div class="tbl-wrap">
-    <table class="matrix">
+    <table class="matrix compact">
       <caption>基準 —— 各本命須遇何支何干方得課</caption>
       <thead>
-        <tr><th>項目</th><th>男主人 乙丑（Jams）</th><th>女主人 甲子（元元）</th><th>孩子 己亥（澔楊）</th></tr>
+        <tr><th>項目</th><th>男主人<br>乙丑 Jams</th><th>女主人<br>甲子 元元</th><th>孩子<br>己亥 澔楊</th></tr>
       </thead>
       <tbody>
-        <tr><th>三合</th><td>巳・酉</td><td>申・辰</td><td>卯・未</td></tr>
-        <tr><th>六合</th><td>子</td><td>丑</td><td>寅</td></tr>
-        <tr><th>堆貴</th><td>子・申</td><td>丑・未</td><td>子・申</td></tr>
-        <tr><th>進貴</th><td>甲・戊・庚</td><td>乙・己</td><td>丙・丁</td></tr>
-        <tr><th>堆長生</th><td>午</td><td>亥</td><td>酉</td></tr>
-        <tr><th>進長生</th><td>—</td><td>辛</td><td>甲</td></tr>
-        <tr><th>堆旺</th><td>寅</td><td>卯</td><td>巳</td></tr>
-        <tr><th>進旺</th><td>—</td><td>壬</td><td>癸</td></tr>
-        <tr><th>堆祿</th><td>卯</td><td>寅</td><td>午</td></tr>
-        <tr><th>進祿</th><td>—</td><td>癸</td><td>壬</td></tr>
-        <tr><th>堆馬</th><td>亥</td><td>寅</td><td>巳</td></tr>
-        <tr><th>本命所沖</th><td>未</td><td>午</td><td>巳</td></tr>
-        <tr><th>本命所刑</th><td>戌・未</td><td>卯</td><td>亥（自刑）</td></tr>
+        <tr><th>三合</th><td data-label="男主人 乙丑（Jams）">巳・酉</td><td data-label="女主人 甲子（元元）">申・辰</td><td data-label="孩子 己亥（澔楊）">卯・未</td></tr>
+        <tr><th>六合</th><td data-label="男主人 乙丑（Jams）">子</td><td data-label="女主人 甲子（元元）">丑</td><td data-label="孩子 己亥（澔楊）">寅</td></tr>
+        <tr><th>堆貴</th><td data-label="男主人 乙丑（Jams）">子・申</td><td data-label="女主人 甲子（元元）">丑・未</td><td data-label="孩子 己亥（澔楊）">子・申</td></tr>
+        <tr><th>進貴</th><td data-label="男主人 乙丑（Jams）">甲・戊・庚</td><td data-label="女主人 甲子（元元）">乙・己</td><td data-label="孩子 己亥（澔楊）">丙・丁</td></tr>
+        <tr><th>堆長生</th><td data-label="男主人 乙丑（Jams）">午</td><td data-label="女主人 甲子（元元）">亥</td><td data-label="孩子 己亥（澔楊）">酉</td></tr>
+        <tr><th>進長生</th><td data-label="男主人 乙丑（Jams）">—</td><td data-label="女主人 甲子（元元）">辛</td><td data-label="孩子 己亥（澔楊）">甲</td></tr>
+        <tr><th>堆旺</th><td data-label="男主人 乙丑（Jams）">寅</td><td data-label="女主人 甲子（元元）">卯</td><td data-label="孩子 己亥（澔楊）">巳</td></tr>
+        <tr><th>進旺</th><td data-label="男主人 乙丑（Jams）">—</td><td data-label="女主人 甲子（元元）">壬</td><td data-label="孩子 己亥（澔楊）">癸</td></tr>
+        <tr><th>堆祿</th><td data-label="男主人 乙丑（Jams）">卯</td><td data-label="女主人 甲子（元元）">寅</td><td data-label="孩子 己亥（澔楊）">午</td></tr>
+        <tr><th>進祿</th><td data-label="男主人 乙丑（Jams）">—</td><td data-label="女主人 甲子（元元）">癸</td><td data-label="孩子 己亥（澔楊）">壬</td></tr>
+        <tr><th>堆馬</th><td data-label="男主人 乙丑（Jams）">亥</td><td data-label="女主人 甲子（元元）">寅</td><td data-label="孩子 己亥（澔楊）">巳</td></tr>
+        <tr><th>本命所沖</th><td data-label="男主人 乙丑（Jams）">未</td><td data-label="女主人 甲子（元元）">午</td><td data-label="孩子 己亥（澔楊）">巳</td></tr>
+        <tr><th>本命所刑</th><td data-label="男主人 乙丑（Jams）">戌・未</td><td data-label="女主人 甲子（元元）">卯</td><td data-label="孩子 己亥（澔楊）">亥（自刑）</td></tr>
       </tbody>
     </table>
   </div>
@@ -651,31 +725,31 @@ img{max-width:100%}
       <tbody>
         <tr>
           <th>10/2 己酉</th>
-          <td><span class="chip c-top">巳酉丑三合全</span></td>
-          <td><span class="chip c-good">己進貴</span></td>
-          <td><span class="chip c-good">酉堆長生</span></td>
-          <td><span class="chip c-good">酉合巳山</span></td>
+          <td data-label="男主人 乙丑"><span class="chip c-top">巳酉丑三合全</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-good">己進貴</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">酉堆長生</span></td>
+          <td data-label="宅 巳山"><span class="chip c-good">酉合巳山</span></td>
         </tr>
         <tr class="hl">
           <th>10/6 癸丑</th>
-          <td><span class="chip c-none">日柱層面無</span><span class="chip c-top">配巳時入金局全</span></td>
-          <td><span class="chip c-top">六合</span><span class="chip c-top">堆貴</span><span class="chip c-top">進祿</span></td>
-          <td><span class="chip c-good">癸進旺</span></td>
-          <td><span class="chip c-good">丑半合巳山</span></td>
+          <td data-label="男主人 乙丑"><span class="chip c-none">日柱層面無</span><span class="chip c-top">配巳時入金局全</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-top">六合</span><span class="chip c-top">堆貴</span><span class="chip c-top">進祿</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">癸進旺</span></td>
+          <td data-label="宅 巳山"><span class="chip c-good">丑半合巳山</span></td>
         </tr>
         <tr>
           <th>10/23 庚午</th>
-          <td><span class="chip c-good">午堆長生</span><span class="chip c-good">庚進貴</span></td>
-          <td><span class="chip c-bad">子午相沖</span></td>
-          <td><span class="chip c-good">午堆祿</span></td>
-          <td><span class="chip c-none">無</span></td>
+          <td data-label="男主人 乙丑"><span class="chip c-good">午堆長生</span><span class="chip c-good">庚進貴</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-bad">子午相沖</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">午堆祿</span></td>
+          <td data-label="宅 巳山"><span class="chip c-none">無</span></td>
         </tr>
         <tr>
           <th>11/1 己卯</th>
-          <td><span class="chip c-good">卯堆祿</span></td>
-          <td><span class="chip c-good">卯堆旺</span><span class="chip c-good">己進貴</span><span class="chip c-bad">子卯相刑</span></td>
-          <td><span class="chip c-good">亥卯半合</span></td>
-          <td><span class="chip c-none">無</span></td>
+          <td data-label="男主人 乙丑"><span class="chip c-good">卯堆祿</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-good">卯堆旺</span><span class="chip c-good">己進貴</span><span class="chip c-bad">子卯相刑</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">亥卯半合</span></td>
+          <td data-label="宅 巳山"><span class="chip c-none">無</span></td>
         </tr>
       </tbody>
     </table>
@@ -689,34 +763,34 @@ img{max-width:100%}
       </thead>
       <tbody>
         <tr>
-          <th>丑 01–03</th><td>10/2・10/23・11/1</td>
-          <td><span class="chip c-none">伏吟</span></td>
-          <td><span class="chip c-good">六合</span><span class="chip c-good">堆貴</span></td>
-          <td><span class="chip c-none">無</span></td>
+          <th>丑 01–03</th><td data-label="可用之日">10/2・10/23・11/1</td>
+          <td data-label="男主人 乙丑"><span class="chip c-none">伏吟</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-good">六合</span><span class="chip c-good">堆貴</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-none">無</span></td>
         </tr>
         <tr class="hl">
-          <th>寅 03–05</th><td>四日皆有</td>
-          <td><span class="chip c-top">堆旺</span></td>
-          <td><span class="chip c-top">堆祿</span><span class="chip c-top">堆馬</span></td>
-          <td><span class="chip c-top">六合</span></td>
+          <th>寅 03–05</th><td data-label="可用之日">四日皆有</td>
+          <td data-label="男主人 乙丑"><span class="chip c-top">堆旺</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-top">堆祿</span><span class="chip c-top">堆馬</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-top">六合</span></td>
         </tr>
         <tr>
-          <th>卯 05–07</th><td>10/6・10/23・11/1</td>
-          <td><span class="chip c-good">堆祿</span></td>
-          <td><span class="chip c-good">堆旺</span><span class="chip c-bad">子卯刑</span></td>
-          <td><span class="chip c-good">亥卯半合</span></td>
+          <th>卯 05–07</th><td data-label="可用之日">10/6・10/23・11/1</td>
+          <td data-label="男主人 乙丑"><span class="chip c-good">堆祿</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-good">堆旺</span><span class="chip c-bad">子卯刑</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">亥卯半合</span></td>
         </tr>
         <tr>
-          <th>巳 09–11</th><td>四日皆有</td>
-          <td><span class="chip c-good">巳丑半合</span></td>
-          <td><span class="chip c-none">無</span></td>
-          <td><span class="chip c-good">驛馬</span><span class="chip c-bad">巳亥相沖</span></td>
+          <th>巳 09–11</th><td data-label="可用之日">四日皆有</td>
+          <td data-label="男主人 乙丑"><span class="chip c-good">巳丑半合</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-none">無</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">驛馬</span><span class="chip c-bad">巳亥相沖</span></td>
         </tr>
         <tr>
-          <th>午 11–13</th><td>10/2・10/6・11/1</td>
-          <td><span class="chip c-good">堆長生</span></td>
-          <td><span class="chip c-bad">子午相沖</span></td>
-          <td><span class="chip c-good">堆祿</span></td>
+          <th>午 11–13</th><td data-label="可用之日">10/2・10/6・11/1</td>
+          <td data-label="男主人 乙丑"><span class="chip c-good">堆長生</span></td>
+          <td data-label="女主人 甲子"><span class="chip c-bad">子午相沖</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">堆祿</span></td>
         </tr>
       </tbody>
     </table>
@@ -737,26 +811,26 @@ img{max-width:100%}
         <tr><th>日</th><th>時辰</th><th>時柱</th><th>四支（年月日時）</th><th>成局</th><th>評</th></tr>
       </thead>
       <tbody>
-        <tr><th rowspan="4">10/2<br>己酉</th><td>丑 01–03</td><td>乙丑</td><td>午 酉 酉 丑</td><td><span class="chip c-good">酉丑半合</span></td><td>缺巳，宅坐巳可拱</td></tr>
-        <tr><td>寅 03–05</td><td>丙寅</td><td>午 酉 酉 寅</td><td><span class="chip c-none">寅午半合（火）</span></td><td>火半局，輕剋二位金命</td></tr>
-        <tr class="hl"><td>巳 09–11</td><td>己巳</td><td>午 酉 酉 巳</td><td><span class="chip c-good">巳酉半合</span></td><td>加男主人乙丑本命之丑，拱成巳酉丑全</td></tr>
-        <tr><td>午 11–13</td><td>庚午</td><td>午 酉 酉 午</td><td><span class="chip c-none">無</span></td><td>—</td></tr>
+        <tr data-row="10/2 己酉"><th rowspan="4">10/2<br>己酉</th><td data-label="時辰">丑 01–03</td><td data-label="時柱">乙丑</td><td data-label="四支（年月日時）">午 酉 酉 丑</td><td data-label="成局"><span class="chip c-good">酉丑半合</span></td><td data-label="評">缺巳，宅坐巳可拱</td></tr>
+        <tr data-row="10/2 己酉"><td data-label="時辰">寅 03–05</td><td data-label="時柱">丙寅</td><td data-label="四支（年月日時）">午 酉 酉 寅</td><td data-label="成局"><span class="chip c-none">寅午半合（火）</span></td><td data-label="評">火半局，輕剋二位金命</td></tr>
+        <tr data-row="10/2 己酉" class="hl"><td data-label="時辰">巳 09–11</td><td data-label="時柱">己巳</td><td data-label="四支（年月日時）">午 酉 酉 巳</td><td data-label="成局"><span class="chip c-good">巳酉半合</span></td><td data-label="評">加男主人乙丑本命之丑，拱成巳酉丑全</td></tr>
+        <tr data-row="10/2 己酉"><td data-label="時辰">午 11–13</td><td data-label="時柱">庚午</td><td data-label="四支（年月日時）">午 酉 酉 午</td><td data-label="成局"><span class="chip c-none">無</span></td><td data-label="評">—</td></tr>
 
-        <tr><th rowspan="4">10/6<br>癸丑</th><td>寅 03–05</td><td>甲寅</td><td>午 酉 丑 寅</td><td><span class="chip c-good">酉丑半合</span></td><td>無全局，惟三人無沖無刑</td></tr>
-        <tr><td>卯 05–07</td><td>乙卯</td><td>午 酉 丑 卯</td><td><span class="chip c-bad">卯沖月建酉</span></td><td>課內自沖，不取</td></tr>
-        <tr class="hl"><td>巳 09–11</td><td><b>丁巳</b></td><td>午 <b>酉</b> <b>丑</b> <b>巳</b></td><td><span class="chip c-top">巳酉丑 金局全</span></td><td>合宅坐巳；男主人乙丑本命之丑正在日支，本命入局；金局與二位海中金同氣</td></tr>
-        <tr><td>午 11–13</td><td>戊午</td><td>午 酉 丑 午</td><td><span class="chip c-good">酉丑半合</span></td><td>午沖女主人子命</td></tr>
+        <tr data-row="10/6 癸丑"><th rowspan="4">10/6<br>癸丑</th><td data-label="時辰">寅 03–05</td><td data-label="時柱">甲寅</td><td data-label="四支（年月日時）">午 酉 丑 寅</td><td data-label="成局"><span class="chip c-good">酉丑半合</span></td><td data-label="評">無全局，惟三人無沖無刑</td></tr>
+        <tr data-row="10/6 癸丑"><td data-label="時辰">卯 05–07</td><td data-label="時柱">乙卯</td><td data-label="四支（年月日時）">午 酉 丑 卯</td><td data-label="成局"><span class="chip c-bad">卯沖月建酉</span></td><td data-label="評">課內自沖，不取</td></tr>
+        <tr data-row="10/6 癸丑" class="hl"><td data-label="時辰">巳 09–11</td><td data-label="時柱"><b>丁巳</b></td><td data-label="四支（年月日時）">午 <b>酉</b> <b>丑</b> <b>巳</b></td><td data-label="成局"><span class="chip c-top">巳酉丑 金局全</span></td><td data-label="評">合宅坐巳；男主人乙丑本命之丑正在日支，本命入局；金局與二位海中金同氣</td></tr>
+        <tr data-row="10/6 癸丑"><td data-label="時辰">午 11–13</td><td data-label="時柱">戊午</td><td data-label="四支（年月日時）">午 酉 丑 午</td><td data-label="成局"><span class="chip c-good">酉丑半合</span></td><td data-label="評">午沖女主人子命</td></tr>
 
-        <tr><th rowspan="4">10/23<br>庚午</th><td>丑 01–03</td><td>丁丑</td><td>午 戌 午 丑</td><td><span class="chip c-none">午戌半合（火）</span></td><td rowspan="4">全日午沖女主人子命</td></tr>
-        <tr><td>寅 03–05</td><td>戊寅</td><td>午 戌 午 寅</td><td><span class="chip c-bad">寅午戌 火局全</span></td></tr>
-        <tr><td>卯 05–07</td><td>己卯</td><td>午 戌 午 卯</td><td><span class="chip c-none">午戌半合・卯戌六合</span></td></tr>
-        <tr><td>巳 09–11</td><td>辛巳</td><td>午 戌 午 巳</td><td><span class="chip c-none">午戌半合</span></td></tr>
+        <tr data-row="10/23 庚午"><th rowspan="4">10/23<br>庚午</th><td data-label="時辰">丑 01–03</td><td data-label="時柱">丁丑</td><td data-label="四支（年月日時）">午 戌 午 丑</td><td data-label="成局"><span class="chip c-none">午戌半合（火）</span></td><td data-label="評">全日午沖女主人子命</td></tr>
+        <tr data-row="10/23 庚午"><td data-label="時辰">寅 03–05</td><td data-label="時柱">戊寅</td><td data-label="四支（年月日時）">午 戌 午 寅</td><td data-label="成局"><span class="chip c-bad">寅午戌 火局全</span></td><td data-label="評">火局剋二位金命，且全日沖女主人</td></tr>
+        <tr data-row="10/23 庚午"><td data-label="時辰">卯 05–07</td><td data-label="時柱">己卯</td><td data-label="四支（年月日時）">午 戌 午 卯</td><td data-label="成局"><span class="chip c-none">午戌半合・卯戌六合</span></td><td data-label="評">全日午沖女主人子命</td></tr>
+        <tr data-row="10/23 庚午"><td data-label="時辰">巳 09–11</td><td data-label="時柱">辛巳</td><td data-label="四支（年月日時）">午 戌 午 巳</td><td data-label="成局"><span class="chip c-none">午戌半合</span></td><td data-label="評">全日午沖女主人子命</td></tr>
 
-        <tr><th rowspan="5">11/1<br>己卯</th><td>丑 01–03</td><td>乙丑</td><td>午 戌 卯 丑</td><td><span class="chip c-none">午戌半合</span></td><td>—</td></tr>
-        <tr><td>寅 03–05</td><td>丙寅</td><td>午 戌 卯 寅</td><td><span class="chip c-bad">寅午戌 火局全</span></td><td>火局剋二位海中金，不宜</td></tr>
-        <tr><td>卯 05–07</td><td>丁卯</td><td>午 戌 卯 卯</td><td><span class="chip c-none">卯戌六合</span></td><td>子卯刑女主人</td></tr>
-        <tr><td>巳 09–11</td><td>己巳</td><td>午 戌 卯 巳</td><td><span class="chip c-none">午戌半合</span></td><td>此日無金局可成</td></tr>
-        <tr><td>午 11–13</td><td>庚午</td><td>午 戌 卯 午</td><td><span class="chip c-none">午戌半合</span></td><td>午沖女主人子命</td></tr>
+        <tr data-row="11/1 己卯"><th rowspan="5">11/1<br>己卯</th><td data-label="時辰">丑 01–03</td><td data-label="時柱">乙丑</td><td data-label="四支（年月日時）">午 戌 卯 丑</td><td data-label="成局"><span class="chip c-none">午戌半合</span></td><td data-label="評">—</td></tr>
+        <tr data-row="11/1 己卯"><td data-label="時辰">寅 03–05</td><td data-label="時柱">丙寅</td><td data-label="四支（年月日時）">午 戌 卯 寅</td><td data-label="成局"><span class="chip c-bad">寅午戌 火局全</span></td><td data-label="評">火局剋二位海中金，不宜</td></tr>
+        <tr data-row="11/1 己卯"><td data-label="時辰">卯 05–07</td><td data-label="時柱">丁卯</td><td data-label="四支（年月日時）">午 戌 卯 卯</td><td data-label="成局"><span class="chip c-none">卯戌六合</span></td><td data-label="評">子卯刑女主人</td></tr>
+        <tr data-row="11/1 己卯"><td data-label="時辰">巳 09–11</td><td data-label="時柱">己巳</td><td data-label="四支（年月日時）">午 戌 卯 巳</td><td data-label="成局"><span class="chip c-none">午戌半合</span></td><td data-label="評">此日無金局可成</td></tr>
+        <tr data-row="11/1 己卯"><td data-label="時辰">午 11–13</td><td data-label="時柱">庚午</td><td data-label="四支（年月日時）">午 戌 卯 午</td><td data-label="成局"><span class="chip c-none">午戌半合</span></td><td data-label="評">午沖女主人子命</td></tr>
       </tbody>
     </table>
   </div>
@@ -782,27 +856,27 @@ img{max-width:100%}
       <tbody>
         <tr class="hl">
           <th>10/6 癸丑<br><span style="font-weight:400;font-size:12px">丁酉月</span></th>
-          <td><span class="chip c-top">明堂 · 黃道</span></td>
-          <td><span class="chip c-bad">勾陳 · 黑道</span></td>
-          <td><span class="chip c-top">定日</span><span style="font-size:12px">　入宅安床正位</span></td>
+          <td data-label="甲・固定配法"><span class="chip c-top">明堂 · 黃道</span></td>
+          <td data-label="乙・月建起例"><span class="chip c-bad">勾陳 · 黑道</span></td>
+          <td data-label="建除"><span class="chip c-top">定日</span><span style="font-size:12px">　入宅安床正位</span></td>
         </tr>
         <tr>
           <th>10/2 己酉<br><span style="font-weight:400;font-size:12px">丁酉月</span></th>
-          <td><span class="chip c-bad">玄武 · 黑道</span></td>
-          <td><span class="chip c-good">玉堂 · 黃道</span></td>
-          <td><span class="chip c-bad">建日</span><span style="font-size:12px">　忌移徙、動土</span></td>
+          <td data-label="甲・固定配法"><span class="chip c-bad">玄武 · 黑道</span></td>
+          <td data-label="乙・月建起例"><span class="chip c-good">玉堂 · 黃道</span></td>
+          <td data-label="建除"><span class="chip c-bad">建日</span><span style="font-size:12px">　忌移徙、動土</span></td>
         </tr>
         <tr>
           <th>10/23 庚午<br><span style="font-weight:400;font-size:12px">戊戌月</span></th>
-          <td><span class="chip c-bad">白虎 · 黑道</span></td>
-          <td><span class="chip c-bad">天刑 · 黑道</span></td>
-          <td><span class="chip c-good">成日</span><span style="font-size:12px">　宜入宅、開市</span></td>
+          <td data-label="甲・固定配法"><span class="chip c-bad">白虎 · 黑道</span></td>
+          <td data-label="乙・月建起例"><span class="chip c-bad">天刑 · 黑道</span></td>
+          <td data-label="建除"><span class="chip c-good">成日</span><span style="font-size:12px">　宜入宅、開市</span></td>
         </tr>
         <tr>
           <th>11/1 己卯<br><span style="font-weight:400;font-size:12px">戊戌月</span></th>
-          <td><span class="chip c-bad">朱雀 · 黑道</span></td>
-          <td><span class="chip c-bad">勾陳 · 黑道</span></td>
-          <td><span class="chip c-bad">執日</span><span style="font-size:12px">　主執滯，一般不取移徙</span></td>
+          <td data-label="甲・固定配法"><span class="chip c-bad">朱雀 · 黑道</span></td>
+          <td data-label="乙・月建起例"><span class="chip c-bad">勾陳 · 黑道</span></td>
+          <td data-label="建除"><span class="chip c-bad">執日</span><span style="font-size:12px">　主執滯，一般不取移徙</span></td>
         </tr>
       </tbody>
     </table>
@@ -816,35 +890,35 @@ img{max-width:100%}
       <tbody>
         <tr class="hl">
           <th>10/6 癸丑</th>
-          <td>—</td>
-          <td><span class="chip c-none">天刑黑</span><span class="chip c-good">金匱黃</span></td>
-          <td><span class="chip c-none">朱雀黑</span><span class="chip c-good">天德黃</span></td>
-          <td><span class="chip c-top">天德黃</span><span class="chip c-top">玉堂黃</span></td>
-          <td><span class="chip c-none">白虎黑</span><span class="chip c-none">天牢黑</span></td>
+          <td data-label="丑 01–03">—</td>
+          <td data-label="寅 03–05"><span class="chip c-none">天刑黑</span><span class="chip c-good">金匱黃</span></td>
+          <td data-label="卯 05–07"><span class="chip c-none">朱雀黑</span><span class="chip c-good">天德黃</span></td>
+          <td data-label="巳 09–11"><span class="chip c-top">天德黃</span><span class="chip c-top">玉堂黃</span></td>
+          <td data-label="午 11–13"><span class="chip c-none">白虎黑</span><span class="chip c-none">天牢黑</span></td>
         </tr>
         <tr>
           <th>10/2 己酉</th>
-          <td><span class="chip c-good">明堂黃</span><span class="chip c-none">勾陳黑</span></td>
-          <td><span class="chip c-none">天刑黑</span><span class="chip c-good">青龍黃</span></td>
-          <td>—</td>
-          <td><span class="chip c-good">天德黃</span><span class="chip c-none">朱雀黑</span></td>
-          <td><span class="chip c-none">白虎黑</span><span class="chip c-good">金匱黃</span></td>
+          <td data-label="丑 01–03"><span class="chip c-good">明堂黃</span><span class="chip c-none">勾陳黑</span></td>
+          <td data-label="寅 03–05"><span class="chip c-none">天刑黑</span><span class="chip c-good">青龍黃</span></td>
+          <td data-label="卯 05–07">—</td>
+          <td data-label="巳 09–11"><span class="chip c-good">天德黃</span><span class="chip c-none">朱雀黑</span></td>
+          <td data-label="午 11–13"><span class="chip c-none">白虎黑</span><span class="chip c-good">金匱黃</span></td>
         </tr>
         <tr>
           <th>10/23 庚午</th>
-          <td><span class="chip c-good">明堂黃</span><span class="chip c-good">天德黃</span></td>
-          <td><span class="chip c-none">天刑黑</span><span class="chip c-none">白虎黑</span></td>
-          <td><span class="chip c-none">朱雀黑</span><span class="chip c-good">玉堂黃</span></td>
-          <td><span class="chip c-good">天德黃</span><span class="chip c-none">玄武黑</span></td>
-          <td>—</td>
+          <td data-label="丑 01–03"><span class="chip c-good">明堂黃</span><span class="chip c-good">天德黃</span></td>
+          <td data-label="寅 03–05"><span class="chip c-none">天刑黑</span><span class="chip c-none">白虎黑</span></td>
+          <td data-label="卯 05–07"><span class="chip c-none">朱雀黑</span><span class="chip c-good">玉堂黃</span></td>
+          <td data-label="巳 09–11"><span class="chip c-good">天德黃</span><span class="chip c-none">玄武黑</span></td>
+          <td data-label="午 11–13">—</td>
         </tr>
         <tr>
           <th>11/1 己卯</th>
-          <td><span class="chip c-good">明堂黃</span><span class="chip c-none">勾陳黑</span></td>
-          <td><span class="chip c-none">天刑黑</span><span class="chip c-good">青龍黃</span></td>
-          <td><span class="chip c-none">朱雀黑</span><span class="chip c-good">明堂黃</span></td>
-          <td><span class="chip c-good">天德黃</span><span class="chip c-none">朱雀黑</span></td>
-          <td><span class="chip c-none">白虎黑</span><span class="chip c-good">金匱黃</span></td>
+          <td data-label="丑 01–03"><span class="chip c-good">明堂黃</span><span class="chip c-none">勾陳黑</span></td>
+          <td data-label="寅 03–05"><span class="chip c-none">天刑黑</span><span class="chip c-good">青龍黃</span></td>
+          <td data-label="卯 05–07"><span class="chip c-none">朱雀黑</span><span class="chip c-good">明堂黃</span></td>
+          <td data-label="巳 09–11"><span class="chip c-good">天德黃</span><span class="chip c-none">朱雀黑</span></td>
+          <td data-label="午 11–13"><span class="chip c-none">白虎黑</span><span class="chip c-good">金匱黃</span></td>
         </tr>
       </tbody>
     </table>
