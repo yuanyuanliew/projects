@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -259,6 +260,26 @@ h2{font-size:21px;font-weight:900;letter-spacing:.08em}
 .helist li:first-child{border-top:1px solid var(--rule)}
 .helist .term{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink)}
 
+/* ---------- matrix ---------- */
+.tbl-wrap{overflow-x:auto;margin-bottom:22px}
+.matrix{width:100%;min-width:560px;border-collapse:collapse;font-size:13px}
+.matrix caption{
+  caption-side:top;text-align:left;
+  font-size:11.5px;letter-spacing:.14em;color:var(--ink-3);
+  padding-bottom:7px;
+}
+.matrix th,.matrix td{border:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.matrix thead th{background:var(--paper-3);font-family:var(--serif);font-weight:700;font-size:13.5px;white-space:nowrap}
+.matrix tbody th{background:var(--paper-3);font-family:var(--serif);font-weight:600;white-space:nowrap;font-size:13.5px}
+.matrix td{background:var(--paper-2)}
+.matrix tr.hl td,.matrix tr.hl th{background:var(--cinnabar-soft)}
+.chip{display:inline-block;font-size:12px;padding:1px 7px;border-radius:2px;margin:1px 4px 1px 0;white-space:nowrap;line-height:1.55}
+.c-good{background:var(--celadon-soft);color:var(--celadon);font-weight:600}
+.c-top{background:var(--cinnabar);color:var(--paper);font-weight:700}
+.c-none{background:var(--paper-3);color:var(--ink-3)}
+.c-bad{background:var(--amber-soft);color:var(--amber);font-weight:700}
+.mono-note{font-size:12.5px;color:var(--ink-3);line-height:1.7;margin:0 0 4px}
+
 /* ---------- notes ---------- */
 .notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .notes li{
@@ -394,7 +415,7 @@ img{max-width:100%}
           <div class="day-line1">
             <span class="date">10月6日</span>
             <span class="dow">星期二 · 丁酉月</span>
-            <span class="rank first">首選</span>
+            <span class="rank first">首選 · 巳時</span>
           </div>
           <dl class="facts">
             <div class="fact"><dt>宜</dt><dd><span class="tag tag-yi">◆ 入宅安香</span></dd></div>
@@ -403,8 +424,8 @@ img{max-width:100%}
             <div class="fact"><dt>吉時</dt><dd>寅 · 卯 · 巳 · 午</dd></div>
           </dl>
           <p class="rel">
-            ◆ 宅坐巳，<b>與酉丑三合</b>成金局；女主人甲子命：<b>子丑六合</b>、<b>丑未堆貴</b>（甲貴人在丑未）、<b>癸進祿</b>；孩子己亥命：<b>癸進旺</b>。<br>
-            ◇ 男主人乙丑與日支丑同氣比和；沖羊，家中無屬羊者。四日之中合局最密，且通書明列宜安香。
+            ◆ 宅坐巳，<b>與酉丑三合</b>（巳丑半合、拱酉）；女主人甲子命：<b>子丑六合</b>、<b>丑未堆貴</b>、<b>癸進祿</b>——三項俱全；孩子己亥命：<b>癸進旺</b>。<br>
+            ◇ 單看日柱，男主人乙丑命於此日無得課（丑為本命同支，非合非貴）；但<b>配巳時（丁巳）後，四支成「巳酉丑」金局全，他的本命之丑正是局中一字</b>——四日十七時之中，唯一本命入全局的組合。全日對三人無沖無刑，沖羊，家中無屬羊者。
           </p>
         </div>
       </div>
@@ -435,7 +456,7 @@ img{max-width:100%}
           <div class="day-line1">
             <span class="date">11月1日</span>
             <span class="dow">星期日 · 戊戌月（立冬前）</span>
-            <span class="rank">次選</span>
+            <span class="rank">第三</span>
           </div>
           <dl class="facts">
             <div class="fact"><dt>宜</dt><dd><span class="tag tag-yi">◆ 入宅安香</span></dd></div>
@@ -445,7 +466,7 @@ img{max-width:100%}
           </dl>
           <p class="rel">
             ◆ 通書明列宜入宅安香，吉時五個，四日中最寬裕。<br>
-            ◇ 日支卯與孩子亥命半合木局；卯與月建戊戌六合。沖雞，家中無屬雞者。距今最遠，備料與請假最從容；唯與宅坐巳無直接合局。
+            ◇ 男主人乙丑命得<b>卯堆祿</b>（乙祿在卯）；女主人甲子命得<b>卯堆旺</b>（甲旺在卯）兼<b>己進貴</b>；孩子己亥命得<b>亥卯半合</b>木局。卯與月建戊戌六合，沖雞，家中無屬雞者。<span class="warn">惟男主人僅得堆祿，無巳酉丑三合，宅坐巳亦無合；且卯與女主人子命為「子卯相刑」。</span>
           </p>
         </div>
       </div>
@@ -476,7 +497,7 @@ img{max-width:100%}
           <div class="day-line1">
             <span class="date">10月2日</span>
             <span class="dow">星期五 · 丁酉月</span>
-            <span class="rank">第三</span>
+            <span class="rank">次選</span>
           </div>
           <dl class="facts">
             <div class="fact"><dt>宜</dt><dd><span class="tag tag-no">◆ 吉日（未註宜安香）</span></dd></div>
@@ -486,7 +507,7 @@ img{max-width:100%}
           </dl>
           <p class="rel">
             ◆ 宅坐巳<b>與酉丑三合</b>；孩子己亥命：<b>酉堆長生</b>。<br>
-            ◇ 宅坐巳 ＋ 日支酉 ＋ 男主人丑命，三字齊聚成「巳酉丑」金局，合宅最緊。惟通書於此日未特別標明宜安香；且距今僅約兩週半，搬遷備料時間最緊。
+            ◇ 日柱層面唯一讓男主人得三合者——日支酉 ＋ 乙丑本命 ＋ 宅坐巳，「巳酉丑」三字齊；女主人甲子命另得<b>己進貴</b>。三人俱有所得，全日無沖無刑。惟其局是靠本命與宅坐拱成，不在課內（見四柱課格一節）；通書於此日亦未標明宜安香；且距今僅十八日，備料最緊。
           </p>
         </div>
       </div>
@@ -527,7 +548,7 @@ img{max-width:100%}
           </dl>
           <p class="rel">
             ◆ 通書明列宜入宅安香，吉時四個，皆在當日 17:38 交霜降之前。<br>
-            ◇ <span class="warn">日支午沖女主人甲子本命（子午相沖）</span>；<span class="warn">該日煞方在北，與本宅亥向同方</span>，而丙午年三煞亦落北方亥子丑。三項同指北方，建議請師傅判定可用與否，或優先取其餘三日。
+            ◇ 對男主人最厚：乙丑命得<b>午堆長生</b>（乙長生在午）兼<b>庚進貴</b>（庚貴人在丑）；孩子己亥命得<b>午堆祿</b>。<span class="warn">然日支午沖女主人甲子本命（子午相沖）</span>，<span class="warn">該日煞方在北，與本宅亥向同方</span>，丙午年三煞亦落北方亥子丑。得失相抵而三項同指北方，建議請師傅判定，或優先取其餘三日。
           </p>
         </div>
       </div>
@@ -583,10 +604,163 @@ img{max-width:100%}
       <li><span class="term">進祿</span><span>10/6 日干癸，於女主人甲子命為進祿。</span></li>
       <li><span class="term">進旺</span><span>10/6 日干癸，於孩子己亥命為進旺。</span></li>
       <li><span class="term">堆長生</span><span>10/2 酉日，於孩子己亥命為堆長生。</span></li>
-      <li><span class="term">驛馬</span><span>孩子己亥命驛馬在巳 —— <b>巳時（09:00–11:00）四日皆為吉時</b>，主遷移，亦最合實際作業。</span></li>
+      <li><span class="term">堆祿</span><span>乙祿在卯 —— 11/1 卯日為男主人乙丑命之堆祿；此為己卯日給男主人的唯一一項。</span></li>
+      <li><span class="term">驛馬</span><span>孩子己亥命驛馬在巳。驛馬本即三合局長生之對沖，故巳亦沖亥；通書列巳於馬位，主遷動，惟若師傅忌時沖小兒本命，另見下方時辰表。</span></li>
       <li><span class="term">相沖</span><span>10/23 午日沖女主人子命；其餘三日所沖生肖（兔、羊、雞）家中皆無人屬之。</span></li>
+      <li><span class="term">相刑</span><span>11/1 卯日與女主人子命為「子卯無禮之刑」；卯時同理。</span></li>
     </ul>
   </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>三命得課矩陣</h2>
+    <p>◇ 依通書「本命」欄之體例推算：「堆」看日／時之<b>地支</b>，「進」看日／時之<b>天干</b></p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="matrix">
+      <caption>基準 —— 各本命須遇何支何干方得課</caption>
+      <thead>
+        <tr><th>項目</th><th>男主人 乙丑（Jams）</th><th>女主人 甲子（元元）</th><th>孩子 己亥（澔楊）</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>三合</th><td>巳・酉</td><td>申・辰</td><td>卯・未</td></tr>
+        <tr><th>六合</th><td>子</td><td>丑</td><td>寅</td></tr>
+        <tr><th>堆貴</th><td>子・申</td><td>丑・未</td><td>子・申</td></tr>
+        <tr><th>進貴</th><td>甲・戊・庚</td><td>乙・己</td><td>丙・丁</td></tr>
+        <tr><th>堆長生</th><td>午</td><td>亥</td><td>酉</td></tr>
+        <tr><th>進長生</th><td>—</td><td>辛</td><td>甲</td></tr>
+        <tr><th>堆旺</th><td>寅</td><td>卯</td><td>巳</td></tr>
+        <tr><th>進旺</th><td>—</td><td>壬</td><td>癸</td></tr>
+        <tr><th>堆祿</th><td>卯</td><td>寅</td><td>午</td></tr>
+        <tr><th>進祿</th><td>—</td><td>癸</td><td>壬</td></tr>
+        <tr><th>堆馬</th><td>亥</td><td>寅</td><td>巳</td></tr>
+        <tr><th>本命所沖</th><td>未</td><td>午</td><td>巳</td></tr>
+        <tr><th>本命所刑</th><td>戌・未</td><td>卯</td><td>亥（自刑）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="matrix">
+      <caption>四個吉日 —— 各人實得</caption>
+      <thead>
+        <tr><th>日</th><th>男主人 乙丑</th><th>女主人 甲子</th><th>孩子 己亥</th><th>宅 巳山</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>10/2 己酉</th>
+          <td><span class="chip c-top">巳酉丑三合全</span></td>
+          <td><span class="chip c-good">己進貴</span></td>
+          <td><span class="chip c-good">酉堆長生</span></td>
+          <td><span class="chip c-good">酉合巳山</span></td>
+        </tr>
+        <tr class="hl">
+          <th>10/6 癸丑</th>
+          <td><span class="chip c-none">日柱層面無</span><span class="chip c-top">配巳時入金局全</span></td>
+          <td><span class="chip c-top">六合</span><span class="chip c-top">堆貴</span><span class="chip c-top">進祿</span></td>
+          <td><span class="chip c-good">癸進旺</span></td>
+          <td><span class="chip c-good">丑半合巳山</span></td>
+        </tr>
+        <tr>
+          <th>10/23 庚午</th>
+          <td><span class="chip c-good">午堆長生</span><span class="chip c-good">庚進貴</span></td>
+          <td><span class="chip c-bad">子午相沖</span></td>
+          <td><span class="chip c-good">午堆祿</span></td>
+          <td><span class="chip c-none">無</span></td>
+        </tr>
+        <tr>
+          <th>11/1 己卯</th>
+          <td><span class="chip c-good">卯堆祿</span></td>
+          <td><span class="chip c-good">卯堆旺</span><span class="chip c-good">己進貴</span><span class="chip c-bad">子卯相刑</span></td>
+          <td><span class="chip c-good">亥卯半合</span></td>
+          <td><span class="chip c-none">無</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="matrix">
+      <caption>五個吉時 —— 各人實得（同一套體例，看時支時干）</caption>
+      <thead>
+        <tr><th>時辰</th><th>可用之日</th><th>男主人 乙丑</th><th>女主人 甲子</th><th>孩子 己亥</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>丑 01–03</th><td>10/2・10/23・11/1</td>
+          <td><span class="chip c-none">伏吟</span></td>
+          <td><span class="chip c-good">六合</span><span class="chip c-good">堆貴</span></td>
+          <td><span class="chip c-none">無</span></td>
+        </tr>
+        <tr class="hl">
+          <th>寅 03–05</th><td>四日皆有</td>
+          <td><span class="chip c-top">堆旺</span></td>
+          <td><span class="chip c-top">堆祿</span><span class="chip c-top">堆馬</span></td>
+          <td><span class="chip c-top">六合</span></td>
+        </tr>
+        <tr>
+          <th>卯 05–07</th><td>10/6・10/23・11/1</td>
+          <td><span class="chip c-good">堆祿</span></td>
+          <td><span class="chip c-good">堆旺</span><span class="chip c-bad">子卯刑</span></td>
+          <td><span class="chip c-good">亥卯半合</span></td>
+        </tr>
+        <tr>
+          <th>巳 09–11</th><td>四日皆有</td>
+          <td><span class="chip c-good">巳丑半合</span></td>
+          <td><span class="chip c-none">無</span></td>
+          <td><span class="chip c-good">驛馬</span><span class="chip c-bad">巳亥相沖</span></td>
+        </tr>
+        <tr>
+          <th>午 11–13</th><td>10/2・10/6・11/1</td>
+          <td><span class="chip c-good">堆長生</span></td>
+          <td><span class="chip c-bad">子午相沖</span></td>
+          <td><span class="chip c-good">堆祿</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mono-note">◇ 以上只看「時支／時干 × 本命」一層。要定時辰，還須看年月日時四柱整體成不成局——見下節。</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>四柱課格</h2>
+    <p>◇ 上兩表看的是日、時對本命；此表看的是<b>年月日時四支整體</b>成不成三合局</p>
+  </div>
+  <p class="mono-note">關鍵在<b>月建</b>。丁酉月的月支正是「酉」，補足了巳酉丑最常缺的一字；戊戌月的月支是「戌」，配年支午則走寅午戌火局。時柱干支依五鼠遁（戊癸起壬子、甲己起甲子）推得。</p>
+  <div class="tbl-wrap">
+    <table class="matrix">
+      <caption>各吉時之四柱地支與成局</caption>
+      <thead>
+        <tr><th>日</th><th>時辰</th><th>時柱</th><th>四支（年月日時）</th><th>成局</th><th>評</th></tr>
+      </thead>
+      <tbody>
+        <tr><th rowspan="4">10/2<br>己酉</th><td>丑 01–03</td><td>乙丑</td><td>午 酉 酉 丑</td><td><span class="chip c-good">酉丑半合</span></td><td>缺巳，宅坐巳可拱</td></tr>
+        <tr><td>寅 03–05</td><td>丙寅</td><td>午 酉 酉 寅</td><td><span class="chip c-none">寅午半合（火）</span></td><td>火半局，輕剋二位金命</td></tr>
+        <tr class="hl"><td>巳 09–11</td><td>己巳</td><td>午 酉 酉 巳</td><td><span class="chip c-good">巳酉半合</span></td><td>加男主人乙丑本命之丑，拱成巳酉丑全</td></tr>
+        <tr><td>午 11–13</td><td>庚午</td><td>午 酉 酉 午</td><td><span class="chip c-none">無</span></td><td>—</td></tr>
+
+        <tr><th rowspan="4">10/6<br>癸丑</th><td>寅 03–05</td><td>甲寅</td><td>午 酉 丑 寅</td><td><span class="chip c-good">酉丑半合</span></td><td>無全局，惟三人無沖無刑</td></tr>
+        <tr><td>卯 05–07</td><td>乙卯</td><td>午 酉 丑 卯</td><td><span class="chip c-bad">卯沖月建酉</span></td><td>課內自沖，不取</td></tr>
+        <tr class="hl"><td>巳 09–11</td><td><b>丁巳</b></td><td>午 <b>酉</b> <b>丑</b> <b>巳</b></td><td><span class="chip c-top">巳酉丑 金局全</span></td><td>合宅坐巳；男主人乙丑本命之丑正在日支，本命入局；金局與二位海中金同氣</td></tr>
+        <tr><td>午 11–13</td><td>戊午</td><td>午 酉 丑 午</td><td><span class="chip c-good">酉丑半合</span></td><td>午沖女主人子命</td></tr>
+
+        <tr><th rowspan="4">10/23<br>庚午</th><td>丑 01–03</td><td>丁丑</td><td>午 戌 午 丑</td><td><span class="chip c-none">午戌半合（火）</span></td><td rowspan="4">全日午沖女主人子命</td></tr>
+        <tr><td>寅 03–05</td><td>戊寅</td><td>午 戌 午 寅</td><td><span class="chip c-bad">寅午戌 火局全</span></td></tr>
+        <tr><td>卯 05–07</td><td>己卯</td><td>午 戌 午 卯</td><td><span class="chip c-none">午戌半合・卯戌六合</span></td></tr>
+        <tr><td>巳 09–11</td><td>辛巳</td><td>午 戌 午 巳</td><td><span class="chip c-none">午戌半合</span></td></tr>
+
+        <tr><th rowspan="5">11/1<br>己卯</th><td>丑 01–03</td><td>乙丑</td><td>午 戌 卯 丑</td><td><span class="chip c-none">午戌半合</span></td><td>—</td></tr>
+        <tr><td>寅 03–05</td><td>丙寅</td><td>午 戌 卯 寅</td><td><span class="chip c-bad">寅午戌 火局全</span></td><td>火局剋二位海中金，不宜</td></tr>
+        <tr><td>卯 05–07</td><td>丁卯</td><td>午 戌 卯 卯</td><td><span class="chip c-none">卯戌六合</span></td><td>子卯刑女主人</td></tr>
+        <tr><td>巳 09–11</td><td>己巳</td><td>午 戌 卯 巳</td><td><span class="chip c-none">午戌半合</span></td><td>此日無金局可成</td></tr>
+        <tr><td>午 11–13</td><td>庚午</td><td>午 戌 卯 午</td><td><span class="chip c-none">午戌半合</span></td><td>午沖女主人子命</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mono-note">◇ 火局（寅午戌）剋海中金，對男女主人不利，故 10/23 與 11/1 的寅時雖成全局反不宜取。四日十七個吉時之中，<b>只有 10/6 癸丑日巳時（丁巳）在課內成巳酉丑金局全</b>，且該局同時合宅坐、納男主人本命、生助二位金命。</p>
 </section>
 
 <section>
@@ -595,11 +769,17 @@ img{max-width:100%}
     <p>◆ 通書所載　◇ 一般擇日通則之補充，實際仍以通書與師傅為準</p>
   </div>
   <ul class="notes">
-    <li><span class="mark m-ok">結論</span><span><b>10月6日（二）癸丑日 巳時 09:00–11:00</b> 為最穩妥之選：通書明列宜入宅安香，合宅三合、合女主人本命六合並堆貴進祿、孩子進旺，且巳時正為孩子驛馬。若須週末，則取 <b>11月1日（日）己卯日 巳時</b>。</span></li>
+    <li><span class="mark m-ok">結論</span><span><b>10月6日（二）癸丑日 巳時（丁巳時）09:00–11:00</b>。四柱為 丙午・丁酉・癸丑・丁巳，四支<b>巳酉丑三合金局全</b>——月建酉補足了缺的一字。此局同時：合宅坐巳；納男主人乙丑本命之丑入局（他並非無得課，而是四日十七時之中唯一本命入全局者）；金局與男女主人海中金同氣；女主人另有子丑六合、丑未堆貴、癸進祿；孩子有癸進旺、巳為驛馬。通書亦明列此日宜入宅安香。</span></li>
+    <li><span class="mark m-info">次選</span><span><b>10月2日（五）己酉日 己巳時</b>：課中巳酉半合，加男主人乙丑本命之丑拱成巳酉丑，局在課外而非課內，略遜一籌；且通書未註宜安香。<br><b>10月6日 寅時（甲寅）</b>：若師傅忌巳沖孩子亥命，此時三人無沖無刑，惟課中不成全局。</span></li>
+    <li><span class="mark m-warn">取捨</span><span>10/6 巳時的代價有二：巳與孩子己亥命相沖（通書列巳於馬位，主遷動，這正是驛馬的本質）；金局剋孩子平地木本命。若以男女主人為主事者則無礙，若特別重視孩子一造，請與師傅商定。</span></li>
+    <li><span class="mark m-warn">火局</span><span>10/23 與 11/1 的<b>寅時</b>皆成「寅午戌」火局全，火剋海中金，對男女主人不利，反不宜取——成局未必是好局，要看局剋不剋主命。</span></li>
+    <li><span class="mark m-warn">11/1</span><span>己卯日對男主人<b>僅得卯堆祿</b>一項，既無巳酉丑三合，宅坐巳亦無合；且卯與女主人子命為「子卯無禮之刑」。四日中對男主人最薄的一天。若因週末之故仍要採用，五個吉時只剩<b>巳時或丑時</b>可取——寅時成寅午戌火局剋金命、卯時子卯刑女主人、午時子午沖女主人。</span></li>
+    <li><span class="mark m-warn">10/23</span><span>庚午日對男主人最厚（午堆長生＋庚進貴），但日支午沖女主人甲子本命，當日煞方在北，與宅向、年三煞同指北方。三項相疊，非經師傅首肯不建議採用。</span></li>
     <li><span class="mark m-warn">年三煞</span><span>丙午年（寅午戌）三煞在北方 <b>亥子丑</b>，正落本宅 <b>亥向</b>。此於動土、修方、拆改該方最忌；單純入宅安香是否須另行制化或迴避，請向師傅確認後再定案。</span></li>
-    <li><span class="mark m-warn">10/23</span><span>庚午日日支午沖女主人甲子本命，且當日煞方在北，與宅向、年三煞同指北方。三項相疊，非經師傅首肯不建議採用。</span></li>
+    <li><span class="mark m-info">待核</span><span>男主人乙丑命的<b>堆長生</b>，依「乙長生在午」應落在 <b>10/23 庚午日</b>，而非 11/1 己卯日；己卯日給乙丑命的只有<b>堆祿</b>（乙祿在卯）一項。請對照通書乙丑金欄的「長生堆」一列確認，若該欄另有寫法，以通書為準。</span></li>
+    <li><span class="mark m-info">時柱</span><span>時柱干支依五鼠遁推：戊癸起壬子，故<b>癸丑日的巳時是「丁巳」</b>；「己巳時」出現在甲日與己日，本課之中即 10/2 己酉日與 11/1 己卯日的巳時。</span></li>
+    <li><span class="mark m-info">時辰</span><span>合家已定「未時（13:00）以後不用」，四日所有吉時最晚止於午時 13:00，全數符合。另注意 10/6 的<b>卯時（乙卯）與月建酉相沖</b>，課內自沖，不宜取。</span></li>
     <li><span class="mark m-info">節氣</span><span>10/2、10/6 屬丁酉月；10/8 14:29 寒露後入戊戌月，10/23 與 11/1 屬戊戌月（11/7 17:52 立冬前）。10/23 當日 17:38 交霜降，所列吉時皆在交節之前。</span></li>
-    <li><span class="mark m-info">時辰</span><span>合家已定「未時（13:00）以後不用」。四日所有吉時最晚止於午時 13:00，全數符合。實務上丑、寅、卯時在凌晨至清晨，搬運與安爐不便，<b>巳時為唯一四日通用且可行的時段</b>。</span></li>
     <li><span class="mark m-info">時制</span><span>表中時間為馬來西亞時間（UTC+8）。時辰以當地鐘錶時間計；若師傅採真太陽時，需按經度微調，請一併確認。</span></li>
   </ul>
 </section>
