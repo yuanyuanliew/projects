@@ -241,6 +241,41 @@ h2{font-size:21px;font-weight:900;letter-spacing:.08em}
 .c-bad{background:var(--amber-soft);color:var(--amber);font-weight:700}
 .mono-note{font-size:12.5px;color:var(--ink-3);line-height:1.7;margin:0 0 4px}
 
+/* ---------- 入伙儀式時序 ---------- */
+.ritual{display:flex;flex-direction:column}
+.rt{
+  display:grid;grid-template-columns:190px 1fr;gap:0 24px;
+  padding-block:16px;border-top:1px solid var(--rule);
+}
+.rt:first-child{border-top:0}
+.rt-when{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;gap:3px;padding-right:22px;border-right:1px solid var(--rule)}
+.rt-phase{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);line-height:1.4}
+.rt-date{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.6}
+.rt-do{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.rt-do li{font-size:13.5px;color:var(--ink-2);line-height:1.8;padding-left:15px;position:relative}
+.rt-do li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--rule-2)}
+.rt-do b{color:var(--ink);font-weight:700}
+.rt-do em{font-style:normal;color:var(--cinnabar-ink);font-weight:700}
+.rt.key{background:var(--cinnabar-soft);border-radius:3px;padding-inline:18px;border-top-color:var(--cinnabar)}
+.rt.key .rt-when{border-right-color:var(--rule-2)}
+.rt.key .rt-phase{color:var(--cinnabar-ink)}
+.rt.key .rt-do li::before{background:var(--cinnabar)}
+
+.runsheet{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.runsheet li{
+  display:grid;grid-template-columns:96px 1fr;gap:16px;
+  padding-block:9px;border-bottom:1px solid var(--rule);
+  font-size:13.5px;color:var(--ink-2);line-height:1.75;
+}
+.runsheet li:first-child{border-top:1px solid var(--rule)}
+.rs-t{font-family:var(--serif);font-weight:700;color:var(--cinnabar-ink);font-variant-numeric:tabular-nums}
+.why{
+  margin-top:20px;padding:15px 17px;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;
+  font-size:13.5px;color:var(--ink-2);line-height:1.85;
+}
+.why b{color:var(--ink)}
+
 /* ---------- notes ---------- */
 .notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .notes li{
@@ -396,6 +431,13 @@ footer{
   .notes li{grid-template-columns:1fr;gap:5px;font-size:14.5px;line-height:1.85}
   .mark{justify-self:start}
   .flow{grid-template-columns:1fr}
+  .rt{grid-template-columns:1fr;gap:10px;padding-block:15px}
+  .rt-when{border-right:0;border-bottom:1px solid var(--rule);padding:0 0 8px;flex-direction:row;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .rt-phase{font-size:16.5px}
+  .rt.key{padding-inline:14px}
+  .rt-do li{font-size:14.5px;line-height:1.85}
+  .runsheet li{grid-template-columns:76px 1fr;gap:12px;font-size:14px}
+  .why{font-size:14px;line-height:1.9}
   .flow li{font-size:14.5px;line-height:1.8}
   .taboo{font-size:14px;line-height:1.85}
   footer{font-size:12.5px}
@@ -498,7 +540,7 @@ img{max-width:100%}
             <div class="fact"><dt>吉時</dt><dd>寅 · 卯 · 巳 · 午</dd></div>
           </dl>
           <p class="rel">
-            ◆ 宅坐巳，<b>與酉丑三合</b>（巳丑半合、拱酉）；女主人甲子命：<b>子丑六合</b>、<b>丑未堆貴</b>、<b>癸進祿</b>——三項俱全；孩子己亥命：<b>癸進旺</b>。<br>
+            ◆ 宅坐巳，<b>與酉丑三合</b>——月支酉、日支丑、配丁巳時之巳，宅坐之巳正是局中一字，三合成全（僅看日柱則為巳丑半合）；女主人甲子命：<b>子丑六合</b>、<b>丑未堆貴</b>、<b>癸進祿</b>——三項俱全；孩子己亥命：<b>癸進旺</b>。<br>
             ◇ 單看日柱，男主人乙丑命於此日無得課（丑為本命同支，非合非貴）；但<b>配巳時（丁巳）後，四支成「巳酉丑」金局全，他的本命之丑正是局中一字</b>——四日十七時之中，唯一本命入全局的組合。全日對三人無沖無刑，沖羊，家中無屬羊者。
           </p>
         </div>
@@ -679,7 +721,8 @@ img{max-width:100%}
       <li><span class="term">進旺</span><span>10/6 日干癸，於孩子己亥命為進旺。</span></li>
       <li><span class="term">堆長生</span><span>10/2 酉日，於孩子己亥命為堆長生。</span></li>
       <li><span class="term">堆祿</span><span>乙祿在卯 —— 11/1 卯日為男主人乙丑命之堆祿；此為己卯日給男主人的唯一一項。</span></li>
-      <li><span class="term">驛馬</span><span>孩子己亥命驛馬在巳。驛馬本即三合局長生之對沖，故巳亦沖亥；通書列巳於馬位，主遷動，惟若師傅忌時沖小兒本命，另見下方時辰表。</span></li>
+      <li><span class="term">驛馬</span><span>孩子己亥命驛馬在巳。驛馬本即三合局長生之對沖，故巳亦沖亥——沖是驛馬的結構本身，非另有一煞。</span></li>
+      <li><span class="term">堆旺</span><span>己帝旺在巳 —— 巳時於孩子己亥命同時是<b>堆旺</b>、<b>堆馬</b>與相沖，一字三重身份。</span></li>
       <li><span class="term">相沖</span><span>10/23 午日沖女主人子命；其餘三日所沖生肖（兔、羊、雞）家中皆無人屬之。</span></li>
       <li><span class="term">相刑</span><span>11/1 卯日與女主人子命為「子卯無禮之刑」；卯時同理。</span></li>
     </ul>
@@ -718,7 +761,7 @@ img{max-width:100%}
 
   <div class="tbl-wrap">
     <table class="matrix">
-      <caption>四個吉日 —— 各人實得</caption>
+      <caption>四個吉日 —— 各人實得（日柱層面；配上時辰後之全局見四柱課格一節）</caption>
       <thead>
         <tr><th>日</th><th>男主人 乙丑</th><th>女主人 甲子</th><th>孩子 己亥</th><th>宅 巳山</th></tr>
       </thead>
@@ -735,7 +778,7 @@ img{max-width:100%}
           <td data-label="男主人 乙丑"><span class="chip c-none">日柱層面無</span><span class="chip c-top">配巳時入金局全</span></td>
           <td data-label="女主人 甲子"><span class="chip c-top">六合</span><span class="chip c-top">堆貴</span><span class="chip c-top">進祿</span></td>
           <td data-label="孩子 己亥"><span class="chip c-good">癸進旺</span></td>
-          <td data-label="宅 巳山"><span class="chip c-good">丑半合巳山</span></td>
+          <td data-label="宅 巳山"><span class="chip c-none">日柱層面：巳丑半合</span><span class="chip c-top">配巳時：巳酉丑全</span></td>
         </tr>
         <tr>
           <th>10/23 庚午</th>
@@ -757,7 +800,7 @@ img{max-width:100%}
 
   <div class="tbl-wrap">
     <table class="matrix">
-      <caption>五個吉時 —— 各人實得（同一套體例，看時支時干）</caption>
+      <caption>五個吉時 —— 各人實得（僅看時支時干對本命；四柱整體成不成局見下節）</caption>
       <thead>
         <tr><th>時辰</th><th>可用之日</th><th>男主人 乙丑</th><th>女主人 甲子</th><th>孩子 己亥</th></tr>
       </thead>
@@ -782,9 +825,9 @@ img{max-width:100%}
         </tr>
         <tr>
           <th>巳 09–11</th><td data-label="可用之日">四日皆有</td>
-          <td data-label="男主人 乙丑"><span class="chip c-good">巳丑半合</span></td>
+          <td data-label="男主人 乙丑"><span class="chip c-good">巳丑半合（本命丑×時支巳）</span></td>
           <td data-label="女主人 甲子"><span class="chip c-none">無</span></td>
-          <td data-label="孩子 己亥"><span class="chip c-good">驛馬</span><span class="chip c-bad">巳亥相沖</span></td>
+          <td data-label="孩子 己亥"><span class="chip c-good">堆旺</span><span class="chip c-good">堆馬</span><span class="chip c-bad">巳亥相沖</span></td>
         </tr>
         <tr>
           <th>午 11–13</th><td data-label="可用之日">10/2・10/6・11/1</td>
@@ -818,8 +861,8 @@ img{max-width:100%}
 
         <tr data-row="10/6 癸丑"><th rowspan="4">10/6<br>癸丑</th><td data-label="時辰">寅 03–05</td><td data-label="時柱">甲寅</td><td data-label="四支（年月日時）">午 酉 丑 寅</td><td data-label="成局"><span class="chip c-good">酉丑半合</span></td><td data-label="評">無全局，惟三人無沖無刑</td></tr>
         <tr data-row="10/6 癸丑"><td data-label="時辰">卯 05–07</td><td data-label="時柱">乙卯</td><td data-label="四支（年月日時）">午 酉 丑 卯</td><td data-label="成局"><span class="chip c-bad">卯沖月建酉</span></td><td data-label="評">課內自沖，不取</td></tr>
-        <tr data-row="10/6 癸丑" class="hl"><td data-label="時辰">巳 09–11</td><td data-label="時柱"><b>丁巳</b></td><td data-label="四支（年月日時）">午 <b>酉</b> <b>丑</b> <b>巳</b></td><td data-label="成局"><span class="chip c-top">巳酉丑 金局全</span></td><td data-label="評">合宅坐巳；男主人乙丑本命之丑正在日支，本命入局；金局與二位海中金同氣</td></tr>
-        <tr data-row="10/6 癸丑"><td data-label="時辰">午 11–13</td><td data-label="時柱">戊午</td><td data-label="四支（年月日時）">午 酉 丑 午</td><td data-label="成局"><span class="chip c-good">酉丑半合</span></td><td data-label="評">午沖女主人子命</td></tr>
+        <tr data-row="10/6 癸丑" class="hl"><td data-label="時辰">巳 09–11</td><td data-label="時柱"><b>丁巳</b></td><td data-label="四支（年月日時）">午 <b>酉</b> <b>丑</b> <b>巳</b></td><td data-label="成局"><span class="chip c-top">巳酉丑 金局全</span></td><td data-label="評">合宅坐巳；男主人乙丑本命之丑正在日支，本命入局；金局與二位海中金同氣。巳於孩子己亥命為堆旺兼堆馬，亦為相沖</td></tr>
+        <tr data-row="10/6 癸丑"><td data-label="時辰">午 11–13</td><td data-label="時柱">戊午</td><td data-label="四支（年月日時）">午 酉 丑 午</td><td data-label="成局"><span class="chip c-good">酉丑半合</span></td><td data-label="評">午沖女主人子命；年支午與時支午成午午自刑</td></tr>
 
         <tr data-row="10/23 庚午"><th rowspan="4">10/23<br>庚午</th><td data-label="時辰">丑 01–03</td><td data-label="時柱">丁丑</td><td data-label="四支（年月日時）">午 戌 午 丑</td><td data-label="成局"><span class="chip c-none">午戌半合（火）</span></td><td data-label="評">全日午沖女主人子命</td></tr>
         <tr data-row="10/23 庚午"><td data-label="時辰">寅 03–05</td><td data-label="時柱">戊寅</td><td data-label="四支（年月日時）">午 戌 午 寅</td><td data-label="成局"><span class="chip c-bad">寅午戌 火局全</span></td><td data-label="評">火局剋二位金命，且全日沖女主人</td></tr>
@@ -935,7 +978,10 @@ img{max-width:100%}
   <ul class="notes">
     <li><span class="mark m-ok">結論</span><span><b>10月6日（二）癸丑日 巳時（丁巳時）09:00–11:00</b>。四柱為 丙午・丁酉・癸丑・丁巳，四支<b>巳酉丑三合金局全</b>——月建酉補足了缺的一字。此局同時：合宅坐巳；納男主人乙丑本命之丑入局（他並非無得課，而是四日十七時之中唯一本命入全局者）；金局與男女主人海中金同氣；女主人另有子丑六合、丑未堆貴、癸進祿；孩子有癸進旺、巳為驛馬。通書亦明列此日宜入宅安香。</span></li>
     <li><span class="mark m-info">次選</span><span><b>10月2日（五）己酉日 己巳時</b>：課中巳酉半合，加男主人乙丑本命之丑拱成巳酉丑，局在課外而非課內，略遜一籌；且通書未註宜安香。<br><b>10月6日 寅時（甲寅）</b>：若師傅忌巳沖孩子亥命，此時三人無沖無刑，惟課中不成全局。</span></li>
-    <li><span class="mark m-warn">取捨</span><span>10/6 巳時的代價有二：巳與孩子己亥命相沖（通書列巳於馬位，主遷動，這正是驛馬的本質）；金局剋孩子平地木本命。若以男女主人為主事者則無礙，若特別重視孩子一造，請與師傅商定。</span></li>
+    <li><span class="mark m-ok">主事者不被日沖</span><span>擇日通則以「男女主人不可被日沖」為硬忌。10/6 癸丑日<b>日支丑沖未（羊）</b>，家中無人屬羊——男女主人皆未被日沖，此關已過。10/23 庚午日則日支午沖女主人甲子本命，正犯此忌，這也是它被排在最後的主因。</span></li>
+    <li><span class="mark m-info">沖的層級</span><span>孩子所遇的是<b>時支巳沖亥</b>，屬時沖，層級輕於日沖，且孩子非主事者。同一個巳字對己亥命還同時是<b>堆旺</b>（己帝旺在巳）與<b>堆馬</b>（亥驛馬在巳）——驛馬本即三合局長生之對沖，沖是驛馬的結構本身，入宅取的正是這個「動」。故此沖多數擇日家不以凶論。另一代價是金局剋孩子平地木本命。</span></li>
+    <li><span class="mark m-warn">次序不解沖</span><span>沖屬<b>時間</b>層面，時辰一到即在課上，不因誰先跨門檻而改變；<b>進門次序是禮儀，不是化解沖煞的機制</b>。傳統對「命被沖」只有三途：當事人迴避現場（如孕婦例）、改時辰、或請師傅制化。若要確實避開，同日<b>寅時（甲寅）</b>可令孩子由沖轉為<b>寅亥六合</b>，三人無沖無刑——代價是四支只剩酉丑半合，失去巳酉丑全局，且在凌晨 03–05。孰輕孰重，請師傅定奪。</span></li>
+    <li><span class="mark m-warn">分時入伙</span><span>「大人巳時、孩子午時」看似兩全，實則更差。午時（戊午）之課為 丙午・丁酉・癸丑・戊午：<b>午沖女主人甲子本命</b>——為了移開孩子的時沖，反把時沖架到主事者身上，正犯「男女主人不受沖」之忌；<b>年支午與時支午成午午自刑</b>；<b>時家黃黑道兩法俱黑</b>（固定白虎、月建天牢）；四支僅餘酉丑半合，孩子那一趟進門已不在巳酉丑局內。孩子在午時雖得堆祿，代價遠大於所得。若確要讓孩子避開巳，合理做法是<b>全家同取寅時</b>（寅亥六合，三人無沖無刑），而非分時。另：入伙取「全家同入」之意，分時進門本身各家看法不一，須問師傅。</span></li>
     <li><span class="mark m-ok">黃黑道</span><span>黃黑道有兩套算法，結論相反。按<b>固定配法</b>（子起青龍，丑日明堂）10/6 是<b>明堂黃道日</b>；按<b>月建起例</b>（協紀辨方書體系，丁酉月青龍起寅）則為勾陳黑道。時家一致：<b>10/6 巳時兩法皆黃道</b>（甲天德、乙玉堂），是十七個吉時中極少數兩法俱黃者。建除亦指向 10/6（定日，入宅安床正位）。傳統通書多採月建起例，翻到通書 10/6 那一日一看所印神名，即知手上這本用哪一套。</span></li>
     <li><span class="mark m-warn">火局</span><span>10/23 與 11/1 的<b>寅時</b>皆成「寅午戌」火局全，火剋海中金，對男女主人不利，反不宜取——成局未必是好局，要看局剋不剋主命。</span></li>
     <li><span class="mark m-warn">11/1</span><span>己卯日對男主人<b>僅得卯堆祿</b>一項，既無巳酉丑三合，宅坐巳亦無合；且卯與女主人子命為「子卯無禮之刑」。四日中對男主人最薄的一天。若因週末之故仍要採用，五個吉時只剩<b>巳時或丑時</b>可取——寅時成寅午戌火局剋金命、卯時子卯刑女主人、午時子午沖女主人。</span></li>
@@ -945,31 +991,155 @@ img{max-width:100%}
     <li><span class="mark m-info">時柱</span><span>時柱干支依五鼠遁推：戊癸起壬子，故<b>癸丑日的巳時是「丁巳」</b>；「己巳時」出現在甲日與己日，本課之中即 10/2 己酉日與 11/1 己卯日的巳時。</span></li>
     <li><span class="mark m-info">時辰</span><span>合家已定「未時（13:00）以後不用」，四日所有吉時最晚止於午時 13:00，全數符合。另注意 10/6 的<b>卯時（乙卯）與月建酉相沖</b>，課內自沖，不宜取。</span></li>
     <li><span class="mark m-info">節氣</span><span>10/2、10/6 屬丁酉月；10/8 14:29 寒露後入戊戌月，10/23 與 11/1 屬戊戌月（11/7 17:52 立冬前）。10/23 當日 17:38 交霜降，所列吉時皆在交節之前。</span></li>
-    <li><span class="mark m-info">時制</span><span>表中時間為馬來西亞時間（UTC+8）。時辰以當地鐘錶時間計；若師傅採真太陽時，需按經度微調，請一併確認。</span></li>
+    <li><span class="mark m-warn">時制</span><span>吉隆坡的真太陽時比行政時間慢約<b>61 分鐘</b>（經度修正 −73.3 分、當日均時差 +11.8 分），當日太陽中天在行政時間 13:01。故巳時的行政時間：直接用通書為 09:00–11:00、只修經度為 10:13–12:13、完整真太陽時為 10:01–12:01。<b>三法交集為 10:13–11:00</b>，取 <b>10:15 進門</b>可不必等師傅答覆即成立。務必問明師傅用哪一套——差距超過一小時。</span></li>
   </ul>
 </section>
 
 <section>
   <div class="sec-head">
-    <h2>入宅安香備忘</h2>
-    <p>◇ 民俗參考流程，各家各派略有不同，細節以師傅交代為準</p>
+    <h2>入伙儀式 —— 旺中宮・服水土</h2>
+    <p>◇ 依 Jacky Mah 老師所述之步驟整理；日期已套入 10/6 癸丑日巳時之課</p>
   </div>
-  <ol class="flow">
-    <li><span><b>吉時前備妥</b>　新米（米缸裝七分滿）、鹽、糖、水（裝七分滿）、發糕或甜品、新碗筷六雙、新掃把畚箕、銅錢或紅包、火柴或爐具。</span></li>
-    <li><span><b>吉時進門</b>　主要動作（進門—安爐—開火）務必在所選吉時內完成，忌空手入門，每人手上皆持一物。</span></li>
-    <li><span><b>入門次序</b>　家長捧神明爐（或祖先爐）先入，其餘家人依序隨後，孩子由大人帶入。</span></li>
-    <li><span><b>安香</b>　先安神明爐、後安祖先爐，爐位坐向依師傅指示；上香稟報遷入及一家姓名。</span></li>
-    <li><span><b>開火</b>　於廚房煮甜湯圓或甜茶，全家分食，取圓滿甜蜜之意。</span></li>
-    <li><span><b>開燈</b>　當日起全屋燈火通明，部分習俗維持三日；水龍頭可略開放流，取財水長流。</span></li>
-  </ol>
+
+  <div class="ritual">
+
+    <div class="rt">
+      <div class="rt-when">
+        <span class="rt-phase">入伙前 3／5／7 天</span>
+        <span class="rt-date">10/3（六）· 10/1（四）· 9/29（二）任選其一</span>
+      </div>
+      <ul class="rt-do">
+        <li><b>掛紅</b>。提前的天數要取<b>單數</b>——單數屬陽，陽宅取陽氣。</li>
+        <li>在新家的<b>四個角落各放一杯粗鹽</b>。</li>
+      </ul>
+    </div>
+
+    <div class="rt">
+      <div class="rt-when">
+        <span class="rt-phase">入伙前一天</span>
+        <span class="rt-date">10月5日（一）</span>
+      </div>
+      <ul class="rt-do">
+        <li>新家<b>所有門窗和電器全部關起來</b>。保安系統不必關，免得進小偷。</li>
+      </ul>
+    </div>
+
+    <div class="rt">
+      <div class="rt-when">
+        <span class="rt-phase">當天・吉時前</span>
+        <span class="rt-date">10月6日（二）09:00 之前</span>
+      </div>
+      <ul class="rt-do">
+        <li>從舊家帶<b>可以喝的水</b>到新家。</li>
+        <li>全家在家門前<b>點燃一個碳爐</b>，要算準時間，吉時進門那一刻爐火燒得最旺。</li>
+        <li><b>排好隊</b>，依輩份先後。每人手上拿一樣與自己身份相應的東西：做會計的拿計算機（本來應該是算盤），家庭主婦拿柴米油鹽醬醋茶，學生拿書包。</li>
+      </ul>
+    </div>
+
+    <div class="rt key">
+      <div class="rt-when">
+        <span class="rt-phase">吉時 · 巳時</span>
+        <span class="rt-date">10月6日 09:00–11:00<br>丙午・丁酉・癸丑・丁巳</span>
+      </div>
+      <ul class="rt-do">
+        <li><b>跨火爐進門</b>：由輩份大的跨過火爐先進，其餘依序隨後。</li>
+        <li>一進屋，放下手上的東西，隨即<b>打開全屋門窗與電燈</b>，電器盡量全部打開；吉時之內一直開著，過了吉時不必要的再關。</li>
+        <li>把門前的火爐<b>扛到屋子的中心</b>，讓爐壓在地上，最好發出聲音，但不可太用力放 —— 這就是 <em>旺中宮</em>。</li>
+        <li>再把火爐<b>扛到廚房燒水</b>：舊家帶來的水摻新家的水，煮糖水或普通開水皆可，<b>全家每一個人都一定要喝過這煲水</b> —— 這就是 <em>服水土</em>。</li>
+        <li>有安神的就<b>上香</b>；若是新請的神像，要把握在吉時之內<b>開光</b>，並<b>拜前門與後門</b>。（Jacky 老師另提：若能像敬神一樣照顧雙親，福報已經很好，不安神也沒關係。）</li>
+        <li>沒安神的，可拿些<b>散錢撒在桌子下、床下或櫃子裡</b>，儀式中叫 <em>翻地黃金</em>；日後一點一點拾起來，不要一次過拾完。</li>
+      </ul>
+    </div>
+
+    <div class="rt">
+      <div class="rt-when">
+        <span class="rt-phase">當天其餘時間</span>
+        <span class="rt-date">10月6日（二）</span>
+      </div>
+      <ul class="rt-do">
+        <li>當天<b>不要掃地</b>。</li>
+        <li>最好邀請親朋好友來吃飯，<b>人氣越旺越好</b>。</li>
+      </ul>
+    </div>
+
+    <div class="rt">
+      <div class="rt-when">
+        <span class="rt-phase">當晚</span>
+        <span class="rt-date">10月6日夜</span>
+      </div>
+      <ul class="rt-do">
+        <li><b>全家人一定要睡在新家</b>。</li>
+      </ul>
+    </div>
+
+    <div class="rt">
+      <div class="rt-when">
+        <span class="rt-phase">第二天</span>
+        <span class="rt-date">10月7日（三）</span>
+      </div>
+      <ul class="rt-do">
+        <li>把四個角落那<b>四杯粗鹽倒到家附近有水的地方</b>，讓水沖走 —— 至此入伙儀式完成。</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="why">
+    <b>為什麼要跨火爐（Jacky 老師的解釋）</b><br>
+    <b>傳統角度：</b>碳爐燒得很旺時人還能跨過去，等於人在火之上，比火更旺。<br>
+    <b>玄學角度：</b>整間屋子門窗緊閉，門前燒起碳爐產生高溫；吉時一到打開大門進屋，就會產生空氣對流，把外面的氣帶進屋裡，人進去後再打開門窗讓氣出去，由大門進來的氣便形成長期對流。
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>真太陽時換算</h2>
+    <p>◇ 吉隆坡在 101.69°E，法定時區卻用 120°E 的標準經線，相差 18.3 度</p>
+  </div>
+  <p class="mono-note">
+    經度修正 <b>4 分／度 × (101.69 − 120) = −73.3 分</b>；10/6 當日均時差 <b>+11.8 分</b>。兩者相加，<b>行政時間 = 真太陽時 + 61.5 分</b>（只作經度修正則 +73.3 分）。驗算：吉隆坡當日<b>太陽中天落在行政時間 13:01</b>，而非 12:00——這 73 分鐘不是零頭，是 1982 年馬來西亞為與東馬、新加坡對齊而併入 UTC+8 的結果。
+  </p>
+  <div class="tbl-wrap">
+    <table class="matrix">
+      <caption>10/6 癸丑日 各吉時之行政時間（馬來西亞時間 UTC+8）</caption>
+      <thead>
+        <tr><th>時辰</th><th>甲・直接用行政時間</th><th>乙・只修經度（地方平時）</th><th>丙・完整真太陽時</th><th>三法交集</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>寅時</th><td>03:00–05:00</td><td>04:13–06:13</td><td>04:01–06:01</td><td>04:13–05:00</td></tr>
+        <tr><th>卯時</th><td>05:00–07:00</td><td>06:13–08:13</td><td>06:01–08:01</td><td>06:13–07:00</td></tr>
+        <tr class="hl"><th>巳時</th><td>09:00–11:00</td><td>10:13–12:13</td><td>10:01–12:01</td><td><span class="chip c-top">10:13–11:00</span></td></tr>
+        <tr><th>午時</th><td>11:00–13:00</td><td>12:13–14:13</td><td>12:01–14:01</td><td>12:13–13:00</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mono-note">◇ 三法對巳時的說法差了一個多小時，這是必須先問師傅的一件事。但不必等答案也能定下進門的一刻：<b>行政時間 10:15 進門，在三種算法下都在巳時之內</b>——真太陽時下已入巳時 14 分鐘，地方平時下剛過起點，純行政時間下距巳時結束還有 45 分鐘。<br>
+  ◇ 反過來說，若照原本的 09:00 進門，在真太陽時與地方平時下其實還是<b>辰時</b>，尚未進巳。</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>當天時間表</h2>
+    <p>◇ 以「三法交集」的 10:15 進門為基準之建議編排，非儀式規定</p>
+  </div>
+  <ul class="runsheet">
+    <li><span class="rs-t">前一晚</span><span>關妥全屋門窗電器；備好舊家的飲用水、碳爐與炭、四杯粗鹽已就位、各人手持之物、散錢、神像香燭。爐具先試過火，燒水的鍋預先注水待命。</span></li>
+    <li><span class="rs-t">09:45</span><span>門前生碳爐，火候要能撐到 10:15 最旺；全家在門外排隊，清點每人手上的東西。</span></li>
+    <li><span class="rs-t">10:15</span><span><b>開大門，依輩份跨火爐進門。</b>此刻在三種時間算法下都屬巳時。</span></li>
+    <li><span class="rs-t">10:20–10:30</span><span>放下手上物品，開全屋門窗、電燈、電器。</span></li>
+    <li><span class="rs-t">10:30–10:40</span><span>火爐扛到屋子中心壓地 —— 旺中宮。</span></li>
+    <li><span class="rs-t">10:40–11:00</span><span>火爐移到廚房燒水，新舊水相摻煮糖水，全家分飲 —— 服水土。</span></li>
+    <li><span class="rs-t">11:00</span><span><b>純行政時間算法下的巳時底線</b>，以上動作務必在此之前完成。</span></li>
+    <li><span class="rs-t">11:00–11:55</span><span>安神上香／新神像開光、拜前門後門；沒安神者撒散錢 —— 翻地黃金。此段在真太陽時與地方平時下仍屬巳時；若師傅只認行政時間，須整段提前併入 11:00 之前。</span></li>
+  </ul>
   <div class="taboo">
-    <b>當日忌：</b>空手入門 · 午睡 · 爭執與不吉之語 · 動土敲打（尤忌北方亥子丑位） · 送鐘、刀剪等物入宅。<b>孕婦</b>宜避開搬遷現場，待安頓後再入。
+    <b>其他常見禁忌（一般民俗，非 Jacky 老師原文）：</b>忌空手入門 · 忌午睡 · 忌爭執與不吉之語 · 忌動土敲打（本年尤忌北方亥子丑位） · 忌送鐘、刀剪等物入宅。<b>孕婦</b>宜避開搬遷現場，待安頓後再入。
   </div>
 </section>
 
 <footer>
   吉日、吉時與「宜入宅安香」之標註出自蔡炳圳通書（丙午年）；納音、日沖煞方、節氣時刻、三合六合貴祿馬之對照為據此整理之補充參考。<br>
-  最終採用之日課與時刻，請以通書原文及擇日師傅之核定為準。
+  入伙儀式步驟出自 Jacky Mah 老師〈入伙儀式〉一文（2011）；當天時間表為依巳時倒推之建議編排。<br>最終採用之日課、時刻與儀式細節，請以通書原文及擇日師傅之核定為準。
 </footer>
 
 </div>
