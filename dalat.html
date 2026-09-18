@@ -22,6 +22,9 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system
 .day{margin-top:20px;scroll-margin-top:10px}.dayhead{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:0 3px 9px}.day h2{font-size:21px;margin:0;color:var(--forest)}.date{font-size:13px;color:var(--muted);font-weight:650}
 .card{overflow:hidden}.row{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.time{font-size:13px;color:var(--forest);font-weight:750}.event b{display:block;font-size:15px}.event small{display:block;color:var(--muted);margin-top:2px}
 .plan{margin-top:10px;border-radius:16px;padding:14px 15px}.plan h3{margin:0 0 8px;font-size:15px}.plan p{margin:5px 0;font-size:14px}.b{background:var(--rain);border:1px solid #d9e7ee}.c{background:var(--warm);border:1px solid #ead8bf}
+.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.linkbtn{display:inline-block;text-decoration:none;background:var(--sage);color:var(--forest);border:1px solid #d5e3dc;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:750}
+.linkbtn:active{transform:scale(.98)}
 .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.05em;border-radius:999px;padding:3px 8px;margin-right:5px;background:var(--sage);color:var(--forest)}
 .footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted);font-size:13px}
 @media(max-width:430px){.hero h1{font-size:25px}.row{grid-template-columns:72px 1fr;padding:11px 12px}.wrap{padding-left:11px;padding-right:11px}.hero{margin-left:-11px;margin-right:-11px}}
@@ -34,25 +37,35 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system
   <div class="kicker">YUAN YUAN × TRACY · FAMILY TRIP</div>
   <h1>🌲 Da Lat 親子慢旅行</h1>
   <p><b>23–26 Oct 2026 · 4天3夜</b></p>
-  <p>3位大人＋3位孩子｜入住 Rừng Lá Kim Resort</p>
+  <p>元元＋How Young｜Tracy＋Hao Ee｜丁丁＋辰煋<br>入住 Rừng Lá Kim Resort</p>
+
 </header>
+<div class="note">
+  <strong>👨‍👩‍👧‍👦 旅行成員｜3大3小</strong><br>
+  元元 ＋ <b>How Young（澔楊）</b><br>
+  Tracy ＋ <b>Hao Ee（昊毅）</b><br>
+  丁丁 ＋ <b>辰煋</b>
+</div>
+
 
 <nav class="pills">
  <a class="pill" href="#d1">Day 1 抵達</a><a class="pill" href="#d2">Day 2 農場</a>
  <a class="pill" href="#d3">Day 3 湖＋陶藝</a><a class="pill" href="#d4">Day 4 回程</a><a class="pill" href="#packing">🎒 行李</a><a class="pill" href="#notes">⚠️ 注意</a><a class="pill" href="#quick">📌 快速資訊</a>
 </nav>
 
-<div class="note"><strong>旅行方式：</strong>不趕景點。每天只跑一個主要區域，上午戶外、下午留彈性；讓澔楊、昊毅和弟弟有足夠時間在森林、花園和 Villa 自由玩。☔ 遇雨直接切換 Plan B / C。</div>
+<div class="note"><strong>🔗 使用提示：</strong>景點、餐廳和住宿旁已加入可點擊連結；「📍 Google Maps」可直接開啟導航／查看最新營業資訊，「官方介紹／預約」則連到官方頁面。</div>
+
+<div class="note"><strong>旅行方式：</strong>不趕景點。每天只跑一個主要區域，上午戶外、下午留彈性；讓 How Young、Hao Ee 和辰煋有足夠時間在森林、花園和 Villa 自由玩。☔ 遇雨直接切換 Plan B / C。</div>
 
 <section class="day" id="d1">
  <div class="dayhead"><h2>Day 1｜抵達＋森林入住</h2><span class="date">10/23 Fri</span></div>
  <div class="card">
   <div class="row"><div class="time">10:00–11:10</div><div class="event"><b>✈️ Kuala Lumpur → Da Lat</b><small>抵達後取行李，不趕行程</small></div></div>
   <div class="row"><div class="time">12:15–13:00</div><div class="event"><b>🚗 機場 → 市區</b></div></div>
-  <div class="row"><div class="time">13:00–14:00</div><div class="event"><b>🍜 午餐｜Peace Bistro</b><small>第一餐以舒服、孩子容易吃為主</small></div></div>
-  <div class="row"><div class="time">14:30–17:00</div><div class="event"><b>🌲 Rừng Lá Kim Check-in</b><small>花園、魚池、森林散步＋三個孩子自由玩</small></div></div>
-  <div class="row"><div class="time">17:30–19:00</div><div class="event"><b>🍲 晚餐｜Lẩu Cá Tầm Tuyên 1</b><small>Da Lat 天氣很適合吃熱騰騰的鱘魚火鍋</small></div></div>
-  <div class="row"><div class="time">19:10–19:45</div><div class="event"><b>🥑 甜點｜Chạm Cafe & Kem Bơ</b><small>酪梨冰淇淋後回 Villa</small></div></div>
+  <div class="row"><div class="time">13:00–14:00</div><div class="event"><b>🍜 午餐｜Peace Bistro</b><small>第一餐以舒服、孩子容易吃為主</small><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Peace+Bistro+29%2F8+Yersin+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
+  <div class="row"><div class="time">14:30–17:00</div><div class="event"><b>🌲 Rừng Lá Kim Check-in</b><small>花園、魚池、森林散步＋三個孩子自由玩</small><div class="links"><a class="linkbtn" href="https://runglakimresort.com/" target="_blank" rel="noopener">🌲 Resort 官網</a><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Rung+La+Kim+Resort+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
+  <div class="row"><div class="time">17:30–19:00</div><div class="event"><b>🍲 晚餐｜Lẩu Cá Tầm Tuyên 1</b><small>Da Lat 天氣很適合吃熱騰騰的鱘魚火鍋</small><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Lau+Ca+Tam+Tuyen+1+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
+  <div class="row"><div class="time">19:10–19:45</div><div class="event"><b>🥑 甜點｜Chạm Cafe & Kem Bơ</b><small>酪梨冰淇淋後回 Villa</small><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Cham+Cafe+Kem+Bo+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
  </div>
  <div class="plan c"><h3>🌙 Plan C｜孩子累了</h3><p>直接留在 Resort 吃晚餐，取消市區甜點。第一天以休息為優先。</p></div>
 </section>
@@ -61,11 +74,11 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system
  <div class="dayhead"><h2>Day 2｜森林農場日</h2><span class="date">10/24 Sat</span></div>
  <div class="card">
   <div class="row"><div class="time">07:30–08:20</div><div class="event"><b>🍳 Resort 早餐</b></div></div>
-  <div class="row"><div class="time">09:30–12:00</div><div class="event"><b>🐐 Dalat Blue Mountain Farm</b><small>松林、生態、奶羊、餵羊、認識農耕與食物</small></div></div>
+  <div class="row"><div class="time">09:30–12:00</div><div class="event"><b>🐐 Dalat Blue Mountain Farm</b><small>松林、生態、奶羊、餵羊、認識農耕與食物</small><div class="links"><a class="linkbtn" href="https://www.dalatbluemountainfarm.com/en/thamquan" target="_blank" rel="noopener">🌿 官方介紹／預約</a><a class="linkbtn" href="https://www.dalatbluemountainfarm.com/service-page/da-lat-blue-mountain-farm-tour" target="_blank" rel="noopener">🎟️ Farm Tour</a><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Dalat+Blue+Mountain+Farm" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
   <div class="row"><div class="time">12:00–13:15</div><div class="event"><b>🥗 Farm-to-table Lunch</b><small>直接在農場吃，減少來回坐車</small></div></div>
   <div class="row"><div class="time">14:00–16:30</div><div class="event"><b>💤 回 Resort 午休＋自由玩</b><small>這段時間刻意不排活動</small></div></div>
   <div class="row"><div class="time">16:30–17:30</div><div class="event"><b>🌿 花園散步／孩子玩耍</b></div></div>
-  <div class="row"><div class="time">18:00–19:30</div><div class="event"><b>🔥 晚餐｜Túi Mơ To Garden Restaurant</b></div></div>
+  <div class="row"><div class="time">18:00–19:30</div><div class="event"><b>🔥 晚餐｜Túi Mơ To Garden Restaurant</b><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Tui+Mo+To+Garden+Restaurant+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
  </div>
  <div class="plan b"><h3>☔ Plan B｜下雨但仍適合外出</h3><p><span class="tag">上午</span>先詢問農場步道是否安全；若只是小雨，穿雨衣／雨鞋照常體驗。</p><p><span class="tag">下午</span>回 Resort 洗澡、午休，自由活動。</p></div>
  <div class="plan c"><h3>🌧️ Plan C｜持續大雨</h3><p>09:30–11:30 SOUL Ceramic 陶藝 → 12:00 市區午餐 → 13:30–15:30 Villa 午休 → 16:00 咖啡／甜點。農場改期或取消。</p></div>
@@ -75,12 +88,12 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system
  <div class="dayhead"><h2>Day 3｜湖泊＋陶藝</h2><span class="date">10/25 Sun</span></div>
  <div class="card">
   <div class="row"><div class="time">07:30–08:30</div><div class="event"><b>🍳 Resort 早餐</b></div></div>
-  <div class="row"><div class="time">09:15–11:30</div><div class="event"><b>🌊 Tuyền Lâm Lake 慢遊</b><small>湖邊散步、看植物；天氣穩定才考慮坐船</small></div></div>
-  <div class="row"><div class="time">11:30–13:00</div><div class="event"><b>🍽️ 午餐｜The Seen House</b><small>留在湖區吃，不折返市中心</small></div></div>
-  <div class="row"><div class="time">14:15–15:45</div><div class="event"><b>🏺 SOUL Ceramic Workshop</b><small>讓孩子把上午的自然體驗轉成手作創作</small></div></div>
-  <div class="row"><div class="time">16:00–16:45</div><div class="event"><b>🍰 咖啡甜點｜One More Cafe</b></div></div>
+  <div class="row"><div class="time">09:15–11:30</div><div class="event"><b>🌊 Tuyền Lâm Lake 慢遊</b><small>湖邊散步、看植物；天氣穩定才考慮坐船</small><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Tuyen+Lam+Lake+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
+  <div class="row"><div class="time">11:30–13:00</div><div class="event"><b>🍽️ 午餐｜The Seen House</b><small>留在湖區吃，不折返市中心</small><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=The+Seen+House+Tuyen+Lam+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
+  <div class="row"><div class="time">14:15–15:45</div><div class="event"><b>🏺 SOUL Ceramic Workshop</b><small>讓孩子把上午的自然體驗轉成手作創作</small><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=SOUL+ceramic+workshop+36+Kim+Dong+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
+  <div class="row"><div class="time">16:00–16:45</div><div class="event"><b>🍰 咖啡甜點｜One More Cafe</b><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=One+More+Cafe+77+Hai+Ba+Trung+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
   <div class="row"><div class="time">17:00–18:00</div><div class="event"><b>🏡 回 Resort 休息</b></div></div>
-  <div class="row"><div class="time">18:30–20:00</div><div class="event"><b>🍲 最後晚餐｜Bina Bina</b></div></div>
+  <div class="row"><div class="time">18:30–20:00</div><div class="event"><b>🍲 最後晚餐｜Bina Bina</b><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Bina+Bina+30+Huynh+Thuc+Khang+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
  </div>
  <div class="plan b"><h3>☔ Plan B｜間歇雨</h3><p>取消坐船，只保留短時間湖邊散步 → The Seen House 午餐 → 提早進市區陶藝。依雨勢彈性移動。</p></div>
  <div class="plan c"><h3>🌧️ Plan C｜整天大雨</h3><p>09:30–11:30 SOUL Ceramic → 12:00 午餐 → 13:30–15:00 Villa 午休 → 15:30–17:00 La Viet Coffee → 提早晚餐／回 Resort。泉林湖整段取消，不為打卡冒雨趕行程。</p></div>
@@ -89,7 +102,7 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system
 <section class="day" id="d4">
  <div class="dayhead"><h2>Day 4｜舒服回家</h2><span class="date">10/26 Mon</span></div>
  <div class="card">
-  <div class="row"><div class="time">06:30–07:15</div><div class="event"><b>🍳 早餐＋整理行李</b></div></div>
+  <div class="row"><div class="time">06:30–07:15</div><div class="event"><b>🍳 早餐＋整理行李</b><div class="links"><a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=The+Seen+House+Tuyen+Lam+Da+Lat" target="_blank" rel="noopener">📍 Google Maps</a></div></div></div>
   <div class="row"><div class="time">07:30–07:45</div><div class="event"><b>🚗 Resort → Liên Khương Airport</b><small>國際航班預留充足時間，不安排任何景點</small></div></div>
   <div class="row"><div class="time">約 08:30</div><div class="event"><b>🛄 抵達機場 Check-in</b></div></div>
   <div class="row"><div class="time">11:40–14:55</div><div class="event"><b>✈️ Da Lat → Kuala Lumpur</b></div></div>
@@ -139,7 +152,7 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system
  </div>
 </section>
 
-<div class="footer">🌲 Yuan Yuan · Tracy · Hao Yang & friends<br>Da Lat · 23–26 October 2026<br><br>行程以孩子狀態與當天天氣為優先，累了就回 Villa ❤️</div>
+<div class="footer">🌲 元元 · How Young · Tracy · Hao Ee · 丁丁 · 辰煋<br>Da Lat · 23–26 October 2026<br><br>行程以孩子狀態與當天天氣為優先，累了就回 Villa ❤️</div>
 </div>
 </body>
 </html>
